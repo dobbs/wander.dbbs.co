@@ -1,0 +1,543 @@
+{
+  "title": "Commonplace Book",
+  "story": [
+    {
+      "type": "paragraph",
+      "id": "631256f1c2a9c326",
+      "text": "Commonplace books were originally the preserve of male scholars who used them to keep notes as they learned; but gradually their use spread beyond universities and by the 18th century commonplace books were also used by educated women. The problem wasn't in the collecting, but the finding again. Kathryn Kane writes about English cultural history in the Regency period covered the development of the commonplace book quite thoroughly. [http://regencyredingote.wordpress.com/2013/11/22/salads-of-many-herbs-zibaldone-in-the-regency/ link]"
+    },
+    {
+      "type": "pagefold",
+      "id": "82f9ed028c8c8786",
+      "text": "quote "
+    },
+    {
+      "type": "paragraph",
+      "id": "1bb4cf889e34b1b5",
+      "text": "Each scholar’s commonplace book was unique, as they recorded the writings and ideas which they considered most pertinent and significant to their studies and to the development of their personal philosophy. Passages might be written in Latin, Greek, French, or English. These private and intimate books were not considered to be diaries or journals for recording the events of daily life. Rather, they were repositories of a collection of ideas and principles which the book’s owner wished to make their own. Commonplace books could be considered diaries of the mind. Throughout the seventeenth century, commonplace books were regarded as most valuable as a device of artificial memory which was essential to learning. But they became rather problematical as the century progressed and the number of published books rapidly increased, thus considerably widening the available pool of books from which passages might be copied. More passages made it that much more difficult to located a specific passage when it was wanted.\n\nIn the opening years of the eighteenth century, one of the most enlightened minds in all England set itself to find a better system by which to organize commonplace books. In 1706, John Locke published A New Method of Making Common-place-books, in which he outlined a new and effective system by which to arrange and organize the contents of commonplace books so that any entry could be found quickly and easily. With a reliable indexing system, during the eighteenth century, the use of commonplace books began to expand beyond the academic community to many educated and literate people. These books were still used to record passages from published books and magazines which were of special significance to the book’s owner. Therefore, commonplace books still served the purpose of artificial memory, but at this time they acquired a wider purpose. It was believed that the use of Locke’s indexing system in their commonplace books would also help people to more clearly order their minds and therefore would enable them to become better people. "
+    },
+    {
+      "type": "paragraph",
+      "id": "3c75ea7003e73766",
+      "text": " "
+    },
+    {
+      "type": "pagefold",
+      "id": "3a85e0a37d2f4b3c",
+      "text": "end quote"
+    },
+    {
+      "id": "76979000",
+      "type": "paragraph",
+      "text": "Commonplace books (or commonplaces) are a way to compile knowledge, usually by writing information into books. They have been kept from antiquity, and were kept particularly during the Renaissance and in the nineteenth century. Such books are similar to scrapbooks filled with items of many kinds: sententiae, notes, proverbs, adages, aphorisms, maxims, quotes, letters, poems, tables of weights and measures, prayers, legal formulas, and recipes. Entries are most often organized under subject headings.[1] Commonplaces are used by readers, writers, students, and scholars as an aid for remembering useful concepts or facts. Each one is unique to its creator's particular interests but they almost always include passages found in other texts, sometimes accompanied by the compiler's responses. They became significant in Early Modern Europe. [https://en.wikipedia.org/wiki/Commonplace_book wikipedia]"
+    },
+    {
+      "type": "paragraph",
+      "id": "f6d59e0f7aee0734",
+      "text": "See [[Zettelkasten]] and [[Leonardo's Method]]"
+    },
+    {
+      "type": "paragraph",
+      "id": "ee7a139c4b2825aa",
+      "text": "Contrast [[General Inductive Analysis]]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Commonplace Book",
+        "story": []
+      },
+      "date": 1420197614337
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "631256f1c2a9c326"
+      },
+      "id": "631256f1c2a9c326",
+      "type": "add",
+      "date": 1420197616207
+    },
+    {
+      "type": "edit",
+      "id": "631256f1c2a9c326",
+      "item": {
+        "type": "paragraph",
+        "id": "631256f1c2a9c326",
+        "text": "Commonplace books were originally the preserve of male scholars who used them to keep notes as they learned; but gradually their use spread beyond universities and by the 18th century commonplace books were also used by educated women."
+      },
+      "date": 1420197704242
+    },
+    {
+      "type": "add",
+      "id": "3c75ea7003e73766",
+      "item": {
+        "type": "paragraph",
+        "id": "3c75ea7003e73766",
+        "text": " "
+      },
+      "after": "631256f1c2a9c326",
+      "date": 1420197715808
+    },
+    {
+      "type": "add",
+      "id": "5769f23845607de8",
+      "item": {
+        "type": "paragraph",
+        "id": "5769f23845607de8",
+        "text": "Kathryn Kane, a blogger who writes about English cultural history in the Regency period, has covered the development of the commonplace book quite thoroughly."
+      },
+      "after": "631256f1c2a9c326",
+      "date": 1420197793030
+    },
+    {
+      "type": "add",
+      "id": "9cd3e9a41bb9b3ab",
+      "item": {
+        "type": "paragraph",
+        "id": "9cd3e9a41bb9b3ab",
+        "text": "Relevance to SFW: the problem wasn't in the collecting, but the finding again."
+      },
+      "after": "5769f23845607de8",
+      "date": 1420197819612
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "82f9ed028c8c8786"
+      },
+      "id": "82f9ed028c8c8786",
+      "type": "add",
+      "after": "3c75ea7003e73766",
+      "date": 1420197822886
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "3a85e0a37d2f4b3c"
+      },
+      "id": "3a85e0a37d2f4b3c",
+      "type": "add",
+      "after": "82f9ed028c8c8786",
+      "date": 1420197836727
+    },
+    {
+      "type": "edit",
+      "id": "82f9ed028c8c8786",
+      "item": {
+        "type": "pagefold",
+        "id": "82f9ed028c8c8786",
+        "text": " "
+      },
+      "date": 1420197838465
+    },
+    {
+      "type": "edit",
+      "id": "3a85e0a37d2f4b3c",
+      "item": {
+        "type": "pagefold",
+        "id": "3a85e0a37d2f4b3c",
+        "text": "end quote"
+      },
+      "date": 1420197844130
+    },
+    {
+      "type": "edit",
+      "id": "82f9ed028c8c8786",
+      "item": {
+        "type": "pagefold",
+        "id": "82f9ed028c8c8786",
+        "text": "quote "
+      },
+      "date": 1420197848839
+    },
+    {
+      "type": "add",
+      "id": "1bb4cf889e34b1b5",
+      "item": {
+        "type": "paragraph",
+        "id": "1bb4cf889e34b1b5",
+        "text": "Each scholar’s commonplace book was unique, as they recorded the writings and ideas which they considered most pertinent and significant to their studies and to the development of their personal philosophy. Passages might be written in Latin, Greek, French, or English. These private and intimate books were not considered to be diaries or journals for recording the events of daily life. Rather, they were repositories of a collection of ideas and principles which the book’s owner wished to make their own. Commonplace books could be considered diaries of the mind. Throughout the seventeenth century, commonplace books were regarded as most valuable as a device of artificial memory which was essential to learning. But they became rather problematical as the century progressed and the number of published books rapidly increased, thus considerably widening the available pool of books from which passages might be copied. More passages made it that much more difficult to located a specific passage when it was wanted.\n\nIn the opening years of the eighteenth century, one of the most enlightened minds in all England set itself to find a better system by which to organize commonplace books. In 1706, John Locke published A New Method of Making Common-place-books, in which he outlined a new and effective system by which to arrange and organize the contents of commonplace books so that any entry could be found quickly and easily. With a reliable indexing system, during the eighteenth century, the use of commonplace books began to expand beyond the academic community to many educated and literate people. These books were still used to record passages from published books and magazines which were of special significance to the book’s owner. Therefore, commonplace books still served the purpose of artificial memory, but at this time they acquired a wider purpose. It was believed that the use of Locke’s indexing system in their commonplace books would also help people to more clearly order their minds and therefore would enable them to become better people. "
+      },
+      "after": "9cd3e9a41bb9b3ab",
+      "date": 1420197863363
+    },
+    {
+      "type": "move",
+      "order": [
+        "631256f1c2a9c326",
+        "5769f23845607de8",
+        "9cd3e9a41bb9b3ab",
+        "82f9ed028c8c8786",
+        "1bb4cf889e34b1b5",
+        "3c75ea7003e73766",
+        "3a85e0a37d2f4b3c"
+      ],
+      "id": "82f9ed028c8c8786",
+      "date": 1420197870390
+    },
+    {
+      "type": "add",
+      "id": "9878ffc868cbcc17",
+      "item": {
+        "type": "paragraph",
+        "id": "9878ffc868cbcc17",
+        "text": "[http://regencyredingote.wordpress.com/2013/11/22/salads-of-many-herbs-zibaldone-in-the-regency/ link]"
+      },
+      "after": "9cd3e9a41bb9b3ab",
+      "date": 1420197906333
+    },
+    {
+      "type": "add",
+      "id": "14973e7324108bba",
+      "item": {
+        "type": "paragraph",
+        "id": "14973e7324108bba",
+        "text": "Related: [[Imagologies]]"
+      },
+      "after": "9878ffc868cbcc17",
+      "date": 1420282172266
+    },
+    {
+      "type": "fork",
+      "site": "kate.au.fedwikihappening.net",
+      "date": 1635539642635
+    },
+    {
+      "id": "76979000",
+      "type": "add",
+      "item": {
+        "id": "76979000",
+        "type": "paragraph",
+        "text": "Commonplace books (or commonplaces) are a way to compile knowledge, usually by writing information into books. They have been kept from antiquity, and were kept particularly during the Renaissance and in the nineteenth century. Such books are similar to scrapbooks filled with items of many kinds: sententiae, notes, proverbs, adages, aphorisms, maxims, quotes, letters, poems, tables of weights and measures, prayers, legal formulas, and recipes. Entries are most often organized under subject headings.[1] Commonplaces are used by readers, writers, students, and scholars as an aid for remembering useful concepts or facts. Each one is unique to its creator's particular interests but they almost always include passages found in other texts, sometimes accompanied by the compiler's responses. They became significant in Early Modern Europe."
+      },
+      "after": "3c75ea7003e73766",
+      "date": 1635539919144
+    },
+    {
+      "id": "76979000",
+      "type": "move",
+      "order": [
+        "631256f1c2a9c326",
+        "5769f23845607de8",
+        "9cd3e9a41bb9b3ab",
+        "9878ffc868cbcc17",
+        "14973e7324108bba",
+        "82f9ed028c8c8786",
+        "1bb4cf889e34b1b5",
+        "3c75ea7003e73766",
+        "3a85e0a37d2f4b3c",
+        "76979000"
+      ],
+      "date": 1635539924354
+    },
+    {
+      "id": "36db3b00",
+      "type": "add",
+      "item": {
+        "id": "36db3b00",
+        "type": "paragraph",
+        "text": " [https://en.wikipedia.org/wiki/Commonplace_book wikipedia]"
+      },
+      "after": "76979000",
+      "date": 1635539932209
+    },
+    {
+      "id": "6e540800",
+      "type": "add",
+      "item": {
+        "id": "6e540800",
+        "type": "paragraph",
+        "text": "The zettelkasten (German: \"slip box\", plural zettelkästen) is a method of note-taking and personal knowledge management used in research and study.\n\n"
+      },
+      "after": "36db3b00",
+      "date": 1635539935630
+    },
+    {
+      "id": "3b6a4000",
+      "type": "add",
+      "item": {
+        "id": "3b6a4000",
+        "type": "paragraph",
+        "text": "A zettelkasten consists of many individual notes with ideas and other short pieces of information that are taken down as they occur or are acquired. The notes are numbered hierarchically, so that new notes may be inserted at the appropriate place, and contain metadata to allow the note-taker to associate notes with each other. For example, notes may contain subject headings or tags that describe key aspects of the note, and they may reference other notes. The numbering, metadata, format and structure of the notes is subject to variation depending on the specific method employed.\n\nA zettelkasten may be created and used in a digital format, sometimes using personal knowledge management software. But it can be and has long been done on paper using index cards.\n\nThe method not only allows a researcher to store and retrieve information related to their research, but also intends to enhance creativity[citation needed]. Cross-referencing notes through tags allows the researcher to perceive connections and relationships between individual items of information that may not be apparent in isolation[citation needed].\n\n"
+      },
+      "after": "6e540800",
+      "date": 1635540007263
+    },
+    {
+      "id": "64d92000",
+      "type": "add",
+      "item": {
+        "id": "64d92000",
+        "type": "paragraph",
+        "text": " [https://en.wikipedia.org/wiki/Zettelkasten wikipedia]"
+      },
+      "after": "6e540800",
+      "date": 1635540017186
+    },
+    {
+      "type": "remove",
+      "id": "36db3b00",
+      "date": 1635540114291
+    },
+    {
+      "type": "edit",
+      "id": "76979000",
+      "item": {
+        "id": "76979000",
+        "type": "paragraph",
+        "text": "Commonplace books (or commonplaces) are a way to compile knowledge, usually by writing information into books. They have been kept from antiquity, and were kept particularly during the Renaissance and in the nineteenth century. Such books are similar to scrapbooks filled with items of many kinds: sententiae, notes, proverbs, adages, aphorisms, maxims, quotes, letters, poems, tables of weights and measures, prayers, legal formulas, and recipes. Entries are most often organized under subject headings.[1] Commonplaces are used by readers, writers, students, and scholars as an aid for remembering useful concepts or facts. Each one is unique to its creator's particular interests but they almost always include passages found in other texts, sometimes accompanied by the compiler's responses. They became significant in Early Modern Europe. [https://en.wikipedia.org/wiki/Commonplace_book wikipedia]"
+      },
+      "date": 1635540116330
+    },
+    {
+      "type": "remove",
+      "id": "64d92000",
+      "date": 1635540125594
+    },
+    {
+      "type": "edit",
+      "id": "6e540800",
+      "item": {
+        "id": "6e540800",
+        "type": "paragraph",
+        "text": "The zettelkasten (German: \"slip box\", plural zettelkästen) is a method of note-taking and personal knowledge management used in research and study.\n [https://en.wikipedia.org/wiki/Zettelkasten wikipedia]"
+      },
+      "date": 1635540128926
+    },
+    {
+      "type": "edit",
+      "id": "3b6a4000",
+      "item": {
+        "id": "3b6a4000",
+        "type": "paragraph",
+        "text": "A zettelkasten consists of many individual notes with ideas and other short pieces of information that are taken down as they occur or are acquired. The notes are numbered hierarchically, so that new notes may be inserted at the appropriate place, and contain metadata to allow the note-taker to associate notes with each other. For example, notes may contain subject headings or tags that describe key aspects of the note, and they may reference other notes. The numbering, metadata, format and structure of the notes is subject to variation depending on the specific method employed."
+      },
+      "date": 1635540137241
+    },
+    {
+      "type": "add",
+      "id": "ff0e8d35f728a2a2",
+      "item": {
+        "type": "paragraph",
+        "id": "ff0e8d35f728a2a2",
+        "text": "A zettelkasten may be created and used in a digital format, sometimes using personal knowledge management software. But it can be and has long been done on paper using index cards."
+      },
+      "after": "3b6a4000",
+      "date": 1635540139950
+    },
+    {
+      "type": "add",
+      "id": "d73d94887c83be79",
+      "item": {
+        "type": "paragraph",
+        "id": "d73d94887c83be79",
+        "text": "The method not only allows a researcher to store and retrieve information related to their research, but also intends to enhance creativity[citation needed]. Cross-referencing notes through tags allows the researcher to perceive connections and relationships between individual items of information that may not be apparent in isolation[citation needed]."
+      },
+      "after": "ff0e8d35f728a2a2",
+      "date": 1635540144483
+    },
+    {
+      "type": "edit",
+      "id": "d73d94887c83be79",
+      "item": {
+        "type": "paragraph",
+        "id": "d73d94887c83be79",
+        "text": "The method not only allows a researcher to store and retrieve information related to their research, but also intends to enhance creativity[citation needed]. Cross-referencing notes through tags allows the researcher to perceive connections and relationships between individual items of information that may not be apparent in isolation."
+      },
+      "date": 1635540158165
+    },
+    {
+      "type": "add",
+      "id": "f6d59e0f7aee0734",
+      "item": {
+        "type": "paragraph",
+        "id": "f6d59e0f7aee0734",
+        "text": "See [[Zettelkasten]]"
+      },
+      "after": "76979000",
+      "date": 1635540183099
+    },
+    {
+      "id": "6e540800",
+      "type": "remove",
+      "date": 1635540190710
+    },
+    {
+      "id": "3b6a4000",
+      "type": "remove",
+      "date": 1635540193819
+    },
+    {
+      "id": "ff0e8d35f728a2a2",
+      "type": "remove",
+      "date": 1635540196532
+    },
+    {
+      "id": "d73d94887c83be79",
+      "type": "remove",
+      "date": 1635540199410
+    },
+    {
+      "type": "edit",
+      "id": "f6d59e0f7aee0734",
+      "item": {
+        "type": "paragraph",
+        "id": "f6d59e0f7aee0734",
+        "text": "See [[Zettelkasten]] and [[Leonardo's Method]]"
+      },
+      "date": 1635541408415
+    },
+    {
+      "type": "add",
+      "id": "ee7a139c4b2825aa",
+      "item": {
+        "type": "paragraph",
+        "id": "ee7a139c4b2825aa",
+        "text": "Contrast [[General Inductive Analysis]]"
+      },
+      "after": "f6d59e0f7aee0734",
+      "date": 1635543276932
+    },
+    {
+      "id": "9878ffc868cbcc17",
+      "type": "move",
+      "order": [
+        "631256f1c2a9c326",
+        "9878ffc868cbcc17",
+        "5769f23845607de8",
+        "9cd3e9a41bb9b3ab",
+        "14973e7324108bba",
+        "82f9ed028c8c8786",
+        "1bb4cf889e34b1b5",
+        "3c75ea7003e73766",
+        "3a85e0a37d2f4b3c",
+        "76979000",
+        "f6d59e0f7aee0734",
+        "ee7a139c4b2825aa"
+      ],
+      "date": 1643206173965
+    },
+    {
+      "type": "remove",
+      "id": "9878ffc868cbcc17",
+      "date": 1643206177296
+    },
+    {
+      "type": "add",
+      "id": "dd78130972b63820",
+      "item": {
+        "type": "paragraph",
+        "id": "dd78130972b63820",
+        "text": "[http://regencyredingote.wordpress.com/2013/11/22/salads-of-many-herbs-zibaldone-in-the-regency/ link]"
+      },
+      "after": "631256f1c2a9c326",
+      "date": 1643206188061
+    },
+    {
+      "id": "5769f23845607de8",
+      "type": "move",
+      "order": [
+        "631256f1c2a9c326",
+        "5769f23845607de8",
+        "dd78130972b63820",
+        "9cd3e9a41bb9b3ab",
+        "14973e7324108bba",
+        "82f9ed028c8c8786",
+        "1bb4cf889e34b1b5",
+        "3c75ea7003e73766",
+        "3a85e0a37d2f4b3c",
+        "76979000",
+        "f6d59e0f7aee0734",
+        "ee7a139c4b2825aa"
+      ],
+      "date": 1643206193012
+    },
+    {
+      "type": "edit",
+      "id": "9cd3e9a41bb9b3ab",
+      "item": {
+        "type": "paragraph",
+        "id": "9cd3e9a41bb9b3ab",
+        "text": "The problem wasn't in the collecting, but the finding again."
+      },
+      "date": 1643206211450
+    },
+    {
+      "id": "9cd3e9a41bb9b3ab",
+      "type": "move",
+      "order": [
+        "631256f1c2a9c326",
+        "9cd3e9a41bb9b3ab",
+        "5769f23845607de8",
+        "dd78130972b63820",
+        "14973e7324108bba",
+        "82f9ed028c8c8786",
+        "1bb4cf889e34b1b5",
+        "3c75ea7003e73766",
+        "3a85e0a37d2f4b3c",
+        "76979000",
+        "f6d59e0f7aee0734",
+        "ee7a139c4b2825aa"
+      ],
+      "date": 1643206214107
+    },
+    {
+      "type": "remove",
+      "id": "9cd3e9a41bb9b3ab",
+      "date": 1643206216451
+    },
+    {
+      "type": "edit",
+      "id": "631256f1c2a9c326",
+      "item": {
+        "type": "paragraph",
+        "id": "631256f1c2a9c326",
+        "text": "Commonplace books were originally the preserve of male scholars who used them to keep notes as they learned; but gradually their use spread beyond universities and by the 18th century commonplace books were also used by educated women. The problem wasn't in the collecting, but the finding again."
+      },
+      "date": 1643206220172
+    },
+    {
+      "type": "remove",
+      "id": "5769f23845607de8",
+      "date": 1643206223867
+    },
+    {
+      "type": "edit",
+      "id": "631256f1c2a9c326",
+      "item": {
+        "type": "paragraph",
+        "id": "631256f1c2a9c326",
+        "text": "Commonplace books were originally the preserve of male scholars who used them to keep notes as they learned; but gradually their use spread beyond universities and by the 18th century commonplace books were also used by educated women. The problem wasn't in the collecting, but the finding again. Kathryn Kane writes about English cultural history in the Regency period covered the development of the commonplace book quite thoroughly."
+      },
+      "date": 1643206250435
+    },
+    {
+      "type": "remove",
+      "id": "dd78130972b63820",
+      "date": 1643206253535
+    },
+    {
+      "type": "edit",
+      "id": "631256f1c2a9c326",
+      "item": {
+        "type": "paragraph",
+        "id": "631256f1c2a9c326",
+        "text": "Commonplace books were originally the preserve of male scholars who used them to keep notes as they learned; but gradually their use spread beyond universities and by the 18th century commonplace books were also used by educated women. The problem wasn't in the collecting, but the finding again. Kathryn Kane writes about English cultural history in the Regency period covered the development of the commonplace book quite thoroughly. [http://regencyredingote.wordpress.com/2013/11/22/salads-of-many-herbs-zibaldone-in-the-regency/ link]"
+      },
+      "date": 1643206255293
+    },
+    {
+      "type": "remove",
+      "id": "14973e7324108bba",
+      "date": 1643206258242
+    },
+    {
+      "type": "fork",
+      "site": "wiki.dbbs.co",
+      "date": 1643206295495
+    }
+  ]
+}

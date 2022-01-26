@@ -1,0 +1,247 @@
+{
+  "title": "Who Owns On-Call?",
+  "story": [
+    {
+      "id": "2ecb2000",
+      "type": "paragraph",
+      "text": "Industry leaders like Google, Amazon, Dropbox, Spotify, and Netflix are putting developers on-call for their software. We spoke to these companies to find out why. [https://increment.com/on-call/who-owns-on-call/ article]"
+    },
+    {
+      "id": "3b118000",
+      "type": "paragraph",
+      "text": "Google—SRE team is on-call for the most important and stable service (like Ads, Gmail and Search).\nThe development team carry the operational workload for other non-stable, non-critical services (which are not staffed by the SRE team)"
+    },
+    {
+      "type": "paragraph",
+      "id": "a126abdd12f296f1",
+      "text": "Airbnb and New Relic—developers on-call for their systems, taking the stance that if developers can deploy to production whenever they want, then \nthey should be the ones fixing problems caused by their services and deployment.\nSRE team usually embedded within the development team but SRE are not put on call.\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "512d2e12c8e37f22",
+      "text": "Spotify—started with a small SRE team on-call for all operational workload. As the company grew, the load on the SRE team was \nhigher and Spotify’s leadership team could not scale the SRE team to meet the operational demand.\nThe only scalable solution they found was moving the on-call responsibilities to the development team\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "7474d180620f4aa4",
+      "text": "Amazon and AWS—Developers are responsible for all development and operational tasks associated with their services\nPutting the onus on developers to run, maintain and be on-call for their services is part of Amazon’s cultural emphasis on “ownership”: \nYou don’t “own” the code you write unless you run and maintain it too.\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "6caa5dca0e284119",
+      "text": "Datadog, DigitalOcean and Dropbox—Developers and SRE team both share the load of being on-call together to make sure that rota is properly staffed with both experts in \nthe code and experts in the reliability.\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "867994af30e834e1",
+      "text": "PagerDuty—shared responsibility model as Datadog.\nSRE are on-call and responsible for low-level infrastructure like hardware, middleware, communications, database etc.\nDevelopers are on-call for everything on top of that infrastructure including development, deployment, monitoring.\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "c514cf4f0c41d8c0",
+      "text": "Netflix—similar approach as Amazon with the motto “You own it, you run it”. When something goes wrong at Netflix, which \nautomation doesn’t handle correctly, we want the experts in the service to be immediately available to repair and stabilize customer’s \nexperience.\nThe development team at Netflix are on-call for their services 24/7 and there is a core SRE service that monitors at a very high level and \nengages with the development team on large-outages.\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "a7b5d0134a2de41c",
+      "text": "Slack—still has an old-school operations team that is on-call for all of their services.\nTheir operations team is spread across the globe (Melbourne, Dublin and San Francisco) and uses a follow-the-sun rotation.\nTheir operations team is as old as the company itself and the reason behind it was - they mostly had issues due to hardware failures and \nnetwork partitions.\nAlthough the company has adapted to have a secondary on-call rota full of development engineers due to scalability issues in the old \nway of operations.\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "d05a28080db36071",
+      "text": "None of the companies except Slack have operation teams. All the companies have developers and SREs responsible for on-call with different setups."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "date": 1643207642354,
+      "item": {
+        "title": "Who Owns On-Call?",
+        "story": [
+          {
+            "id": "98234090910324",
+            "type": "future",
+            "text": "Click to create this page.",
+            "title": "Who Owns On-Call?"
+          }
+        ]
+      }
+    },
+    {
+      "type": "create",
+      "item": {
+        "title": "Who Owns On-Call?",
+        "story": []
+      },
+      "date": 1643208739868
+    },
+    {
+      "id": "2ecb2000",
+      "type": "add",
+      "item": {
+        "id": "2ecb2000",
+        "type": "paragraph",
+        "text": "Industry leaders like Google, Amazon, Dropbox, Spotify, and Netflix are putting developers on-call for their software. We spoke to these companies to find out why. [https://increment.com/on-call/who-owns-on-call/ article]"
+      },
+      "date": 1643209149587,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "id": "3b118000",
+      "type": "add",
+      "item": {
+        "id": "3b118000",
+        "type": "paragraph",
+        "text": "Google—SRE team is on-call for the most important and stable service (like Ads, Gmail and Search).\nThe development team carry the operational workload for other non-stable, non-critical services (which are not staffed by the SRE team)\nAirbnb and New Relic—developers on-call for their systems, taking the stance that if developers can deploy to production whenever they want, then \nthey should be the ones fixing problems caused by their services and deployment.\nSRE team usually embedded within the development team but SRE are not put on call.\nSpotify—started with a small SRE team on-call for all operational workload. As the company grew, the load on the SRE team was \nhigher and Spotify’s leadership team could not scale the SRE team to meet the operational demand.\nThe only scalable solution they found was moving the on-call responsibilities to the development team\nAmazon and AWS—Developers are responsible for all development and operational tasks associated with their services\nPutting the onus on developers to run, maintain and be on-call for their services is part of Amazon’s cultural emphasis on “ownership”: \nYou don’t “own” the code you write unless you run and maintain it too.\nDatadog, DigitalOcean and Dropbox—Developers and SRE team both share the load of being on-call together to make sure that rota is properly staffed with both experts in \nthe code and experts in the reliability.\nPagerDuty—shared responsibility model as Datadog.\nSRE are on-call and responsible for low-level infrastructure like hardware, middleware, communications, database etc.\nDevelopers are on-call for everything on top of that infrastructure including development, deployment, monitoring.\nNetflix—similar approach as Amazon with the motto “You own it, you run it”. When something goes wrong at Netflix, which \nautomation doesn’t handle correctly, we want the experts in the service to be immediately available to repair and stabilize customer’s \nexperience.\nThe development team at Netflix are on-call for their services 24/7 and there is a core SRE service that monitors at a very high level and \nengages with the development team on large-outages.\nSlack—still has an old-school operations team that is on-call for all of their services.\nTheir operations team is spread across the globe (Melbourne, Dublin and San Francisco) and uses a follow-the-sun rotation.\nTheir operations team is as old as the company itself and the reason behind it was - they mostly had issues due to hardware failures and \nnetwork partitions.\nAlthough the company has adapted to have a secondary on-call rota full of development engineers due to scalability issues in the old \nway of operations.\n\nNone of the companies except Slack have operation teams.\nAll the companies have developers and SREs responsible for on-call with different setups."
+      },
+      "after": "2ecb2000",
+      "date": 1643209160610,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "edit",
+      "id": "3b118000",
+      "item": {
+        "id": "3b118000",
+        "type": "paragraph",
+        "text": "Google—SRE team is on-call for the most important and stable service (like Ads, Gmail and Search).\nThe development team carry the operational workload for other non-stable, non-critical services (which are not staffed by the SRE team)"
+      },
+      "date": 1643209171039,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "add",
+      "id": "a126abdd12f296f1",
+      "item": {
+        "type": "paragraph",
+        "id": "a126abdd12f296f1",
+        "text": "Airbnb and New Relic—developers on-call for their systems, taking the stance that if developers can deploy to production whenever they want, then \nthey should be the ones fixing problems caused by their services and deployment.\nSRE team usually embedded within the development team but SRE are not put on call.\n"
+      },
+      "after": "3b118000",
+      "date": 1643209175871,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "add",
+      "id": "512d2e12c8e37f22",
+      "item": {
+        "type": "paragraph",
+        "id": "512d2e12c8e37f22",
+        "text": "Spotify—started with a small SRE team on-call for all operational workload. As the company grew, the load on the SRE team was \nhigher and Spotify’s leadership team could not scale the SRE team to meet the operational demand.\nThe only scalable solution they found was moving the on-call responsibilities to the development team\n"
+      },
+      "after": "a126abdd12f296f1",
+      "date": 1643209180032,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "add",
+      "id": "7474d180620f4aa4",
+      "item": {
+        "type": "paragraph",
+        "id": "7474d180620f4aa4",
+        "text": "Amazon and AWS—Developers are responsible for all development and operational tasks associated with their services\nPutting the onus on developers to run, maintain and be on-call for their services is part of Amazon’s cultural emphasis on “ownership”: \nYou don’t “own” the code you write unless you run and maintain it too.\n"
+      },
+      "after": "512d2e12c8e37f22",
+      "date": 1643209184854,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "add",
+      "id": "6caa5dca0e284119",
+      "item": {
+        "type": "paragraph",
+        "id": "6caa5dca0e284119",
+        "text": "Datadog, DigitalOcean and Dropbox—Developers and SRE team both share the load of being on-call together to make sure that rota is properly staffed with both experts in \nthe code and experts in the reliability.\n"
+      },
+      "after": "7474d180620f4aa4",
+      "date": 1643209190324,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "add",
+      "id": "867994af30e834e1",
+      "item": {
+        "type": "paragraph",
+        "id": "867994af30e834e1",
+        "text": "PagerDuty—shared responsibility model as Datadog.\nSRE are on-call and responsible for low-level infrastructure like hardware, middleware, communications, database etc.\nDevelopers are on-call for everything on top of that infrastructure including development, deployment, monitoring.\n"
+      },
+      "after": "6caa5dca0e284119",
+      "date": 1643209194630,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "add",
+      "id": "c514cf4f0c41d8c0",
+      "item": {
+        "type": "paragraph",
+        "id": "c514cf4f0c41d8c0",
+        "text": "Netflix—similar approach as Amazon with the motto “You own it, you run it”. When something goes wrong at Netflix, which \nautomation doesn’t handle correctly, we want the experts in the service to be immediately available to repair and stabilize customer’s \nexperience.\nThe development team at Netflix are on-call for their services 24/7 and there is a core SRE service that monitors at a very high level and \nengages with the development team on large-outages.\n"
+      },
+      "after": "867994af30e834e1",
+      "date": 1643209208925,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "add",
+      "id": "a7b5d0134a2de41c",
+      "item": {
+        "type": "paragraph",
+        "id": "a7b5d0134a2de41c",
+        "text": "Slack—still has an old-school operations team that is on-call for all of their services.\nTheir operations team is spread across the globe (Melbourne, Dublin and San Francisco) and uses a follow-the-sun rotation.\nTheir operations team is as old as the company itself and the reason behind it was - they mostly had issues due to hardware failures and \nnetwork partitions.\nAlthough the company has adapted to have a secondary on-call rota full of development engineers due to scalability issues in the old \nway of operations.\n"
+      },
+      "after": "c514cf4f0c41d8c0",
+      "date": 1643209214017,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "add",
+      "id": "d05a28080db36071",
+      "item": {
+        "type": "paragraph",
+        "id": "d05a28080db36071",
+        "text": "None of the companies except Slack have operation teams. All the companies have developers and SREs responsible for on-call with different setups."
+      },
+      "after": "a7b5d0134a2de41c",
+      "date": 1643209227395,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "fork",
+      "date": 1643209557726
+    }
+  ]
+}

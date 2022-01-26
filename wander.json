@@ -1,0 +1,154 @@
+{
+  "title": "Wander",
+  "story": [
+    {
+      "type": "paragraph",
+      "id": "04cb5f5053b7ed03",
+      "text": "Wander. Make note of surprises along the way. "
+    },
+    {
+      "type": "paragraph",
+      "id": "59e60207baa5287f",
+      "text": "Lasting changes in behavior grow from tiny habits. This is how we will grow our garden. See [[Tiny Habits]]."
+    },
+    {
+      "type": "paragraph",
+      "id": "a4034486d08f6065",
+      "text": "The first thing I do is “de-stream” articles. I extract a reusable piece that it can be connected to many different things eventually. I make a home for this idea or fact."
+    },
+    {
+      "type": "paragraph",
+      "id": "e68d03a4fa79d872",
+      "text": "Mike Caulfield contrasted these metaphors of Garden and Stream. See [[A Year in the Garden]]."
+    },
+    {
+      "type": "paragraph",
+      "id": "bd6abde34cb6e3cf",
+      "text": "Sometimes I paraphrase. Sometimes the paraphrasing comes much later than the initial find. I collect bookmarks and insight. I connect things as I notice connections."
+    },
+    {
+      "type": "paragraph",
+      "id": "52a0f743846f8be9",
+      "text": "Wiki offers new affordances to the practice of a [[Commonplace Book]]."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Wander",
+        "story": []
+      },
+      "date": 1643204734329
+    },
+    {
+      "id": "04cb5f5053b7ed03",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "04cb5f5053b7ed03",
+        "text": "Wander. Make note of surprises along the way. "
+      },
+      "date": 1643204738640
+    },
+    {
+      "id": "59e60207baa5287f",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "59e60207baa5287f",
+        "text": "We will grow our garden with [[Tiny Habits]]."
+      },
+      "after": "04cb5f5053b7ed03",
+      "date": 1643204744270
+    },
+    {
+      "id": "a4034486d08f6065",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "a4034486d08f6065",
+        "text": "The first thing I do is “de-stream” the article. The article is about Oregon, but I want to extract a reusable piece out of it in a way that it can be connected to many different things eventually. I want to make a home page for this idea or fact."
+      },
+      "after": "59e60207baa5287f",
+      "date": 1643205070853
+    },
+    {
+      "type": "edit",
+      "id": "a4034486d08f6065",
+      "item": {
+        "type": "paragraph",
+        "id": "a4034486d08f6065",
+        "text": "The first thing I do is “de-stream” articles. I extract a reusable piece that it can be connected to many different things eventually. I make a home for this idea or fact."
+      },
+      "date": 1643205155871
+    },
+    {
+      "type": "add",
+      "id": "bd6abde34cb6e3cf",
+      "item": {
+        "type": "paragraph",
+        "id": "bd6abde34cb6e3cf",
+        "text": "Sometimes I paraphrase. Sometimes the paraphrasing comes much later than the initial find. I collect bookmarks and insight. I connect things as I notice connections."
+      },
+      "after": "a4034486d08f6065",
+      "date": 1643205237744
+    },
+    {
+      "type": "add",
+      "id": "e68d03a4fa79d872",
+      "item": {
+        "type": "paragraph",
+        "id": "e68d03a4fa79d872",
+        "text": "Mike Caulfield contrasted these metaphors of Garden and Stream. See [[A Year in the Garden]]."
+      },
+      "after": "bd6abde34cb6e3cf",
+      "date": 1643205335035
+    },
+    {
+      "type": "edit",
+      "id": "59e60207baa5287f",
+      "item": {
+        "type": "paragraph",
+        "id": "59e60207baa5287f",
+        "text": "Lasting changes in behavior grow from tiny habits. This is how we will grow our garden. See [[Tiny Habits]]."
+      },
+      "date": 1643205472292
+    },
+    {
+      "id": "e68d03a4fa79d872",
+      "type": "move",
+      "order": [
+        "04cb5f5053b7ed03",
+        "59e60207baa5287f",
+        "e68d03a4fa79d872",
+        "a4034486d08f6065",
+        "bd6abde34cb6e3cf"
+      ],
+      "date": 1643205475164
+    },
+    {
+      "id": "a4034486d08f6065",
+      "type": "move",
+      "order": [
+        "04cb5f5053b7ed03",
+        "59e60207baa5287f",
+        "a4034486d08f6065",
+        "e68d03a4fa79d872",
+        "bd6abde34cb6e3cf"
+      ],
+      "date": 1643206349761
+    },
+    {
+      "type": "add",
+      "id": "52a0f743846f8be9",
+      "item": {
+        "type": "paragraph",
+        "id": "52a0f743846f8be9",
+        "text": "Wiki offers new affordances to the practice of a [[Commonplace Book]]."
+      },
+      "after": "bd6abde34cb6e3cf",
+      "date": 1643206408246
+    }
+  ]
+}

@@ -1,0 +1,200 @@
+{
+  "title": "Welcome Visitors",
+  "story": [
+    {
+      "text": "Welcome to this [[Federated Wiki]] site. From this page you can find who we are and what we do. New sites provide this information and then claim the site as their own. You will need your own site to participate.",
+      "id": "7b56f22a4b9ee974",
+      "type": "paragraph"
+    },
+    {
+      "type": "paragraph",
+      "id": "821827c99b90cfd1",
+      "text": "Pages about us."
+    },
+    {
+      "type": "paragraph",
+      "id": "63ad2e58eecdd9e5",
+      "prompt": "Link to a page about yourself here. Type your name enclosed in double square brackets. Then press Command/ALT-S to save.\n\nMake all pages here yours alone with the login below.",
+      "text": "[[Eric Dobbs]]"
+    },
+    {
+      "type": "paragraph",
+      "id": "2bbd646ff3f44b51",
+      "text": "Pages where we do and share."
+    },
+    {
+      "type": "paragraph",
+      "id": "05e2fa92643677ca",
+      "prompt": "Create pages about things you do on this wiki. Type a descriptive name of something you will be writing about. Enclose it in square brackets. Then press Command/ALT-S to save.",
+      "text": "[[Wander]]"
+    },
+    {
+      "type": "paragraph",
+      "id": "ee416d431ebf4fb4",
+      "text": "You can edit your copy of these pages. Press [+] to add more writing spaces. Read [[How to Wiki]] for more ideas. Follow [[Recent Changes]] here and nearby."
+    },
+    {
+      "type": "html",
+      "id": "f80adaee5751ad1e",
+      "text": "<form \n  action=\"http://new_page/\"\n  style=\"background-color:#eee; padding:15px;\">\n\nCreate New Page<br><br>\n<input\n  name=title\n  size=50\n  style=\"box-sizing: border-box; width: 100%;\"\n  placeholder=\"New Page Title\">\n<input\n  type=submit\n  value=create>\n</center>\n</form>"
+    },
+    {
+      "type": "frame",
+      "id": "a5faf691460ed1f5",
+      "text": "//wiki.dbbs.co/assets/pages/drop-and-paste-inspector/intake.html"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Welcome Visitors",
+        "story": []
+      },
+      "date": 1420938191608
+    },
+    {
+      "type": "add",
+      "item": {
+        "text": "Welcome to this [[Federated Wiki]] site. From this page you can find who we are and what we do. New sites provide this information and then claim the site as their own. You will need your own site to participate.",
+        "id": "7b56f22a4b9ee974",
+        "type": "paragraph"
+      },
+      "id": "7b56f22a4b9ee974",
+      "date": 1420938199166
+    },
+    {
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "821827c99b90cfd1",
+        "text": "Pages about us."
+      },
+      "after": "7b56f22a4b9ee974",
+      "id": "821827c99b90cfd1",
+      "date": 1420938202921
+    },
+    {
+      "type": "add",
+      "item": {
+        "type": "factory",
+        "id": "63ad2e58eecdd9e5",
+        "prompt": "Link to a page about yourself here. Type your name enclosed in double square brackets. Then press Command/ALT-S to save.\n\nMake all pages here yours alone with the login below."
+      },
+      "after": "821827c99b90cfd1",
+      "id": "63ad2e58eecdd9e5",
+      "date": 1420938208737
+    },
+    {
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "2bbd646ff3f44b51",
+        "text": "Pages where we do and share."
+      },
+      "after": "63ad2e58eecdd9e5",
+      "id": "2bbd646ff3f44b51",
+      "date": 1420938212624
+    },
+    {
+      "type": "add",
+      "item": {
+        "type": "factory",
+        "id": "05e2fa92643677ca",
+        "prompt": "Create pages about things you do on this wiki. Type a descriptive name of something you will be writing about. Enclose it in square brackets. Then press Command/ALT-S to save."
+      },
+      "after": "2bbd646ff3f44b51",
+      "id": "05e2fa92643677ca",
+      "date": 1420938216782
+    },
+    {
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "ee416d431ebf4fb4",
+        "text": "You can edit your copy of these pages. Press [+] to add more writing spaces. Read [[How to Wiki]] for more ideas. Follow [[Recent Changes]] here and nearby."
+      },
+      "after": "05e2fa92643677ca",
+      "id": "ee416d431ebf4fb4",
+      "date": 1420938220851
+    },
+    {
+      "type": "edit",
+      "id": "63ad2e58eecdd9e5",
+      "item": {
+        "type": "paragraph",
+        "id": "63ad2e58eecdd9e5",
+        "prompt": "Link to a page about yourself here. Type your name enclosed in double square brackets. Then press Command/ALT-S to save.\n\nMake all pages here yours alone with the login below.",
+        "text": "[[Eric Dobbs]]"
+      },
+      "date": 1643204445888
+    },
+    {
+      "type": "edit",
+      "id": "05e2fa92643677ca",
+      "item": {
+        "type": "paragraph",
+        "id": "05e2fa92643677ca",
+        "prompt": "Create pages about things you do on this wiki. Type a descriptive name of something you will be writing about. Enclose it in square brackets. Then press Command/ALT-S to save.",
+        "text": "[[Wander]]"
+      },
+      "date": 1643204667637
+    },
+    {
+      "id": "f80adaee5751ad1e",
+      "type": "add",
+      "item": {
+        "type": "html",
+        "id": "f80adaee5751ad1e",
+        "text": "<form \n  action=\"http://new_page/\"\n  style=\"background-color:#eee; padding:15px;\">\n\nCreate New Page<br><br>\n<input\n  name=title\n  size=50\n  style=\"box-sizing: border-box; width: 100%;\"\n  placeholder=\"New Page Title\">\n<input\n  type=submit\n  value=create>\n</center>\n</form>"
+      },
+      "after": "ee416d431ebf4fb4",
+      "date": 1643207135744
+    },
+    {
+      "id": "a5faf691460ed1f5",
+      "type": "add",
+      "item": {
+        "type": "frame",
+        "id": "a5faf691460ed1f5",
+        "text": "//wiki.dbbs.co/assets/pages/drop-and-paste-inspector/intake.html"
+      },
+      "after": "f80adaee5751ad1e",
+      "date": 1643207151054
+    },
+    {
+      "type": "edit",
+      "id": "f80adaee5751ad1e",
+      "item": {
+        "type": "html",
+        "id": "f80adaee5751ad1e",
+        "text": "<form \n  action=\"http://new_page/\"\n  style=\"background-color:#eee; padding:15px;\">\n\nCreate New Page<br><br>\n<input\n  name=title\n  size=50\n  style=\"box-sizing: border-box; width: 100%;\"\n  placeholder=\"New Page Title\">\n<input\n  type=submit\n  value=create>\n</center>\n</form>"
+      },
+      "date": 1643207489333
+    },
+    {
+      "type": "edit",
+      "id": "f80adaee5751ad1e",
+      "item": {
+        "type": "html",
+        "id": "f80adaee5751ad1e",
+        "text": "<form \n  action=\"http://new_page/\"\n  style=\"background-color:#eee; padding:15px;\">\n\nCreate New Page<br><br>\n<input\n  name=title\n  size=50\n  style=\"box-sizing: border-box; width: 100%;\"\n  placeholder=\"New Page Title\">\n<input\n  type=submit\n  value=create>\n</center>\n</form>"
+      },
+      "date": 1643207577937
+    },
+    {
+      "type": "edit",
+      "id": "f80adaee5751ad1e",
+      "item": {
+        "type": "html",
+        "id": "f80adaee5751ad1e",
+        "text": "<form \n  action=\"http://new_page/\"\n  style=\"background-color:#eee; padding:15px;\">\n\nCreate New Page<br><br>\n<input\n  name=title\n  size=50\n  style=\"box-sizing: border-box; width: 100%;\"\n  placeholder=\"New Page Title\">\n<input\n  type=submit\n  value=create>\n</center>\n</form>"
+      },
+      "date": 1643207589524
+    },
+    {
+      "type": "fork",
+      "date": 1643207610301
+    }
+  ]
+}

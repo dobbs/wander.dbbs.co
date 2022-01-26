@@ -1,0 +1,101 @@
+{
+  "title": "Eric Dobbs",
+  "story": [
+    {
+      "type": "paragraph",
+      "id": "4870a57500933370",
+      "text": "I wander through many news streams on The 'Net in my daily life. In this wiki I collect insights that capture my attention or ask to be remembered. See [[Commonplace Book]]."
+    },
+    {
+      "type": "paragraph",
+      "id": "35bc3dbf755cd4ec",
+      "text": "Among other things, I am a programmer by recreation. My career has turned towards learning from incidents in complex software systems."
+    },
+    {
+      "type": "roster",
+      "id": "201389b8312da4a2",
+      "text": "ROSTER wiki.dbbs.co/eric-dobbs"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Eric Dobbs",
+        "story": []
+      },
+      "date": 1643204500425
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "4870a57500933370"
+      },
+      "id": "4870a57500933370",
+      "type": "add",
+      "date": 1643204501897
+    },
+    {
+      "type": "edit",
+      "id": "4870a57500933370",
+      "item": {
+        "type": "paragraph",
+        "id": "4870a57500933370",
+        "text": "I wander through many news streams on The 'Net in my daily life. This wiki is my commonplace book for collecting the insights that capture my attention or look like something I might want to remember."
+      },
+      "date": 1643204632374
+    },
+    {
+      "type": "add",
+      "id": "201389b8312da4a2",
+      "item": {
+        "type": "factory",
+        "id": "201389b8312da4a2",
+        "text": "ROSTER"
+      },
+      "after": "4870a57500933370",
+      "date": 1643204639590
+    },
+    {
+      "type": "edit",
+      "id": "201389b8312da4a2",
+      "item": {
+        "type": "roster",
+        "id": "201389b8312da4a2",
+        "text": "ROSTER wiki.dbbs.co/eric-dobbs"
+      },
+      "date": 1643204652528
+    },
+    {
+      "type": "edit",
+      "id": "4870a57500933370",
+      "item": {
+        "type": "paragraph",
+        "id": "4870a57500933370",
+        "text": "I wander through many news streams on The 'Net in my daily life. In this wiki I collect insights that capture my attention or ask to be remembered. See [[Commonplace Book]]"
+      },
+      "date": 1643206714370
+    },
+    {
+      "type": "edit",
+      "id": "4870a57500933370",
+      "item": {
+        "type": "paragraph",
+        "id": "4870a57500933370",
+        "text": "I wander through many news streams on The 'Net in my daily life. In this wiki I collect insights that capture my attention or ask to be remembered. See [[Commonplace Book]]."
+      },
+      "date": 1643206736717
+    },
+    {
+      "type": "add",
+      "id": "35bc3dbf755cd4ec",
+      "item": {
+        "type": "paragraph",
+        "id": "35bc3dbf755cd4ec",
+        "text": "Among other things, I am a programmer by recreation. My career has turned towards learning from incidents in complex software systems."
+      },
+      "after": "4870a57500933370",
+      "date": 1643206915396
+    }
+  ]
+}
