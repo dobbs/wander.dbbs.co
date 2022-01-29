@@ -9,7 +9,7 @@
     {
       "type": "paragraph",
       "id": "35bc3dbf755cd4ec",
-      "text": "Among other things, I am a programmer by recreation. My career has turned towards learning from incidents in complex software systems."
+      "text": "Among other things, I am a programmer by recreation. My career has turned towards learning from incidents in complex software systems. These interests have an outsized influence over the events that capture my attention."
     },
     {
       "type": "roster",
@@ -96,6 +96,16 @@
       },
       "after": "4870a57500933370",
       "date": 1643206915396
+    },
+    {
+      "type": "edit",
+      "id": "35bc3dbf755cd4ec",
+      "item": {
+        "type": "paragraph",
+        "id": "35bc3dbf755cd4ec",
+        "text": "Among other things, I am a programmer by recreation. My career has turned towards learning from incidents in complex software systems. These interests have an outsized influence over the events that capture my attention."
+      },
+      "date": 1643300955587
     }
   ]
 }

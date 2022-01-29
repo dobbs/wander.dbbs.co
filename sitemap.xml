@@ -9,8 +9,12 @@
     <lastmod>2022-01-26</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/crdt-for-rich-text-collaboration.html</loc>
+    <lastmod>2022-01-29</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/eric-dobbs.html</loc>
-    <lastmod>2022-01-26</lastmod>
+    <lastmod>2022-01-27</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/tiny-habits.html</loc>
@@ -27,5 +31,9 @@
   <url>
     <loc>http://wander.localhost/who-owns-on-call.html</loc>
     <lastmod>2022-01-26</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/weak-signals--chaos.html</loc>
+    <lastmod>2022-01-29</lastmod>
   </url>
 </urlset>
