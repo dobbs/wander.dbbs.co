@@ -1,0 +1,46 @@
+{
+  "title": "Weak Signals & Chaos",
+  "story": [
+    {
+      "id": "3420c000",
+      "type": "paragraph",
+      "text": "Actively searching for and understanding Weak Signals is the key to creating the most productive Chaos Experiments. Weak Signals are small, barely noticeable, indications of new emergent behavior in the system. They’re the “tea leaves”, they trigger our gut feelings, and our hunches. Signs, Signs, Everywhere a Sign. Andy Fleener. GOTO 2021 [https://speakerdeck.com/anfleene/sign-sign-everywhere-a-sign-what-five-man-electrical-band-and-todd-conklin-taught-me-about-chaos-engineering slides] [https://www.youtube.com/watch?v=VNiWLKS4IqQ youtube] "
+    },
+    {
+      "type": "video",
+      "id": "5d57a3a8b4eeb521",
+      "text": "YOUTUBE VNiWLKS4IqQ\nSigns, Signs, Everywhere a Sign. Andy Fleener. GOTO 2021 [https://www.youtube.com/watch?v=VNiWLKS4IqQ youtube]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Weak Signals & Chaos",
+        "story": []
+      },
+      "date": 1643493063884
+    },
+    {
+      "id": "3420c000",
+      "type": "add",
+      "item": {
+        "id": "3420c000",
+        "type": "paragraph",
+        "text": "Actively searching for and understanding Weak Signals is the key to creating the most productive Chaos Experiments. Weak Signals are small, barely noticeable, indications of new emergent behavior in the system. They’re the “tea leaves”, they trigger our gut feelings, and our hunches. Signs, Signs, Everywhere a Sign. Andy Fleener. GOTO 2021 [https://speakerdeck.com/anfleene/sign-sign-everywhere-a-sign-what-five-man-electrical-band-and-todd-conklin-taught-me-about-chaos-engineering slides] [https://www.youtube.com/watch?v=VNiWLKS4IqQ youtube] "
+      },
+      "date": 1643493073943
+    },
+    {
+      "id": "5d57a3a8b4eeb521",
+      "type": "add",
+      "item": {
+        "type": "video",
+        "id": "5d57a3a8b4eeb521",
+        "text": "YOUTUBE VNiWLKS4IqQ\nSigns, Signs, Everywhere a Sign. Andy Fleener. GOTO 2021 [https://www.youtube.com/watch?v=VNiWLKS4IqQ youtube]"
+      },
+      "after": "3420c000",
+      "date": 1643493076693
+    }
+  ]
+}

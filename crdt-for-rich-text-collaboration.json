@@ -1,0 +1,92 @@
+{
+  "title": "CRDT for Rich-Text Collaboration",
+  "story": [
+    {
+      "id": "45316000",
+      "type": "paragraph",
+      "text": "Peritext—A CRDT for Rich-Text Collaboration by Ink and Switch. Sometimes people prefer a more asynchronous collaboration style, where they can work on a private copy of a document for a while and share their updates later. The algorithms underpinning services like Google Docs are not designed to support this use case. ... Despite limitations, Peritext is an important step towards asynchronous collaboration for rich text. [https://www.inkandswitch.com/peritext/ article]"
+    },
+    {
+      "type": "pagefold",
+      "id": "497092981e9b33ca",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "5cdb3c4fbb288b39",
+      "text": "Collaboration in wiki is asynchronous. We think CRDT might prove useful for improving page journals."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "CRDT for Rich-Text Collaboration",
+        "story": []
+      },
+      "date": 1643297060161
+    },
+    {
+      "id": "45316000",
+      "type": "add",
+      "item": {
+        "id": "45316000",
+        "type": "paragraph",
+        "text": "Peritext—A CRDT for Rich-Text Collaboration. Sometimes people prefer a more asynchronous collaboration style, where they can work on a private copy of a document for a while and share their updates later. The algorithms underpinning services like Google Docs are not designed to support this use case. ... Despite limitations, Peritext is an important step towards asynchronous collaboration for rich text. [https://www.inkandswitch.com/peritext/ link]"
+      },
+      "date": 1643297698206
+    },
+    {
+      "type": "edit",
+      "id": "45316000",
+      "item": {
+        "id": "45316000",
+        "type": "paragraph",
+        "text": "Peritext—A CRDT for Rich-Text Collaboration by Ink and Switch. Sometimes people prefer a more asynchronous collaboration style, where they can work on a private copy of a document for a while and share their updates later. The algorithms underpinning services like Google Docs are not designed to support this use case. ... Despite limitations, Peritext is an important step towards asynchronous collaboration for rich text. [https://www.inkandswitch.com/peritext/ link]"
+      },
+      "date": 1643298009333
+    },
+    {
+      "type": "edit",
+      "id": "45316000",
+      "item": {
+        "id": "45316000",
+        "type": "paragraph",
+        "text": "Peritext—A CRDT for Rich-Text Collaboration by Ink and Switch. Sometimes people prefer a more asynchronous collaboration style, where they can work on a private copy of a document for a while and share their updates later. The algorithms underpinning services like Google Docs are not designed to support this use case. ... Despite limitations, Peritext is an important step towards asynchronous collaboration for rich text. [https://www.inkandswitch.com/peritext/ article]"
+      },
+      "date": 1643298017467
+    },
+    {
+      "type": "add",
+      "id": "497092981e9b33ca",
+      "item": {
+        "type": "paragraph",
+        "id": "497092981e9b33ca",
+        "text": "..."
+      },
+      "after": "45316000",
+      "date": 1643493113524
+    },
+    {
+      "type": "add",
+      "id": "5cdb3c4fbb288b39",
+      "item": {
+        "type": "paragraph",
+        "id": "5cdb3c4fbb288b39",
+        "text": "Collaboration in wiki is asynchronous. We think CRDT might prove useful for improving page journals."
+      },
+      "after": "497092981e9b33ca",
+      "date": 1643493196328
+    },
+    {
+      "type": "edit",
+      "id": "497092981e9b33ca",
+      "item": {
+        "type": "pagefold",
+        "id": "497092981e9b33ca",
+        "text": "."
+      },
+      "date": 1643493203845
+    }
+  ]
+}
