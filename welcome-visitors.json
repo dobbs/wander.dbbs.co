@@ -34,14 +34,9 @@
       "text": "You can edit your copy of these pages. Press [+] to add more writing spaces. Read [[How to Wiki]] for more ideas. Follow [[Recent Changes]] here and nearby."
     },
     {
-      "type": "html",
-      "id": "f80adaee5751ad1e",
-      "text": "<form \n  action=\"http://new_page/\"\n  style=\"background-color:#eee; padding:15px;\">\n\nCreate New Page<br><br>\n<input\n  name=title\n  size=50\n  style=\"box-sizing: border-box; width: 100%;\"\n  placeholder=\"New Page Title\">\n<input\n  type=submit\n  value=create>\n</center>\n</form>"
-    },
-    {
       "type": "frame",
       "id": "a5faf691460ed1f5",
-      "text": "//wiki.dbbs.co/assets/pages/drop-and-paste-inspector/intake.html"
+      "text": "https://wiki.dbbs.co/assets/pages/drop-and-paste-inspector/editorjs.html\nHEIGHT 400"
     }
   ],
   "journal": [
@@ -195,6 +190,21 @@
     {
       "type": "fork",
       "date": 1643207610301
+    },
+    {
+      "type": "remove",
+      "id": "f80adaee5751ad1e",
+      "date": 1643741316452
+    },
+    {
+      "type": "edit",
+      "id": "a5faf691460ed1f5",
+      "item": {
+        "type": "frame",
+        "id": "a5faf691460ed1f5",
+        "text": "https://wiki.dbbs.co/assets/pages/drop-and-paste-inspector/editorjs.html\nHEIGHT 400"
+      },
+      "date": 1643741356538
     }
   ]
 }
