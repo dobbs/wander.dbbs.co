@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>http://wander.localhost/welcome-visitors.html</loc>
-    <lastmod>2022-01-26</lastmod>
+    <lastmod>2022-02-01</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/who-owns-on-call.html</loc>
@@ -35,5 +35,9 @@
   <url>
     <loc>http://wander.localhost/weak-signals--chaos.html</loc>
     <lastmod>2022-01-29</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/basics-of-adaptive-failure.html</loc>
+    <lastmod>2022-02-01</lastmod>
   </url>
 </urlset>

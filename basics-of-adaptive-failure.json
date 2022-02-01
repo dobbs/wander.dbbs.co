@@ -1,0 +1,56 @@
+{
+  "title": "Basics of Adaptive Failure",
+  "story": [
+    {
+      "id": "5f4d0400",
+      "type": "paragraph",
+      "text": "Basic patterns in how adaptive systems fail. David Woods. 2011. Three ways adaptive systems fail: (1) decompensation—exhaust capacity to adapt as challenges cascade; (2) work at cross-purposes—locally adaptive behaviour is globally mal-adaptive; and (3) getting stuck in outdated behaviours—over-reliance on past successes. A working organisation need abilities to detect these three adaptive traps as they approach and needs abilities to act to avoid or escape them. Detecting these traps requires contrasting diverse perspectives. [https://www.researchgate.net/publication/284324002_Basic_patterns_in_how_adaptive_systems_fail researchgate]"
+    },
+    {
+      "type": "paragraph",
+      "id": "9cea1787fc093ede",
+      "text": "Resilience Engineering claims a system can manage brittleness trade-offs. To do so, it must have the ability to reflect on how well it is adapted, what it is adapted to, and what is changing in its environment. Understanding where it is resilient and brittle and the trends under way, managers can invest resources in targeted ways to increase resilience (Woods, 2006a; Hollnagel, 2009)."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Basics of Adaptive Failure",
+        "story": [
+          {
+            "id": "5f4d0400",
+            "type": "paragraph",
+            "text": "Basic patterns in how adaptive systems fail. David Woods. 2011. This chapter provides three basic patterns in how adaptive systems fail: (1) decompensation – exhausts its capacity to adapt as challenges cascade; (2) working at cross-purposes – when behaviour is locally adaptive but globally mal-adaptive; and (3) getting stuck in outdated behaviours – over-reliance on past successes. Illustrations are drawn from urban fire-fighting and crisis management. A working organisation needs to be able to see and avoid or recognise and escape when the system is moving toward one of the three basic adaptive traps. Understanding how adaptive systems can fail requires contrasting diverse perspectives. [https://www.researchgate.net/publication/284324002_Basic_patterns_in_how_adaptive_systems_fail researchgate]"
+          }
+        ]
+      },
+      "date": 1643741614797
+    },
+    {
+      "type": "fork",
+      "date": 1643741652096
+    },
+    {
+      "type": "add",
+      "id": "9cea1787fc093ede",
+      "item": {
+        "type": "paragraph",
+        "id": "9cea1787fc093ede",
+        "text": "Resilience Engineering claims a system can manage brittleness trade-offs. To do so, it must have the ability to reflect on how well it is adapted, what it is adapted to, and what is changing in its environment. Understanding where it is resilient and brittle and the trends under way, managers can invest resources in targeted ways to increase resilience (Woods, 2006a; Hollnagel, 2009)."
+      },
+      "after": "5f4d0400",
+      "date": 1643741895896
+    },
+    {
+      "type": "edit",
+      "id": "5f4d0400",
+      "item": {
+        "id": "5f4d0400",
+        "type": "paragraph",
+        "text": "Basic patterns in how adaptive systems fail. David Woods. 2011. Three ways adaptive systems fail: (1) decompensation—exhaust capacity to adapt as challenges cascade; (2) work at cross-purposes—locally adaptive behaviour is globally mal-adaptive; and (3) getting stuck in outdated behaviours—over-reliance on past successes. A working organisation need abilities to detect these three adaptive traps as they approach and needs abilities to act to avoid or escape them. Detecting these traps requires contrasting diverse perspectives. [https://www.researchgate.net/publication/284324002_Basic_patterns_in_how_adaptive_systems_fail researchgate]"
+      },
+      "date": 1643744389152
+    }
+  ]
+}
