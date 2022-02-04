@@ -1,0 +1,66 @@
+{
+  "title": "Incident Response at Slack",
+  "story": [
+    {
+      "id": "39bab800",
+      "type": "paragraph",
+      "text": "Evolution of Incident Management at Slack. Brent Chapman @ SRECon2021. Learn how we've made incident management a core capability of everyone on our engineering team: where we are, how we got here, and where we're going. Brent has basically given everyone a roadmap to building an effective incident response program. [https://www.usenix.org/conference/srecon21/presentation/chapman usenix] [https://www.usenix.org/system/files/srecon21_slides_chapman.pdf pdf] [https://www.youtube.com/watch?v=FYYTglQoS3w youtube]"
+    },
+    {
+      "type": "video",
+      "id": "96f8cd1d53234b78",
+      "text": "YOUTUBE FYYTglQoS3w\nEvolution of Incident Management at Slack. Brent Chapman @ SRECon2021. [https://www.youtube.com/watch?v=FYYTglQoS3w youtube]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Incident Response at Slack",
+        "story": [
+          {
+            "id": "39bab800",
+            "type": "paragraph",
+            "text": "Evolution of Incident Management at Slack. Brent Chapman @ SRECon2021. Learn how we've made incident management a core capability of everyone on our engineering team: where we are, how we got here, and where we're going. Brent has basically given everyone a roadmap to building an effective incident response program. [https://www.usenix.org/conference/srecon21/presentation/chapman usenix] [https://www.usenix.org/system/files/srecon21_slides_chapman.pdf pdf] [https://www.youtube.com/watch?v=FYYTglQoS3w youtube]"
+          }
+        ]
+      },
+      "date": 1644010866873
+    },
+    {
+      "type": "fork",
+      "date": 1644010878723
+    },
+    {
+      "type": "add",
+      "id": "96f8cd1d53234b78",
+      "item": {
+        "type": "factory",
+        "id": "96f8cd1d53234b78",
+        "text": "YOUTUBE "
+      },
+      "after": "39bab800",
+      "date": 1644010898042
+    },
+    {
+      "type": "edit",
+      "id": "96f8cd1d53234b78",
+      "item": {
+        "type": "video",
+        "id": "96f8cd1d53234b78",
+        "text": "YOUTUBE \nEvolution of Incident Management at Slack. Brent Chapman @ SRECon2021. [ youtube]"
+      },
+      "date": 1644010928889
+    },
+    {
+      "type": "edit",
+      "id": "96f8cd1d53234b78",
+      "item": {
+        "type": "video",
+        "id": "96f8cd1d53234b78",
+        "text": "YOUTUBE FYYTglQoS3w\nEvolution of Incident Management at Slack. Brent Chapman @ SRECon2021. [https://www.youtube.com/watch?v=FYYTglQoS3w youtube]"
+      },
+      "date": 1644010945514
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "title": "Towards Operational Excellence",
+  "story": [
+    {
+      "id": "9326000",
+      "type": "paragraph",
+      "text": "Towards Operational Excellence: Part 3—Mechanisms. Adrian Hornsby.  Good intentions don't work. Mechanisms do. [https://medium.com/the-cloud-architect/towards-operational-excellence-part-3-8b727f06a4b6 medium]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Towards Operational Excellence",
+        "story": [
+          {
+            "id": "9326000",
+            "type": "paragraph",
+            "text": "Towards Operational Excellence: Part 3—Mechanisms. Adrian Hornsby.  Good intentions don't work. Mechanisms do. [https://medium.com/the-cloud-architect/towards-operational-excellence-part-3-8b727f06a4b6 medium]"
+          }
+        ]
+      },
+      "date": 1644009095900
+    },
+    {
+      "type": "fork",
+      "date": 1644009125341
+    }
+  ]
+}

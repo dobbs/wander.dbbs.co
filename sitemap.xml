@@ -40,4 +40,20 @@
     <loc>http://wander.localhost/basics-of-adaptive-failure.html</loc>
     <lastmod>2022-02-01</lastmod>
   </url>
+  <url>
+    <loc>http://wander.localhost/towards-operational-excellence.html</loc>
+    <lastmod>2022-02-04</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/better-writer-in-tech.html</loc>
+    <lastmod>2022-02-04</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/what-is-incident-analysis.html</loc>
+    <lastmod>2022-02-04</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/incident-response-at-slack.html</loc>
+    <lastmod>2022-02-04</lastmod>
+  </url>
 </urlset>

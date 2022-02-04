@@ -1,0 +1,30 @@
+{
+  "title": "What is Incident Analysis?",
+  "story": [
+    {
+      "id": "1fb2c000",
+      "type": "paragraph",
+      "text": "What is incident analysis and why should we do it? Dr. Laura Maguire & Vanessa Huerta Ganda kick off a series to introduce incident analysis. [https://www.jeli.io/what-is-incident-analysis-and-why-should-we-do-it/ page]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "What is Incident Analysis?",
+        "story": [
+          {
+            "id": "1fb2c000",
+            "type": "paragraph",
+            "text": "What is incident analysis and why should we do it? Dr. Laura Maguire & Vanessa Huerta Ganda kick off a series to introduce incident analysis. [https://www.jeli.io/what-is-incident-analysis-and-why-should-we-do-it/ page]"
+          }
+        ]
+      },
+      "date": 1644009916752
+    },
+    {
+      "type": "fork",
+      "date": 1644009924783
+    }
+  ]
+}

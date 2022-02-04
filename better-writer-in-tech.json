@@ -1,0 +1,30 @@
+{
+  "title": "Better Writer in Tech",
+  "story": [
+    {
+      "id": "59e3000",
+      "type": "paragraph",
+      "text": "Extending influence as one matures in engineering demands ability to communicate ideas clearly. Sharpen your writing skills. Becoming a Better Writer in Tech. Gergely Orosz. [https://blog.pragmaticengineer.com/becoming-a-better-writer-in-tech/ article]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Better Writer in Tech",
+        "story": [
+          {
+            "id": "59e3000",
+            "type": "paragraph",
+            "text": "Extending influence as one matures in engineering demands ability to communicate ideas clearly. Sharpen your writing skills. Becoming a Better Writer in Tech. Gergely Orosz. [https://blog.pragmaticengineer.com/becoming-a-better-writer-in-tech/ article]"
+          }
+        ]
+      },
+      "date": 1644009375636
+    },
+    {
+      "type": "fork",
+      "date": 1644009384397
+    }
+  ]
+}
