@@ -4,7 +4,7 @@
     {
       "id": "2ecb2000",
       "type": "paragraph",
-      "text": "Industry leaders like Google, Amazon, Dropbox, Spotify, and Netflix are putting developers on-call for their software. We spoke to these companies to find out why. [https://increment.com/on-call/who-owns-on-call/ article]"
+      "text": "Industry leaders like Google, Amazon, Dropbox, Spotify, and Netflix are putting developers on-call for their software. We spoke to these companies to find out why. (Increment issue 1. April 2017. Published by Stripe) [https://increment.com/on-call/who-owns-on-call/ article]"
     },
     {
       "id": "3b118000",
@@ -44,12 +44,22 @@
     {
       "type": "paragraph",
       "id": "a7b5d0134a2de41c",
-      "text": "Slack—still has an old-school operations team that is on-call for all of their services.\nTheir operations team is spread across the globe (Melbourne, Dublin and San Francisco) and uses a follow-the-sun rotation.\nTheir operations team is as old as the company itself and the reason behind it was - they mostly had issues due to hardware failures and \nnetwork partitions.\nAlthough the company has adapted to have a secondary on-call rota full of development engineers due to scalability issues in the old \nway of operations.\n"
+      "text": "Slack—at the time the article was published, still has an old-school operations team that is on-call for all of their services. Their operations team is spread across the globe (Melbourne, Dublin and San Francisco) and uses a follow-the-sun rotation. Their operations team is as old as the company itself and the reason behind it was - they mostly had issues due to hardware failures and network partitions. Although the company has adapted to have a secondary on-call rota full of development engineers due to scalability issues in the old way of operations."
     },
     {
       "type": "paragraph",
       "id": "d05a28080db36071",
       "text": "None of the companies except Slack have operation teams. All the companies have developers and SREs responsible for on-call with different setups."
+    },
+    {
+      "type": "pagefold",
+      "id": "581a814a04ec33eb",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "093be0415459e1b1",
+      "text": "Article was published April 2017. After suffering a reliability crisis in September 2018, Slack introduced a number of changes, including dismantling their operations team and replacing it with Service Ownership model similar to AirBnB, New Relic, and Netflix. See [[Incident Response at Slack]]."
     }
   ],
   "journal": [
@@ -242,6 +252,58 @@
     {
       "type": "fork",
       "date": 1643209557726
+    },
+    {
+      "type": "edit",
+      "id": "2ecb2000",
+      "item": {
+        "id": "2ecb2000",
+        "type": "paragraph",
+        "text": "Industry leaders like Google, Amazon, Dropbox, Spotify, and Netflix are putting developers on-call for their software. We spoke to these companies to find out why. (Increment issue 1. April 2017. Published by Stripe) [https://increment.com/on-call/who-owns-on-call/ article]"
+      },
+      "date": 1644953947503
+    },
+    {
+      "type": "edit",
+      "id": "a7b5d0134a2de41c",
+      "item": {
+        "type": "paragraph",
+        "id": "a7b5d0134a2de41c",
+        "text": "Slack—at the time the article was published, still has an old-school operations team that is on-call for all of their services. Their operations team is spread across the globe (Melbourne, Dublin and San Francisco) and uses a follow-the-sun rotation. Their operations team is as old as the company itself and the reason behind it was - they mostly had issues due to hardware failures and network partitions. Although the company has adapted to have a secondary on-call rota full of development engineers due to scalability issues in the old way of operations."
+      },
+      "date": 1644954507264
+    },
+    {
+      "type": "add",
+      "id": "581a814a04ec33eb",
+      "item": {
+        "type": "paragraph",
+        "id": "581a814a04ec33eb",
+        "text": "..."
+      },
+      "after": "d05a28080db36071",
+      "date": 1644954519795
+    },
+    {
+      "type": "add",
+      "id": "093be0415459e1b1",
+      "item": {
+        "type": "paragraph",
+        "id": "093be0415459e1b1",
+        "text": "Article was published April 2017. After suffering a reliability crisis in September 2018, Slack introduced a number of changes, including dismantling their operations team and replacing it with Service Ownership model similar to AirBnB, New Relic, and Netflix. See [[Incident Response at Slack]]."
+      },
+      "after": "581a814a04ec33eb",
+      "date": 1644954659581
+    },
+    {
+      "type": "edit",
+      "id": "581a814a04ec33eb",
+      "item": {
+        "type": "pagefold",
+        "id": "581a814a04ec33eb",
+        "text": "."
+      },
+      "date": 1644954666597
     }
   ]
 }
