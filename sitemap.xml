@@ -58,7 +58,7 @@
   </url>
   <url>
     <loc>http://wander.localhost/thematic-analysis.html</loc>
-    <lastmod>2022-03-15</lastmod>
+    <lastmod>2022-03-16</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/on-the-brittleness-of-dashboards.html</loc>
@@ -75,5 +75,9 @@
   <url>
     <loc>http://wander.localhost/software-provenance.html</loc>
     <lastmod>2022-03-15</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/general-inductive-analysis.html</loc>
+    <lastmod>2022-03-16</lastmod>
   </url>
 </urlset>

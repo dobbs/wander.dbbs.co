@@ -35,6 +35,21 @@
       "type": "paragraph",
       "id": "d83cb9a37aab6faa",
       "text": "A thematic analysis involves 6 different phases: gathering the data, reading all the data from beginning to end, coding the text based on what it’s about, creating new codes that encapsulate candidate themes, taking a break and coming back to the analysis later, and evaluating your themes for good fit."
+    },
+    {
+      "type": "pagefold",
+      "id": "bf68c070b7b98ffd",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "02c9f83791f89b62",
+      "text": "Related to [[General Inductive Analysis]]."
+    },
+    {
+      "type": "paragraph",
+      "id": "a09fb20157be6006",
+      "text": "Contrast more informal methods in [[Commonplace Book]]."
     }
   ],
   "journal": [
@@ -233,6 +248,67 @@
     {
       "type": "fork",
       "date": 1647452452584
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "bf68c070b7b98ffd"
+      },
+      "id": "bf68c070b7b98ffd",
+      "type": "add",
+      "after": "d83cb9a37aab6faa",
+      "date": 1647454324678
+    },
+    {
+      "type": "edit",
+      "id": "bf68c070b7b98ffd",
+      "item": {
+        "type": "pagefold",
+        "id": "bf68c070b7b98ffd",
+        "text": "."
+      },
+      "date": 1647454327371
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "02c9f83791f89b62"
+      },
+      "id": "02c9f83791f89b62",
+      "type": "add",
+      "after": "bf68c070b7b98ffd",
+      "date": 1647454328574
+    },
+    {
+      "type": "edit",
+      "id": "02c9f83791f89b62",
+      "item": {
+        "type": "paragraph",
+        "id": "02c9f83791f89b62",
+        "text": "Related to [[General Inductive Analysis]]."
+      },
+      "date": 1647454350983
+    },
+    {
+      "type": "add",
+      "id": "a09fb20157be6006",
+      "item": {
+        "type": "paragraph",
+        "id": "a09fb20157be6006",
+        "text": "Compare [[Commonplace Book]]."
+      },
+      "after": "02c9f83791f89b62",
+      "date": 1647454394404
+    },
+    {
+      "type": "edit",
+      "id": "a09fb20157be6006",
+      "item": {
+        "type": "paragraph",
+        "id": "a09fb20157be6006",
+        "text": "Contrast more informal methods in [[Commonplace Book]]."
+      },
+      "date": 1647454422974
     }
   ]
 }

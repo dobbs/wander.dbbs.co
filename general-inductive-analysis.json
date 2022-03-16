@@ -1,0 +1,235 @@
+{
+  "title": "General Inductive Analysis",
+  "story": [
+    {
+      "id": "8298000",
+      "type": "paragraph",
+      "text": "A General Inductive Approach for Analyzing Qualitative Evaluation Data, David R. Thomas, University of Auckland. The collection of qualitative data in evaluation is common. However, knowledge about strategies for efficient and defendable procedures for analyzing qualitative data is less common. A general inductive approach for analysis is described. [https://www.researchgate.net/publication/224029397_A_General_Inductive_Approach_for_Analyzing_Qualitative_Evaluation_Data researchgate]"
+    },
+    {
+      "id": "975c000",
+      "type": "paragraph",
+      "text": "The Process of Inductive Coding"
+    },
+    {
+      "type": "paragraph",
+      "id": "7a0c9f4fb8abfe55",
+      "text": "Inductive coding begins with close readings of text and consideration of the multiple meanings that are inherent in the text. The evaluator then identifies text segments that contain meaningful units and creates a label for a new category to which the text segment is assigned. Additional text segments are added to the categories to which they are relevant. At some stage, the evaluator may develop an initial description of the meaning of a category and write a memo about the category (e.g., associations, links, and implications). The category may also be linked to other categories in various relationships, such as a network, a hierarchy of categories, or a causal sequence."
+    },
+    {
+      "id": "6bbf6000",
+      "type": "paragraph",
+      "text": "Writing the Findings"
+    },
+    {
+      "type": "paragraph",
+      "id": "b255b7b069494281",
+      "text": "When reporting findings from inductive analysis, the summary or top-level categories are often used as main headings in the findings, with specific categories as subheadings. It is good practice to include detailed descriptions of categories and suitable quotations from the text to illustrate the meanings of the categories."
+    },
+    {
+      "type": "pagefold",
+      "id": "db1d9488b2684aa2",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "30ec7967e4556564",
+      "text": "Related to [[Thematic Analysis]]."
+    },
+    {
+      "type": "paragraph",
+      "id": "3b8049e21f183dc0",
+      "text": "Contrast more informal methods in [[Commonplace Book]] and [[Zettelkasten]]."
+    },
+    {
+      "type": "paragraph",
+      "id": "8874c9dc819fd4c5",
+      "text": "Consider historical context in [[Leonardo's Method]]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "General Inductive Analysis",
+        "story": []
+      },
+      "date": 1635542592678
+    },
+    {
+      "item": {
+        "type": "pagefold",
+        "id": "db1d9488b2684aa2",
+        "text": "."
+      },
+      "id": "db1d9488b2684aa2",
+      "type": "add",
+      "date": 1635542750275
+    },
+    {
+      "id": "8298000",
+      "type": "add",
+      "item": {
+        "id": "8298000",
+        "type": "paragraph",
+        "text": "A General Inductive Approach for Analyzing Qualitative Evaluation Data, David R. Thomas, University of Auckland. The collection of qualitative data in evaluation is common. However, knowledge about strategies for efficient and defendable procedures for analyzing qualitative data is less common. A general inductive approach for analysis is described. [https://www.researchgate.net/publication/224029397_A_General_Inductive_Approach_for_Analyzing_Qualitative_Evaluation_Data researchgate]"
+      },
+      "date": 1635543104388,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "502 Bad Gateway\n"
+      }
+    },
+    {
+      "id": "975c000",
+      "type": "add",
+      "item": {
+        "id": "975c000",
+        "type": "paragraph",
+        "text": "The Process of Inductive Coding\nInductive coding begins with close readings of text and consideration of the multiple mean- ings that are inherent in the text. The evaluator then identifies text segments that contain mean- ingful units and creates a label for a new category to which the text segment is assigned. Addi- tional text segments are added to the categories to which they are relevant. At some stage, the evaluator may develop an initial description of the meaning of a category and write a memo about the category (e.g., associations, links, and implications). The category may also be linked to other categories in various relationships, such as a network, a hierarchy of categories, or a causal sequence."
+      },
+      "after": "3d710000",
+      "date": 1635543121737
+    },
+    {
+      "id": "6bbf6000",
+      "type": "add",
+      "item": {
+        "id": "6bbf6000",
+        "type": "paragraph",
+        "text": "Writing the Findings\nWhen reporting findings from inductive analysis, the summary or top-level categories are often used as main headings in the findings, with specific categories as subheadings. It is good practice to include detailed descriptions of categories and suitable quotations from the text to illustrate the meanings of the categories."
+      },
+      "after": "975c000",
+      "date": 1635543125120
+    },
+    {
+      "type": "edit",
+      "id": "975c000",
+      "item": {
+        "id": "975c000",
+        "type": "paragraph",
+        "text": "The Process of Inductive Coding"
+      },
+      "date": 1635543133180
+    },
+    {
+      "type": "add",
+      "id": "7a0c9f4fb8abfe55",
+      "item": {
+        "type": "paragraph",
+        "id": "7a0c9f4fb8abfe55",
+        "text": "Inductive coding begins with close readings of text and consideration of the multiple mean- ings that are inherent in the text. The evaluator then identifies text segments that contain mean- ingful units and creates a label for a new category to which the text segment is assigned. Addi- tional text segments are added to the categories to which they are relevant. At some stage, the evaluator may develop an initial description of the meaning of a category and write a memo about the category (e.g., associations, links, and implications). The category may also be linked to other categories in various relationships, such as a network, a hierarchy of categories, or a causal sequence."
+      },
+      "after": "975c000",
+      "date": 1635543134277
+    },
+    {
+      "type": "edit",
+      "id": "6bbf6000",
+      "item": {
+        "id": "6bbf6000",
+        "type": "paragraph",
+        "text": "Writing the Findings"
+      },
+      "date": 1635543137446
+    },
+    {
+      "type": "add",
+      "id": "b255b7b069494281",
+      "item": {
+        "type": "paragraph",
+        "id": "b255b7b069494281",
+        "text": "When reporting findings from inductive analysis, the summary or top-level categories are often used as main headings in the findings, with specific categories as subheadings. It is good practice to include detailed descriptions of categories and suitable quotations from the text to illustrate the meanings of the categories."
+      },
+      "after": "6bbf6000",
+      "date": 1635543137980
+    },
+    {
+      "type": "edit",
+      "id": "db1d9488b2684aa2",
+      "item": {
+        "type": "pagefold",
+        "id": "db1d9488b2684aa2",
+        "text": "."
+      },
+      "date": 1635543148032
+    },
+    {
+      "type": "fork",
+      "date": 1635543150896
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "3b8049e21f183dc0"
+      },
+      "id": "3b8049e21f183dc0",
+      "type": "add",
+      "after": "db1d9488b2684aa2",
+      "date": 1635543157475
+    },
+    {
+      "type": "edit",
+      "id": "3b8049e21f183dc0",
+      "item": {
+        "type": "paragraph",
+        "id": "3b8049e21f183dc0",
+        "text": "Contrast more informal methods in [[Commonplace Book]] and [[Zettelkasten]]."
+      },
+      "date": 1635543219177
+    },
+    {
+      "type": "add",
+      "id": "8874c9dc819fd4c5",
+      "item": {
+        "type": "paragraph",
+        "id": "8874c9dc819fd4c5",
+        "text": "Consider historical context in [[Leonardo's Method]]"
+      },
+      "after": "3b8049e21f183dc0",
+      "date": 1635543231384
+    },
+    {
+      "type": "edit",
+      "id": "7a0c9f4fb8abfe55",
+      "item": {
+        "type": "paragraph",
+        "id": "7a0c9f4fb8abfe55",
+        "text": "Inductive coding begins with close readings of text and consideration of the multiple meanings that are inherent in the text. The evaluator then identifies text segments that contain meaningful units and creates a label for a new category to which the text segment is assigned. Additional text segments are added to the categories to which they are relevant. At some stage, the evaluator may develop an initial description of the meaning of a category and write a memo about the category (e.g., associations, links, and implications). The category may also be linked to other categories in various relationships, such as a network, a hierarchy of categories, or a causal sequence."
+      },
+      "date": 1637301760330
+    },
+    {
+      "id": "8298000",
+      "type": "move",
+      "order": [
+        "8298000",
+        "975c000",
+        "7a0c9f4fb8abfe55",
+        "6bbf6000",
+        "b255b7b069494281",
+        "db1d9488b2684aa2",
+        "3b8049e21f183dc0",
+        "8874c9dc819fd4c5"
+      ],
+      "date": 1637302054916
+    },
+    {
+      "type": "fork",
+      "site": "wiki.dbbs.co",
+      "date": 1647454310103
+    },
+    {
+      "type": "add",
+      "id": "30ec7967e4556564",
+      "item": {
+        "type": "paragraph",
+        "id": "30ec7967e4556564",
+        "text": "Related to [[Thematic Analysis]]."
+      },
+      "after": "db1d9488b2684aa2",
+      "date": 1647454451330
+    }
+  ]
+}
