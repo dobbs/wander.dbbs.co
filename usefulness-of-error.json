@@ -1,0 +1,326 @@
+{
+  "title": "Usefulness of Error",
+  "story": [
+    {
+      "id": "f54000",
+      "type": "paragraph",
+      "text": "\"Error\" serves a number of functions for an organization: as a defense against entanglement, the illusion of control, as a means for distancing, and as a marker for a failed investigation. \"Those found responsible have been sacked\": some observations on the usefulness of error. Richard I. Cook, Christopher P. Nemeth. [https://www.researchgate.net/publication/220579378_Those_found_responsible_have_been_sacked_Some_observations_on_the_usefulness_of_error researchgate]"
+    },
+    {
+      "id": "732fc000",
+      "type": "markdown",
+      "text": "# Defense Against Entanglement"
+    },
+    {
+      "type": "paragraph",
+      "id": "a0ff2455901d84a6",
+      "text": "By directing attention to an isolated human failure, the organization avoids entangling itself in open-ended inquiry that might prove damaging, or costly, or even reveal characteristics that it wishes to keep hidden."
+    },
+    {
+      "id": "32768000",
+      "type": "markdown",
+      "text": "# Illusion of Control"
+    },
+    {
+      "type": "paragraph",
+      "id": "9de931d4cce1df62",
+      "text": "Situating error in the individual raises the prospect of creating an orderly, rational world in which accidents are less likely. If failure comes from individual error, then attention may be safely directed to restrain or contain the individual."
+    },
+    {
+      "type": "paragraph",
+      "id": "a251de60ad3cb0f7",
+      "text": "Organizations and institutions need to assert that they have control over the circumstances that gave rise to the failure in order to retain independent authority and freedom of action and to restore a public image of reliability. The assertion that \"this will never happen again\" is based on the illusion of control. Of course \"this\" will happen again, possibly in a different time, or way, or place, because control over the real world is not complete."
+    },
+    {
+      "id": "77fd2000",
+      "type": "markdown",
+      "text": "# Distancing"
+    },
+    {
+      "type": "paragraph",
+      "id": "97f53cd648dcd6ed",
+      "text": "If accidents arise from forces and circumstances in the environment, then the experience of my colleague has relevance for me and the event increases my sense of hazard and uncertainty. By attributing my colleague's accident to his inattention or stupidity, though, I make it possible to believe that the accident has no relevance for me. This is because I do not believe that I am either inattentive or stupid. Distancing limits and obscures the deeper\nexamination of the sources of accidents."
+    },
+    {
+      "id": "47caa200",
+      "type": "markdown",
+      "text": "# Failed Investigation"
+    },
+    {
+      "type": "paragraph",
+      "id": "4e956c5d5165fdcb",
+      "text": "\"Operator\" or \"user error\" is a catchall term for those events that cannot be identified as overt mechanical failure."
+    },
+    {
+      "type": "paragraph",
+      "id": "1e7ff58e6682ac82",
+      "text": "The identification of \"human error\" by accident investigators is now taken by Hollnagel and his community of researchers as a marker for an incomplete or failed investigation. \"Human error\" has become a way for researchers to identify accident investigations that have ended prematurely. High rates of \"human error\" point to a particular form of human error problem. This is not error by the practitioners who were involved in the accident, but rather error by the analysts who assessed the accident's source and evolution."
+    },
+    {
+      "type": "markdown",
+      "id": "2298201d2bcb8249",
+      "text": "# Conclusion"
+    },
+    {
+      "type": "markdown",
+      "id": "095e8d0ccf0c71fd",
+      "text": "Error is useful not in spite of its misapplication, but _because_ of it. We need to take error seriously not because it is an accurate assessment but _because it is inaccurate_; inaccurate in particular sorts of ways that serve individual and organizational needs."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Usefulness of Error",
+        "story": [
+          {
+            "id": "f54000",
+            "type": "paragraph",
+            "text": "‘‘Error’’ serves a number of functions for an organization: as a defense against entanglement, the illusion of control, as a means for distancing, and as a marker for a failed investigation. ‘‘Those found responsible have been sacked’’: some observations on the usefulness of error. Richard I. Cook, Christopher P. Nemeth. [https://www.researchgate.net/publication/220579378_Those_found_responsible_have_been_sacked_Some_observations_on_the_usefulness_of_error researchgate]"
+          },
+          {
+            "id": "732fc000",
+            "type": "paragraph",
+            "text": "Defense Against Entanglement"
+          },
+          {
+            "id": "32768000",
+            "type": "paragraph",
+            "text": "Illusion of Control"
+          },
+          {
+            "id": "77fd2000",
+            "type": "paragraph",
+            "text": "Distancing"
+          },
+          {
+            "id": "47caa200",
+            "type": "paragraph",
+            "text": "Failed Investigation"
+          }
+        ]
+      },
+      "date": 1647016239187
+    },
+    {
+      "type": "fork",
+      "date": 1647016247835
+    },
+    {
+      "type": "add",
+      "id": "a0ff2455901d84a6",
+      "item": {
+        "type": "paragraph",
+        "id": "a0ff2455901d84a6",
+        "text": "By directing attention to an isolated human failure, the organization avoids entangling itself in open-ended inquiry that might prove damaging, or costly, or even reveal characteristics that it wishes to keep hidden."
+      },
+      "after": "732fc000",
+      "date": 1647025426972
+    },
+    {
+      "type": "add",
+      "id": "9de931d4cce1df62",
+      "item": {
+        "type": "paragraph",
+        "id": "9de931d4cce1df62",
+        "text": "Organizations and institutions need to assert that they\nhave control over the circumstances that gave rise to the\nfailure in order to retain independent authority and freedom"
+      },
+      "after": "32768000",
+      "date": 1647026846669
+    },
+    {
+      "type": "edit",
+      "id": "9de931d4cce1df62",
+      "item": {
+        "type": "paragraph",
+        "id": "9de931d4cce1df62",
+        "text": "Organizations and institutions need to assert that they have control over the circumstances that gave rise to the failure in order to retain independent authority and freedom of action and to restore a public image of reliability. The assertion that \"this will never happen again\" is based on the illusion of control. Of course \"this\" will happen again, possibly in a different time or way place, because control\nover the real world is not complete."
+      },
+      "date": 1647026920985
+    },
+    {
+      "type": "edit",
+      "id": "9de931d4cce1df62",
+      "item": {
+        "type": "paragraph",
+        "id": "9de931d4cce1df62",
+        "text": "Organizations and institutions need to assert that they have control over the circumstances that gave rise to the failure in order to retain independent authority and freedom of action and to restore a public image of reliability. The assertion that \"this will never happen again\" is based on the illusion of control. Of course \"this\" will happen again, possibly in a different time, or way, or place, because control over the real world is not complete."
+      },
+      "date": 1647026950738
+    },
+    {
+      "type": "edit",
+      "id": "9de931d4cce1df62",
+      "item": {
+        "type": "paragraph",
+        "id": "9de931d4cce1df62",
+        "text": "Situating error in the individual raises the prospect of creating an orderly, rational world in which accidents are less likely. If failure comes from individual error, then attention may be safely directed to restrain or contain the individual."
+      },
+      "date": 1647027042929
+    },
+    {
+      "type": "add",
+      "id": "a251de60ad3cb0f7",
+      "item": {
+        "type": "paragraph",
+        "id": "a251de60ad3cb0f7",
+        "text": "Organizations and institutions need to assert that they have control over the circumstances that gave rise to the failure in order to retain independent authority and freedom of action and to restore a public image of reliability. The assertion that \"this will never happen again\" is based on the illusion of control. Of course \"this\" will happen again, possibly in a different time, or way, or place, because control over the real world is not complete."
+      },
+      "after": "9de931d4cce1df62",
+      "date": 1647027045657
+    },
+    {
+      "type": "edit",
+      "id": "732fc000",
+      "item": {
+        "id": "732fc000",
+        "type": "markdown",
+        "text": "# Defense Against Entanglement"
+      },
+      "date": 1647027057817
+    },
+    {
+      "type": "edit",
+      "id": "32768000",
+      "item": {
+        "id": "32768000",
+        "type": "markdown",
+        "text": "# Illusion of Control"
+      },
+      "date": 1647027064428
+    },
+    {
+      "type": "add",
+      "id": "97f53cd648dcd6ed",
+      "item": {
+        "type": "paragraph",
+        "id": "97f53cd648dcd6ed",
+        "text": "If accidents arise from forces and circumstances in the environment, then the experience of my colleague has relevance for me and the event increases my sense of hazard and uncertainty. By attributing my colleague’s accident to his inattention or stupidity, though, I make it possible to believe that the accident has no relevance for me. This is because I do not believe that I am either inattentive or stupid. Distancing limits and obscures the deeper\nexamination of the sources of accidents."
+      },
+      "after": "77fd2000",
+      "date": 1647027233341
+    },
+    {
+      "type": "fork",
+      "date": 1647027254879
+    },
+    {
+      "type": "edit",
+      "id": "77fd2000",
+      "item": {
+        "id": "77fd2000",
+        "type": "markdown",
+        "text": "# Distancing"
+      },
+      "date": 1647027263622
+    },
+    {
+      "type": "add",
+      "id": "2298201d2bcb8249",
+      "item": {
+        "type": "paragraph",
+        "id": "2298201d2bcb8249",
+        "text": "Conclusion"
+      },
+      "after": "47caa200",
+      "date": 1647027634144
+    },
+    {
+      "type": "add",
+      "id": "095e8d0ccf0c71fd",
+      "item": {
+        "type": "factory",
+        "id": "095e8d0ccf0c71fd",
+        "text": "Error is useful not in spite of its misapplication, but because of it. We need to take error seriously not because it is an accurate assessment but because it is inaccurate; inaccurate in particular sorts of ways that serve individual and organizational needs."
+      },
+      "after": "2298201d2bcb8249",
+      "date": 1647027652961
+    },
+    {
+      "type": "edit",
+      "id": "095e8d0ccf0c71fd",
+      "item": {
+        "type": "markdown",
+        "id": "095e8d0ccf0c71fd",
+        "text": "Error is useful not in spite of its misapplication, but _because_ of it. We need to take error seriously not because it is an accurate assessment but _because it is inaccurate_; inaccurate in particular sorts of ways that serve individual and organizational needs."
+      },
+      "date": 1647027765198
+    },
+    {
+      "type": "edit",
+      "id": "2298201d2bcb8249",
+      "item": {
+        "type": "markdown",
+        "id": "2298201d2bcb8249",
+        "text": "# Conclusion"
+      },
+      "date": 1647027773286
+    },
+    {
+      "type": "add",
+      "id": "4e956c5d5165fdcb",
+      "item": {
+        "type": "paragraph",
+        "id": "4e956c5d5165fdcb",
+        "text": "\"Operator\" or \"user error\" is a catchall term for those events that cannot be identified as overt mechanical failure."
+      },
+      "after": "47caa200",
+      "date": 1647027871452
+    },
+    {
+      "type": "add",
+      "id": "1e7ff58e6682ac82",
+      "item": {
+        "type": "paragraph",
+        "id": "1e7ff58e6682ac82",
+        "text": "The identification of \"human error\" by accident investigators is now taken by Hollnagel and his community of researchers as a marker for an incomplete or failed investigation. \"Human error\" has become a way for researchers to identify accident investigations that have ended prematurely. High rates of \"human error\" point to a particular form of human error problem. This is not error by the practitioners who were involved in the accident, but rather error by the analysts who assessed the accident's source and evolution."
+      },
+      "after": "4e956c5d5165fdcb",
+      "date": 1647027962145
+    },
+    {
+      "type": "edit",
+      "id": "47caa200",
+      "item": {
+        "id": "47caa200",
+        "type": "markdown",
+        "text": "# Failed Investigation"
+      },
+      "date": 1647027971486
+    },
+    {
+      "type": "edit",
+      "id": "97f53cd648dcd6ed",
+      "item": {
+        "type": "paragraph",
+        "id": "97f53cd648dcd6ed",
+        "text": "If accidents arise from forces and circumstances in the environment, then the experience of my colleague has relevance for me and the event increases my sense of hazard and uncertainty. By attributing my colleague's accident to his inattention or stupidity, though, I make it possible to believe that the accident has no relevance for me. This is because I do not believe that I am either inattentive or stupid. Distancing limits and obscures the deeper\nexamination of the sources of accidents."
+      },
+      "date": 1647027981747
+    },
+    {
+      "type": "edit",
+      "id": "f54000",
+      "item": {
+        "id": "f54000",
+        "type": "paragraph",
+        "text": "\"Error\" serves a number of functions for an organization: as a defense against entanglement, the illusion of control, as a means for distancing, and as a marker for a failed investigation. \"Those found responsible have been sacked\": some observations on the usefulness of error. Richard I. Cook, Christopher P. Nemeth. [https://www.researchgate.net/publication/220579378_Those_found_responsible_have_been_sacked_Some_observations_on_the_usefulness_of_error researchgate]"
+      },
+      "date": 1647030692806
+    },
+    {
+      "type": "fork",
+      "site": "wiki.dbbs.co",
+      "date": 1647320354723,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "fork",
+      "date": 1647452556079
+    }
+  ]
+}

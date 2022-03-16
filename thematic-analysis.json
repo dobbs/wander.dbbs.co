@@ -1,0 +1,238 @@
+{
+  "title": "Thematic Analysis",
+  "story": [
+    {
+      "id": "4d9de000",
+      "type": "paragraph",
+      "text": "Identifying the main themes in data from user studies — such as: interviews, focus groups, diary studies, and field studies — is often done through thematic analysis. Thematic analysis is a systematic method of breaking down and organizing rich data from qualitative research by tagging individual observations and quotations with appropriate codes, to facilitate the discovery of significant themes. Themes describe a belief, practice, need, or another phenomenon that is discovered from the data. They\nemerge when related findings appear multiple times across participants or data sources. How to Analyze Qualitative Data from UX Research: Thematic Analysis—Maria Rosala, Nielsen Norman Group [https://www.nngroup.com/articles/thematic-analysis/ site]"
+    },
+    {
+      "type": "paragraph",
+      "id": "9ccd855591043bd5",
+      "text": "Journaling"
+    },
+    {
+      "type": "paragraph",
+      "id": "da43a6ae2391ead3",
+      "text": "Writing thought processes and ideas you have about a text is common among researchers practicing grounded-theory methodology. Journaling as a form of thematic analysis is based on this methodology and involves manual annotation and highlighting of the data, followed by writing down the researchers' ideas and thought processes. The notes are known as memos (not to be confused with the office memo delivering news to employees)."
+    },
+    {
+      "type": "paragraph",
+      "id": "1817750974a43296",
+      "text": "Affinity-Diagramming Techniques"
+    },
+    {
+      "type": "paragraph",
+      "id": "f4545b38a4c1f0ba",
+      "text": "The data is highlighted, cut out physically or digitally, and reassembled into meaningful groups until themes emerge on a physical or digital board. Kara Pernice, Nielsen Norman Group [https://www.youtube.com/watch?v=C4nYxZxteJY youtube]"
+    },
+    {
+      "type": "video",
+      "id": "3be59d21377886b5",
+      "text": "YOUTUBE C4nYxZxteJY\nKara Pernice, Nielsen Norman Group, 5m [https://www.youtube.com/watch?v=C4nYxZxteJY youtube]"
+    },
+    {
+      "type": "paragraph",
+      "id": "d83cb9a37aab6faa",
+      "text": "A thematic analysis involves 6 different phases: gathering the data, reading all the data from beginning to end, coding the text based on what it’s about, creating new codes that encapsulate candidate themes, taking a break and coming back to the analysis later, and evaluating your themes for good fit."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Thematic Analysis",
+        "story": [
+          {
+            "id": "4d9de000",
+            "type": "paragraph",
+            "text": "Identifying the main themes in data from user studies — such as: interviews, focus groups, diary studies, and field studies — is often done through thematic analysis. How to Analyze Qualitative Data from UX Research: Thematic Analysis—Maria Rosala, Nielsen Norman Group [https://www.nngroup.com/articles/thematic-analysis/ site]"
+          }
+        ]
+      },
+      "date": 1647317866406
+    },
+    {
+      "type": "fork",
+      "date": 1647317869502,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "edit",
+      "id": "4d9de000",
+      "item": {
+        "id": "4d9de000",
+        "type": "paragraph",
+        "text": "Identifying the main themes in data from user studies — such as: interviews, focus groups, diary studies, and field studies — is often done through thematic analysis. Thematic analysis is a systematic method of breaking down and organizing rich data from qualitative research by tagging individual observations and quotations with appropriate codes, to facilitate the discovery of significant themes. Themes describe a belief, practice, need, or another phenomenon that is discovered from the data. They\nemerge when related findings appear multiple times across participants or data sources. How to Analyze Qualitative Data from UX Research: Thematic Analysis—Maria Rosala, Nielsen Norman Group [https://www.nngroup.com/articles/thematic-analysis/ site]"
+      },
+      "date": 1647317979039,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "add",
+      "id": "9ccd855591043bd5",
+      "item": {
+        "type": "paragraph",
+        "id": "9ccd855591043bd5",
+        "text": "Journaling"
+      },
+      "after": "4d9de000",
+      "date": 1647318057886,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "add",
+      "id": "da43a6ae2391ead3",
+      "item": {
+        "type": "paragraph",
+        "id": "da43a6ae2391ead3",
+        "text": "Writing thought processes and ideas you have about a text is common among researchers practicing grounded-theory methodology. Journaling as a form of thematic analysis is based on this methodology and involves manual annotation and highlighting of the data, followed by writing down the researchers' ideas and thought processes. The notes are known as memos (not to be confused with the office memo delivering news to employees)."
+      },
+      "after": "9ccd855591043bd5",
+      "date": 1647318088409,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "add",
+      "id": "1817750974a43296",
+      "item": {
+        "type": "paragraph",
+        "id": "1817750974a43296",
+        "text": "Affinity-Diagramming Techniques"
+      },
+      "after": "da43a6ae2391ead3",
+      "date": 1647318119914,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "add",
+      "id": "f4545b38a4c1f0ba",
+      "item": {
+        "type": "paragraph",
+        "id": "f4545b38a4c1f0ba",
+        "text": "The data is highlighted, cut out physically or digitally, and reassembled into meaningful groups until themes emerge on a physical or digital board."
+      },
+      "after": "1817750974a43296",
+      "date": 1647318120973,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "edit",
+      "id": "f4545b38a4c1f0ba",
+      "item": {
+        "type": "paragraph",
+        "id": "f4545b38a4c1f0ba",
+        "text": "The data is highlighted, cut out physically or digitally, and reassembled into meaningful groups until themes emerge on a physical or digital board. [https://www.youtube.com/watch?v=C4nYxZxteJY youtube]"
+      },
+      "date": 1647318189095,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "edit",
+      "id": "f4545b38a4c1f0ba",
+      "item": {
+        "type": "paragraph",
+        "id": "f4545b38a4c1f0ba",
+        "text": "The data is highlighted, cut out physically or digitally, and reassembled into meaningful groups until themes emerge on a physical or digital board. Kara Pernice, Nielsen Norman Group [https://www.youtube.com/watch?v=C4nYxZxteJY youtube]"
+      },
+      "date": 1647318236077,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "3be59d21377886b5"
+      },
+      "id": "3be59d21377886b5",
+      "type": "add",
+      "after": "f4545b38a4c1f0ba",
+      "date": 1647318238112,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "edit",
+      "id": "3be59d21377886b5",
+      "item": {
+        "type": "video",
+        "id": "3be59d21377886b5",
+        "text": "YOUTUBE C4nYxZxteJY\nKara Pernice, Nielsen Norman Group, 5m [https://www.youtube.com/watch?v=C4nYxZxteJY youtube]"
+      },
+      "date": 1647318262688,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "d83cb9a37aab6faa"
+      },
+      "id": "d83cb9a37aab6faa",
+      "type": "add",
+      "after": "3be59d21377886b5",
+      "date": 1647318563840,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "edit",
+      "id": "d83cb9a37aab6faa",
+      "item": {
+        "type": "paragraph",
+        "id": "d83cb9a37aab6faa",
+        "text": "A thematic analysis involves 6 different phases: gathering the data, reading all the data from beginning to end, coding the text based on what it’s about, creating new codes that encapsulate candidate themes, taking a break and coming back to the analysis later, and evaluating your themes for good fit."
+      },
+      "date": 1647318569284,
+      "error": {
+        "type": "error",
+        "msg": "",
+        "response": "<html>\n<head><title>405 Not Allowed</title></head>\n<body bgcolor=\"white\">\n<center><h1>405 Not Allowed</h1></center>\n</body>\n</html>"
+      }
+    },
+    {
+      "type": "fork",
+      "date": 1647452452584
+    }
+  ]
+}
