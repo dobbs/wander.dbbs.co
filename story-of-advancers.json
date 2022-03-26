@@ -1,0 +1,418 @@
+{
+  "title": "Story of Advancers",
+  "story": [
+    {
+      "type": "paragraph",
+      "id": "6b61f250ab43bda9",
+      "text": "Brian Marick says, I'm especially interested in the stories that peers tell each other to reinforce a style of working and body of practical knowledge. Ward's story of \"method object\" is a good example. [http://www.exampler.com/old-blog/2004/08/11/index.html#advancers post]"
+    },
+    {
+      "type": "markdown",
+      "id": "e715a43136ac4be6",
+      "text": "# Problem"
+    },
+    {
+      "type": "paragraph",
+      "id": "835d9b25f9d65436",
+      "text": "Complex tests can find bugs in complex code. What then? Usually, the result is an unending struggle against entropy: a continuous effort to fix bugs in unyielding code, hoping that each fix doesn't generate another bug. Once upon a time, Ward Cunningham was mired in entropy, but what happened next makes an unusual story.\n\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "1253e722c3d31aef",
+      "text": "His team was working on a bond trading application. It was to have two advantages over its competition. First, input would be more pleasant. Second, users would be able to generate reports on a position (a collection of holdings) as of any date.\n\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "3de863467d004326",
+      "text": "The latter proved hard to do. Many bug fixes later, one method in particular was clearly a problem. It was the one that advanced a position to a new date by processing all related transactions. It had grown to a convoluted mess of code, one that proved remarkably hard to clean up. The solution was to convert the method into a Method Object. "
+    },
+    {
+      "type": "markdown",
+      "id": "6dbf1f741aee9c82",
+      "text": "# Solution"
+    },
+    {
+      "type": "paragraph",
+      "id": "9c64660fbef2d25c",
+      "text": "It's common to treat method objects as just a coding convenience. But Cunningham's team found themselves treating this one as a design tool. They gave it a name - Advancer - that sounded like one from the domain (though none of the domain experts had a corresponding notion). Once Advancers were part of their design vocabulary, thinking about how to satisfy a new requirement meant, in part, thinking about whether a special kind of Advancer might fit nicely. By changing the way they thought about the domain, the team was able to write better code faster.\n\n"
+    },
+    {
+      "type": "markdown",
+      "id": "f3c073fc35bd7adb",
+      "text": "# Bonus"
+    },
+    {
+      "type": "paragraph",
+      "id": "4b0e68549b4b2d23",
+      "text": "Advancers later helped out in another way. The program calculated tax reports. What the government wanted was described in terms of positions and portfolios, so the calculations were implemented by Position and Portfolio objects. But there were always nagging bugs. Some time after Advancers came on the scene, the team realized they were the right place for the calculation: it happened that Advancers had instance variables that contained exactly the information needed. Switching to Advancers made tax reports tractable.\n\n"
+    },
+    {
+      "type": "paragraph",
+      "id": "d309d62fc33ff206",
+      "text": "It was only in later years that Cunningham realized why tax calculations had been so troublesome. The government and traders had different interests. The traders cared most about their positions, whereas the government cared most about how traders came to have them. It's that latter idea that Advancers captured, but conversations with domain experts couldn't tease it out - even tax experts didn't know how to express it that way. It only came out through a conversation with the code."
+    },
+    {
+      "type": "pagefold",
+      "id": "fac3746c04e3da6e",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "a6ed689fd764d286",
+      "text": "The old story may have significance in light of modern interpretation of brain activity. The small team had learned Smalltalk by the book and by browsing the code that made Smalltalk do what it did. This was a middle ground between what I've called book vs. query learning."
+    },
+    {
+      "type": "paragraph",
+      "id": "e97fde28a14a9d17",
+      "text": "See [[How We Learn to Program]]"
+    },
+    {
+      "type": "paragraph",
+      "id": "704b4e885dd0b895",
+      "text": "The solution came from strongly sensory analysis including colored pencil paths marked on three feet of printout. The method object deserved a name but we found none and settled for the descriptive noun Advancer for thing that advances positions through time."
+    },
+    {
+      "type": "paragraph",
+      "id": "e2ce1770c83a56f7",
+      "text": "Acceptance of this marginal quality name came from our contemplation of its role in the collection of object that was our program. We were truly surprised when this device invented to straighten out colored pencil lines taught us something about the traders we served and the tax collectors they had to satisfy."
+    },
+    {
+      "type": "paragraph",
+      "id": "e8cd2ad3a7fd548c",
+      "text": "We might guess that the salient features of the problems we faced were external for the colored lines and internal for imagining what our customers wanted. We flopped regularly in and out between these modes of thought for months before the whole solution became clear and convincing."
+    },
+    {
+      "type": "paragraph",
+      "id": "a3c54dd9fe29fa4a",
+      "text": "See [[Salience Network]]"
+    },
+    {
+      "type": "pagefold",
+      "id": "fd02aedd7389c572",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "e784592528a8e4e1",
+      "text": "Mathias Verraes and Rebecca Wirfs-Brock tell a story of discovering an abstraction called Alert Condition. The story finds similar insight from programmers carefully considering the software implications of the messy reality of an explosion on an oil rig. See [[Design and Reality]]."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Story of Advancers",
+        "story": []
+      },
+      "date": 1533756617585
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "6b61f250ab43bda9"
+      },
+      "id": "6b61f250ab43bda9",
+      "type": "add",
+      "date": 1533756751334
+    },
+    {
+      "type": "edit",
+      "id": "6b61f250ab43bda9",
+      "item": {
+        "type": "paragraph",
+        "id": "6b61f250ab43bda9",
+        "text": "Brian Marick says, I'm especially interested in the stories that peers tell each other to reinforce a style of working and body of practical knowledge (\"knowing how\"). Ward Cunningham's story of \"method object\" is a good example"
+      },
+      "date": 1533756790861
+    },
+    {
+      "type": "edit",
+      "id": "6b61f250ab43bda9",
+      "item": {
+        "type": "paragraph",
+        "id": "6b61f250ab43bda9",
+        "text": "Brian Marick says, I'm especially interested in the stories that peers tell each other to reinforce a style of working and body of practical knowledge. Ward's story of \"method object\" is a good example. [http://www.exampler.com/old-blog/2004/08/11/index.html#advancers post]"
+      },
+      "date": 1533756855687
+    },
+    {
+      "type": "add",
+      "id": "835d9b25f9d65436",
+      "item": {
+        "type": "paragraph",
+        "id": "835d9b25f9d65436",
+        "text": "Complex tests can find bugs in complex code. What then? Usually, the result is an unending struggle against entropy: a continuous effort to fix bugs in unyielding code, hoping that each fix doesn't generate another bug. Once upon a time, Ward Cunningham was mired in entropy, but what happened next makes an unusual story.\n\n"
+      },
+      "after": "6b61f250ab43bda9",
+      "date": 1533756970155
+    },
+    {
+      "type": "add",
+      "id": "1253e722c3d31aef",
+      "item": {
+        "type": "paragraph",
+        "id": "1253e722c3d31aef",
+        "text": "His team was working on a bond trading application. It was to have two advantages over its competition. First, input would be more pleasant. Second, users would be able to generate reports on a position (a collection of holdings) as of any date.\n\n"
+      },
+      "after": "835d9b25f9d65436",
+      "date": 1533756979276
+    },
+    {
+      "type": "add",
+      "id": "3de863467d004326",
+      "item": {
+        "type": "paragraph",
+        "id": "3de863467d004326",
+        "text": "The latter proved hard to do. Many bug fixes later, one method in particular was clearly a problem. It was the one that advanced a position to a new date by processing all related transactions. It had grown to a convoluted mess of code, one that proved remarkably hard to clean up. The solution was to convert the method into a Method Object. "
+      },
+      "after": "1253e722c3d31aef",
+      "date": 1533757000298
+    },
+    {
+      "type": "add",
+      "id": "e715a43136ac4be6",
+      "item": {
+        "type": "paragraph",
+        "id": "e715a43136ac4be6",
+        "text": "# Problem"
+      },
+      "after": "6b61f250ab43bda9",
+      "date": 1533757037169
+    },
+    {
+      "type": "edit",
+      "id": "e715a43136ac4be6",
+      "item": {
+        "type": "markdown",
+        "id": "e715a43136ac4be6",
+        "text": "# Problem"
+      },
+      "date": 1533757064441
+    },
+    {
+      "type": "add",
+      "id": "6dbf1f741aee9c82",
+      "item": {
+        "type": "paragraph",
+        "id": "6dbf1f741aee9c82",
+        "text": "Solution"
+      },
+      "after": "3de863467d004326",
+      "date": 1533757177814
+    },
+    {
+      "type": "add",
+      "id": "9c64660fbef2d25c",
+      "item": {
+        "type": "paragraph",
+        "id": "9c64660fbef2d25c",
+        "text": "It's common to treat method objects as just a coding convenience. But Cunningham's team found themselves treating this one as a design tool. They gave it a name - Advancer - that sounded like one from the domain (though none of the domain experts had a corresponding notion). Once Advancers were part of their design vocabulary, thinking about how to satisfy a new requirement meant, in part, thinking about whether a special kind of Advancer might fit nicely. By changing the way they thought about the domain, the team was able to write better code faster.\n\n"
+      },
+      "after": "6dbf1f741aee9c82",
+      "date": 1533757181339
+    },
+    {
+      "type": "edit",
+      "id": "6dbf1f741aee9c82",
+      "item": {
+        "type": "markdown",
+        "id": "6dbf1f741aee9c82",
+        "text": "# Solution"
+      },
+      "date": 1533757193901
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "f3c073fc35bd7adb"
+      },
+      "id": "f3c073fc35bd7adb",
+      "type": "add",
+      "after": "9c64660fbef2d25c",
+      "date": 1533757235508
+    },
+    {
+      "type": "edit",
+      "id": "f3c073fc35bd7adb",
+      "item": {
+        "type": "paragraph",
+        "id": "f3c073fc35bd7adb",
+        "text": "# Bonus"
+      },
+      "date": 1533757244195
+    },
+    {
+      "type": "add",
+      "id": "4b0e68549b4b2d23",
+      "item": {
+        "type": "paragraph",
+        "id": "4b0e68549b4b2d23",
+        "text": "Advancers later helped out in another way. The program calculated tax reports. What the government wanted was described in terms of positions and portfolios, so the calculations were implemented by Position and Portfolio objects. But there were always nagging bugs. Some time after Advancers came on the scene, the team realized they were the right place for the calculation: it happened that Advancers had instance variables that contained exactly the information needed. Switching to Advancers made tax reports tractable.\n\n"
+      },
+      "after": "f3c073fc35bd7adb",
+      "date": 1533757250692
+    },
+    {
+      "type": "edit",
+      "id": "f3c073fc35bd7adb",
+      "item": {
+        "type": "markdown",
+        "id": "f3c073fc35bd7adb",
+        "text": "# Bonus"
+      },
+      "date": 1533757256402
+    },
+    {
+      "type": "add",
+      "id": "d309d62fc33ff206",
+      "item": {
+        "type": "paragraph",
+        "id": "d309d62fc33ff206",
+        "text": "It was only in later years that Cunningham realized why tax calculations had been so troublesome. The government and traders had different interests. The traders cared most about their positions, whereas the government cared most about how traders came to have them. It's that latter idea that Advancers captured, but conversations with domain experts couldn't tease it out - even tax experts didn't know how to express it that way. It only came out through a conversation with the code."
+      },
+      "after": "4b0e68549b4b2d23",
+      "date": 1533757264619
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "fac3746c04e3da6e"
+      },
+      "id": "fac3746c04e3da6e",
+      "type": "add",
+      "after": "d309d62fc33ff206",
+      "date": 1533757395495
+    },
+    {
+      "type": "edit",
+      "id": "fac3746c04e3da6e",
+      "item": {
+        "type": "pagefold",
+        "id": "fac3746c04e3da6e",
+        "text": "."
+      },
+      "date": 1533757399950
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "a6ed689fd764d286"
+      },
+      "id": "a6ed689fd764d286",
+      "type": "add",
+      "after": "fac3746c04e3da6e",
+      "date": 1533757404023
+    },
+    {
+      "type": "edit",
+      "id": "a6ed689fd764d286",
+      "item": {
+        "type": "paragraph",
+        "id": "a6ed689fd764d286",
+        "text": "The old story may have significance in light of modern interpretation of brain activity. The small team had learned Smalltalk by the book and by browsing the code that made Smalltalk do what it did. This was a middle ground between what I've called book vs. query learning."
+      },
+      "date": 1533757628144
+    },
+    {
+      "type": "add",
+      "id": "e97fde28a14a9d17",
+      "item": {
+        "type": "paragraph",
+        "id": "e97fde28a14a9d17",
+        "text": "See [[How We Learn to Program]]"
+      },
+      "after": "a6ed689fd764d286",
+      "date": 1533757644071
+    },
+    {
+      "type": "add",
+      "id": "704b4e885dd0b895",
+      "item": {
+        "type": "paragraph",
+        "id": "704b4e885dd0b895",
+        "text": "The solution came from strongly sensory analysis including colored pencil paths marked on three feet of printout. The method object deserved a name but we found none and settled for the descriptive noun Advancer for thing that advances positions through time."
+      },
+      "after": "e97fde28a14a9d17",
+      "date": 1533757937351
+    },
+    {
+      "type": "add",
+      "id": "e2ce1770c83a56f7",
+      "item": {
+        "type": "paragraph",
+        "id": "e2ce1770c83a56f7",
+        "text": "Acceptance of this marginal quality name came from our contemplation of its role in the collection of object that was our program. We were truly surprised when this device invented to straighten out colored pencil lines taught us something about the traders we served and the tax collectors they had to satisfy."
+      },
+      "after": "704b4e885dd0b895",
+      "date": 1533758168937
+    },
+    {
+      "type": "add",
+      "id": "e8cd2ad3a7fd548c",
+      "item": {
+        "type": "paragraph",
+        "id": "e8cd2ad3a7fd548c",
+        "text": "We might guess that the salient features of the problems we faced were external for the colored lines and internal for imagining what our customers wanted. We flopped regularly in and out between these modes of thought for months before the whole solution became clear."
+      },
+      "after": "e2ce1770c83a56f7",
+      "date": 1533758585805
+    },
+    {
+      "type": "add",
+      "id": "a3c54dd9fe29fa4a",
+      "item": {
+        "type": "paragraph",
+        "id": "a3c54dd9fe29fa4a",
+        "text": "See [[Salience Network]]"
+      },
+      "after": "e8cd2ad3a7fd548c",
+      "date": 1533758598116
+    },
+    {
+      "type": "edit",
+      "id": "e8cd2ad3a7fd548c",
+      "item": {
+        "type": "paragraph",
+        "id": "e8cd2ad3a7fd548c",
+        "text": "We might guess that the salient features of the problems we faced were external for the colored lines and internal for imagining what our customers wanted. We flopped regularly in and out between these modes of thought for months before the whole solution became clear and convincing."
+      },
+      "date": 1533758939379
+    },
+    {
+      "type": "fork",
+      "site": "path.ward.asia.wiki.org",
+      "date": 1648251035888
+    },
+    {
+      "id": "fd02aedd7389c572",
+      "type": "add",
+      "item": {
+        "type": "pagefold",
+        "id": "fd02aedd7389c572",
+        "text": "."
+      },
+      "after": "a3c54dd9fe29fa4a",
+      "date": 1648251061013
+    },
+    {
+      "id": "e784592528a8e4e1",
+      "type": "add",
+      "item": {
+        "type": "factory",
+        "id": "e784592528a8e4e1"
+      },
+      "after": "fd02aedd7389c572",
+      "date": 1648251067866
+    },
+    {
+      "type": "edit",
+      "id": "e784592528a8e4e1",
+      "item": {
+        "type": "paragraph",
+        "id": "e784592528a8e4e1",
+        "text": "Mathias Verraes and Rebecca Wirfs-Brock tell a story of discovering an abstraction called Alert Condition. The story finds similar insight from programmers carefully considering the software implications of the messy reality of an explosion on an oil rig. See [[Design and Reality]]."
+      },
+      "date": 1648251434297
+    }
+  ]
+}
