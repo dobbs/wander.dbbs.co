@@ -1,0 +1,286 @@
+{
+  "title": "Crucial Complexity",
+  "story": [
+    {
+      "id": "4a756000",
+      "type": "paragraph",
+      "text": "Complexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019 [https://www.usenix.org/conference/srecon19americas/presentation/rosenthal usenix] [https://www.youtube.com/watch?v=mvVfjYE1olc youtube]"
+    },
+    {
+      "type": "video",
+      "id": "194aba1da4189f28",
+      "text": "YOUTUBE mvVfjYE1olc\nComplexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019 [https://www.usenix.org/conference/srecon19americas/presentation/rosenthal usenix] [https://www.youtube.com/watch?v=mvVfjYE1olc youtube]"
+    },
+    {
+      "id": "37483800",
+      "type": "paragraph",
+      "text": "Counterintuitive truths."
+    },
+    {
+      "id": "1324c000",
+      "type": "paragraph",
+      "text": "Example failure in a complex system. [https://youtu.be/mvVfjYE1olc?t=281 4m41s]"
+    },
+    {
+      "id": "4abf8000",
+      "type": "paragraph",
+      "text": "Customer profile service: redis cache fails; cassandra db cannot handle the subsequent load; service returns 404 and client fails hard 'cos it knows profiles are never deleted. Every component was well engineered for failure and worked as designed. Yet we get this aberrant behavior no one could have anticipated."
+    },
+    {
+      "id": "26a8000",
+      "type": "paragraph",
+      "text": "So how do we make systems reliable?"
+    },
+    {
+      "id": "1898e800",
+      "type": "paragraph",
+      "text": "Redundancy? [https://youtu.be/mvVfjYE1olc?t=480 8m]"
+    },
+    {
+      "id": "5f454000",
+      "type": "paragraph",
+      "text": "Tells the story of Challenger's redundant o-rings. Confidence in the redundant o-rings contributed to the decisions to launch. Had there been only one o-ring the launch would have been canceled."
+    },
+    {
+      "id": "2fcfc000",
+      "type": "paragraph",
+      "text": "So how do we make systems reliable?"
+    },
+    {
+      "id": "5d0bd800",
+      "type": "paragraph",
+      "text": "Avoid risk? [https://youtu.be/mvVfjYE1olc?t=772 12m52s]"
+    },
+    {
+      "id": "76c66000",
+      "type": "paragraph",
+      "text": "You know, guard rails. Tells the story of squirrels. Turns out squirrels who successfully avoid encounters with cars are those who take more risks crossing roads. Exposure to risk fosters the development of skills that increase survival."
+    },
+    {
+      "id": "4f5e8000",
+      "type": "paragraph",
+      "text": "Exposure to risk is actually a fundamental part of learning how to how to handle and mitigate and remediate risk. If engineers aren't exposed to it then they will perform poorly when they are eventually exposed to it."
+    },
+    {
+      "id": "5b07c000",
+      "type": "paragraph",
+      "text": "We need to be exposed to risk in order to do a better job and guardrails prevent that. They also prevent you from having degrees of adaptive capacity—the ability to improvise in the moment in order to save a system. Avoiding risk backfires."
+    },
+    {
+      "id": "740b6000",
+      "type": "paragraph",
+      "text": "Here's the solution: Simplicity. [https://youtu.be/mvVfjYE1olc?t=889 14m49s]"
+    },
+    {
+      "id": "49028000",
+      "type": "paragraph",
+      "text": "Tells the story of accidental and essential complexity. Makes the case that accidental complexity can only increase—we cannot afford to spend the time continually removing the accidental complexity. Makes the case that essential complexity is inherent part of increasing robustness (by describing how one might incrementally grow a key value store into something like cassandra)."
+    },
+    {
+      "id": "72124000",
+      "type": "paragraph",
+      "text": "So how do we make systems reliable?"
+    },
+    {
+      "id": "413f0000",
+      "type": "paragraph",
+      "text": "Tells the story of Rasmussen's dynamic safety model. [https://youtu.be/mvVfjYE1olc?t=1078 17m58s]"
+    },
+    {
+      "id": "1efd2000",
+      "type": "paragraph",
+      "text": "So here's the problem. You have an intuitive sense of economics. You have intuitive sense of workload. You have no intuitive sense of how safe your systems are."
+    },
+    {
+      "id": "22eea800",
+      "type": "paragraph",
+      "text": "This is where chaos engineering helps you. It is a proactive discipline of exploring and discovering the safety boundaries of your systems."
+    },
+    {
+      "id": "5f346000",
+      "type": "paragraph",
+      "text": "So how else do we make systems reliable?"
+    },
+    {
+      "id": "5e8ac000",
+      "type": "paragraph",
+      "text": "Tells Kent Beck's story about economic pillars of complexity. [https://youtu.be/mvVfjYE1olc?t=1200 20m] Kent published his story at facebook: [https://www.facebook.com/notes/681695435785808/ article] and says he was reflecting on a keynote by economist Enrico Zaninotto from XP 2002. [https://martinfowler.com/articles/zaninotto.pdf pdf]"
+    },
+    {
+      "id": "6dc12000",
+      "type": "paragraph",
+      "text": "Four pillars are: state, relationships, environment, and reversibility. Henry Ford managed complexity by limiting states, relationships, and the environment, but couldn't do anything about reversibility. Software is the opposite: cannot limit state, relationships, nor environment, but have much more control over reversibility."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Crucial Complexity",
+        "story": [
+          {
+            "id": "4a756000",
+            "type": "paragraph",
+            "text": "Complexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019 [https://www.usenix.org/conference/srecon19americas/presentation/rosenthal usenix] [https://www.youtube.com/watch?v=mvVfjYE1olc youtube]"
+          },
+          {
+            "id": "37483800",
+            "type": "paragraph",
+            "text": "Counterintuitive truths."
+          },
+          {
+            "id": "1324c000",
+            "type": "paragraph",
+            "text": "Example failure in a complex system. [https://youtu.be/mvVfjYE1olc?t=281 4m41s]"
+          },
+          {
+            "id": "4abf8000",
+            "type": "paragraph",
+            "text": "Customer profile service: redis cache fails; cassandra db cannot handle the subsequent load; service returns 404 and client fails hard 'cos it knows profiles are never deleted. Every component was well engineered for failure and worked as designed. Yet we get this aberrant behavior no one could have anticipated."
+          },
+          {
+            "id": "26a8000",
+            "type": "paragraph",
+            "text": "So how do we make systems reliable?"
+          },
+          {
+            "id": "1898e800",
+            "type": "paragraph",
+            "text": "Redundancy? [https://youtu.be/mvVfjYE1olc?t=480 8m]"
+          },
+          {
+            "id": "5f454000",
+            "type": "paragraph",
+            "text": "Tells the story of Challenger's redundant o-rings. Confidence in the redundant o-rings contributed to the decisions to launch. Had there been only one o-ring the launch would have been canceled."
+          },
+          {
+            "id": "2fcfc000",
+            "type": "paragraph",
+            "text": "So how do we make systems reliable?"
+          },
+          {
+            "id": "5d0bd800",
+            "type": "paragraph",
+            "text": "Avoid risk? [https://youtu.be/mvVfjYE1olc?t=772 12m52s]"
+          },
+          {
+            "id": "76c66000",
+            "type": "paragraph",
+            "text": "You know, guard rails. Tells the story of squirrels. Turns out squirrels who successfully avoid encounters with cars are those who take more risks crossing roads. Exposure to risk fosters the development of skills that increase survival."
+          },
+          {
+            "id": "4f5e8000",
+            "type": "paragraph",
+            "text": "Exposure to risk is actually a fundamental part of learning how to how to handle and mitigate and remediate risk. If engineers aren't exposed to it then they will perform poorly when they are eventually exposed to it."
+          },
+          {
+            "id": "5b07c000",
+            "type": "paragraph",
+            "text": "We need to be exposed to risk in order to do a better job and guardrails prevent that. They also prevent you from having degrees of adaptive capacity—the ability to improvise in the moment in order to save a system. Avoiding risk backfires."
+          },
+          {
+            "id": "740b6000",
+            "type": "paragraph",
+            "text": "Here's the solution: Simplicity. [https://youtu.be/mvVfjYE1olc?t=889 14m49s]"
+          },
+          {
+            "id": "49028000",
+            "type": "paragraph",
+            "text": "Tells the story of accidental and essential complexity. Makes the case that accidental complexity can only increase—we cannot afford to spend the time continually removing the accidental complexity. Makes the case that essential complexity is inherent part of increasing robustness (by describing how one might incrementally grow a key value store into something like cassandra)."
+          },
+          {
+            "id": "72124000",
+            "type": "paragraph",
+            "text": "So how do we make systems reliable?"
+          },
+          {
+            "id": "413f0000",
+            "type": "paragraph",
+            "text": "Tells the story of Rasmussen's dynamic safety model. [https://youtu.be/mvVfjYE1olc?t=1078 17m58s]"
+          },
+          {
+            "id": "1efd2000",
+            "type": "paragraph",
+            "text": "So here's the problem. You have an intuitive sense of economics. You have intuitive sense of workload. You have no intuitive sense of how safe your systems are."
+          },
+          {
+            "id": "22eea800",
+            "type": "paragraph",
+            "text": "This is where chaos engineering helps you. It is a proactive discipline of exploring and discovering the safety boundaries of your systems."
+          },
+          {
+            "id": "5f346000",
+            "type": "paragraph",
+            "text": "So how else do we make systems reliable?"
+          },
+          {
+            "id": "5e8ac000",
+            "type": "paragraph",
+            "text": "Tells Kent Beck's story about economic pillars of complexity. [https://youtu.be/mvVfjYE1olc?t=1200 20m] Kent published his story at facebook: [https://www.facebook.com/notes/681695435785808/ article] and says he was reflecting on a keynote by economist Enrico Zaninotto from XP 2002. [https://martinfowler.com/articles/zaninotto.pdf pdf]"
+          },
+          {
+            "id": "6dc12000",
+            "type": "paragraph",
+            "text": "Four pillars are: state, relationships, environment, and reversibility. Henry Ford managed complexity by limiting states, relationships, and the environment, but couldn't do anything about reversibility. Software is the opposite: cannot limit state, relationships, nor environment, but have much more control over reversibility.<br>"
+          }
+        ]
+      },
+      "date": 1649135932977
+    },
+    {
+      "type": "fork",
+      "date": 1649135937283
+    },
+    {
+      "type": "edit",
+      "id": "6dc12000",
+      "item": {
+        "id": "6dc12000",
+        "type": "paragraph",
+        "text": "Four pillars are: state, relationships, environment, and reversibility. Henry Ford managed complexity by limiting states, relationships, and the environment, but couldn't do anything about reversibility. Software is the opposite: cannot limit state, relationships, nor environment, but have much more control over reversibility."
+      },
+      "date": 1649135942564
+    },
+    {
+      "type": "add",
+      "id": "194aba1da4189f28",
+      "item": {
+        "type": "factory",
+        "id": "194aba1da4189f28",
+        "text": "Complexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019 usenix youtube "
+      },
+      "after": "4a756000",
+      "date": 1649135962374
+    },
+    {
+      "type": "edit",
+      "id": "194aba1da4189f28",
+      "item": {
+        "type": "video",
+        "id": "194aba1da4189f28",
+        "text": "YOUTUBE\nComplexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019 usenix youtube "
+      },
+      "date": 1649135977087
+    },
+    {
+      "type": "edit",
+      "id": "194aba1da4189f28",
+      "item": {
+        "type": "video",
+        "id": "194aba1da4189f28",
+        "text": "YOUTUBE mvVfjYE1olc\nComplexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019"
+      },
+      "date": 1649135998599
+    },
+    {
+      "type": "edit",
+      "id": "194aba1da4189f28",
+      "item": {
+        "type": "video",
+        "id": "194aba1da4189f28",
+        "text": "YOUTUBE mvVfjYE1olc\nComplexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019 [https://www.usenix.org/conference/srecon19americas/presentation/rosenthal usenix] [https://www.youtube.com/watch?v=mvVfjYE1olc youtube]"
+      },
+      "date": 1649136013174
+    }
+  ]
+}

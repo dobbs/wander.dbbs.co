@@ -4,7 +4,17 @@
     {
       "id": "505d0000",
       "type": "paragraph",
-      "text": "Rebecca was invited to consult for a company that makes hardware and software for oil rigs. She was asked to help with object design and modelling, working on redesigning the control system that monitors and manages sensors and equipment on the oil rig. Drilling causes a lot of friction, and “drilling mud” (a proprietary chemical substance) is used as a lubricant. It’s also used as a carrier for the rocks and debris you get from drilling, lifting it all up and out of the hole. Equipment monitors the drilling mud pressure, and by changing the composition of the mud during drilling, you can control that pressure. Too much pressure is a really bad thing. And then an oil rig in the gulf exploded. Design and Reality. Reframing the problem through design. Mathias Verraes and Rebecca Wirfs-Brock. [http://www.wirfs-brock.com/blog/2021/09/13/design-and-reality/ blog]"
+      "text": "Mathias Verraes and Rebecca Wirfs-Brock describe a design breakthrough in \"Design and Reality: Reframing the problem through design\". Rebecca was invited to consult for a company that makes hardware and software for oil rigs. The initial model assumed alarms are directly connected to emergency conditions in the world. The system’s perception of the world is distorted: when engineers turn off the alarm, the system believes the emergency is over. But it’s not, turning an alarm off doesn’t change the emergency condition in the world. ... the team discovered a distinction between the alarm sounding, and the state of alertness. ... The new model decoupled the emergency from the sounding of the alarm by introducing \"alert conditions\" in addition to \"alerts\".  [http://www.wirfs-brock.com/blog/2021/09/13/design-and-reality/ blog]"
+    },
+    {
+      "type": "paragraph",
+      "id": "57c25a32c567e5d7",
+      "text": "Drilling causes a lot of friction, and “drilling mud” (a proprietary chemical substance) is used as a lubricant. Equipment monitors the drilling mud pressure, and by changing the composition of the mud during drilling, you can control that pressure. Too much pressure is a really bad thing."
+    },
+    {
+      "type": "paragraph",
+      "id": "722a0f1df52f38b8",
+      "text": "And then an oil rig in the gulf exploded."
     },
     {
       "id": "6cbe5000",
@@ -185,6 +195,94 @@
         "text": "Ward Cunningham tells a story of discovering a method object in Wycash. The story finds a similar insight from programmers pushing against code for real applications discovering insights the experts could not articulate. See [[Story of Advancers]]."
       },
       "date": 1648251282110
+    },
+    {
+      "type": "edit",
+      "id": "505d0000",
+      "item": {
+        "id": "505d0000",
+        "type": "paragraph",
+        "text": "Rebecca was invited to consult for a company that makes hardware and software for oil rigs. Drilling causes a lot of friction, and “drilling mud” (a proprietary chemical substance) is used as a lubricant. Equipment monitors the drilling mud pressure, and by changing the composition of the mud during drilling, you can control that pressure. Too much pressure is a really bad thing. Design and Reality. Reframing the problem through design. Mathias Verraes and Rebecca Wirfs-Brock. [http://www.wirfs-brock.com/blog/2021/09/13/design-and-reality/ blog]"
+      },
+      "date": 1648674160881
+    },
+    {
+      "id": "17ac4000",
+      "type": "add",
+      "item": {
+        "id": "17ac4000",
+        "type": "paragraph",
+        "text": "The initial model assumed alarms are directly connected to emergency conditions in the world. The system’s perception of the world is distorted: when engineers turn off the alarm, the system believes the emergency is over. But it’s not, turning an alarm off doesn’t change the emergency condition in the world. ... the team discovered a distinction between the alarm sounding, and the state of alertness. ... The new model decoupled the emergency from the sounding of the alarm by introducing \"alert conditions\" in addition to \"alerts\"."
+      },
+      "date": 1649111063131
+    },
+    {
+      "id": "17ac4000",
+      "type": "move",
+      "order": [
+        "505d0000",
+        "17ac4000",
+        "6cbe5000",
+        "121fe000",
+        "7667c000",
+        "7ab33000",
+        "2b10c000",
+        "22e000",
+        "209ce000",
+        "5ae03000",
+        "10e81000",
+        "24b4a000",
+        "fd02aedd7389c572",
+        "e784592528a8e4e1"
+      ],
+      "date": 1649111123398
+    },
+    {
+      "type": "remove",
+      "id": "17ac4000",
+      "date": 1649111132495
+    },
+    {
+      "type": "edit",
+      "id": "505d0000",
+      "item": {
+        "id": "505d0000",
+        "type": "paragraph",
+        "text": "Mathias Verraes and Rebecca Wirfs-Brock describe a design breakthrough in \"Design and Reality: Reframing the problem through design\". Rebecca was invited to consult for a company that makes hardware and software for oil rigs. The initial model assumed alarms are directly connected to emergency conditions in the world. The system’s perception of the world is distorted: when engineers turn off the alarm, the system believes the emergency is over. But it’s not, turning an alarm off doesn’t change the emergency condition in the world. ... the team discovered a distinction between the alarm sounding, and the state of alertness. ... The new model decoupled the emergency from the sounding of the alarm by introducing \"alert conditions\" in addition to \"alerts\".  [http://www.wirfs-brock.com/blog/2021/09/13/design-and-reality/ blog]"
+      },
+      "date": 1649111251803
+    },
+    {
+      "type": "add",
+      "id": "57c25a32c567e5d7",
+      "item": {
+        "type": "paragraph",
+        "id": "57c25a32c567e5d7",
+        "text": "Drilling causes a lot of friction, and “drilling mud” (a proprietary chemical substance) is used as a lubricant. Equipment monitors the drilling mud pressure, and by changing the composition of the mud during drilling, you can control that pressure. Too much pressure is a really bad thing. "
+      },
+      "after": "505d0000",
+      "date": 1649111261527
+    },
+    {
+      "type": "edit",
+      "id": "57c25a32c567e5d7",
+      "item": {
+        "type": "paragraph",
+        "id": "57c25a32c567e5d7",
+        "text": "Drilling causes a lot of friction, and “drilling mud” (a proprietary chemical substance) is used as a lubricant. Equipment monitors the drilling mud pressure, and by changing the composition of the mud during drilling, you can control that pressure. Too much pressure is a really bad thing."
+      },
+      "date": 1649111288996
+    },
+    {
+      "type": "add",
+      "id": "722a0f1df52f38b8",
+      "item": {
+        "type": "paragraph",
+        "id": "722a0f1df52f38b8",
+        "text": "And then an oil rig in the gulf exploded."
+      },
+      "after": "57c25a32c567e5d7",
+      "date": 1649111290897
     }
   ]
 }

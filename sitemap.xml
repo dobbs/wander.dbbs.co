@@ -21,12 +21,44 @@
     <lastmod>2022-01-29</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/design-and-reality.html</loc>
+    <lastmod>2022-04-04</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/drawing-dynamic-models.html</loc>
+    <lastmod>2022-03-30</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/eric-dobbs.html</loc>
     <lastmod>2022-03-20</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/general-inductive-analysis.html</loc>
+    <lastmod>2022-03-16</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/incident-response-at-slack.html</loc>
     <lastmod>2022-02-15</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/on-the-brittleness-of-dashboards.html</loc>
+    <lastmod>2022-03-16</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/shadows-of-software-design.html</loc>
+    <lastmod>2022-03-15</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/software-provenance.html</loc>
+    <lastmod>2022-03-15</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/story-of-advancers.html</loc>
+    <lastmod>2022-03-25</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/thematic-analysis.html</loc>
+    <lastmod>2022-03-16</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/tiny-habits.html</loc>
@@ -37,8 +69,12 @@
     <lastmod>2022-02-04</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/usefulness-of-error.html</loc>
+    <lastmod>2022-03-11</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/wander.html</loc>
-    <lastmod>2022-01-26</lastmod>
+    <lastmod>2022-04-04</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/weak-signals--chaos.html</loc>
@@ -57,35 +93,7 @@
     <lastmod>2022-02-15</lastmod>
   </url>
   <url>
-    <loc>http://wander.localhost/thematic-analysis.html</loc>
-    <lastmod>2022-03-16</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/on-the-brittleness-of-dashboards.html</loc>
-    <lastmod>2022-03-16</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/shadows-of-software-design.html</loc>
-    <lastmod>2022-03-15</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/usefulness-of-error.html</loc>
-    <lastmod>2022-03-11</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/software-provenance.html</loc>
-    <lastmod>2022-03-15</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/general-inductive-analysis.html</loc>
-    <lastmod>2022-03-16</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/design-and-reality.html</loc>
-    <lastmod>2022-03-25</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/story-of-advancers.html</loc>
-    <lastmod>2022-03-25</lastmod>
+    <loc>http://wander.localhost/crucial-complexity.html</loc>
+    <lastmod>2022-04-05</lastmod>
   </url>
 </urlset>

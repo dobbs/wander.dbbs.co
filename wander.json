@@ -18,6 +18,11 @@
     },
     {
       "type": "paragraph",
+      "id": "e3ad15070a619571",
+      "text": "When web surfing, if you find a page or video that you want to share... Create a page. Include the link. Copy or paraphrase only the parts of the article or video that really resonated. Give yourself permission to be incomplete."
+    },
+    {
+      "type": "paragraph",
       "id": "e68d03a4fa79d872",
       "text": "Mike Caulfield contrasted these metaphors of Garden and Stream. See [[A Year in the Garden]]."
     },
@@ -149,6 +154,17 @@
       },
       "after": "bd6abde34cb6e3cf",
       "date": 1643206408246
+    },
+    {
+      "id": "e3ad15070a619571",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "e3ad15070a619571",
+        "text": "When web surfing, if you find a page or video that you want to share... Create a page. Include the link. Copy or paraphrase only the parts of the article or video that really resonated. Give yourself permission to be incomplete."
+      },
+      "after": "a4034486d08f6065",
+      "date": 1649111749401
     }
   ]
 }

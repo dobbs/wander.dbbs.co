@@ -1,0 +1,166 @@
+{
+  "title": "Drawing Dynamic Models",
+  "story": [
+    {
+      "id": "4af5c000",
+      "type": "paragraph",
+      "text": "Crosscut is a stylus & tablet tool for drawing dynamic models of your thoughts. It aspires to be a thing to think through. In Crosscut you sketch, cobble, tinker, and play toward a deeper understanding. Begin by using the drawing tools to sketch something you’re thinking about, as you would with pen & paper. Then, add dynamic behaviors with a programming system that lives right inside your sketches. Each dynamic sketch is a reusable part that you can nest inside other sketches, enabling you to build elaborate models from simple pieces. Ink & Switch. Crosscut: Drawing Dynamic Models [https://www.inkandswitch.com/crosscut/ article]"
+    },
+    {
+      "id": "6666d800",
+      "type": "pagefold",
+      "text": "."
+    },
+    {
+      "id": "84c4000",
+      "type": "paragraph",
+      "text": "Ink & Switch have built something close to where I thought I was heading when my attention moved from turtle graphics to federated wiki. [https://dobbse.net/thinair/2012/03/programming-by-touch.html blog]"
+    },
+    {
+      "type": "frame",
+      "id": "bed2e870d46605e2",
+      "text": "//dobbse.net/turtle/wander/\nHEIGHT 400\nA turtle graphics implementation built with a view to creating a programming environment kids could use on an ipod touch without having to type with their thumbs. [https://dobbse.net/thinair/2012/03/programming-by-touch.html blog] [https://dobbse.net/turtle/wander/ app]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Drawing Dynamic Models",
+        "story": [
+          {
+            "id": "4af5c000",
+            "type": "paragraph",
+            "text": "Crosscut is a stylus & tablet tool for drawing dynamic models of your thoughts. It aspires to be a thing to think through. In Crosscut you sketch, cobble, tinker, and play toward a deeper understanding. Begin by using the drawing tools to sketch something you’re thinking about, as you would with pen & paper. Then, add dynamic behaviors with a programming system that lives right inside your sketches. Each dynamic sketch is a reusable part that you can nest inside other sketches, enabling you to build elaborate models from simple pieces. Ink & Switch. Crosscut: Drawing Dynamic Models [https://www.inkandswitch.com/crosscut/ article]"
+          },
+          {
+            "id": "6666d800",
+            "type": "paragraph",
+            "text": "..."
+          },
+          {
+            "id": "84c4000",
+            "type": "paragraph",
+            "text": "https://dobbse.net/turtle/wander/"
+          }
+        ]
+      },
+      "date": 1648673060209
+    },
+    {
+      "type": "fork",
+      "date": 1648673081006
+    },
+    {
+      "type": "edit",
+      "id": "6666d800",
+      "item": {
+        "id": "6666d800",
+        "type": "pagefold",
+        "text": "."
+      },
+      "date": 1648673086361
+    },
+    {
+      "type": "edit",
+      "id": "84c4000",
+      "item": {
+        "id": "84c4000",
+        "type": "paragraph",
+        "text": "Ink & Switch have built something close to where I thought I was heading when my attention moved from turtle graphic to federated wiki."
+      },
+      "date": 1648673141130
+    },
+    {
+      "type": "add",
+      "id": "bed2e870d46605e2",
+      "item": {
+        "type": "factory",
+        "id": "bed2e870d46605e2",
+        "text": "https://dobbse.net/turtle/wander/"
+      },
+      "after": "84c4000",
+      "date": 1648673142132
+    },
+    {
+      "type": "edit",
+      "id": "bed2e870d46605e2",
+      "item": {
+        "type": "frame",
+        "id": "bed2e870d46605e2",
+        "text": "https://dobbse.net/turtle/wander/\nHEIGHT 500\nA turtle graphics implementation built with a view to creating a programming environment kids could use on an ipod touch without having to type with their thumbs. [https://dobbse.net/turtle/wander/ app]"
+      },
+      "date": 1648673264319
+    },
+    {
+      "type": "edit",
+      "id": "bed2e870d46605e2",
+      "item": {
+        "type": "frame",
+        "id": "bed2e870d46605e2",
+        "text": "//dobbse.net/turtle/wander/\nHEIGHT 500\nA turtle graphics implementation built with a view to creating a programming environment kids could use on an ipod touch without having to type with their thumbs. [https://dobbse.net/turtle/wander/ app]"
+      },
+      "date": 1648673288493
+    },
+    {
+      "type": "edit",
+      "id": "bed2e870d46605e2",
+      "item": {
+        "type": "frame",
+        "id": "bed2e870d46605e2",
+        "text": "//dobbse.net/turtle/wander/\nHEIGHT 350\nA turtle graphics implementation built with a view to creating a programming environment kids could use on an ipod touch without having to type with their thumbs. [https://dobbse.net/turtle/wander/ app]"
+      },
+      "date": 1648673301494
+    },
+    {
+      "type": "edit",
+      "id": "84c4000",
+      "item": {
+        "id": "84c4000",
+        "type": "paragraph",
+        "text": "Ink & Switch have built something close to where I thought I was heading when my attention moved from turtle graphic to federated wiki. [https://dobbse.net/thinair/2012/03/programming-by-touch.html blog]"
+      },
+      "date": 1648673367583
+    },
+    {
+      "type": "edit",
+      "id": "bed2e870d46605e2",
+      "item": {
+        "type": "frame",
+        "id": "bed2e870d46605e2",
+        "text": "//dobbse.net/turtle/wander/\nHEIGHT 350\nA turtle graphics implementation built with a view to creating a programming environment kids could use on an ipod touch without having to type with their thumbs. [https://dobbse.net/thinair/2012/03/programming-by-touch.html blog] [https://dobbse.net/turtle/wander/ app]"
+      },
+      "date": 1648673384664
+    },
+    {
+      "type": "edit",
+      "id": "84c4000",
+      "item": {
+        "id": "84c4000",
+        "type": "paragraph",
+        "text": "Ink & Switch have built something close to where I thought I was heading when my attention moved from turtle graphics to federated wiki. [https://dobbse.net/thinair/2012/03/programming-by-touch.html blog]"
+      },
+      "date": 1648673400807
+    },
+    {
+      "type": "edit",
+      "id": "bed2e870d46605e2",
+      "item": {
+        "type": "frame",
+        "id": "bed2e870d46605e2",
+        "text": "//dobbse.net/turtle/wander/\nHEIGHT 300\nA turtle graphics implementation built with a view to creating a programming environment kids could use on an ipod touch without having to type with their thumbs. [https://dobbse.net/thinair/2012/03/programming-by-touch.html blog] [https://dobbse.net/turtle/wander/ app]"
+      },
+      "date": 1648673414530
+    },
+    {
+      "type": "edit",
+      "id": "bed2e870d46605e2",
+      "item": {
+        "type": "frame",
+        "id": "bed2e870d46605e2",
+        "text": "//dobbse.net/turtle/wander/\nHEIGHT 400\nA turtle graphics implementation built with a view to creating a programming environment kids could use on an ipod touch without having to type with their thumbs. [https://dobbse.net/thinair/2012/03/programming-by-touch.html blog] [https://dobbse.net/turtle/wander/ app]"
+      },
+      "date": 1648673439785
+    }
+  ]
+}
