@@ -1,0 +1,284 @@
+{
+  "title": "Against The Rules Podcast",
+  "story": [
+    {
+      "id": "4c8bd000",
+      "type": "paragraph",
+      "text": "Michael\n Lewis, in one sense all of my books are the same. I start out knowing \nvery little about the subject. I go find actual experts and tell stories\n about them. They are the experts. I'm just a guy who writes book about \nthem. Whenever a book comes out I find myself asking \"Why? Why on Earth are you asking me?\" This season is about experts. We'll tell seven stories about experts. [https://www.pushkin.fm/show/against-the-rules-with-michael-lewis/ show]"
+    },
+    {
+      "type": "pagefold",
+      "id": "5c21e406f8b1449e",
+      "text": "."
+    },
+    {
+      "id": "28556000",
+      "type": "paragraph",
+      "text": "\"We pretty quickly figured out that the rules weren't written down anywhere. The only people who knew the rules were people who had actually worked in the industry and had been incredibly observant for the past five years.\" [[Six Levels Down]], season 3, episode 1. [https://www.pushkin.fm/episode/six-levels-down/ podcast]"
+    },
+    {
+      "id": "65aba400",
+      "type": "paragraph",
+      "text": "\"If I had asked Sue to sit in a room and write out everything you know about billing she wouldn't have been able to produce what we needed to be successful. Instead, she had a set of experiences such that when she got placed into a situation where something didn't make sense, she would immediately recognize that something was wrong and search her head to understand why it was wrong.\""
+    },
+    {
+      "type": "pagefold",
+      "id": "efa8f3293ac3b293",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "d74a3f0993704e9d",
+      "text": "\"We are talking to a miracle. The ordinary miracle is Art Allan. That a person decides all by himself to become an expert on drift. His expertise changes the world. What he's done has become so woven into ordinary life that we don't even see it. We cease to include it in the stories we tell. The experts can't really defend themselves. Telling stories is almost the opposite of what experts do. Even when they have great ones to tell.\"—The Art of the Untold Story, season 3, episode 2. [https://www.pushkin.fm/episode/the-art-of-the-untold-story/ podcast] "
+    },
+    {
+      "type": "paragraph",
+      "id": "b8f2370acc30e1eb",
+      "text": "Arthur A. Allen. Coast Guard Oceanographer. Pioneered and perfected a modeling program that predicts where people lost at sea will be found, cutting search and rescue times and saving thousands of lives during a 35-year career. Service to America. [https://servicetoamericamedals.org/honorees/arthur-a-allen/ site]"
+    },
+    {
+      "type": "pagefold",
+      "id": "ab7e55454eff0161",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "9a11ba1aa55018c9",
+      "text": "It's kinda great that their ignorance is kinda honest. They aren't thinking. \"But why aren't they thinking? They aren't thinking because they think they know. That's what destroys me and all of us—thinking that we know things that we don't actually know.\"—Bill James. Field of Ignorance, season 3, episode 3. [https://www.pushkin.fm/episode/episode-3-field-of-ignorance/ podcast]"
+    },
+    {
+      "type": "paragraph",
+      "id": "957294e40920b028",
+      "text": "While working as a security guard at a pork-and-beans cannery in Kansas, Bill James started writing about baseball through the poetry of statistical analysis."
+    },
+    {
+      "type": "paragraph",
+      "id": "bc6e10eb2cbea329",
+      "text": "The Baseball Abstract has reverentially avoided rating players. It is almost a badge of honor. For a rating is just an opinion expressed in numbers."
+    },
+    {
+      "type": "paragraph",
+      "id": "d4ccb10439adfda6",
+      "text": "Think of all those numbers that substitute for thinking. We now quantify and move on as if there's nothing more to say, when there's often a lot more to say."
+    },
+    {
+      "type": "paragraph",
+      "id": "aa8010c60d6d9acf",
+      "text": "(31m45s) The problem is not the numbers, obviously. It is how people use them. They start out as tools for thinking. They wind up replacing thought. \"What I was always trying to do is open up other ways of thinking. What any absolute number does is the opposite. Instead of opening up the discussion it says 'Okay, we're done.'\""
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Against The Rules Podcast",
+        "story": [
+          {
+            "id": "4c8bd000",
+            "type": "paragraph",
+            "text": "Michael\n Lewis, in one sense all of my books are the same. I start out knowing \nvery little about the subject. I go find actual experts and tell stories\n about them. They are the experts. I'm just a guy who writes book about \nthem. Whenever a book comes out I find myself asking \"Why? Why on Earth are you asking me?\" This season is about experts. We'll tell seven stories about experts. [https://www.pushkin.fm/show/against-the-rules-with-michael-lewis/ show]"
+          }
+        ]
+      },
+      "date": 1650257672386
+    },
+    {
+      "type": "fork",
+      "date": 1650257676564
+    },
+    {
+      "id": "d74a3f0993704e9d",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "d74a3f0993704e9d",
+        "text": "\"We are talking to a miracle. The ordinary miracle is Art Allan. That a person decides all by himself to become an expert on drift. His expertise changes the world. What he's done has become so woven into ordinary life that we don't even see it. We cease to include it in the stories we tell. The experts can't really defend themselves. Telling stories is almost the opposite of what experts do. Even when they have great ones to tell.\"—The Art of the Untold Story, season 3, episode 2. [https://www.pushkin.fm/episode/the-art-of-the-untold-story/ podcast] "
+      },
+      "after": "4c8bd000",
+      "date": 1650257701949
+    },
+    {
+      "id": "b8f2370acc30e1eb",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "b8f2370acc30e1eb",
+        "text": "Arthur A. Allen. Coast Guard Oceanographer. Pioneered and perfected a modeling program that predicts where people lost at sea will be found, cutting search and rescue times and saving thousands of lives during a 35-year career. Service to America. [https://servicetoamericamedals.org/honorees/arthur-a-allen/ site]"
+      },
+      "after": "d74a3f0993704e9d",
+      "date": 1650257705065
+    },
+    {
+      "id": "efa8f3293ac3b293",
+      "type": "add",
+      "item": {
+        "type": "pagefold",
+        "id": "efa8f3293ac3b293",
+        "text": "."
+      },
+      "after": "4c8bd000",
+      "date": 1650257718629
+    },
+    {
+      "id": "ab7e55454eff0161",
+      "type": "add",
+      "item": {
+        "type": "pagefold",
+        "id": "ab7e55454eff0161",
+        "text": "."
+      },
+      "after": "d74a3f0993704e9d",
+      "date": 1650257722352
+    },
+    {
+      "id": "ab7e55454eff0161",
+      "type": "move",
+      "order": [
+        "4c8bd000",
+        "efa8f3293ac3b293",
+        "d74a3f0993704e9d",
+        "b8f2370acc30e1eb",
+        "ab7e55454eff0161"
+      ],
+      "date": 1650257730407
+    },
+    {
+      "id": "9a11ba1aa55018c9",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "9a11ba1aa55018c9",
+        "text": "It's kinda great that their ignorance is kinda honest. They aren't thinking. \"But why aren't they thinking? They aren't thinking because they think they know. That's what destroys me and all of us—thinking that we know things that we don't actually know.\"—Bill James. Field of Ignorance, season 3, episode 3. [https://www.pushkin.fm/episode/episode-3-field-of-ignorance/ podcast]"
+      },
+      "after": "ab7e55454eff0161",
+      "date": 1650257738093
+    },
+    {
+      "id": "957294e40920b028",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "957294e40920b028",
+        "text": "While working as a security guard at a pork-and-beans cannery in Kansas, Bill James started writing about baseball through the poetry of statistical analysis."
+      },
+      "after": "9a11ba1aa55018c9",
+      "date": 1650257743607
+    },
+    {
+      "id": "bc6e10eb2cbea329",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "bc6e10eb2cbea329",
+        "text": "The Baseball Abstract has reverentially avoided rating players. It is almost a badge of honor. For a rating is just an opinion expressed in numbers."
+      },
+      "after": "957294e40920b028",
+      "date": 1650257746163
+    },
+    {
+      "id": "d4ccb10439adfda6",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "d4ccb10439adfda6",
+        "text": "Think of all those numbers that substitute for thinking. We now quantify and move on as if there's nothing more to say, when there's often a lot more to say."
+      },
+      "after": "bc6e10eb2cbea329",
+      "date": 1650257749054
+    },
+    {
+      "id": "aa8010c60d6d9acf",
+      "type": "add",
+      "item": {
+        "type": "paragraph",
+        "id": "aa8010c60d6d9acf",
+        "text": "(31m45s) The problem is not the numbers, obviously. It is how people use them. They start out as tools for thinking. They wind up replacing thought. \"What I was always trying to do is open up other ways of thinking. What any absolute number does is the opposite. Instead of opening up the discussion it says 'Okay, we're done.'\""
+      },
+      "after": "d4ccb10439adfda6",
+      "date": 1650257753289
+    },
+    {
+      "id": "28556000",
+      "type": "add",
+      "item": {
+        "id": "28556000",
+        "type": "paragraph",
+        "text": "Todd called his younger brother, Ed Park, a recent Harvard grad and leader of computer science club. \"We pretty quickly figured out that the rules weren't written down anywhere. The only people who knew the rules were people who had actually worked in the industry and had been incredibly observant for the past five years."
+      },
+      "after": "4c8bd000",
+      "date": 1650257828545
+    },
+    {
+      "type": "edit",
+      "id": "28556000",
+      "item": {
+        "id": "28556000",
+        "type": "paragraph",
+        "text": "\"We pretty quickly figured out that the rules weren't written down anywhere. The only people who knew the rules were people who had actually worked in the industry and had been incredibly observant for the past five years."
+      },
+      "date": 1650257842402
+    },
+    {
+      "type": "edit",
+      "id": "28556000",
+      "item": {
+        "id": "28556000",
+        "type": "paragraph",
+        "text": "\"We pretty quickly figured out that the rules weren't written down anywhere. The only people who knew the rules were people who had actually worked in the industry and had been incredibly observant for the past five years.\""
+      },
+      "date": 1650257848899
+    },
+    {
+      "id": "65aba400",
+      "type": "add",
+      "item": {
+        "id": "65aba400",
+        "type": "paragraph",
+        "text": "\"If I had asked Sue to sit in a room and write out everything you know about billing she wouldn't have been able to produce what we needed to be successful. Instead, she had a set of experiences such that when she got placed into a situation where something didn't make sense, she would immediately recognize that something was wrong and search her head to understand why it was wrong.\""
+      },
+      "after": "28556000",
+      "date": 1650257866555
+    },
+    {
+      "type": "add",
+      "id": "5c21e406f8b1449e",
+      "item": {
+        "type": "factory",
+        "id": "5c21e406f8b1449e",
+        "text": "..."
+      },
+      "after": "4c8bd000",
+      "date": 1650257880367
+    },
+    {
+      "type": "edit",
+      "id": "5c21e406f8b1449e",
+      "item": {
+        "type": "pagefold",
+        "id": "5c21e406f8b1449e",
+        "text": "."
+      },
+      "date": 1650257885765
+    },
+    {
+      "type": "edit",
+      "id": "28556000",
+      "item": {
+        "id": "28556000",
+        "type": "paragraph",
+        "text": "\"We pretty quickly figured out that the rules weren't written down anywhere. The only people who knew the rules were people who had actually worked in the industry and had been incredibly observant for the past five years.\" Six Levels Down, season 3, episode 1. [https://www.pushkin.fm/episode/six-levels-down/ podcast]"
+      },
+      "date": 1650257945846
+    },
+    {
+      "type": "edit",
+      "id": "28556000",
+      "item": {
+        "id": "28556000",
+        "type": "paragraph",
+        "text": "\"We pretty quickly figured out that the rules weren't written down anywhere. The only people who knew the rules were people who had actually worked in the industry and had been incredibly observant for the past five years.\" [[Six Levels Down]], season 3, episode 1. [https://www.pushkin.fm/episode/six-levels-down/ podcast]"
+      },
+      "date": 1650257961398
+    }
+  ]
+}
