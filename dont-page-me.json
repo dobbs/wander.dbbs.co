@@ -1,0 +1,265 @@
+{
+  "title": "Don't Page Me!",
+  "story": [
+    {
+      "id": "6a4b6000",
+      "type": "paragraph",
+      "text": "This talk is a culmination of about eight years of thinking about incidents and pages. My team runs api.newrelic.com. We have 40 externals and 13 data stores. We should be down all the time. Three years ago we got paged about five times a week. Now we get paged about once per month. Don't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
+    },
+    {
+      "type": "video",
+      "id": "edbd8f7a28d45bb7",
+      "text": "YOUTUBE uNMQpkb7uvE\nDon't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
+    },
+    {
+      "type": "paragraph",
+      "id": "291deadd90af7618",
+      "text": "Three takeaways."
+    },
+    {
+      "type": "paragraph",
+      "id": "4ed11e611b067d0c",
+      "text": "1. notifications received during an incident deserve retros."
+    },
+    {
+      "type": "paragraph",
+      "id": "34ef5c00c4d7fb66",
+      "text": "2. default alert conditions ALWAYS require refinement."
+    },
+    {
+      "type": "paragraph",
+      "id": "eda8e9602560971b",
+      "text": "3. heartbeat monitors save lives."
+    },
+    {
+      "type": "paragraph",
+      "id": "459c85a914adca0f",
+      "text": "If you have a pager noise problem, here is the map:"
+    },
+    {
+      "type": "paragraph",
+      "id": "fc0cb5c6b9c97b31",
+      "text": "5% add some basic alert conditions"
+    },
+    {
+      "type": "paragraph",
+      "id": "665c7785c16d22b7",
+      "text": "15% focus on fixing the alert condition as well as the incident"
+    },
+    {
+      "type": "paragraph",
+      "id": "819605faab959bf2",
+      "text": "20% refine alert conditions to include more data"
+    },
+    {
+      "type": "paragraph",
+      "id": "a58931a33563ca2f",
+      "text": "25% add heartbeat monitors for webapps, job systems, mail systems, etc."
+    },
+    {
+      "type": "paragraph",
+      "id": "56b5a8ea93a4d6e5",
+      "text": "35% add circuit breakers and bulkheads (Semian for Ruby projects). Implement dark deployment practices."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Don't Page Me!",
+        "story": [
+          {
+            "id": "6a4b6000",
+            "type": "paragraph",
+            "text": "Don't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
+          }
+        ]
+      },
+      "date": 1658341315229
+    },
+    {
+      "type": "fork",
+      "date": 1658341317746
+    },
+    {
+      "type": "add",
+      "id": "edbd8f7a28d45bb7",
+      "item": {
+        "type": "factory",
+        "id": "edbd8f7a28d45bb7",
+        "text": "..."
+      },
+      "after": "6a4b6000",
+      "date": 1658341324471
+    },
+    {
+      "type": "edit",
+      "id": "edbd8f7a28d45bb7",
+      "item": {
+        "type": "video",
+        "id": "edbd8f7a28d45bb7",
+        "text": "YOUTUBE uNMQpkb7uvE\nDon't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
+      },
+      "date": 1658341347663
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "291deadd90af7618"
+      },
+      "id": "291deadd90af7618",
+      "type": "add",
+      "after": "edbd8f7a28d45bb7",
+      "date": 1659505862147
+    },
+    {
+      "type": "edit",
+      "id": "6a4b6000",
+      "item": {
+        "id": "6a4b6000",
+        "type": "paragraph",
+        "text": "This talk represents about eight years of thinking about incidents. My team runs api.newrelic.com. Don't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube] "
+      },
+      "date": 1659505906725
+    },
+    {
+      "type": "edit",
+      "id": "6a4b6000",
+      "item": {
+        "id": "6a4b6000",
+        "type": "paragraph",
+        "text": "This talk is a culmination about eight years of thinking about incidents. My team runs api.newrelic.com. 40 externals, 13 data stores. Three years ago we got paged about five times a week. Now we get paged about once per month. Don't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
+      },
+      "date": 1659506002752
+    },
+    {
+      "type": "edit",
+      "id": "291deadd90af7618",
+      "item": {
+        "type": "paragraph",
+        "id": "291deadd90af7618",
+        "text": "Three takeaways."
+      },
+      "date": 1659506047097
+    },
+    {
+      "type": "add",
+      "id": "4ed11e611b067d0c",
+      "item": {
+        "type": "paragraph",
+        "id": "4ed11e611b067d0c",
+        "text": "1. notifications received during an incident deserve retros."
+      },
+      "after": "291deadd90af7618",
+      "date": 1659506058596
+    },
+    {
+      "type": "add",
+      "id": "34ef5c00c4d7fb66",
+      "item": {
+        "type": "paragraph",
+        "id": "34ef5c00c4d7fb66",
+        "text": "2. default alert conditions ALWAYS require refinement."
+      },
+      "after": "4ed11e611b067d0c",
+      "date": 1659506070740
+    },
+    {
+      "type": "add",
+      "id": "eda8e9602560971b",
+      "item": {
+        "type": "paragraph",
+        "id": "eda8e9602560971b",
+        "text": "3. heartbeat monitors save lives."
+      },
+      "after": "34ef5c00c4d7fb66",
+      "date": 1659506086165
+    },
+    {
+      "type": "add",
+      "id": "459c85a914adca0f",
+      "item": {
+        "type": "paragraph",
+        "id": "459c85a914adca0f",
+        "text": "If you have a pager noise problem, here is the map:"
+      },
+      "after": "eda8e9602560971b",
+      "date": 1659506115975
+    },
+    {
+      "type": "add",
+      "id": "fc0cb5c6b9c97b31",
+      "item": {
+        "type": "paragraph",
+        "id": "fc0cb5c6b9c97b31",
+        "text": "5% add some basic alert conditions"
+      },
+      "after": "459c85a914adca0f",
+      "date": 1659506124422
+    },
+    {
+      "type": "add",
+      "id": "665c7785c16d22b7",
+      "item": {
+        "type": "paragraph",
+        "id": "665c7785c16d22b7",
+        "text": "15% focus on fixing the alert condition as well as the incident"
+      },
+      "after": "fc0cb5c6b9c97b31",
+      "date": 1659506142334
+    },
+    {
+      "type": "add",
+      "id": "819605faab959bf2",
+      "item": {
+        "type": "paragraph",
+        "id": "819605faab959bf2",
+        "text": "20% refine alert conditions to include more data"
+      },
+      "after": "665c7785c16d22b7",
+      "date": 1659506153130
+    },
+    {
+      "type": "add",
+      "id": "a58931a33563ca2f",
+      "item": {
+        "type": "paragraph",
+        "id": "a58931a33563ca2f",
+        "text": "25% add heartbeat monitors for webapps, job systems, mail systems, etc."
+      },
+      "after": "819605faab959bf2",
+      "date": 1659506176164
+    },
+    {
+      "type": "add",
+      "id": "56b5a8ea93a4d6e5",
+      "item": {
+        "type": "paragraph",
+        "id": "56b5a8ea93a4d6e5",
+        "text": "35% add circuit breakers and bulkheads (Semian for Ruby projects). Implement dark deployment practices."
+      },
+      "after": "a58931a33563ca2f",
+      "date": 1659506241244
+    },
+    {
+      "type": "edit",
+      "id": "6a4b6000",
+      "item": {
+        "id": "6a4b6000",
+        "type": "paragraph",
+        "text": "This talk is a culmination of about eight years of thinking about incidents. My team runs api.newrelic.com. We have 40 externals and 13 data stores. We should be down all the time. Three years ago we got paged about five times a week. Now we get paged about once per month. Don't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
+      },
+      "date": 1659506448314
+    },
+    {
+      "type": "edit",
+      "id": "6a4b6000",
+      "item": {
+        "id": "6a4b6000",
+        "type": "paragraph",
+        "text": "This talk is a culmination of about eight years of thinking about incidents and pages. My team runs api.newrelic.com. We have 40 externals and 13 data stores. We should be down all the time. Three years ago we got paged about five times a week. Now we get paged about once per month. Don't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
+      },
+      "date": 1659506525260
+    }
+  ]
+}

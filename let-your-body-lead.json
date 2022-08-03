@@ -1,0 +1,46 @@
+{
+  "title": "Let Your Body Lead",
+  "story": [
+    {
+      "id": "3db400",
+      "type": "paragraph",
+      "text": "Let Your Body Lead: Career Planning With Somatics by Amy Newell @ RailsConf 2022 [https://www.youtube.com/watch?v=XLAOzi-SNMs youtube]"
+    },
+    {
+      "type": "video",
+      "id": "f4b326c8905b538d",
+      "text": "YOUTUBE XLAOzi-SNMs\nLet Your Body Lead: Career Planning With Somatics by Amy Newell @ RailsConf 2022 [https://www.youtube.com/watch?v=XLAOzi-SNMs youtube]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Let Your Body Lead",
+        "story": [
+          {
+            "id": "3db400",
+            "type": "paragraph",
+            "text": "Let Your Body Lead: Career Planning With Somatics by Amy Newell @ RailsConf 2022 [https://www.youtube.com/watch?v=XLAOzi-SNMs youtube]"
+          }
+        ]
+      },
+      "date": 1658341186810
+    },
+    {
+      "type": "fork",
+      "date": 1658341189904
+    },
+    {
+      "id": "f4b326c8905b538d",
+      "type": "add",
+      "item": {
+        "type": "video",
+        "id": "f4b326c8905b538d",
+        "text": "YOUTUBE XLAOzi-SNMs\nLet Your Body Lead: Career Planning With Somatics by Amy Newell @ RailsConf 2022 [https://www.youtube.com/watch?v=XLAOzi-SNMs youtube]"
+      },
+      "after": "3db400",
+      "date": 1658341197209
+    }
+  ]
+}

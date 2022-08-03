@@ -1,0 +1,30 @@
+{
+  "title": "On Counting Alerts",
+  "story": [
+    {
+      "id": "76b3c000",
+      "type": "paragraph",
+      "text": "[https://www.honeycomb.io/blog/counting-alerts/ article]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "On Counting Alerts",
+        "story": [
+          {
+            "id": "76b3c000",
+            "type": "paragraph",
+            "text": "[https://www.honeycomb.io/blog/counting-alerts/ article]"
+          }
+        ]
+      },
+      "date": 1657824717067
+    },
+    {
+      "type": "fork",
+      "date": 1657824721898
+    }
+  ]
+}

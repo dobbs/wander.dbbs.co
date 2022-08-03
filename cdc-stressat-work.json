@@ -1,0 +1,39 @@
+{
+  "title": "CDC: STRESS...at Work",
+  "story": [
+    {
+      "type": "paragraph",
+      "id": "e1c006f084245554",
+      "text": "[https://www.cdc.gov/niosh/docs/99-101/ site]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "CDC: STRESS...at Work",
+        "story": []
+      },
+      "date": 1657827551303
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "e1c006f084245554"
+      },
+      "id": "e1c006f084245554",
+      "type": "add",
+      "date": 1657827554275
+    },
+    {
+      "type": "edit",
+      "id": "e1c006f084245554",
+      "item": {
+        "type": "paragraph",
+        "id": "e1c006f084245554",
+        "text": "[https://www.cdc.gov/niosh/docs/99-101/ site]"
+      },
+      "date": 1657827560783
+    }
+  ]
+}

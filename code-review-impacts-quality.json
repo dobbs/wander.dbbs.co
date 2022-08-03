@@ -1,0 +1,30 @@
+{
+  "title": "Code Review Impacts Quality",
+  "story": [
+    {
+      "id": "64d5a000",
+      "type": "paragraph",
+      "text": "[https://www.researchgate.net/publication/276162927_An_empirical_study_of_the_impact_of_modern_code_review_practices_on_software_quality researchgate]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Code Review Impacts Quality",
+        "story": [
+          {
+            "id": "64d5a000",
+            "type": "paragraph",
+            "text": "[https://www.researchgate.net/publication/276162927_An_empirical_study_of_the_impact_of_modern_code_review_practices_on_software_quality researchgate]"
+          }
+        ]
+      },
+      "date": 1657824511981
+    },
+    {
+      "type": "fork",
+      "date": 1657824514343
+    }
+  ]
+}

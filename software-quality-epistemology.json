@@ -1,0 +1,391 @@
+{
+  "title": "Software Quality Epistemology",
+  "story": [
+    {
+      "id": "1ba05c00",
+      "type": "paragraph",
+      "text": "[https://increment.com/teams/the-epistemology-of-software-quality/ article]"
+    },
+    {
+      "type": "markdown",
+      "id": "1daee15640ebdcb0",
+      "text": "> [Code review], according to a 2016 article published in Empirical Software Engineering, actually works. But we can't stake our team’s success on just \"more code reviews.\"\n\nSee [[Code Review Impacts Quality]]\n"
+    },
+    {
+      "type": "markdown",
+      "id": "3e7c2dd83152b21a",
+      "text": "> The 2008 book Patient Safety and Quality: An Evidence-Based Handbook for Nurses states that sleep-deprived nurses make more serious mistakes, full stop. [https://www.ncbi.nlm.nih.gov/books/NBK2645/ link]\n"
+    },
+    {
+      "type": "markdown",
+      "id": "39497bb22731bd03",
+      "text": "> The National Institute for Occupational Safety and Health, a part of the CDC, has shown that stressed nurses are both significantly less productive and significantly more likely to make serious mistakes.\n\nSee [[CDC: STRESS...at Work]]"
+    },
+    {
+      "type": "pagefold",
+      "id": "f7371eebde4677f7",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "813c3ce6487189a2",
+      "text": "I subscribe to the view that human error is a marker of a failed investigation. See [[Usefulness of Error]]"
+    },
+    {
+      "type": "paragraph",
+      "id": "7019833d00ff3fc4",
+      "text": "So these references leaning on nursing mistakes make me suspicious of the underlying research even if I generally agree with the direction the author is going with their argument."
+    },
+    {
+      "type": "paragraph",
+      "id": "33202263bbb6f3a3",
+      "text": "The first quote didn't bug me at all. Code review may be my favorite example where software industry has accepted a practice on faith without our usual dogma about metrics and measurement. So this quote made me wanna look more closely at the research."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Software Quality Epistemology",
+        "story": [
+          {
+            "id": "1ba05c00",
+            "type": "paragraph",
+            "text": "[https://increment.com/teams/the-epistemology-of-software-quality/ article]"
+          }
+        ]
+      },
+      "date": 1657824417401
+    },
+    {
+      "type": "fork",
+      "date": 1657824422458
+    },
+    {
+      "type": "add",
+      "id": "68c7d6eacf52dc11",
+      "item": {
+        "type": "paragraph",
+        "id": "68c7d6eacf52dc11",
+        "text": "I liked this article, but there were a couple ways the author phrased things when referencing some research that bugged me. Piqued my interest enough to follow some links."
+      },
+      "after": "1ba05c00",
+      "date": 1657825068976
+    },
+    {
+      "type": "add",
+      "id": "1daee15640ebdcb0",
+      "item": {
+        "type": "paragraph",
+        "id": "1daee15640ebdcb0",
+        "text": "[Code review], according to a 2016 article published in Empirical Software Engineering, actually works. But we can't stake our team’s success on just \"more code reviews.\" See [[Code Review Impacts Quality]]"
+      },
+      "after": "68c7d6eacf52dc11",
+      "date": 1657825192340
+    },
+    {
+      "type": "add",
+      "id": "33202263bbb6f3a3",
+      "item": {
+        "type": "paragraph",
+        "id": "33202263bbb6f3a3",
+        "text": "This first quote didn't bug me at all. Code review is a great example where software industry has accepted a practice without our usual dogma about metrics and measurement."
+      },
+      "after": "68c7d6eacf52dc11",
+      "date": 1657825285837
+    },
+    {
+      "type": "edit",
+      "id": "1daee15640ebdcb0",
+      "item": {
+        "type": "factory",
+        "id": "1daee15640ebdcb0",
+        "text": "> [Code review], according to a 2016 article published in Empirical Software Engineering, actually works. But we can't stake our team’s success on just \"more code reviews.\" See [[Code Review Impacts Quality]]"
+      },
+      "date": 1657825294021
+    },
+    {
+      "type": "edit",
+      "id": "1daee15640ebdcb0",
+      "item": {
+        "type": "markdown",
+        "id": "1daee15640ebdcb0",
+        "text": "> [Code review], according to a 2016 article published in Empirical Software Engineering, actually works. But we can't stake our team’s success on just \"more code reviews.\""
+      },
+      "date": 1657825309741
+    },
+    {
+      "type": "edit",
+      "id": "1daee15640ebdcb0",
+      "item": {
+        "type": "markdown",
+        "id": "1daee15640ebdcb0",
+        "text": "> [Code review], according to a 2016 article published in Empirical Software Engineering, actually works. But we can't stake our team’s success on just \"more code reviews.\"\nSee [[Code Review Impacts Quality]]"
+      },
+      "date": 1657825326603
+    },
+    {
+      "type": "edit",
+      "id": "1daee15640ebdcb0",
+      "item": {
+        "type": "markdown",
+        "id": "1daee15640ebdcb0",
+        "text": "> [Code review], according to a 2016 article published in Empirical Software Engineering, actually works. But we can't stake our team’s success on just \"more code reviews.\"\n\nSee [[Code Review Impacts Quality]]"
+      },
+      "date": 1657825331381
+    },
+    {
+      "type": "edit",
+      "id": "33202263bbb6f3a3",
+      "item": {
+        "type": "paragraph",
+        "id": "33202263bbb6f3a3",
+        "text": "This first quote didn't bug me at all. Code review may be my favorite example where software industry has accepted a practice on faith without our usual dogma about metrics and measurement. So this quote made me wanna look more closely at the research."
+      },
+      "date": 1657825379094
+    },
+    {
+      "type": "edit",
+      "id": "1daee15640ebdcb0",
+      "item": {
+        "type": "markdown",
+        "id": "1daee15640ebdcb0",
+        "text": "> [Code review], according to a 2016 article published in Empirical Software Engineering, actually works. But we can't stake our team’s success on just \"more code reviews.\"\n\nSee [[Code Review Impacts Quality]]\n"
+      },
+      "date": 1657827194556
+    },
+    {
+      "type": "add",
+      "id": "3e7c2dd83152b21a",
+      "item": {
+        "type": "markdown",
+        "id": "3e7c2dd83152b21a",
+        "text": "> The 2008 book Patient Safety and Quality: An Evidence-Based Handbook for Nurses states that sleep-deprived nurses make more serious mistakes, full stop. [ link]"
+      },
+      "after": "1daee15640ebdcb0",
+      "date": 1657827214636
+    },
+    {
+      "type": "edit",
+      "id": "3e7c2dd83152b21a",
+      "item": {
+        "type": "markdown",
+        "id": "3e7c2dd83152b21a",
+        "text": "> The 2008 book Patient Safety and Quality: An Evidence-Based Handbook for Nurses states that sleep-deprived nurses make more serious mistakes, full stop. [https://www.ncbi.nlm.nih.gov/books/NBK2645/ link]"
+      },
+      "date": 1657827229579
+    },
+    {
+      "type": "add",
+      "id": "813c3ce6487189a2",
+      "item": {
+        "type": "paragraph",
+        "id": "813c3ce6487189a2",
+        "text": "..."
+      },
+      "after": "33202263bbb6f3a3",
+      "date": 1657827365505
+    },
+    {
+      "id": "813c3ce6487189a2",
+      "type": "move",
+      "order": [
+        "1ba05c00",
+        "68c7d6eacf52dc11",
+        "33202263bbb6f3a3",
+        "1daee15640ebdcb0",
+        "813c3ce6487189a2",
+        "3e7c2dd83152b21a"
+      ],
+      "date": 1657827368124
+    },
+    {
+      "type": "edit",
+      "id": "3e7c2dd83152b21a",
+      "item": {
+        "type": "markdown",
+        "id": "3e7c2dd83152b21a",
+        "text": "> The 2008 book Patient Safety and Quality: An Evidence-Based Handbook for Nurses states that sleep-deprived nurses make more serious mistakes, full stop. [https://www.ncbi.nlm.nih.gov/books/NBK2645/ link]\n"
+      },
+      "date": 1657827422006
+    },
+    {
+      "type": "add",
+      "id": "39497bb22731bd03",
+      "item": {
+        "type": "markdown",
+        "id": "39497bb22731bd03",
+        "text": "> The National Institute for Occupational Safety and Health, a part of the CDC, has shown that stressed nurses are both significantly less productive and significantly more likely to make serious mistakes. [ link]"
+      },
+      "after": "3e7c2dd83152b21a",
+      "date": 1657827430054
+    },
+    {
+      "type": "edit",
+      "id": "39497bb22731bd03",
+      "item": {
+        "type": "markdown",
+        "id": "39497bb22731bd03",
+        "text": "> The National Institute for Occupational Safety and Health, a part of the CDC, has shown that stressed nurses are both significantly less productive and significantly more likely to make serious mistakes.\n\nSee [[CDC: STRESS...at Work]]"
+      },
+      "date": 1657827545530
+    },
+    {
+      "type": "edit",
+      "id": "813c3ce6487189a2",
+      "item": {
+        "type": "paragraph",
+        "id": "813c3ce6487189a2",
+        "text": "I subscribe to the view that human error is a marker of a failed investigation. So these phrases leaning on nursing mistakes make me suspicious of the underlying research even if I generally agree with the direction the author is going with their argument."
+      },
+      "date": 1657827667759
+    },
+    {
+      "type": "edit",
+      "id": "33202263bbb6f3a3",
+      "item": {
+        "type": "paragraph",
+        "id": "33202263bbb6f3a3",
+        "text": "This first quote didn't bug me at all. Code review may be my favorite example where software industry has accepted a practice on faith without our usual dogma about metrics and measurement. So this quote made me wanna look more closely at the research. See [[Usefulness of Error]]"
+      },
+      "date": 1657827710738
+    },
+    {
+      "type": "add",
+      "id": "f7371eebde4677f7",
+      "item": {
+        "type": "paragraph",
+        "id": "f7371eebde4677f7",
+        "text": "..."
+      },
+      "after": "1ba05c00",
+      "date": 1657827748559
+    },
+    {
+      "id": "1daee15640ebdcb0",
+      "type": "move",
+      "order": [
+        "1ba05c00",
+        "1daee15640ebdcb0",
+        "f7371eebde4677f7",
+        "68c7d6eacf52dc11",
+        "33202263bbb6f3a3",
+        "813c3ce6487189a2",
+        "3e7c2dd83152b21a",
+        "39497bb22731bd03"
+      ],
+      "date": 1657827755048
+    },
+    {
+      "id": "3e7c2dd83152b21a",
+      "type": "move",
+      "order": [
+        "1ba05c00",
+        "1daee15640ebdcb0",
+        "3e7c2dd83152b21a",
+        "f7371eebde4677f7",
+        "68c7d6eacf52dc11",
+        "33202263bbb6f3a3",
+        "813c3ce6487189a2",
+        "39497bb22731bd03"
+      ],
+      "date": 1657827760134
+    },
+    {
+      "id": "39497bb22731bd03",
+      "type": "move",
+      "order": [
+        "1ba05c00",
+        "1daee15640ebdcb0",
+        "3e7c2dd83152b21a",
+        "39497bb22731bd03",
+        "f7371eebde4677f7",
+        "68c7d6eacf52dc11",
+        "33202263bbb6f3a3",
+        "813c3ce6487189a2"
+      ],
+      "date": 1657827763828
+    },
+    {
+      "type": "edit",
+      "id": "f7371eebde4677f7",
+      "item": {
+        "type": "pagefold",
+        "id": "f7371eebde4677f7",
+        "text": "."
+      },
+      "date": 1657827772013
+    },
+    {
+      "type": "edit",
+      "id": "33202263bbb6f3a3",
+      "item": {
+        "type": "paragraph",
+        "id": "33202263bbb6f3a3",
+        "text": "The first quote didn't bug me at all. Code review may be my favorite example where software industry has accepted a practice on faith without our usual dogma about metrics and measurement. So this quote made me wanna look more closely at the research. See [[Usefulness of Error]]"
+      },
+      "date": 1657827782793
+    },
+    {
+      "type": "edit",
+      "id": "33202263bbb6f3a3",
+      "item": {
+        "type": "paragraph",
+        "id": "33202263bbb6f3a3",
+        "text": "The first quote didn't bug me at all. Code review may be my favorite example where software industry has accepted a practice on faith without our usual dogma about metrics and measurement. So this quote made me wanna look more closely at the research."
+      },
+      "date": 1657827794367
+    },
+    {
+      "type": "edit",
+      "id": "813c3ce6487189a2",
+      "item": {
+        "type": "paragraph",
+        "id": "813c3ce6487189a2",
+        "text": "I subscribe to the view that human error is a marker of a failed investigation. So these phrases leaning on nursing mistakes make me suspicious of the underlying research even if I generally agree with the direction the author is going with their argument. See [[Usefulness of Error]]"
+      },
+      "date": 1657827802155
+    },
+    {
+      "id": "813c3ce6487189a2",
+      "type": "move",
+      "order": [
+        "1ba05c00",
+        "1daee15640ebdcb0",
+        "3e7c2dd83152b21a",
+        "39497bb22731bd03",
+        "f7371eebde4677f7",
+        "813c3ce6487189a2",
+        "68c7d6eacf52dc11",
+        "33202263bbb6f3a3"
+      ],
+      "date": 1657827821453
+    },
+    {
+      "type": "edit",
+      "id": "813c3ce6487189a2",
+      "item": {
+        "type": "paragraph",
+        "id": "813c3ce6487189a2",
+        "text": "I subscribe to the view that human error is a marker of a failed investigation. See [[Usefulness of Error]]"
+      },
+      "date": 1657827830517
+    },
+    {
+      "type": "add",
+      "id": "7019833d00ff3fc4",
+      "item": {
+        "type": "paragraph",
+        "id": "7019833d00ff3fc4",
+        "text": "So these references leaning on nursing mistakes make me suspicious of the underlying research even if I generally agree with the direction the author is going with their argument."
+      },
+      "after": "813c3ce6487189a2",
+      "date": 1657827856578
+    },
+    {
+      "type": "remove",
+      "id": "68c7d6eacf52dc11",
+      "date": 1657827861907
+    }
+  ]
+}

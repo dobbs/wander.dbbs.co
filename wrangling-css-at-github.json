@@ -1,0 +1,70 @@
+{
+  "title": "Wrangling CSS at GitHub",
+  "story": [
+    {
+      "id": "56eda000",
+      "type": "paragraph",
+      "text": "Breaking up with the bundle by Joel Hawksley @ RailsConf 2022 [https://www.youtube.com/watch?v=21QG19Zy_g0 youtube]"
+    },
+    {
+      "type": "video",
+      "id": "7063a9ff52ad41f0",
+      "text": "YOUTUBE 21QG19Zy_g0\nBreaking up with the bundle by Joel Hawksley @ RailsConf 2022 [https://www.youtube.com/watch?v=21QG19Zy_g0 youtube]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Wrangling CSS at GitHub",
+        "story": [
+          {
+            "id": "56eda000",
+            "type": "paragraph",
+            "text": "Breaking up with the bundle by Joel Hawksley @ RailsConf 2022 [https://www.youtube.com/watch?v=21QG19Zy_g0 youtube]"
+          },
+          {
+            "type": "video",
+            "id": "7063a9ff52ad41f0",
+            "text": "YOUTUBE 21QG19Zy_g0\nBreaking up with the bundle by Joel Hawksley @ RailsConf 2022 [https://www.youtube.com/watch?v=21QG19Zy_g0 youtube]"
+          }
+        ]
+      },
+      "date": 1658340390483
+    },
+    {
+      "type": "fork",
+      "date": 1658340394692
+    },
+    {
+      "type": "add",
+      "id": "7063a9ff52ad41f0",
+      "item": {
+        "type": "video",
+        "id": "7063a9ff52ad41f0",
+        "text": "YOUTUBE 21QG19Zy_g0\nBreaking up with the bundle by Joel Hawksley @ RailsConf 2022 [https://www.youtube.com/watch?v=21QG19Zy_g0 youtube]"
+      },
+      "after": "56eda000",
+      "date": 1658340408170
+    },
+    {
+      "type": "edit",
+      "id": "7063a9ff52ad41f0",
+      "item": {
+        "type": "video",
+        "id": "7063a9ff52ad41f0",
+        "text": "YOUTUBE 21QG19Zy_g0\nBreaking up with the bundle by Joel Hawksley @ RailsConf 2022 [https://www.youtube.com/watch?v=21QG19Zy_g0 youtube]"
+      },
+      "date": 1658340432063
+    },
+    {
+      "type": "fork",
+      "date": 1658341172861
+    },
+    {
+      "id": "f4b326c8905b538d",
+      "type": "remove",
+      "date": 1658341197208
+    }
+  ]
+}

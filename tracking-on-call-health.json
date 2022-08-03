@@ -1,0 +1,30 @@
+{
+  "title": "Tracking On-Call Health",
+  "story": [
+    {
+      "id": "54cb8000",
+      "type": "paragraph",
+      "text": "[https://www.honeycomb.io/blog/tracking-on-call-health/ article]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Tracking On-Call Health",
+        "story": [
+          {
+            "id": "54cb8000",
+            "type": "paragraph",
+            "text": "[https://www.honeycomb.io/blog/tracking-on-call-health/ article]"
+          }
+        ]
+      },
+      "date": 1657824784790
+    },
+    {
+      "type": "fork",
+      "date": 1657824787603
+    }
+  ]
+}
