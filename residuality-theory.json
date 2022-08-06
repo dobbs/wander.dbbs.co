@@ -7,6 +7,11 @@
       "text": "Residuality theory models software systems as interconnected residues—an alternative to component and process modeling that uses applied complexity science to make managing uncertainty a fundamental part of the design process. Residuality Theory by Barry O’Reilly @ Jfokus 2022 [https://www.jfokus.se/jfokus22-preso/Residuality-Theory.pdf pdf] [https://www.youtube.com/watch?v=96IqczEd88A youtube]"
     },
     {
+      "type": "video",
+      "id": "3490c97d23bdf2e0",
+      "text": "YOUTUBE 96IqczEd88A\nResiduality Theory by Barry O’Reilly @ Jfokus 2022  [https://www.youtube.com/watch?v=96IqczEd88A youtube]"
+    },
+    {
       "id": "4812fc00",
       "type": "markdown",
       "text": "# Architecture Problem"
@@ -899,6 +904,27 @@
         "text": "I find this story resonates with wisdom from Fred Hebert's experience in Erlang."
       },
       "date": 1659505744010
+    },
+    {
+      "type": "add",
+      "id": "3490c97d23bdf2e0",
+      "item": {
+        "type": "factory",
+        "id": "3490c97d23bdf2e0",
+        "text": "..."
+      },
+      "after": "36539000",
+      "date": 1659708400409
+    },
+    {
+      "type": "edit",
+      "id": "3490c97d23bdf2e0",
+      "item": {
+        "type": "video",
+        "id": "3490c97d23bdf2e0",
+        "text": "YOUTUBE 96IqczEd88A\nResiduality Theory by Barry O’Reilly @ Jfokus 2022  [https://www.youtube.com/watch?v=96IqczEd88A youtube]"
+      },
+      "date": 1659708423287
     }
   ]
 }
