@@ -17,6 +17,14 @@
     <lastmod>2022-02-04</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/cdc-stressat-work.html</loc>
+    <lastmod>2022-07-14</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/code-review-impacts-quality.html</loc>
+    <lastmod>2022-07-14</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/commonplace-book.html</loc>
     <lastmod>2022-01-26</lastmod>
   </url>
@@ -31,6 +39,10 @@
   <url>
     <loc>http://wander.localhost/design-and-reality.html</loc>
     <lastmod>2022-04-04</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/dont-page-me.html</loc>
+    <lastmod>2022-08-03</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/drawing-dynamic-models.html</loc>
@@ -53,12 +65,24 @@
     <lastmod>2022-04-17</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/let-your-body-lead.html</loc>
+    <lastmod>2022-07-20</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/on-counting-alerts.html</loc>
+    <lastmod>2022-07-14</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/on-the-brittleness-of-dashboards.html</loc>
     <lastmod>2022-03-16</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/queue-depth-grows.html</loc>
     <lastmod>2022-05-28</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/residuality-theory.html</loc>
+    <lastmod>2022-08-05</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/scratch.html</loc>
@@ -77,8 +101,16 @@
     <lastmod>2022-03-15</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/software-quality-epistemology.html</loc>
+    <lastmod>2022-07-14</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/story-of-advancers.html</loc>
     <lastmod>2022-03-25</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/tales-from-the-void.html</loc>
+    <lastmod>2022-08-01</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/the-water-we-swim-in.html</loc>
@@ -95,6 +127,14 @@
   <url>
     <loc>http://wander.localhost/towards-operational-excellence.html</loc>
     <lastmod>2022-02-04</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/toyota-group-and-the-aisin-fire.html</loc>
+    <lastmod>2022-08-06</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/tracking-on-call-health.html</loc>
+    <lastmod>2022-07-14</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/usefulness-of-error.html</loc>
@@ -121,47 +161,11 @@
     <lastmod>2022-02-15</lastmod>
   </url>
   <url>
-    <loc>http://wander.localhost/on-counting-alerts.html</loc>
-    <lastmod>2022-07-14</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/tracking-on-call-health.html</loc>
-    <lastmod>2022-07-14</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/software-quality-epistemology.html</loc>
-    <lastmod>2022-07-14</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/code-review-impacts-quality.html</loc>
-    <lastmod>2022-07-14</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/cdc-stressat-work.html</loc>
-    <lastmod>2022-07-14</lastmod>
-  </url>
-  <url>
     <loc>http://wander.localhost/wrangling-css-at-github.html</loc>
     <lastmod>2022-07-20</lastmod>
   </url>
   <url>
-    <loc>http://wander.localhost/let-your-body-lead.html</loc>
-    <lastmod>2022-07-20</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/dont-page-me.html</loc>
-    <lastmod>2022-08-03</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/tales-from-the-void.html</loc>
-    <lastmod>2022-08-01</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/residuality-theory.html</loc>
-    <lastmod>2022-08-05</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/toyota-group-and-the-aisin-fire.html</loc>
-    <lastmod>2022-08-06</lastmod>
+    <loc>http://wander.localhost/script-template.html</loc>
+    <lastmod>2022-08-14</lastmod>
   </url>
 </urlset>

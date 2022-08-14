@@ -1,0 +1,90 @@
+{
+  "title": "Script Template",
+  "story": [
+    {
+      "id": "78d84000",
+      "type": "paragraph",
+      "text": "Explain what this does."
+    },
+    {
+      "id": "468c4000",
+      "type": "code",
+      "text": "// Code that does it.\n\nexport async function emit(el) {\n el.innerHTML = 2 + 3\n}"
+    },
+    {
+      "id": "657a000",
+      "type": "paragraph",
+      "text": "In the frame below we can view the results."
+    },
+    {
+      "id": "c2e4000",
+      "type": "frame",
+      "text": "//wander.dbbs.co/assets/pages/script-template/esm.html\nHEIGHT 400"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Script Template",
+        "story": [
+          {
+            "id": "78d84000",
+            "type": "paragraph",
+            "text": "Explain what this does."
+          },
+          {
+            "id": "468c4000",
+            "type": "paragraph",
+            "text": "..."
+          },
+          {
+            "id": "657a000",
+            "type": "paragraph",
+            "text": "In the frame below we can view the results."
+          },
+          {
+            "id": "c2e4000",
+            "type": "paragraph",
+            "text": "..."
+          }
+        ]
+      },
+      "date": 1660435967111
+    },
+    {
+      "type": "fork",
+      "date": 1660436034850
+    },
+    {
+      "type": "edit",
+      "id": "c2e4000",
+      "item": {
+        "id": "c2e4000",
+        "type": "factory",
+        "text": "//wander.localhost/assets/pages/script-template/esm.html\nHEIGHT 400"
+      },
+      "date": 1660436049950
+    },
+    {
+      "type": "edit",
+      "id": "c2e4000",
+      "item": {
+        "id": "c2e4000",
+        "type": "frame",
+        "text": "//wander.dbbs.co/assets/pages/script-template/esm.html\nHEIGHT 400"
+      },
+      "date": 1660436066409
+    },
+    {
+      "type": "edit",
+      "id": "468c4000",
+      "item": {
+        "id": "468c4000",
+        "type": "code",
+        "text": "// Code that does it.\n\nexport async function emit(el) {\n el.innerHTML = 2 + 3\n}"
+      },
+      "date": 1660436101466
+    }
+  ]
+}
