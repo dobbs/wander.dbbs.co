@@ -49,7 +49,7 @@
     {
       "id": "62982000",
       "type": "paragraph",
-      "text": "Reflective Practitioner by Donald Schön 1981. Most professionals in complex environments develop reflective practice: use a gut feeling to make decisions that are more or less correct. But our culture is bound to an idea of technical rationality. We believe we should be working in a structured analytic way. Gut feeling is never really accepted."
+      "text": "Reflective Practitioner by Donald Schön 1983. Most professionals in complex environments develop reflective practice: use a gut feeling to make decisions that are more or less correct. But our culture is bound to an idea of technical rationality. We believe we should be working in a structured analytic way. Gut feeling is never really accepted. See also Reflective Practice [https://en.wikipedia.org/wiki/Reflective_practice wikipedia]"
     },
     {
       "id": "5e5b0000",
@@ -935,6 +935,16 @@
         "text": "Reflective Practitioner by Donald Schön 1981. Most professionals in complex environments develop reflective practice: use a gut feeling to make decisions that are more or less correct. But our culture is bound to an idea of technical rationality. We believe we should be working in a structured analytic way. Gut feeling is never really accepted."
       },
       "date": 1662753917743
+    },
+    {
+      "type": "edit",
+      "id": "62982000",
+      "item": {
+        "id": "62982000",
+        "type": "paragraph",
+        "text": "Reflective Practitioner by Donald Schön 1983. Most professionals in complex environments develop reflective practice: use a gut feeling to make decisions that are more or less correct. But our culture is bound to an idea of technical rationality. We believe we should be working in a structured analytic way. Gut feeling is never really accepted. See also Reflective Practice [https://en.wikipedia.org/wiki/Reflective_practice wikipedia]"
+      },
+      "date": 1662754572869
     }
   ]
 }
