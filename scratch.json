@@ -1,6 +1,12 @@
 {
   "title": "Scratch",
-  "story": [],
+  "story": [
+    {
+      "type": "grep",
+      "id": "bbfe8d0fc9b503c1",
+      "text": "ITEM image"
+    }
+  ],
   "journal": [
     {
       "type": "create",
@@ -9,6 +15,25 @@
         "story": []
       },
       "date": 1650241352321
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "bbfe8d0fc9b503c1"
+      },
+      "id": "bbfe8d0fc9b503c1",
+      "type": "add",
+      "date": 1661616766525
+    },
+    {
+      "type": "edit",
+      "id": "bbfe8d0fc9b503c1",
+      "item": {
+        "type": "grep",
+        "id": "bbfe8d0fc9b503c1",
+        "text": "ITEM image"
+      },
+      "date": 1661616786788
     }
   ]
 }

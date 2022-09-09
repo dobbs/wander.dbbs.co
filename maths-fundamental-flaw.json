@@ -1,0 +1,186 @@
+{
+  "title": "Math's Fundamental Flaw",
+  "story": [
+    {
+      "id": "41b4e000",
+      "type": "paragraph",
+      "text": "Dr. Derek Muller is the creator of Veritasium, a YouTube channel about science. Not everything that is true can be proven. [https://www.youtube.com/watch?v=HeQX2HjkcNo youtube]"
+    },
+    {
+      "type": "video",
+      "id": "9d66fb17ff002e42",
+      "text": "YOUTUBE HeQX2HjkcNo\n\nMath's Fundamental Flaw. Dr. Derek Muller @ Veritasium. Not everything that is true can be proven. [https://www.youtube.com/watch?v=HeQX2HjkcNo youtube]"
+    },
+    {
+      "id": "14bd800",
+      "type": "paragraph",
+      "text": "The main figures in this story are Cantor, Gilbert, Gödel, Turing. Mr. Muller frames this historical journey with Conway's Game of Life."
+    },
+    {
+      "id": "741fb000",
+      "type": "paragraph",
+      "text": "Euclid has been the bedrock of mathematics for two thousand years until Lobashevsky and Gauss discovered non-Euclidean geometries."
+    },
+    {
+      "id": "cb0000",
+      "type": "paragraph",
+      "text": "Cantor introduced set theory and with it a diagonalization proof that there are more real numbers between 0 and 1 than there are integers."
+    },
+    {
+      "id": "55ba9400",
+      "type": "paragraph",
+      "text": "Hilbert believed a formal and rigorous system of mathematical proof based on set theory could reconcile the challenges discovered over the 1800s."
+    },
+    {
+      "id": "6d938000",
+      "type": "paragraph",
+      "text": "There were three big questions that  Hilbert wanted answered about mathematics."
+    },
+    {
+      "id": "25ebc000",
+      "type": "paragraph",
+      "text": "Complete. Can every true statement be proved?"
+    },
+    {
+      "id": "6a0b8000",
+      "type": "paragraph",
+      "text": "Consistent. Is it free of contradictions?"
+    },
+    {
+      "id": "10237000",
+      "type": "paragraph",
+      "text": "Decidable. Is there an algorithm that can always determine whether a statement follows  from the axiom?"
+    },
+    {
+      "id": "7838b000",
+      "type": "paragraph",
+      "text": "Bertrand Russel found a paradox in set theory of self-referential sets: the set, R, of all sets that do not contain themselves. If R does not contain itself, then it must be included in R. If R is contained, then it must be excluded."
+    },
+    {
+      "id": "45650000",
+      "type": "paragraph",
+      "text": "Russel and Alfred North Whitehead created a formal system in Principia Mathematica after Hilbert's challenge."
+    },
+    {
+      "id": "528a8000",
+      "type": "paragraph",
+      "text": "Gödel's first incompleteness theorem proved mathematics is incomplete. A formal system could express a self-referential contradiction that would be both true and unprovable within the system."
+    },
+    {
+      "id": "544c4000",
+      "type": "paragraph",
+      "text": "Gödel published a second incompleteness theorem which proved any consistent formal system cannot prove its own consistency."
+    },
+    {
+      "id": "28d10000",
+      "type": "paragraph",
+      "text": "Turing envisioned a computing machine that forms the basis of all computing. With another stroke of self-reference, he proved no algorithm could determine if another program will run to completion. Mathematics is not decidable."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Math's Fundamental Flaw",
+        "story": [
+          {
+            "id": "41b4e000",
+            "type": "paragraph",
+            "text": "Dr. Derek Muller is the creator of Veritasium, a YouTube channel about science. Not everything that is true can be proven. [https://www.youtube.com/watch?v=HeQX2HjkcNo youtube]"
+          },
+          {
+            "id": "14bd800",
+            "type": "paragraph",
+            "text": "The main figures in this story are Cantor, Gilbert, Gödel, Turing. Mr. Muller frames this historical journey with Conway's Game of Life."
+          },
+          {
+            "id": "741fb000",
+            "type": "paragraph",
+            "text": "Euclid has been the bedrock of mathematics for two thousand years until Lobashevsky and Gauss discovered non-Euclidean geometries."
+          },
+          {
+            "id": "cb0000",
+            "type": "paragraph",
+            "text": "Cantor introduced set theory and with it a diagonalization proof that there are more real numbers between 0 and 1 than there are integers."
+          },
+          {
+            "id": "55ba9400",
+            "type": "paragraph",
+            "text": "Hilbert believed a formal and rigorous system of mathematical proof based on set theory could reconcile the challenges discovered over the 1800s."
+          },
+          {
+            "id": "6d938000",
+            "type": "paragraph",
+            "text": "There were three big questions that  Hilbert wanted answered about mathematics."
+          },
+          {
+            "id": "25ebc000",
+            "type": "paragraph",
+            "text": "Complete. Can every true statement be proved?"
+          },
+          {
+            "id": "6a0b8000",
+            "type": "paragraph",
+            "text": "Consistent. Is it free of contradictions?"
+          },
+          {
+            "id": "10237000",
+            "type": "paragraph",
+            "text": "Decidable. Is there an algorithm that can always determine whether a statement follows  from the axiom?"
+          },
+          {
+            "id": "7838b000",
+            "type": "paragraph",
+            "text": "Bertrand Russel found a paradox in set theory of self-referential sets: the set, R, of all sets that do not contain themselves. If R does not contain itself, then it must be included in R. If R is contained, then it must be excluded."
+          },
+          {
+            "id": "45650000",
+            "type": "paragraph",
+            "text": "Russel and Alfred North Whitehead created a formal system in Principia Mathematica after Hilbert's challenge."
+          },
+          {
+            "id": "528a8000",
+            "type": "paragraph",
+            "text": "Gödel's first incompleteness theorem proved mathematics is incomplete. A formal system could express a self-referential contradiction that would be both true and unprovable within the system."
+          },
+          {
+            "id": "544c4000",
+            "type": "paragraph",
+            "text": "Gödel published a second incompleteness theorem which proved any consistent formal system cannot prove its own consistency."
+          },
+          {
+            "id": "28d10000",
+            "type": "paragraph",
+            "text": "Turing envisioned a computing machine that forms the basis of all computing. With another stroke of self-reference, he proved no algorithm could determine if another program will run to completion. Mathematics is not decidable."
+          }
+        ]
+      },
+      "date": 1662397967878
+    },
+    {
+      "type": "fork",
+      "date": 1662397975123
+    },
+    {
+      "type": "add",
+      "id": "9d66fb17ff002e42",
+      "item": {
+        "type": "factory",
+        "id": "9d66fb17ff002e42",
+        "text": "..."
+      },
+      "after": "41b4e000",
+      "date": 1662397994853
+    },
+    {
+      "type": "edit",
+      "id": "9d66fb17ff002e42",
+      "item": {
+        "type": "video",
+        "id": "9d66fb17ff002e42",
+        "text": "YOUTUBE HeQX2HjkcNo\n\nMath's Fundamental Flaw. Dr. Derek Muller @ Veritasium. Not everything that is true can be proven. [https://www.youtube.com/watch?v=HeQX2HjkcNo youtube]"
+      },
+      "date": 1662398059190
+    }
+  ]
+}
