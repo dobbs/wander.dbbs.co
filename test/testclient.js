@@ -14,7 +14,9 @@ symbols = {
   edit: '✎',
   fork: '⚑',
   move: '↕',
-  remove: '✕'
+  remove: '✕',
+  copyIn: '⨭',
+  copyOut: '⨵'
 };
 fork = symbols['fork'];
 add = symbols['add'];
@@ -107,7 +109,7 @@ util = require('./util');
 actionSymbols = require('./actionSymbols');
 
 module.exports = function ($journal, action) {
-  var $action, $page, controls, title;
+  var $action, $page, controls, ref, ref1, title;
   $page = $journal.parents('.page:first');
   title = '';
 
@@ -121,7 +123,28 @@ module.exports = function ($journal, action) {
     title += " ".concat(util.formatElapsedTime(action.date));
   }
 
+  if (((ref = action.attribution) != null ? ref.page : void 0) != null) {
+    title += "\nfrom ".concat(action.attribution.page);
+  }
+
+  if (((ref1 = action.removedTo) != null ? ref1.page : void 0) != null) {
+    title += "\nto ".concat(action.removedTo.page);
+  }
+
   $action = $("<a href=\"#\" /> ").addClass("action").addClass(action.type || 'separator').text(action.symbol || actionSymbols.symbols[action.type]).attr('title', title).attr('data-id', action.id || "0").data('action', action);
+
+  if (action.type === 'add' && action.attribution != null) {
+    $action.text(actionSymbols.symbols['copyIn']);
+
+    if (action.attribution.site != null) {
+      $action.css("background-image", "url(".concat(wiki.site(action.attribution.site).flag(), ")"));
+    }
+  }
+
+  if (action.type === 'remove' && action.removedTo != null) {
+    $action.text(actionSymbols.symbols['copyOut']);
+  }
+
   controls = $journal.children('.control-buttons');
 
   if (controls.length > 0) {
@@ -135,7 +158,7 @@ module.exports = function ($journal, action) {
   }
 };
 
-},{"./actionSymbols":1,"./util":33}],4:[function(require,module,exports){
+},{"./actionSymbols":1,"./util":32}],4:[function(require,module,exports){
 "use strict";
 
 // Bind connects the searchbox and the neighbors, both views,
@@ -165,7 +188,7 @@ $(function () {
   return state.inject(link);
 });
 
-},{"./link":14,"./neighborhood":15,"./neighbors":16,"./searchbox":28,"./state":31}],5:[function(require,module,exports){
+},{"./link":13,"./neighborhood":14,"./neighbors":15,"./searchbox":27,"./state":30}],5:[function(require,module,exports){
 "use strict";
 
 // Dialog manages a single <div> that is used to present a
@@ -195,20 +218,12 @@ module.exports = {
   open: open
 };
 
-},{"./resolve":25}],6:[function(require,module,exports){
+},{"./resolve":24}],6:[function(require,module,exports){
 "use strict";
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
 // handle drops of wiki pages or thing that go on wiki pages
 // (we'll move decoding logic out of factory)
@@ -216,6 +231,7 @@ var dispatch,
     isFile,
     isImage,
     isPage,
+    isSvg,
     isUrl,
     isVideo,
     nurl,
@@ -257,7 +273,7 @@ isPage = function isPage(url) {
     item = {};
     var _found = found;
 
-    var _found2 = _slicedToArray(_found, 6);
+    var _found2 = (0, _slicedToArray2["default"])(_found, 6);
 
     ignore = _found2[0];
     origin = _found2[1];
@@ -280,7 +296,18 @@ isImage = function isImage(url) {
   var parsedURL;
   parsedURL = nurl.parse(url, true, true);
 
-  if (parsedURL.pathname.match(/\.(jpg|jpeg|png|svg)$/i)) {
+  if (parsedURL.pathname.match(/\.(jpg|jpeg|png)$/i)) {
+    return url;
+  }
+
+  return null;
+};
+
+isSvg = function isSvg(url) {
+  var parsedURL;
+  parsedURL = nurl.parse(url, true, true);
+
+  if (parsedURL.pathname.match(/\.(svg)$/i)) {
     return url;
   }
 
@@ -355,7 +382,7 @@ isVideo = function isVideo(url) {
 
 dispatch = function dispatch(handlers) {
   return function (event) {
-    var file, handle, image, page, punt, ref, stop, url, video;
+    var file, handle, image, page, punt, ref, stop, svg, url, video;
 
     stop = function stop(ignored) {
       event.preventDefault();
@@ -378,6 +405,12 @@ dispatch = function dispatch(handlers) {
       if (image = isImage(url)) {
         if ((handle = handlers.image) != null) {
           return stop(handle(image));
+        }
+      }
+
+      if (svg = isSvg(url)) {
+        if ((handle = handlers.svg) != null) {
+          return stop(handle(svg));
         }
       }
 
@@ -410,7 +443,7 @@ module.exports = {
   dispatch: dispatch
 };
 
-},{"url":70}],7:[function(require,module,exports){
+},{"@babel/runtime/helpers/interopRequireDefault":36,"@babel/runtime/helpers/slicedToArray":40,"url":79}],7:[function(require,module,exports){
 "use strict";
 
 // Editor provides a small textarea for editing wiki markup.
@@ -689,25 +722,17 @@ module.exports = {
   textEditor: _textEditor
 };
 
-},{"./itemz":12,"./link":14,"./pageHandler":18,"./plugin":20,"./random":22}],8:[function(require,module,exports){
+},{"./itemz":11,"./link":13,"./pageHandler":17,"./plugin":19,"./random":21}],8:[function(require,module,exports){
 "use strict";
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
 // A Factory plugin provides a drop zone for desktop content
 // destined to be one or another kind of item. Double click
 // will turn it into a normal paragraph.
-var active, arrayToJson, bind, csvToArray, drop, editor, emit, escape, fetchRemoteImage, neighborhood, pageHandler, plugin, resizeImage, resolve, synopsis;
+var active, arrayToJson, bind, csvToArray, drop, editor, emit, escape, neighborhood, pageHandler, plugin, resolve, synopsis;
 neighborhood = require('./neighborhood');
 plugin = require('./plugin');
 resolve = require('./resolve');
@@ -788,7 +813,7 @@ emit = function emit($item, item) {
 };
 
 bind = function bind($item, item) {
-  var addReference, addRemoteImage, addVideo, punt, readFile, syncEditAction;
+  var addReference, addRemoteImage, addRemoteSvg, addVideo, punt, readFile, syncEditAction;
 
   syncEditAction = function syncEditAction() {
     var $page, err;
@@ -848,14 +873,49 @@ bind = function bind($item, item) {
   addRemoteImage = function addRemoteImage(url) {
     // give some feedback, in case this is going to take a while...
     document.documentElement.style.cursor = 'wait';
-    return fetchRemoteImage(url).then(function (dataURL) {
-      return resizeImage(dataURL);
-    }).then(function (resizedImageURL) {
+    return fetch(url).then(function (response) {
+      if (response.ok) {
+        return response.blob();
+      }
+
+      throw new Error('Unable to fetch image');
+    }).then(function (imageBlob) {
+      var imageFileName, reader;
+      imageFileName = url.split('/').pop().split('#')[0].split('?')[0]; // not sure if converting to file gives anything!
+      // imageFile = new File([imageBlob], imageFileName, { type: imageBlob.type })
+
+      reader = new FileReader();
+      reader.readAsDataURL(imageBlob);
+      return reader.onload = function (loadEvent) {
+        var imageDataURL;
+        imageDataURL = loadEvent.target.result;
+        return window.plugins['image'].editor({
+          imageDataURL: imageDataURL,
+          filename: imageFileName,
+          imageSourceURL: url,
+          imageCaption: "Remote image [".concat(url, " source]"),
+          $item: $item,
+          item: item
+        });
+      };
+    });
+  };
+
+  addRemoteSvg = function addRemoteSvg(url) {
+    document.documentElement.style.cursor = 'wait';
+    return fetch(url).then(function (response) {
+      if (response.ok) {
+        return response;
+      }
+
+      throw new Error('Unable to fetch svg');
+    }).then(function (response) {
+      return response.text();
+    }).then(function (svgText) {
       document.documentElement.style.cursor = 'default';
-      item.type = 'image';
-      item.url = resizedImageURL;
+      item.type = 'html';
       item.source = url;
-      item.caption || (item.caption = "Remote image");
+      item.text = svgText + "<p>[".concat(url, " Source]</p>");
       return syncEditAction();
     });
   };
@@ -866,23 +926,40 @@ bind = function bind($item, item) {
     if (file != null) {
       var _file$type$split = file.type.split("/");
 
-      var _file$type$split2 = _slicedToArray(_file$type$split, 2);
+      var _file$type$split2 = (0, _slicedToArray2["default"])(_file$type$split, 2);
 
       majorType = _file$type$split2[0];
       minorType = _file$type$split2[1];
       reader = new FileReader();
 
       if (majorType === "image") {
-        reader.onload = function (loadEvent) {
-          return resizeImage(loadEvent.target.result).then(function (resizedImageURL) {
-            item.type = 'image';
-            item.url = resizedImageURL;
-            item.caption || (item.caption = "Uploaded image");
+        // svg -> html plugin
+        if (minorType.startsWith('svg')) {
+          reader.onload = function (loadEvent) {
+            var result;
+            result = loadEvent.target.result;
+            item.type = 'html';
+            item.text = result;
             return syncEditAction();
-          });
-        };
+          };
 
-        return reader.readAsDataURL(file);
+          return reader.readAsText(file);
+        } else {
+          reader.onload = function (loadEvent) {
+            var imageDataURL;
+            console.log('upload file', file);
+            imageDataURL = loadEvent.target.result;
+            return window.plugins['image'].editor({
+              imageDataURL: imageDataURL,
+              filename: file.name,
+              imageCaption: "Uploaded image",
+              $item: $item,
+              item: item
+            });
+          };
+
+          return reader.readAsDataURL(file);
+        }
       } else if (majorType === "text") {
         reader.onload = function (loadEvent) {
           var array, result;
@@ -915,6 +992,10 @@ bind = function bind($item, item) {
   };
 
   $item.dblclick(function (e) {
+    if (!$('.editEnable').is(':visible')) {
+      return;
+    }
+
     if (e.shiftKey) {
       return editor.textEditor($item, item, {
         field: 'prompt'
@@ -936,6 +1017,7 @@ bind = function bind($item, item) {
     file: readFile,
     video: addVideo,
     image: addRemoteImage,
+    svg: addRemoteSvg,
     punt: punt
   }));
 }; // from http://www.bennadel.com/blog/1504-Ask-Ben-Parsing-CSV-Strings-With-Javascript-Exec-Regular-Expression-Command.htm
@@ -978,7 +1060,7 @@ arrayToJson = function arrayToJson(array) {
     ref = _.zip(cols, row);
 
     for (i = 0, len = ref.length; i < len; i++) {
-      var _ref$i = _slicedToArray(ref[i], 2);
+      var _ref$i = (0, _slicedToArray2["default"])(ref[i], 2);
 
       k = _ref$i[0];
       v = _ref$i[1];
@@ -1001,108 +1083,12 @@ arrayToJson = function arrayToJson(array) {
   return results;
 };
 
-fetchRemoteImage = function fetchRemoteImage(url) {
-  var arrayBufferToBase64;
-
-  arrayBufferToBase64 = function arrayBufferToBase64(buffer) {
-    var binary, bytes;
-    binary = '';
-    bytes = [].slice.call(new Uint8Array(buffer));
-    bytes.forEach(function (b) {
-      return binary += String.fromCharCode(b);
-    });
-    return window.btoa(binary);
-  };
-
-  return fetch(url).then(function (response) {
-    if (response.ok) {
-      return response;
-    }
-
-    throw new Error('Unable to fetch image');
-  }).then(function (response) {
-    return response.arrayBuffer().then(function (buffer) {
-      var imgStr;
-      imgStr = 'data:image/jpeg;base64,';
-      imgStr += arrayBufferToBase64(buffer);
-      return imgStr;
-    });
-  })["catch"](function (error) {
-    return console.log('Unable to fetch remote image');
-  });
-}; // from https://web.archive.org/web/20140327091827/http://www.benknowscode.com/2014/01/resizing-images-in-browser-using-canvas.html
-// Patrick Oswald version from comment, coffeescript and further simplification for wiki
-
-
-resizeImage = function resizeImage(dataURL) {
-  var cH, cW, imageQuality, smallEnough, src, tH, tW;
-  src = new Image();
-  cW = void 0;
-  cH = void 0; // target size
-
-  tW = 500;
-  tH = 300; // image quality
-
-  imageQuality = 0.5;
-
-  smallEnough = function smallEnough(img) {
-    return img.width <= tW || img.height <= tH;
-  };
-
-  return new Promise(function (resolve) {
-    src.src = dataURL;
-    return src.onload = function () {
-      return resolve();
-    };
-  }).then(function () {
-    cW = src.naturalWidth;
-    return cH = src.naturalHeight;
-  }).then(function () {
-    var iterations, oversize, prescale; // determine size for first squeeze
-
-    if (smallEnough(src)) {
-      return;
-    }
-
-    oversize = Math.max(1, Math.min(cW / tW, cH / tH));
-    iterations = Math.floor(Math.log2(oversize));
-    prescale = oversize / Math.pow(2, iterations);
-    cW = Math.round(cW / prescale);
-    return cH = Math.round(cH / prescale);
-  }).then(function () {
-    return new Promise(function (resolve) {
-      var tmp;
-      tmp = new Image();
-      tmp.src = src.src;
-      return tmp.onload = function () {
-        var canvas, context;
-
-        if (smallEnough(tmp)) {
-          return resolve(dataURL);
-        }
-
-        canvas = document.createElement('canvas');
-        canvas.width = cW;
-        canvas.height = cH;
-        context = canvas.getContext('2d');
-        context.drawImage(tmp, 0, 0, cW, cH);
-        dataURL = canvas.toDataURL('image/jpeg', imageQuality);
-        cW /= 2;
-        cH /= 2;
-        return tmp.src = dataURL;
-      };
-    });
-  }).then(function () {
-    return dataURL;
-  });
-};
-
 module.exports = {
   emit: emit,
   bind: bind
 };
 
-},{"./active":2,"./drop":6,"./editor":7,"./neighborhood":15,"./pageHandler":18,"./plugin":20,"./resolve":25,"./synopsis":32}],9:[function(require,module,exports){
+},{"./active":2,"./drop":6,"./editor":7,"./neighborhood":14,"./pageHandler":17,"./plugin":19,"./resolve":24,"./synopsis":31,"@babel/runtime/helpers/interopRequireDefault":36,"@babel/runtime/helpers/slicedToArray":40}],9:[function(require,module,exports){
 "use strict";
 
 // A Future plugin represents a page that hasn't been written
@@ -1178,63 +1164,7 @@ module.exports = {
   bind: bind
 };
 
-},{"./lineup":13,"./neighborhood":15,"./refresh":24,"./resolve":25}],10:[function(require,module,exports){
-"use strict";
-
-// An Image plugin presents a picture with a caption. The image source
-// can be any URL but we have been using "data urls" so as to get the
-// proper sharing semantics if not storage efficency.
-var bind, dialog, editor, emit, ipfs, ipfs_probed, probe_ipfs, resolve;
-dialog = require('./dialog');
-editor = require('./editor');
-resolve = require('./resolve');
-ipfs = false;
-ipfs_probed = false;
-
-probe_ipfs = function probe_ipfs() {
-  var gateway;
-  ipfs_probed = true;
-  gateway = "http://127.0.0.1:8080";
-  return $.ajax("".concat(gateway, "/ipfs/Qmb1oS3TaS8vekxXqogoYsixe47sXcVxQ22kPWH8VSd7yQ"), {
-    timeout: 30000,
-    success: function success(data) {
-      return ipfs = data === "wiki\n";
-    },
-    complete: function complete(xhr, status) {
-      return console.log("ipfs gateway ".concat(status));
-    }
-  });
-};
-
-emit = function emit($item, item) {
-  item.text || (item.text = item.caption);
-  return $item.append("<img class=thumbnail src=\"".concat(item.url, "\"> <p>").concat(resolve.resolveLinks(item.text), "</p>"));
-};
-
-bind = function bind($item, item) {
-  $item.dblclick(function () {
-    return editor.textEditor($item, item);
-  });
-
-  if (item.ipfs && !ipfs_probed) {
-    probe_ipfs();
-  }
-
-  return $item.find('img').dblclick(function (event) {
-    var url;
-    event.stopPropagation();
-    url = ipfs && item.ipfs != null ? "".concat(gateway, "/ipfs/").concat( // somehow test for continued existnace? Maybe register an error handler?
-    item.ipfs) : item.source != null ? item.source : item.url;
-    return dialog.open(item.text, "<img style=\"width:100%\" src=\"".concat(url, "\">"));
-  });
-};
-
-module.exports = {
-  emit: emit,
-  bind: bind
-};
-
-},{"./dialog":5,"./editor":7,"./resolve":25}],11:[function(require,module,exports){
+},{"./lineup":12,"./neighborhood":14,"./refresh":23,"./resolve":24}],10:[function(require,module,exports){
 "use strict";
 
 // An Importer plugin completes the ghost page created upon drop of a site export file.
@@ -1298,7 +1228,7 @@ module.exports = {
   bind: bind
 };
 
-},{"./link":14,"./page":17,"./util":33}],12:[function(require,module,exports){
+},{"./link":13,"./page":16,"./util":32}],11:[function(require,module,exports){
 "use strict";
 
 // The itemz module understands how we have been keeping track of
@@ -1390,7 +1320,7 @@ module.exports = {
   replaceItem: replaceItem
 };
 
-},{"./pageHandler":18,"./plugin":20,"./random":22}],13:[function(require,module,exports){
+},{"./pageHandler":17,"./plugin":19,"./random":21}],12:[function(require,module,exports){
 "use strict";
 
 // The lineup represents a sequence of pages with possible
@@ -1555,7 +1485,7 @@ module.exports = {
   debugSelfCheck: debugSelfCheck
 };
 
-},{"./random":22}],14:[function(require,module,exports){
+},{"./random":21}],13:[function(require,module,exports){
 "use strict";
 
 // Here is where we attach federated semantics to internal
@@ -1653,7 +1583,7 @@ module.exports = {
   showResult: showResult
 };
 
-},{"./active":2,"./lineup":13,"./page":17,"./refresh":24}],15:[function(require,module,exports){
+},{"./active":2,"./lineup":12,"./page":16,"./refresh":23}],14:[function(require,module,exports){
 "use strict";
 
 // The neighborhood provides a cache of site maps read from
@@ -1825,35 +1755,42 @@ neighborhood.listNeighbors = function () {
 
 
 extractPageText = function extractPageText(pageText, currentItem) {
-  var i, len, line, ref;
+  var err, i, len, line, ref;
 
-  switch (currentItem.type) {
-    case 'paragraph':
-      pageText += ' ' + currentItem.text.replace(/\[{2}|\[(?:[\S]+)|\]{1,2}/g, '');
-      break;
+  try {
+    if (currentItem.text != null) {
+      switch (currentItem.type) {
+        case 'paragraph':
+          pageText += ' ' + currentItem.text.replace(/\[{2}|\[(?:[\S]+)|\]{1,2}/g, '');
+          break;
 
-    case 'markdown':
-      // really need to extract text from the markdown, but for now just remove link brackets...
-      pageText += ' ' + currentItem.text.replace(/\[{2}|\[(?:[\S]+)|\]{1,2}/g, '');
-      break;
+        case 'markdown':
+          // really need to extract text from the markdown, but for now just remove link brackets, urls...
+          pageText += ' ' + currentItem.text.replace(/\[{2}|\[(?:[\S]+)|\]{1,2}|\\n/g, ' ');
+          break;
 
-    case 'html':
-      pageText += ' ' + currentItem.text.replace(/<[^>]*>/g, '');
-      break;
+        case 'html':
+          pageText += ' ' + currentItem.text.replace(/<[^>]*>/g, '');
+          break;
 
-    default:
-      if (currentItem.text != null) {
-        ref = currentItem.text.split(/\r\n?|\n/);
+        default:
+          if (currentItem.text != null) {
+            ref = currentItem.text.split(/\r\n?|\n/);
 
-        for (i = 0, len = ref.length; i < len; i++) {
-          line = ref[i];
+            for (i = 0, len = ref.length; i < len; i++) {
+              line = ref[i];
 
-          if (!line.match(/^[A-Z]+[ ].*/)) {
-            pageText += ' ' + line.replace(/\[{2}|\[(?:[\S]+)|\]{1,2}/g, '');
+              if (!line.match(/^[A-Z]+[ ].*/)) {
+                pageText += ' ' + line.replace(/\[{2}|\[(?:[\S]+)|\]{1,2}/g, '');
+              }
+            }
           }
-        }
-      }
 
+      }
+    }
+  } catch (error1) {
+    err = error1;
+    throw new Error("Error extracting text from ".concat(currentIndex, ", ").concat(err));
   }
 
   return pageText;
@@ -2004,14 +1941,21 @@ neighborhood.search = function (searchQuery) {
         contentBoost = 1;
       }
 
-      searchResult = neighborInfo.siteIndex.search(searchQuery, {
-        boost: {
-          title: titleBoost,
-          content: contentBoost
-        },
-        prefix: true,
-        combineWith: 'AND'
-      });
+      try {
+        searchResult = neighborInfo.siteIndex.search(searchQuery, {
+          boost: {
+            title: titleBoost,
+            content: contentBoost
+          },
+          prefix: true,
+          combineWith: 'AND'
+        });
+      } catch (error1) {
+        error = error1;
+        console.error('search index error', neighborSite, searchQuery, error);
+        searchResult = [];
+      }
+
       searchResult.forEach(function (result) {
         tick('finds');
         return finds.push({
@@ -2076,7 +2020,7 @@ neighborhood.backLinks = function (slug) {
   return results;
 };
 
-},{"minisearch":77,"underscore":185}],16:[function(require,module,exports){
+},{"minisearch":86,"underscore":194}],15:[function(require,module,exports){
 "use strict";
 
 // This module manages the display of site flags representing
@@ -2134,7 +2078,17 @@ bind = function bind() {
     }
 
     totalPages = Object.values(neighborhood.sites).reduce(function (sum, site) {
-      return site.sitemap.length;
+      try {
+        if (site.sitemapRequestInflight) {
+          return sum;
+        } else {
+          return sum + site.sitemap.length;
+        }
+      } catch (error1) {
+        error = error1;
+        console.log('failed in new neighbour done', site, error);
+        return sum;
+      }
     }, 0);
     return $('.searchbox .pages').text("".concat(totalPages, " pages"));
   }).delegate('.neighbor img', 'click', function (e) {
@@ -2158,7 +2112,7 @@ module.exports = {
   bind: bind
 };
 
-},{"./link":14,"./neighborhood":15,"./wiki":34}],17:[function(require,module,exports){
+},{"./link":13,"./neighborhood":14,"./wiki":33}],16:[function(require,module,exports){
 "use strict";
 
 // Page provides a factory for pageObjects, a model that combines
@@ -2638,7 +2592,7 @@ module.exports = {
   pageEmitter: pageEmitter
 };
 
-},{"./random":22,"./revision":26,"./synopsis":32,"./util":33,"events":50,"underscore":185}],18:[function(require,module,exports){
+},{"./random":21,"./revision":25,"./synopsis":31,"./util":32,"events":58,"underscore":194}],17:[function(require,module,exports){
 "use strict";
 
 // The pageHandler bundles fetching and storing json pages
@@ -2854,6 +2808,8 @@ pushToServer = function pushToServer($page, pagePutInfo, action) {
     }
 
     return wiki.origin.put(pagePutInfo.slug, bundle, function (err) {
+      var index;
+
       if (err) {
         action.error = {
           type: err.type,
@@ -2871,7 +2827,15 @@ pushToServer = function pushToServer($page, pagePutInfo, action) {
         addToJournal($page.find('.journal'), action);
 
         if (action.type === 'fork') {
-          return wiki.local["delete"]($page.attr('id'));
+          wiki.local["delete"]($page.attr('id'));
+        }
+
+        if (action.type !== 'fork' && action.fork) {
+          // implicit fork, probably only affects image plugin
+          if (action.item.type === 'image') {
+            index = $page.find('.item').index($page.find('#' + action.item.id).context);
+            return wiki.renderFrom(index);
+          }
         }
       }
     });
@@ -2996,7 +2960,7 @@ pageHandler["delete"] = function (pageObject, $page, done) {
   }
 };
 
-},{"./addToJournal":3,"./lineup":13,"./neighborhood":15,"./page":17,"./random":22,"./revision":26,"./state":31,"underscore":185}],19:[function(require,module,exports){
+},{"./addToJournal":3,"./lineup":12,"./neighborhood":14,"./page":16,"./random":21,"./revision":25,"./state":30,"underscore":194}],18:[function(require,module,exports){
 "use strict";
 
 // The Paragraph plugin holds text that can be edited and rendered
@@ -3051,7 +3015,7 @@ module.exports = {
   bind: bind
 };
 
-},{"./editor":7,"./itemz":12,"./resolve":25}],20:[function(require,module,exports){
+},{"./editor":7,"./itemz":11,"./resolve":24}],19:[function(require,module,exports){
 "use strict";
 
 // The plugin module manages the dynamic retrieval of plugin
@@ -3362,7 +3326,7 @@ plugin.registerPlugin = function (pluginName, pluginFn) {
   return window.plugins[pluginName] = pluginFn($);
 };
 
-},{}],21:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 "use strict";
 
 // This module preloads the plugins directory with a few
@@ -3374,12 +3338,12 @@ window.plugins = {
   reference: plugin.wrap('reference', require('./reference')),
   factory: plugin.wrap('factory', require('./factory')),
   paragraph: plugin.wrap('paragraph', require('./paragraph')),
-  image: plugin.wrap('image', require('./image')),
+  //image: plugin.wrap('image', require './image')
   future: plugin.wrap('future', require('./future')),
   importer: plugin.wrap('importer', require('./importer'))
 };
 
-},{"./factory":8,"./future":9,"./image":10,"./importer":11,"./paragraph":19,"./plugin":20,"./reference":23}],22:[function(require,module,exports){
+},{"./factory":8,"./future":9,"./importer":10,"./paragraph":18,"./plugin":19,"./reference":22}],21:[function(require,module,exports){
 "use strict";
 
 // We create strings of hexidecimal digits representing a
@@ -3416,7 +3380,7 @@ module.exports = {
   itemId: itemId
 };
 
-},{}],23:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 "use strict";
 
 // The Reference plugin holds a site and page name to be
@@ -3454,20 +3418,12 @@ module.exports = {
   bind: bind
 };
 
-},{"./editor":7,"./page":17,"./resolve":25}],24:[function(require,module,exports){
+},{"./editor":7,"./page":16,"./resolve":24}],23:[function(require,module,exports){
 "use strict";
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
 // Refresh will fetch a page and use it to fill a dom
 // element that has been ready made to hold it.
@@ -3537,15 +3493,29 @@ getStoryItemOrder = function getStoryItemOrder($story) {
 };
 
 handleDrop = function handleDrop(evt, ui, originalIndex, originalOrder) {
-  var $before, $destinationPage, $item, $sourcePage, before, copying, destinationIsGhost, index, item, moveBetweenDuplicatePages, moveWithinPage, order, sourceIsReadOnly;
+  var $before, $destinationPage, $item, $sourcePage, before, copying, destinationIsGhost, dragAttribution, index, item, moveBetweenDuplicatePages, moveWithinPage, order, removedTo, sourceIsReadOnly;
   $item = ui.item;
   item = getItem($item);
   $sourcePage = $item.data('pageElement');
   sourceIsReadOnly = $sourcePage.hasClass('ghost') || $sourcePage.hasClass('remote');
+
+  if (!$sourcePage.hasClass('ghost')) {
+    dragAttribution = {
+      page: $sourcePage.data().data['title']
+    };
+
+    if ($sourcePage.data().site != null) {
+      dragAttribution['site'] = $sourcePage.data().site;
+    }
+  }
+
   $destinationPage = $item.parents('.page:first');
   destinationIsGhost = $destinationPage.hasClass('ghost');
   moveWithinPage = equals($sourcePage, $destinationPage);
   moveBetweenDuplicatePages = !moveWithinPage && $sourcePage.attr('id') === $destinationPage.attr('id');
+  removedTo = {
+    page: $destinationPage.data().data['title']
+  };
 
   if (destinationIsGhost || moveBetweenDuplicatePages) {
     $(evt.target).sortable('cancel');
@@ -3585,7 +3555,8 @@ handleDrop = function handleDrop(evt, ui, originalIndex, originalOrder) {
   } else {
     pageHandler.put($sourcePage, {
       id: item.id,
-      type: 'remove'
+      type: 'remove',
+      removedTo: removedTo
     });
   } // Either way, record the add to the new page
 
@@ -3598,7 +3569,8 @@ handleDrop = function handleDrop(evt, ui, originalIndex, originalOrder) {
     id: item.id,
     type: 'add',
     item: item,
-    after: before != null ? before.id : void 0
+    after: before != null ? before.id : void 0,
+    attribution: dragAttribution
   });
   $('.shadow-copy').remove();
   $item.empty();
@@ -3763,13 +3735,13 @@ handleHeaderClick = function handleHeaderClick(e) {
   crumbs = lineup.crumbs($page.data('key'), location.host);
   var _crumbs = crumbs;
 
-  var _crumbs2 = _slicedToArray(_crumbs, 1);
+  var _crumbs2 = (0, _slicedToArray2["default"])(_crumbs, 1);
 
   target = _crumbs2[0];
 
   var _wiki$site$getDirectU = wiki.site(target).getDirectURL('').split('/');
 
-  var _wiki$site$getDirectU2 = _slicedToArray(_wiki$site$getDirectU, 1);
+  var _wiki$site$getDirectU2 = (0, _slicedToArray2["default"])(_wiki$site$getDirectU, 1);
 
   prefix = _wiki$site$getDirectU2[0];
 
@@ -3984,7 +3956,7 @@ renderPageIntoPageElement = function renderPageIntoPageElement(pageObject, $page
     }
   });
 
-  var _map2 = _slicedToArray(_map, 7);
+  var _map2 = (0, _slicedToArray2["default"])(_map, 7);
 
   $handleParent = _map2[0];
   $twins = _map2[1];
@@ -4148,7 +4120,7 @@ cycle = function cycle($page) {
 
     var _$page$attr$split = $page.attr('id').split('_rev');
 
-    var _$page$attr$split2 = _slicedToArray(_$page$attr$split, 2);
+    var _$page$attr$split2 = (0, _slicedToArray2["default"])(_$page$attr$split, 2);
 
     slug = _$page$attr$split2[0];
     rev = _$page$attr$split2[1];
@@ -4203,7 +4175,7 @@ module.exports = {
   newFuturePage: newFuturePage
 };
 
-},{"./actionSymbols":1,"./addToJournal":3,"./lineup":13,"./neighborhood":15,"./page":17,"./pageHandler":18,"./plugin":20,"./random":22,"./resolve":25,"./state":31,"underscore":185}],25:[function(require,module,exports){
+},{"./actionSymbols":1,"./addToJournal":3,"./lineup":12,"./neighborhood":14,"./page":16,"./pageHandler":17,"./plugin":19,"./random":21,"./resolve":24,"./state":30,"@babel/runtime/helpers/interopRequireDefault":36,"@babel/runtime/helpers/slicedToArray":40,"underscore":194}],24:[function(require,module,exports){
 "use strict";
 
 // The function resolveLinks converts link markup to html syntax.
@@ -4271,7 +4243,7 @@ resolve.resolveLinks = function (string) {
   return sanitize(string).replace(/〖(\d+)〗/g, unstash);
 };
 
-},{"./page":17}],26:[function(require,module,exports){
+},{"./page":16}],25:[function(require,module,exports){
 "use strict";
 
 // This module interprets journal actions in order to update
@@ -4352,6 +4324,15 @@ apply = function apply(page, action) {
   }
 
   page.journal || (page.journal = []);
+
+  if (action.fork) {
+    // implicit fork
+    page.journal.push({
+      type: 'fork',
+      site: action.fork
+    });
+  }
+
   return page.journal.push(action);
 };
 
@@ -4377,7 +4358,7 @@ module.exports = {
   apply: apply
 };
 
-},{}],27:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 "use strict";
 
 // The search module invokes neighborhood's query function,
@@ -4567,7 +4548,7 @@ createSearch = function createSearch(_ref) {
 
 module.exports = createSearch;
 
-},{"./active":2,"./link":14,"./page":17,"./pageHandler":18,"./random":22,"./resolve":25}],28:[function(require,module,exports){
+},{"./active":2,"./link":13,"./page":16,"./pageHandler":17,"./random":21,"./resolve":24}],27:[function(require,module,exports){
 "use strict";
 
 // Handle input events from the search box. There is machinery
@@ -4619,7 +4600,7 @@ module.exports = {
   bind: bind
 };
 
-},{"./search":27}],29:[function(require,module,exports){
+},{"./search":26}],28:[function(require,module,exports){
 "use strict";
 
 var plugin, security;
@@ -4633,7 +4614,7 @@ module.exports = function (user) {
   });
 };
 
-},{"./plugin":20}],30:[function(require,module,exports){
+},{"./plugin":19}],29:[function(require,module,exports){
 "use strict";
 
 // The siteAdapter handles fetching resources from sites, including origin
@@ -5364,7 +5345,7 @@ siteAdapter.site = function (site) {
   };
 }; // same as if delete worked?
 
-},{"async/queue":42,"localforage":76}],31:[function(require,module,exports){
+},{"async/queue":50,"localforage":85}],30:[function(require,module,exports){
 "use strict";
 
 // The state module saves the .page lineup in the browser's location
@@ -5534,7 +5515,7 @@ state.first = function () {
   return results;
 };
 
-},{"./active":2,"./lineup":13}],32:[function(require,module,exports){
+},{"./active":2,"./lineup":12}],31:[function(require,module,exports){
 "use strict";
 
 // The synopsis module extracts a summary from the json derrived
@@ -5574,7 +5555,7 @@ module.exports = function (page) {
   return synopsis.substring(0, 560);
 };
 
-},{}],33:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 "use strict";
 
 // This module collects various functions that might belong
@@ -5645,7 +5626,7 @@ util.formatElapsedTime = function (msSinceEpoch) {
   return "".concat(Math.floor(years), " years ago");
 };
 
-},{}],34:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 "use strict";
 
 // We have exposed many parts of the core javascript to dynamically
@@ -5707,7 +5688,8 @@ plugin = require('./plugin');
 wiki.getScript = plugin.getScript;
 wiki.getPlugin = plugin.getPlugin;
 wiki.doPlugin = plugin.doPlugin;
-wiki.registerPlugin = plugin.registerPlugin; // known use: wiki.getData  wiki-plugin-bars/client/bars.coffee:
+wiki.registerPlugin = plugin.registerPlugin;
+wiki.renderFrom = plugin.renderFrom; // known use: wiki.getData  wiki-plugin-bars/client/bars.coffee:
 // known use: wiki.getData  wiki-plugin-calculator/client/calculator.coffee:
 // known use: wiki.getData  wiki-plugin-force/client/force.coffee:
 // known use: wiki.getData  wiki-plugin-line/client/line.coffee:
@@ -5820,7 +5802,118 @@ wiki.createSynopsis = require('./synopsis'); //#
 wiki.lineup = require('./lineup');
 module.exports = wiki;
 
-},{"./dialog":5,"./editor":7,"./itemz":12,"./lineup":13,"./link":14,"./neighborhood":15,"./page":17,"./pageHandler":18,"./plugin":20,"./resolve":25,"./security":29,"./siteAdapter":30,"./synopsis":32,"./util":33}],35:[function(require,module,exports){
+},{"./dialog":5,"./editor":7,"./itemz":11,"./lineup":12,"./link":13,"./neighborhood":14,"./page":16,"./pageHandler":17,"./plugin":19,"./resolve":24,"./security":28,"./siteAdapter":29,"./synopsis":31,"./util":32}],34:[function(require,module,exports){
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+module.exports = _arrayLikeToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{}],35:[function(require,module,exports){
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+module.exports = _arrayWithHoles, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{}],36:[function(require,module,exports){
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{}],37:[function(require,module,exports){
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter);
+}
+
+module.exports = _iterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{}],38:[function(require,module,exports){
+function _iterableToArrayLimit(arr, i) {
+  var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"];
+
+  if (_i == null) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+
+  var _s, _e;
+
+  try {
+    for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
+
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
+
+  return _arr;
+}
+
+module.exports = _iterableToArrayLimit, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{}],39:[function(require,module,exports){
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+module.exports = _nonIterableRest, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{}],40:[function(require,module,exports){
+var arrayWithHoles = require("./arrayWithHoles.js");
+
+var iterableToArrayLimit = require("./iterableToArrayLimit.js");
+
+var unsupportedIterableToArray = require("./unsupportedIterableToArray.js");
+
+var nonIterableRest = require("./nonIterableRest.js");
+
+function _slicedToArray(arr, i) {
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
+}
+
+module.exports = _slicedToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{"./arrayWithHoles.js":35,"./iterableToArrayLimit.js":38,"./nonIterableRest.js":39,"./unsupportedIterableToArray.js":42}],41:[function(require,module,exports){
+var arrayWithHoles = require("./arrayWithHoles.js");
+
+var iterableToArray = require("./iterableToArray.js");
+
+var unsupportedIterableToArray = require("./unsupportedIterableToArray.js");
+
+var nonIterableRest = require("./nonIterableRest.js");
+
+function _toArray(arr) {
+  return arrayWithHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableRest();
+}
+
+module.exports = _toArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{"./arrayWithHoles.js":35,"./iterableToArray.js":37,"./nonIterableRest.js":39,"./unsupportedIterableToArray.js":42}],42:[function(require,module,exports){
+var arrayLikeToArray = require("./arrayLikeToArray.js");
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+
+module.exports = _unsupportedIterableToArray, module.exports.__esModule = true, module.exports["default"] = module.exports;
+},{"./arrayLikeToArray.js":34}],43:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -5939,7 +6032,7 @@ function invokeCallback(callback, error, value) {
     }
 }
 module.exports = exports['default'];
-},{"./internal/initialParams.js":37,"./internal/setImmediate.js":40,"./internal/wrapAsync.js":41}],36:[function(require,module,exports){
+},{"./internal/initialParams.js":45,"./internal/setImmediate.js":48,"./internal/wrapAsync.js":49}],44:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6032,7 +6125,7 @@ function setInitial(dll, node) {
     dll.head = dll.tail = node;
 }
 module.exports = exports["default"];
-},{}],37:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6047,7 +6140,7 @@ exports.default = function (fn) {
 };
 
 module.exports = exports["default"];
-},{}],38:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -6063,7 +6156,7 @@ function onlyOnce(fn) {
     };
 }
 module.exports = exports["default"];
-},{}],39:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6145,10 +6238,7 @@ function queue(worker, concurrency, payload) {
             res(args);
         }
 
-        var item = {
-            data,
-            callback: rejectOnError ? promiseCallback : callback || promiseCallback
-        };
+        var item = q._createTaskItem(data, rejectOnError ? promiseCallback : callback || promiseCallback);
 
         if (insertAtFront) {
             q._tasks.unshift(item);
@@ -6229,6 +6319,12 @@ function queue(worker, concurrency, payload) {
     var isProcessing = false;
     var q = {
         _tasks: new _DoublyLinkedList2.default(),
+        _createTaskItem(data, callback) {
+            return {
+                data,
+                callback
+            };
+        },
         *[Symbol.iterator]() {
             yield* q._tasks[Symbol.iterator]();
         },
@@ -6355,7 +6451,7 @@ function queue(worker, concurrency, payload) {
     return q;
 }
 module.exports = exports['default'];
-},{"./DoublyLinkedList.js":36,"./onlyOnce.js":38,"./setImmediate.js":40,"./wrapAsync.js":41}],40:[function(require,module,exports){
+},{"./DoublyLinkedList.js":44,"./onlyOnce.js":46,"./setImmediate.js":48,"./wrapAsync.js":49}],48:[function(require,module,exports){
 (function (process,setImmediate){(function (){
 'use strict';
 
@@ -6392,7 +6488,7 @@ if (hasQueueMicrotask) {
 
 exports.default = wrap(_defer);
 }).call(this)}).call(this,require('_process'),require("timers").setImmediate)
-},{"_process":64,"timers":69}],41:[function(require,module,exports){
+},{"_process":73,"timers":78}],49:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6427,7 +6523,7 @@ exports.default = wrapAsync;
 exports.isAsync = isAsync;
 exports.isAsyncGenerator = isAsyncGenerator;
 exports.isAsyncIterable = isAsyncIterable;
-},{"../asyncify.js":35}],42:[function(require,module,exports){
+},{"../asyncify.js":43}],50:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -6595,7 +6691,7 @@ module.exports = exports['default'];
  *     console.log('finished processing bar');
  * });
  */
-},{"./internal/queue.js":39,"./internal/wrapAsync.js":41}],43:[function(require,module,exports){
+},{"./internal/queue.js":47,"./internal/wrapAsync.js":49}],51:[function(require,module,exports){
 (function (Buffer){(function (){
 (function (global, module) {
 
@@ -7883,7 +7979,7 @@ module.exports = exports['default'];
 );
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"buffer":46}],44:[function(require,module,exports){
+},{"buffer":54}],52:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
@@ -7914,7 +8010,7 @@ module.exports = function availableTypedArrays() {
 };
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],45:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 'use strict'
 
 exports.byteLength = byteLength
@@ -8066,7 +8162,7 @@ function fromByteArray (uint8) {
   return parts.join('')
 }
 
-},{}],46:[function(require,module,exports){
+},{}],54:[function(require,module,exports){
 (function (Buffer){(function (){
 /*!
  * The buffer module from node.js, for the browser.
@@ -9847,7 +9943,7 @@ function numberIsNaN (obj) {
 }
 
 }).call(this)}).call(this,require("buffer").Buffer)
-},{"base64-js":45,"buffer":46,"ieee754":59}],47:[function(require,module,exports){
+},{"base64-js":53,"buffer":54,"ieee754":67}],55:[function(require,module,exports){
 'use strict';
 
 var GetIntrinsic = require('get-intrinsic');
@@ -9864,7 +9960,7 @@ module.exports = function callBoundIntrinsic(name, allowMissing) {
 	return intrinsic;
 };
 
-},{"./":48,"get-intrinsic":54}],48:[function(require,module,exports){
+},{"./":56,"get-intrinsic":62}],56:[function(require,module,exports){
 'use strict';
 
 var bind = require('function-bind');
@@ -9913,7 +10009,7 @@ if ($defineProperty) {
 	module.exports.apply = applyBind;
 }
 
-},{"function-bind":53,"get-intrinsic":54}],49:[function(require,module,exports){
+},{"function-bind":61,"get-intrinsic":62}],57:[function(require,module,exports){
 'use strict';
 
 var GetIntrinsic = require('get-intrinsic');
@@ -9930,7 +10026,7 @@ if ($gOPD) {
 
 module.exports = $gOPD;
 
-},{"get-intrinsic":54}],50:[function(require,module,exports){
+},{"get-intrinsic":62}],58:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -10429,31 +10525,71 @@ function eventTargetAgnosticAddListener(emitter, name, listener, flags) {
   }
 }
 
-},{}],51:[function(require,module,exports){
+},{}],59:[function(require,module,exports){
+'use strict';
 
-var hasOwn = Object.prototype.hasOwnProperty;
-var toString = Object.prototype.toString;
+var isCallable = require('is-callable');
 
-module.exports = function forEach (obj, fn, ctx) {
-    if (toString.call(fn) !== '[object Function]') {
-        throw new TypeError('iterator must be a function');
-    }
-    var l = obj.length;
-    if (l === +l) {
-        for (var i = 0; i < l; i++) {
-            fn.call(ctx, obj[i], i, obj);
-        }
-    } else {
-        for (var k in obj) {
-            if (hasOwn.call(obj, k)) {
-                fn.call(ctx, obj[k], k, obj);
+var toStr = Object.prototype.toString;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+var forEachArray = function forEachArray(array, iterator, receiver) {
+    for (var i = 0, len = array.length; i < len; i++) {
+        if (hasOwnProperty.call(array, i)) {
+            if (receiver == null) {
+                iterator(array[i], i, array);
+            } else {
+                iterator.call(receiver, array[i], i, array);
             }
         }
     }
 };
 
+var forEachString = function forEachString(string, iterator, receiver) {
+    for (var i = 0, len = string.length; i < len; i++) {
+        // no such thing as a sparse string.
+        if (receiver == null) {
+            iterator(string.charAt(i), i, string);
+        } else {
+            iterator.call(receiver, string.charAt(i), i, string);
+        }
+    }
+};
 
-},{}],52:[function(require,module,exports){
+var forEachObject = function forEachObject(object, iterator, receiver) {
+    for (var k in object) {
+        if (hasOwnProperty.call(object, k)) {
+            if (receiver == null) {
+                iterator(object[k], k, object);
+            } else {
+                iterator.call(receiver, object[k], k, object);
+            }
+        }
+    }
+};
+
+var forEach = function forEach(list, iterator, thisArg) {
+    if (!isCallable(iterator)) {
+        throw new TypeError('iterator must be a function');
+    }
+
+    var receiver;
+    if (arguments.length >= 3) {
+        receiver = thisArg;
+    }
+
+    if (toStr.call(list) === '[object Array]') {
+        forEachArray(list, iterator, receiver);
+    } else if (typeof list === 'string') {
+        forEachString(list, iterator, receiver);
+    } else {
+        forEachObject(list, iterator, receiver);
+    }
+};
+
+module.exports = forEach;
+
+},{"is-callable":70}],60:[function(require,module,exports){
 'use strict';
 
 /* eslint no-invalid-this: 1 */
@@ -10507,14 +10643,14 @@ module.exports = function bind(that) {
     return bound;
 };
 
-},{}],53:[function(require,module,exports){
+},{}],61:[function(require,module,exports){
 'use strict';
 
 var implementation = require('./implementation');
 
 module.exports = Function.prototype.bind || implementation;
 
-},{"./implementation":52}],54:[function(require,module,exports){
+},{"./implementation":60}],62:[function(require,module,exports){
 'use strict';
 
 var undefined;
@@ -10719,6 +10855,7 @@ var $concat = bind.call(Function.call, Array.prototype.concat);
 var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
 var $replace = bind.call(Function.call, String.prototype.replace);
 var $strSlice = bind.call(Function.call, String.prototype.slice);
+var $exec = bind.call(Function.call, RegExp.prototype.exec);
 
 /* adapted from https://github.com/lodash/lodash/blob/4.17.15/dist/lodash.js#L6735-L6744 */
 var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
@@ -10774,6 +10911,9 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 		throw new $TypeError('"allowMissing" argument must be a boolean');
 	}
 
+	if ($exec(/^%?[^%]*%?$/, name) === null) {
+		throw new $SyntaxError('`%` may not be present anywhere but at the beginning and end of the intrinsic name');
+	}
 	var parts = stringToPath(name);
 	var intrinsicBaseName = parts.length > 0 ? parts[0] : '';
 
@@ -10846,7 +10986,7 @@ module.exports = function GetIntrinsic(name, allowMissing) {
 	return value;
 };
 
-},{"function-bind":53,"has":58,"has-symbols":55}],55:[function(require,module,exports){
+},{"function-bind":61,"has":66,"has-symbols":63}],63:[function(require,module,exports){
 'use strict';
 
 var origSymbol = typeof Symbol !== 'undefined' && Symbol;
@@ -10861,7 +11001,7 @@ module.exports = function hasNativeSymbols() {
 	return hasSymbolSham();
 };
 
-},{"./shams":56}],56:[function(require,module,exports){
+},{"./shams":64}],64:[function(require,module,exports){
 'use strict';
 
 /* eslint complexity: [2, 18], max-statements: [2, 33] */
@@ -10905,7 +11045,7 @@ module.exports = function hasSymbols() {
 	return true;
 };
 
-},{}],57:[function(require,module,exports){
+},{}],65:[function(require,module,exports){
 'use strict';
 
 var hasSymbols = require('has-symbols/shams');
@@ -10914,14 +11054,14 @@ module.exports = function hasToStringTagShams() {
 	return hasSymbols() && !!Symbol.toStringTag;
 };
 
-},{"has-symbols/shams":56}],58:[function(require,module,exports){
+},{"has-symbols/shams":64}],66:[function(require,module,exports){
 'use strict';
 
 var bind = require('function-bind');
 
 module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
 
-},{"function-bind":53}],59:[function(require,module,exports){
+},{"function-bind":61}],67:[function(require,module,exports){
 /*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
@@ -11008,7 +11148,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],60:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -11037,7 +11177,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],61:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 'use strict';
 
 var hasToStringTag = require('has-tostringtag/shams')();
@@ -11072,7 +11212,110 @@ isStandardArguments.isLegacyArguments = isLegacyArguments; // for tests
 
 module.exports = supportsStandardArguments ? isStandardArguments : isLegacyArguments;
 
-},{"call-bind/callBound":47,"has-tostringtag/shams":57}],62:[function(require,module,exports){
+},{"call-bind/callBound":55,"has-tostringtag/shams":65}],70:[function(require,module,exports){
+'use strict';
+
+var fnToStr = Function.prototype.toString;
+var reflectApply = typeof Reflect === 'object' && Reflect !== null && Reflect.apply;
+var badArrayLike;
+var isCallableMarker;
+if (typeof reflectApply === 'function' && typeof Object.defineProperty === 'function') {
+	try {
+		badArrayLike = Object.defineProperty({}, 'length', {
+			get: function () {
+				throw isCallableMarker;
+			}
+		});
+		isCallableMarker = {};
+		// eslint-disable-next-line no-throw-literal
+		reflectApply(function () { throw 42; }, null, badArrayLike);
+	} catch (_) {
+		if (_ !== isCallableMarker) {
+			reflectApply = null;
+		}
+	}
+} else {
+	reflectApply = null;
+}
+
+var constructorRegex = /^\s*class\b/;
+var isES6ClassFn = function isES6ClassFunction(value) {
+	try {
+		var fnStr = fnToStr.call(value);
+		return constructorRegex.test(fnStr);
+	} catch (e) {
+		return false; // not a function
+	}
+};
+
+var tryFunctionObject = function tryFunctionToStr(value) {
+	try {
+		if (isES6ClassFn(value)) { return false; }
+		fnToStr.call(value);
+		return true;
+	} catch (e) {
+		return false;
+	}
+};
+var toStr = Object.prototype.toString;
+var objectClass = '[object Object]';
+var fnClass = '[object Function]';
+var genClass = '[object GeneratorFunction]';
+var ddaClass = '[object HTMLAllCollection]'; // IE 11
+var ddaClass2 = '[object HTML document.all class]';
+var ddaClass3 = '[object HTMLCollection]'; // IE 9-10
+var hasToStringTag = typeof Symbol === 'function' && !!Symbol.toStringTag; // better: use `has-tostringtag`
+
+var isIE68 = !(0 in [,]); // eslint-disable-line no-sparse-arrays, comma-spacing
+
+var isDDA = function isDocumentDotAll() { return false; };
+if (typeof document === 'object') {
+	// Firefox 3 canonicalizes DDA to undefined when it's not accessed directly
+	var all = document.all;
+	if (toStr.call(all) === toStr.call(document.all)) {
+		isDDA = function isDocumentDotAll(value) {
+			/* globals document: false */
+			// in IE 6-8, typeof document.all is "object" and it's truthy
+			if ((isIE68 || !value) && (typeof value === 'undefined' || typeof value === 'object')) {
+				try {
+					var str = toStr.call(value);
+					return (
+						str === ddaClass
+						|| str === ddaClass2
+						|| str === ddaClass3 // opera 12.16
+						|| str === objectClass // IE 6-8
+					) && value('') == null; // eslint-disable-line eqeqeq
+				} catch (e) { /**/ }
+			}
+			return false;
+		};
+	}
+}
+
+module.exports = reflectApply
+	? function isCallable(value) {
+		if (isDDA(value)) { return true; }
+		if (!value) { return false; }
+		if (typeof value !== 'function' && typeof value !== 'object') { return false; }
+		try {
+			reflectApply(value, null, badArrayLike);
+		} catch (e) {
+			if (e !== isCallableMarker) { return false; }
+		}
+		return !isES6ClassFn(value) && tryFunctionObject(value);
+	}
+	: function isCallable(value) {
+		if (isDDA(value)) { return true; }
+		if (!value) { return false; }
+		if (typeof value !== 'function' && typeof value !== 'object') { return false; }
+		if (hasToStringTag) { return tryFunctionObject(value); }
+		if (isES6ClassFn(value)) { return false; }
+		var strClass = toStr.call(value);
+		if (strClass !== fnClass && strClass !== genClass && !(/^\[object HTML/).test(strClass)) { return false; }
+		return tryFunctionObject(value);
+	};
+
+},{}],71:[function(require,module,exports){
 'use strict';
 
 var toStr = Object.prototype.toString;
@@ -11112,11 +11355,11 @@ module.exports = function isGeneratorFunction(fn) {
 	return getProto(fn) === GeneratorFunction;
 };
 
-},{"has-tostringtag/shams":57}],63:[function(require,module,exports){
+},{"has-tostringtag/shams":65}],72:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
-var forEach = require('foreach');
+var forEach = require('for-each');
 var availableTypedArrays = require('available-typed-arrays');
 var callBound = require('call-bind/callBound');
 
@@ -11176,7 +11419,7 @@ module.exports = function isTypedArray(value) {
 };
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"available-typed-arrays":44,"call-bind/callBound":47,"es-abstract/helpers/getOwnPropertyDescriptor":49,"foreach":51,"has-tostringtag/shams":57}],64:[function(require,module,exports){
+},{"available-typed-arrays":52,"call-bind/callBound":55,"es-abstract/helpers/getOwnPropertyDescriptor":57,"for-each":59,"has-tostringtag/shams":65}],73:[function(require,module,exports){
 // shim for using process in browser
 var process = module.exports = {};
 
@@ -11362,7 +11605,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],65:[function(require,module,exports){
+},{}],74:[function(require,module,exports){
 (function (global){(function (){
 /*! https://mths.be/punycode v1.4.1 by @mathias */
 ;(function(root) {
@@ -11899,7 +12142,7 @@ process.umask = function() { return 0; };
 }(this));
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],66:[function(require,module,exports){
+},{}],75:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -11985,7 +12228,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],67:[function(require,module,exports){
+},{}],76:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -12072,13 +12315,13 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],68:[function(require,module,exports){
+},{}],77:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":66,"./encode":67}],69:[function(require,module,exports){
+},{"./decode":75,"./encode":76}],78:[function(require,module,exports){
 (function (setImmediate,clearImmediate){(function (){
 var nextTick = require('process/browser.js').nextTick;
 var apply = Function.prototype.apply;
@@ -12157,7 +12400,7 @@ exports.clearImmediate = typeof clearImmediate === "function" ? clearImmediate :
   delete immediateIds[id];
 };
 }).call(this)}).call(this,require("timers").setImmediate,require("timers").clearImmediate)
-},{"process/browser.js":64,"timers":69}],70:[function(require,module,exports){
+},{"process/browser.js":73,"timers":78}],79:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -12891,7 +13134,7 @@ Url.prototype.parseHost = function() {
   if (host) this.hostname = host;
 };
 
-},{"./util":71,"punycode":65,"querystring":68}],71:[function(require,module,exports){
+},{"./util":80,"punycode":74,"querystring":77}],80:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -12909,14 +13152,14 @@ module.exports = {
   }
 };
 
-},{}],72:[function(require,module,exports){
+},{}],81:[function(require,module,exports){
 module.exports = function isBuffer(arg) {
   return arg && typeof arg === 'object'
     && typeof arg.copy === 'function'
     && typeof arg.fill === 'function'
     && typeof arg.readUInt8 === 'function';
 }
-},{}],73:[function(require,module,exports){
+},{}],82:[function(require,module,exports){
 // Currently in sync with Node.js lib/internal/util/types.js
 // https://github.com/nodejs/node/commit/112cc7c27551254aa2b17098fb774867f05ed0d9
 
@@ -13252,7 +13495,7 @@ exports.isAnyArrayBuffer = isAnyArrayBuffer;
   });
 });
 
-},{"is-arguments":61,"is-generator-function":62,"is-typed-array":63,"which-typed-array":75}],74:[function(require,module,exports){
+},{"is-arguments":69,"is-generator-function":71,"is-typed-array":72,"which-typed-array":84}],83:[function(require,module,exports){
 (function (process){(function (){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -13971,11 +14214,11 @@ function callbackify(original) {
 exports.callbackify = callbackify;
 
 }).call(this)}).call(this,require('_process'))
-},{"./support/isBuffer":72,"./support/types":73,"_process":64,"inherits":60}],75:[function(require,module,exports){
+},{"./support/isBuffer":81,"./support/types":82,"_process":73,"inherits":68}],84:[function(require,module,exports){
 (function (global){(function (){
 'use strict';
 
-var forEach = require('foreach');
+var forEach = require('for-each');
 var availableTypedArrays = require('available-typed-arrays');
 var callBound = require('call-bind/callBound');
 
@@ -14030,7 +14273,7 @@ module.exports = function whichTypedArray(value) {
 };
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"available-typed-arrays":44,"call-bind/callBound":47,"es-abstract/helpers/getOwnPropertyDescriptor":49,"foreach":51,"has-tostringtag/shams":57,"is-typed-array":63}],76:[function(require,module,exports){
+},{"available-typed-arrays":52,"call-bind/callBound":55,"es-abstract/helpers/getOwnPropertyDescriptor":57,"for-each":59,"has-tostringtag/shams":65,"is-typed-array":72}],85:[function(require,module,exports){
 (function (global){(function (){
 /*!
     localForage -- Offline Storage, Improved
@@ -16850,14 +17093,14 @@ module.exports = localforage_js;
 });
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],77:[function(require,module,exports){
+},{}],86:[function(require,module,exports){
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
     typeof define === 'function' && define.amd ? define(factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.MiniSearch = factory());
 })(this, (function () { 'use strict';
 
-    /*! *****************************************************************************
+    /******************************************************************************
     Copyright (c) Microsoft Corporation.
 
     Permission to use, copy, modify, and/or distribute this software for any
@@ -16912,16 +17155,6 @@ module.exports = localforage_js;
         return ar;
     }
 
-    function __spreadArray(to, from, pack) {
-        if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-            if (ar || !(i in from)) {
-                if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-                ar[i] = from[i];
-            }
-        }
-        return to.concat(ar || Array.prototype.slice.call(from));
-    }
-
     /** @ignore */
     var ENTRIES = 'ENTRIES';
     /** @ignore */
@@ -16936,7 +17169,7 @@ module.exports = localforage_js;
     var TreeIterator = /** @class */ (function () {
         function TreeIterator(set, type) {
             var node = set._tree;
-            var keys = Object.keys(node);
+            var keys = Array.from(node.keys());
             this.set = set;
             this._type = type;
             this._path = keys.length > 0 ? [{ node: node, keys: keys }] : [];
@@ -16954,15 +17187,17 @@ module.exports = localforage_js;
             if (last$1(keys) === LEAF) {
                 return { done: false, value: this.result() };
             }
-            this._path.push({ node: node[last$1(keys)], keys: Object.keys(node[last$1(keys)]) });
+            var child = node.get(last$1(keys));
+            this._path.push({ node: child, keys: Array.from(child.keys()) });
             return this.dive();
         };
         TreeIterator.prototype.backtrack = function () {
             if (this._path.length === 0) {
                 return;
             }
-            last$1(this._path).keys.pop();
-            if (last$1(this._path).keys.length > 0) {
+            var keys = last$1(this._path).keys;
+            keys.pop();
+            if (keys.length > 0) {
                 return;
             }
             this._path.pop();
@@ -16978,16 +17213,14 @@ module.exports = localforage_js;
                 .join('');
         };
         TreeIterator.prototype.value = function () {
-            return last$1(this._path).node[LEAF];
+            return last$1(this._path).node.get(LEAF);
         };
         TreeIterator.prototype.result = function () {
-            if (this._type === VALUES) {
-                return this.value();
+            switch (this._type) {
+                case VALUES: return this.value();
+                case KEYS: return this.key();
+                default: return [this.key(), this.value()];
             }
-            if (this._type === KEYS) {
-                return this.key();
-            }
-            return [this.key(), this.value()];
         };
         TreeIterator.prototype[Symbol.iterator] = function () {
             return this;
@@ -16998,73 +17231,97 @@ module.exports = localforage_js;
         return array[array.length - 1];
     };
 
-    var NONE = 0;
-    var CHANGE = 1;
-    var ADD = 2;
-    var DELETE = 3;
     /**
      * @ignore
      */
     var fuzzySearch = function (node, query, maxDistance) {
-        var stack = [{ distance: 0, i: 0, key: '', node: node }];
-        var results = {};
-        var innerStack = [];
-        var _loop_1 = function () {
-            var _a = stack.pop(), node_1 = _a.node, distance = _a.distance, key = _a.key, i = _a.i, edit = _a.edit;
-            Object.keys(node_1).forEach(function (k) {
-                if (k === LEAF) {
-                    var totDistance = distance + (query.length - i);
-                    var _a = __read(results[key] || [null, Infinity], 2), d = _a[1];
-                    if (totDistance <= maxDistance && totDistance < d) {
-                        results[key] = [node_1[k], totDistance];
+        var results = new Map();
+        if (query === undefined)
+            return results;
+        // Number of columns in the Levenshtein matrix.
+        var n = query.length + 1;
+        // Matching terms can never be longer than N + maxDistance.
+        var m = n + maxDistance;
+        // Fill first matrix row and column with numbers: 0 1 2 3 ...
+        var matrix = new Uint8Array(m * n).fill(maxDistance + 1);
+        for (var j = 0; j < n; ++j)
+            matrix[j] = j;
+        for (var i = 1; i < m; ++i)
+            matrix[i * n] = i;
+        recurse(node, query, maxDistance, results, matrix, 1, n, '');
+        return results;
+    };
+    // Modified version of http://stevehanov.ca/blog/?id=114
+    // This builds a Levenshtein matrix for a given query and continuously updates
+    // it for nodes in the radix tree that fall within the given maximum edit
+    // distance. Keeping the same matrix around is beneficial especially for larger
+    // edit distances.
+    //
+    //           k   a   t   e   <-- query
+    //       0   1   2   3   4
+    //   c   1   1   2   3   4
+    //   a   2   2   1   2   3
+    //   t   3   3   2   1  [2]  <-- edit distance
+    //   ^
+    //   ^ term in radix tree, rows are added and removed as needed
+    var recurse = function (node, query, maxDistance, results, matrix, m, n, prefix) {
+        var e_1, _a;
+        var offset = m * n;
+        try {
+            key: for (var _b = __values(node.keys()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var key = _c.value;
+                if (key === LEAF) {
+                    // We've reached a leaf node. Check if the edit distance acceptable and
+                    // store the result if it is.
+                    var distance = matrix[offset - 1];
+                    if (distance <= maxDistance) {
+                        results.set(prefix, [node.get(key), distance]);
                     }
                 }
                 else {
-                    withinDistance(query, k, maxDistance - distance, i, edit, innerStack).forEach(function (_a) {
-                        var d = _a.distance, i = _a.i, edit = _a.edit;
-                        stack.push({ node: node_1[k], distance: distance + d, key: key + k, i: i, edit: edit });
-                    });
-                }
-            });
-        };
-        while (stack.length > 0) {
-            _loop_1();
-        }
-        return results;
-    };
-    /**
-     * @ignore
-     */
-    var withinDistance = function (a, b, maxDistance, i, edit, stack) {
-        stack.push({ distance: 0, ia: i, ib: 0, edit: edit });
-        var results = [];
-        while (stack.length > 0) {
-            var _a = stack.pop(), distance = _a.distance, ia = _a.ia, ib = _a.ib, edit_1 = _a.edit;
-            if (ib === b.length) {
-                results.push({ distance: distance, i: ia, edit: edit_1 });
-                continue;
-            }
-            if (a[ia] === b[ib]) {
-                stack.push({ distance: distance, ia: ia + 1, ib: ib + 1, edit: NONE });
-            }
-            else {
-                if (distance >= maxDistance) {
-                    continue;
-                }
-                if (edit_1 !== ADD) {
-                    stack.push({ distance: distance + 1, ia: ia, ib: ib + 1, edit: DELETE });
-                }
-                if (ia < a.length) {
-                    if (edit_1 !== DELETE) {
-                        stack.push({ distance: distance + 1, ia: ia + 1, ib: ib, edit: ADD });
+                    // Iterate over all characters in the key. Update the Levenshtein matrix
+                    // and check if the minimum distance in the last row is still within the
+                    // maximum edit distance. If it is, we can recurse over all child nodes.
+                    var i = m;
+                    for (var pos = 0; pos < key.length; ++pos, ++i) {
+                        var char = key[pos];
+                        var thisRowOffset = n * i;
+                        var prevRowOffset = thisRowOffset - n;
+                        // Set the first column based on the previous row, and initialize the
+                        // minimum distance in the current row.
+                        var minDistance = matrix[thisRowOffset];
+                        var jmin = Math.max(0, i - maxDistance - 1);
+                        var jmax = Math.min(n - 1, i + maxDistance);
+                        // Iterate over remaining columns (characters in the query).
+                        for (var j = jmin; j < jmax; ++j) {
+                            var different = char !== query[j];
+                            // It might make sense to only read the matrix positions used for
+                            // deletion/insertion if the characters are different. But we want to
+                            // avoid conditional reads for performance reasons.
+                            var rpl = matrix[prevRowOffset + j] + +different;
+                            var del = matrix[prevRowOffset + j + 1] + 1;
+                            var ins = matrix[thisRowOffset + j] + 1;
+                            var dist = matrix[thisRowOffset + j + 1] = Math.min(rpl, del, ins);
+                            if (dist < minDistance)
+                                minDistance = dist;
+                        }
+                        // Because distance will never decrease, we can stop. There will be no
+                        // matching child nodes.
+                        if (minDistance > maxDistance) {
+                            continue key;
+                        }
                     }
-                    if (edit_1 !== DELETE && edit_1 !== ADD) {
-                        stack.push({ distance: distance + 1, ia: ia + 1, ib: ib + 1, edit: CHANGE });
-                    }
+                    recurse(node.get(key), query, maxDistance, results, matrix, i, n, prefix + key);
                 }
             }
         }
-        return results;
+        catch (e_1_1) { e_1 = { error: e_1_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_1) throw e_1.error; }
+        }
     };
 
     /**
@@ -17091,8 +17348,9 @@ module.exports = localforage_js;
          * mutable views of a map at a prefix.
          */
         function SearchableMap(tree, prefix) {
-            if (tree === void 0) { tree = {}; }
+            if (tree === void 0) { tree = new Map(); }
             if (prefix === void 0) { prefix = ''; }
+            this._size = undefined;
             this._tree = tree;
             this._prefix = prefix;
         }
@@ -17125,33 +17383,46 @@ module.exports = localforage_js;
          * @return A [[SearchableMap]] representing a mutable view of the original Map at the given prefix
          */
         SearchableMap.prototype.atPrefix = function (prefix) {
-            var _a;
+            var e_1, _a;
             if (!prefix.startsWith(this._prefix)) {
                 throw new Error('Mismatched prefix');
             }
             var _b = __read(trackDown(this._tree, prefix.slice(this._prefix.length)), 2), node = _b[0], path = _b[1];
             if (node === undefined) {
-                var _c = __read(last(path), 2), parentNode = _c[0], key_1 = _c[1];
-                var nodeKey = Object.keys(parentNode).find(function (k) { return k !== LEAF && k.startsWith(key_1); });
-                if (nodeKey !== undefined) {
-                    return new SearchableMap((_a = {}, _a[nodeKey.slice(key_1.length)] = parentNode[nodeKey], _a), prefix);
+                var _c = __read(last(path), 2), parentNode = _c[0], key = _c[1];
+                try {
+                    for (var _d = __values(parentNode.keys()), _e = _d.next(); !_e.done; _e = _d.next()) {
+                        var k = _e.value;
+                        if (k !== LEAF && k.startsWith(key)) {
+                            var node_1 = new Map();
+                            node_1.set(k.slice(key.length), parentNode.get(k));
+                            return new SearchableMap(node_1, prefix);
+                        }
+                    }
+                }
+                catch (e_1_1) { e_1 = { error: e_1_1 }; }
+                finally {
+                    try {
+                        if (_e && !_e.done && (_a = _d.return)) _a.call(_d);
+                    }
+                    finally { if (e_1) throw e_1.error; }
                 }
             }
-            return new SearchableMap(node || {}, prefix);
+            return new SearchableMap(node, prefix);
         };
         /**
          * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/clear
          */
         SearchableMap.prototype.clear = function () {
-            delete this._size;
-            this._tree = {};
+            this._size = undefined;
+            this._tree.clear();
         };
         /**
          * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/delete
          * @param key  Key to delete
          */
         SearchableMap.prototype.delete = function (key) {
-            delete this._size;
+            this._size = undefined;
             return remove(this._tree, key);
         };
         /**
@@ -17166,27 +17437,27 @@ module.exports = localforage_js;
          * @param fn  Iteration function
          */
         SearchableMap.prototype.forEach = function (fn) {
-            var e_1, _a;
+            var e_2, _a;
             try {
                 for (var _b = __values(this), _c = _b.next(); !_c.done; _c = _b.next()) {
                     var _d = __read(_c.value, 2), key = _d[0], value = _d[1];
                     fn(key, value, this);
                 }
             }
-            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            catch (e_2_1) { e_2 = { error: e_2_1 }; }
             finally {
                 try {
                     if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
                 }
-                finally { if (e_1) throw e_1.error; }
+                finally { if (e_2) throw e_2.error; }
             }
         };
         /**
-         * Returns a key-value object of all the entries that have a key within the
-         * given edit distance from the search key. The keys of the returned object are
-         * the matching keys, while the values are two-elements arrays where the first
-         * element is the value associated to the key, and the second is the edit
-         * distance of the key to the search key.
+         * Returns a Map of all the entries that have a key within the given edit
+         * distance from the search key. The keys of the returned Map are the matching
+         * keys, while the values are two-element arrays where the first element is
+         * the value associated to the key, and the second is the edit distance of the
+         * key to the search key.
          *
          * ### Usage:
          *
@@ -17198,7 +17469,7 @@ module.exports = localforage_js;
          *
          * // Get all entries that match the key 'hallo' with a maximum edit distance of 2
          * map.fuzzyGet('hallo', 2)
-         * // => { "hello": ["world", 1], "hell": ["yeah", 2] }
+         * // => Map(2) { 'hello' => ['world', 1], 'hell' => ['yeah', 2] }
          *
          * // In the example, the "hello" key has value "world" and edit distance of 1
          * // (change "e" to "a"), the key "hell" has value "yeah" and edit distance of 2
@@ -17207,7 +17478,7 @@ module.exports = localforage_js;
          *
          * @param key  The search key
          * @param maxEditDistance  The maximum edit distance (Levenshtein)
-         * @return A key-value object of the matching keys to their value and edit distance
+         * @return A Map of the matching keys to their value and edit distance
          */
         SearchableMap.prototype.fuzzyGet = function (key, maxEditDistance) {
             return fuzzySearch(this._tree, key, maxEditDistance);
@@ -17220,7 +17491,7 @@ module.exports = localforage_js;
          */
         SearchableMap.prototype.get = function (key) {
             var node = lookup(this._tree, key);
-            return node !== undefined ? node[LEAF] : undefined;
+            return node !== undefined ? node.get(LEAF) : undefined;
         };
         /**
          * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/has
@@ -17229,7 +17500,7 @@ module.exports = localforage_js;
          */
         SearchableMap.prototype.has = function (key) {
             var node = lookup(this._tree, key);
-            return node !== undefined && node.hasOwnProperty(LEAF);
+            return node !== undefined && node.has(LEAF);
         };
         /**
          * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/keys
@@ -17248,9 +17519,9 @@ module.exports = localforage_js;
             if (typeof key !== 'string') {
                 throw new Error('key must be a string');
             }
-            delete this._size;
+            this._size = undefined;
             var node = createPath(this._tree, key);
-            node[LEAF] = value;
+            node.set(LEAF, value);
             return this;
         };
         Object.defineProperty(SearchableMap.prototype, "size", {
@@ -17258,13 +17529,14 @@ module.exports = localforage_js;
              * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/size
              */
             get: function () {
-                var _this = this;
                 if (this._size) {
                     return this._size;
                 }
                 /** @ignore */
                 this._size = 0;
-                this.forEach(function () { _this._size += 1; });
+                var iter = this.entries();
+                while (!iter.next().done)
+                    this._size += 1;
                 return this._size;
             },
             enumerable: false,
@@ -17282,6 +17554,10 @@ module.exports = localforage_js;
          * searchableMap.update('somekey', (currentValue) => currentValue == null ? 0 : currentValue + 1)
          * ```
          *
+         * If the value at the given key is or will be an object, it might not require
+         * re-assignment. In that case it is better to use `fetch()`, because it is
+         * faster.
+         *
          * @param key  The key to update
          * @param fn  The function used to compute the new value from the current one
          * @return The [[SearchableMap]] itself, to allow chaining
@@ -17290,10 +17566,38 @@ module.exports = localforage_js;
             if (typeof key !== 'string') {
                 throw new Error('key must be a string');
             }
-            delete this._size;
+            this._size = undefined;
             var node = createPath(this._tree, key);
-            node[LEAF] = fn(node[LEAF]);
+            node.set(LEAF, fn(node.get(LEAF)));
             return this;
+        };
+        /**
+         * Fetches the value of the given key. If the value does not exist, calls the
+         * given function to create a new value, which is inserted at the given key
+         * and subsequently returned.
+         *
+         * ### Example:
+         *
+         * ```javascript
+         * const map = searchableMap.fetch('somekey', () => new Map())
+         * map.set('foo', 'bar')
+         * ```
+         *
+         * @param key  The key to update
+         * @param defaultValue  A function that creates a new value if the key does not exist
+         * @return The existing or new value at the given key
+         */
+        SearchableMap.prototype.fetch = function (key, initial) {
+            if (typeof key !== 'string') {
+                throw new Error('key must be a string');
+            }
+            this._size = undefined;
+            var node = createPath(this._tree, key);
+            var value = node.get(LEAF);
+            if (value === undefined) {
+                node.set(LEAF, value = initial());
+            }
+            return value;
         };
         /**
          * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map/values
@@ -17315,7 +17619,7 @@ module.exports = localforage_js;
          * @return A new [[SearchableMap]] with the given entries
          */
         SearchableMap.from = function (entries) {
-            var e_2, _a;
+            var e_3, _a;
             var tree = new SearchableMap();
             try {
                 for (var entries_1 = __values(entries), entries_1_1 = entries_1.next(); !entries_1_1.done; entries_1_1 = entries_1.next()) {
@@ -17323,12 +17627,12 @@ module.exports = localforage_js;
                     tree.set(key, value);
                 }
             }
-            catch (e_2_1) { e_2 = { error: e_2_1 }; }
+            catch (e_3_1) { e_3 = { error: e_3_1 }; }
             finally {
                 try {
                     if (entries_1_1 && !entries_1_1.done && (_a = entries_1.return)) _a.call(entries_1);
                 }
-                finally { if (e_2) throw e_2.error; }
+                finally { if (e_3) throw e_3.error; }
             }
             return tree;
         };
@@ -17344,73 +17648,113 @@ module.exports = localforage_js;
         return SearchableMap;
     }());
     var trackDown = function (tree, key, path) {
+        var e_4, _a;
         if (path === void 0) { path = []; }
         if (key.length === 0 || tree == null) {
             return [tree, path];
         }
-        var nodeKey = Object.keys(tree).find(function (k) { return k !== LEAF && key.startsWith(k); });
-        if (nodeKey === undefined) {
-            path.push([tree, key]); // performance: update in place
-            return trackDown(undefined, '', path);
+        try {
+            for (var _b = __values(tree.keys()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var k = _c.value;
+                if (k !== LEAF && key.startsWith(k)) {
+                    path.push([tree, k]); // performance: update in place
+                    return trackDown(tree.get(k), key.slice(k.length), path);
+                }
+            }
         }
-        path.push([tree, nodeKey]); // performance: update in place
-        return trackDown(tree[nodeKey], key.slice(nodeKey.length), path);
+        catch (e_4_1) { e_4 = { error: e_4_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_4) throw e_4.error; }
+        }
+        path.push([tree, key]); // performance: update in place
+        return trackDown(undefined, '', path);
     };
     var lookup = function (tree, key) {
+        var e_5, _a;
         if (key.length === 0 || tree == null) {
             return tree;
         }
-        var nodeKey = Object.keys(tree).find(function (k) { return k !== LEAF && key.startsWith(k); });
-        if (nodeKey === undefined) {
-            return undefined;
-        }
-        return lookup(tree[nodeKey], key.slice(nodeKey.length));
-    };
-    var createPath = function (tree, key) {
-        var _a;
-        if (key.length === 0 || tree == null) {
-            return tree;
-        }
-        var nodeKey = Object.keys(tree).find(function (k) { return k !== LEAF && key.startsWith(k); });
-        if (nodeKey === undefined) {
-            var toSplit = Object.keys(tree).find(function (k) { return k !== LEAF && k.startsWith(key[0]); });
-            if (toSplit === undefined) {
-                tree[key] = {};
+        try {
+            for (var _b = __values(tree.keys()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var k = _c.value;
+                if (k !== LEAF && key.startsWith(k)) {
+                    return lookup(tree.get(k), key.slice(k.length));
+                }
             }
-            else {
-                var prefix = commonPrefix(key, toSplit);
-                tree[prefix] = (_a = {}, _a[toSplit.slice(prefix.length)] = tree[toSplit], _a);
-                delete tree[toSplit];
-                return createPath(tree[prefix], key.slice(prefix.length));
+        }
+        catch (e_5_1) { e_5 = { error: e_5_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
             }
-            return tree[key];
+            finally { if (e_5) throw e_5.error; }
         }
-        return createPath(tree[nodeKey], key.slice(nodeKey.length));
     };
-    var commonPrefix = function (a, b, i, length, prefix) {
-        if (i === void 0) { i = 0; }
-        if (length === void 0) { length = Math.min(a.length, b.length); }
-        if (prefix === void 0) { prefix = ''; }
-        if (i >= length) {
-            return prefix;
+    // Create a path in the radix tree for the given key, and returns the deepest
+    // node. This function is in the hot path for indexing. It avoids unnecessary
+    // string operations and recursion for performance.
+    var createPath = function (node, key) {
+        var e_6, _a;
+        var keyLength = key.length;
+        outer: for (var pos = 0; node && pos < keyLength;) {
+            try {
+                for (var _b = (e_6 = void 0, __values(node.keys())), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var k = _c.value;
+                    // Check whether this key is a candidate: the first characters must match.
+                    if (k !== LEAF && key[pos] === k[0]) {
+                        var len = Math.min(keyLength - pos, k.length);
+                        // Advance offset to the point where key and k no longer match.
+                        var offset = 1;
+                        while (offset < len && key[pos + offset] === k[offset])
+                            ++offset;
+                        var child_1 = node.get(k);
+                        if (offset === k.length) {
+                            // The existing key is shorter than the key we need to create.
+                            node = child_1;
+                        }
+                        else {
+                            // Partial match: we need to insert an intermediate node to contain
+                            // both the existing subtree and the new node.
+                            var intermediate = new Map();
+                            intermediate.set(k.slice(offset), child_1);
+                            node.set(key.slice(pos, pos + offset), intermediate);
+                            node.delete(k);
+                            node = intermediate;
+                        }
+                        pos += offset;
+                        continue outer;
+                    }
+                }
+            }
+            catch (e_6_1) { e_6 = { error: e_6_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_6) throw e_6.error; }
+            }
+            // Create a final child node to contain the final suffix of the key.
+            var child = new Map();
+            node.set(key.slice(pos), child);
+            return child;
         }
-        if (a[i] !== b[i]) {
-            return prefix;
-        }
-        return commonPrefix(a, b, i + 1, length, prefix + a[i]);
+        return node;
     };
     var remove = function (tree, key) {
         var _a = __read(trackDown(tree, key), 2), node = _a[0], path = _a[1];
         if (node === undefined) {
             return;
         }
-        delete node[LEAF];
-        var keys = Object.keys(node);
-        if (keys.length === 0) {
+        node.delete(LEAF);
+        if (node.size === 0) {
             cleanup(path);
         }
-        if (keys.length === 1) {
-            merge(path, keys[0], node[keys[0]]);
+        else if (node.size === 1) {
+            var _b = __read(node.entries().next().value, 2), key_1 = _b[0], value = _b[1];
+            merge(path, key_1, value);
         }
     };
     var cleanup = function (path) {
@@ -17418,13 +17762,15 @@ module.exports = localforage_js;
             return;
         }
         var _a = __read(last(path), 2), node = _a[0], key = _a[1];
-        delete node[key];
-        var keys = Object.keys(node);
-        if (keys.length === 0) {
+        node.delete(key);
+        if (node.size === 0) {
             cleanup(path.slice(0, -1));
         }
-        if (keys.length === 1 && keys[0] !== LEAF) {
-            merge(path.slice(0, -1), keys[0], node[keys[0]]);
+        else if (node.size === 1) {
+            var _b = __read(node.entries().next().value, 2), key_2 = _b[0], value = _b[1];
+            if (key_2 !== LEAF) {
+                merge(path.slice(0, -1), key_2, value);
+            }
         }
     };
     var merge = function (path, key, value) {
@@ -17432,8 +17778,8 @@ module.exports = localforage_js;
             return;
         }
         var _a = __read(last(path), 2), node = _a[0], nodeKey = _a[1];
-        node[nodeKey + key] = value;
-        delete node[nodeKey];
+        node.set(nodeKey + key, value);
+        node.delete(nodeKey);
     };
     var last = function (array) {
         return array[array.length - 1];
@@ -17565,15 +17911,19 @@ module.exports = localforage_js;
             if ((options === null || options === void 0 ? void 0 : options.fields) == null) {
                 throw new Error('MiniSearch: option "fields" must be provided');
             }
-            this._options = __assign(__assign(__assign({}, defaultOptions), options), { searchOptions: __assign(__assign({}, defaultSearchOptions), (options.searchOptions || {})) });
+            this._options = __assign(__assign(__assign({}, defaultOptions), options), { searchOptions: __assign(__assign({}, defaultSearchOptions), (options.searchOptions || {})), autoSuggestOptions: __assign(__assign({}, defaultAutoSuggestOptions), (options.autoSuggestOptions || {})) });
             this._index = new SearchableMap();
             this._documentCount = 0;
-            this._documentIds = {};
+            this._documentIds = new Map();
+            // Fields are defined during initialization, don't change, are few in
+            // number, rarely need iterating over, and have string keys. Therefore in
+            // this case an object is a better candidate than a Map to store the mapping
+            // from field key to ID.
             this._fieldIds = {};
-            this._fieldLength = {};
-            this._averageFieldLength = {};
+            this._fieldLength = new Map();
+            this._avgFieldLength = [];
             this._nextId = 0;
-            this._storedFields = {};
+            this._storedFields = new Map();
             this.addFields(this._options.fields);
         }
         /**
@@ -17582,28 +17932,49 @@ module.exports = localforage_js;
          * @param document  The document to be indexed
          */
         MiniSearch.prototype.add = function (document) {
-            var _this = this;
-            var _a = this._options, extractField = _a.extractField, tokenize = _a.tokenize, processTerm = _a.processTerm, fields = _a.fields, idField = _a.idField;
+            var e_1, _a, e_2, _b;
+            var _c = this._options, extractField = _c.extractField, tokenize = _c.tokenize, processTerm = _c.processTerm, fields = _c.fields, idField = _c.idField;
             var id = extractField(document, idField);
             if (id == null) {
                 throw new Error("MiniSearch: document does not have ID field \"".concat(idField, "\""));
             }
             var shortDocumentId = this.addDocumentId(id);
             this.saveStoredFields(shortDocumentId, document);
-            fields.forEach(function (field) {
-                var fieldValue = extractField(document, field);
-                if (fieldValue == null) {
-                    return;
-                }
-                var tokens = tokenize(fieldValue.toString(), field);
-                _this.addFieldLength(shortDocumentId, _this._fieldIds[field], _this.documentCount - 1, tokens.length);
-                tokens.forEach(function (term) {
-                    var processedTerm = processTerm(term, field);
-                    if (processedTerm) {
-                        _this.addTerm(_this._fieldIds[field], shortDocumentId, processedTerm);
+            try {
+                for (var fields_1 = __values(fields), fields_1_1 = fields_1.next(); !fields_1_1.done; fields_1_1 = fields_1.next()) {
+                    var field = fields_1_1.value;
+                    var fieldValue = extractField(document, field);
+                    if (fieldValue == null)
+                        continue;
+                    var tokens = tokenize(fieldValue.toString(), field);
+                    var fieldId = this._fieldIds[field];
+                    var uniqueTerms = new Set(tokens).size;
+                    this.addFieldLength(shortDocumentId, fieldId, this._documentCount - 1, uniqueTerms);
+                    try {
+                        for (var tokens_1 = (e_2 = void 0, __values(tokens)), tokens_1_1 = tokens_1.next(); !tokens_1_1.done; tokens_1_1 = tokens_1.next()) {
+                            var term = tokens_1_1.value;
+                            var processedTerm = processTerm(term, field);
+                            if (processedTerm) {
+                                this.addTerm(fieldId, shortDocumentId, processedTerm);
+                            }
+                        }
                     }
-                });
-            });
+                    catch (e_2_1) { e_2 = { error: e_2_1 }; }
+                    finally {
+                        try {
+                            if (tokens_1_1 && !tokens_1_1.done && (_b = tokens_1.return)) _b.call(tokens_1);
+                        }
+                        finally { if (e_2) throw e_2.error; }
+                    }
+                }
+            }
+            catch (e_1_1) { e_1 = { error: e_1_1 }; }
+            finally {
+                try {
+                    if (fields_1_1 && !fields_1_1.done && (_a = fields_1.return)) _a.call(fields_1);
+                }
+                finally { if (e_1) throw e_1.error; }
+            }
         };
         /**
          * Adds all the given documents to the index
@@ -17611,8 +17982,20 @@ module.exports = localforage_js;
          * @param documents  An array of documents to be indexed
          */
         MiniSearch.prototype.addAll = function (documents) {
-            var _this = this;
-            documents.forEach(function (document) { return _this.add(document); });
+            var e_3, _a;
+            try {
+                for (var documents_1 = __values(documents), documents_1_1 = documents_1.next(); !documents_1_1.done; documents_1_1 = documents_1.next()) {
+                    var document_1 = documents_1_1.value;
+                    this.add(document_1);
+                }
+            }
+            catch (e_3_1) { e_3 = { error: e_3_1 }; }
+            finally {
+                try {
+                    if (documents_1_1 && !documents_1_1.done && (_a = documents_1.return)) _a.call(documents_1);
+                }
+                finally { if (e_3) throw e_3.error; }
+            }
         };
         /**
          * Adds all the given documents to the index asynchronously.
@@ -17661,38 +18044,67 @@ module.exports = localforage_js;
          * @param document  The document to be removed
          */
         MiniSearch.prototype.remove = function (document) {
-            var _this = this;
-            var _a = this._options, tokenize = _a.tokenize, processTerm = _a.processTerm, extractField = _a.extractField, fields = _a.fields, idField = _a.idField;
+            var e_4, _a, e_5, _b, e_6, _c;
+            var _d = this._options, tokenize = _d.tokenize, processTerm = _d.processTerm, extractField = _d.extractField, fields = _d.fields, idField = _d.idField;
             var id = extractField(document, idField);
             if (id == null) {
                 throw new Error("MiniSearch: document does not have ID field \"".concat(idField, "\""));
             }
-            var _b = __read(Object.entries(this._documentIds)
-                .find(function (_a) {
-                var _b = __read(_a, 2); _b[0]; var longId = _b[1];
-                return id === longId;
-            }) || [], 1), shortDocumentId = _b[0];
-            if (shortDocumentId == null) {
-                throw new Error("MiniSearch: cannot remove document with ID ".concat(id, ": it is not in the index"));
-            }
-            fields.forEach(function (field) {
-                var fieldValue = extractField(document, field);
-                if (fieldValue == null) {
-                    return;
-                }
-                var tokens = tokenize(fieldValue.toString(), field);
-                tokens.forEach(function (term) {
-                    var processedTerm = processTerm(term, field);
-                    if (processedTerm) {
-                        _this.removeTerm(_this._fieldIds[field], shortDocumentId, processedTerm);
+            try {
+                for (var _e = __values(this._documentIds), _f = _e.next(); !_f.done; _f = _e.next()) {
+                    var _g = __read(_f.value, 2), shortId = _g[0], longId = _g[1];
+                    if (id === longId) {
+                        try {
+                            for (var fields_2 = (e_5 = void 0, __values(fields)), fields_2_1 = fields_2.next(); !fields_2_1.done; fields_2_1 = fields_2.next()) {
+                                var field = fields_2_1.value;
+                                var fieldValue = extractField(document, field);
+                                if (fieldValue == null)
+                                    continue;
+                                var tokens = tokenize(fieldValue.toString(), field);
+                                var fieldId = this._fieldIds[field];
+                                var uniqueTerms = new Set(tokens).size;
+                                this.removeFieldLength(shortId, fieldId, this._documentCount, uniqueTerms);
+                                try {
+                                    for (var tokens_2 = (e_6 = void 0, __values(tokens)), tokens_2_1 = tokens_2.next(); !tokens_2_1.done; tokens_2_1 = tokens_2.next()) {
+                                        var term = tokens_2_1.value;
+                                        var processedTerm = processTerm(term, field);
+                                        if (processedTerm) {
+                                            this.removeTerm(fieldId, shortId, processedTerm);
+                                        }
+                                    }
+                                }
+                                catch (e_6_1) { e_6 = { error: e_6_1 }; }
+                                finally {
+                                    try {
+                                        if (tokens_2_1 && !tokens_2_1.done && (_c = tokens_2.return)) _c.call(tokens_2);
+                                    }
+                                    finally { if (e_6) throw e_6.error; }
+                                }
+                            }
+                        }
+                        catch (e_5_1) { e_5 = { error: e_5_1 }; }
+                        finally {
+                            try {
+                                if (fields_2_1 && !fields_2_1.done && (_b = fields_2.return)) _b.call(fields_2);
+                            }
+                            finally { if (e_5) throw e_5.error; }
+                        }
+                        this._storedFields.delete(shortId);
+                        this._documentIds.delete(shortId);
+                        this._fieldLength.delete(shortId);
+                        this._documentCount -= 1;
+                        return;
                     }
-                });
-                _this.removeFieldLength(shortDocumentId, _this._fieldIds[field], _this.documentCount, tokens.length);
-            });
-            delete this._storedFields[shortDocumentId];
-            delete this._documentIds[shortDocumentId];
-            delete this._fieldLength[shortDocumentId];
-            this._documentCount -= 1;
+                }
+            }
+            catch (e_4_1) { e_4 = { error: e_4_1 }; }
+            finally {
+                try {
+                    if (_f && !_f.done && (_a = _e.return)) _a.call(_e);
+                }
+                finally { if (e_4) throw e_4.error; }
+            }
+            throw new Error("MiniSearch: cannot remove document with ID ".concat(id, ": it is not in the index"));
         };
         /**
          * Removes all the given documents from the index. If called with no arguments,
@@ -17704,9 +18116,21 @@ module.exports = localforage_js;
          * documents.
          */
         MiniSearch.prototype.removeAll = function (documents) {
-            var _this = this;
+            var e_7, _a;
             if (documents) {
-                documents.forEach(function (document) { return _this.remove(document); });
+                try {
+                    for (var documents_2 = __values(documents), documents_2_1 = documents_2.next(); !documents_2_1.done; documents_2_1 = documents_2.next()) {
+                        var document_2 = documents_2_1.value;
+                        this.remove(document_2);
+                    }
+                }
+                catch (e_7_1) { e_7 = { error: e_7_1 }; }
+                finally {
+                    try {
+                        if (documents_2_1 && !documents_2_1.done && (_a = documents_2.return)) _a.call(documents_2);
+                    }
+                    finally { if (e_7) throw e_7.error; }
+                }
             }
             else if (arguments.length > 0) {
                 throw new Error('Expected documents to be present. Omit the argument to remove all documents.');
@@ -17714,10 +18138,10 @@ module.exports = localforage_js;
             else {
                 this._index = new SearchableMap();
                 this._documentCount = 0;
-                this._documentIds = {};
-                this._fieldLength = {};
-                this._averageFieldLength = {};
-                this._storedFields = {};
+                this._documentIds = new Map();
+                this._fieldLength = new Map();
+                this._avgFieldLength = [];
+                this._storedFields = new Map();
                 this._nextId = 0;
             }
         };
@@ -17860,35 +18284,50 @@ module.exports = localforage_js;
          * @param options  Search options. Each option, if not given, defaults to the corresponding value of `searchOptions` given to the constructor, or to the library default.
          */
         MiniSearch.prototype.search = function (query, searchOptions) {
-            var _this = this;
+            var e_8, _a;
             if (searchOptions === void 0) { searchOptions = {}; }
             var combinedResults = this.executeQuery(query, searchOptions);
-            return Object.entries(combinedResults)
-                .reduce(function (results, _a) {
-                var _b = __read(_a, 2), docId = _b[0], _c = _b[1], score = _c.score, match = _c.match, terms = _c.terms;
-                var result = {
-                    id: _this._documentIds[docId],
-                    terms: uniq(terms),
-                    score: score,
-                    match: match
-                };
-                Object.assign(result, _this._storedFields[docId]);
-                if (searchOptions.filter == null || searchOptions.filter(result)) {
-                    results.push(result);
+            var results = [];
+            try {
+                for (var combinedResults_1 = __values(combinedResults), combinedResults_1_1 = combinedResults_1.next(); !combinedResults_1_1.done; combinedResults_1_1 = combinedResults_1.next()) {
+                    var _b = __read(combinedResults_1_1.value, 2), docId = _b[0], _c = _b[1], score = _c.score, terms = _c.terms, match = _c.match;
+                    // Final score takes into account the number of matching QUERY terms.
+                    // The end user will only receive the MATCHED terms.
+                    var quality = terms.length;
+                    var result = {
+                        id: this._documentIds.get(docId),
+                        score: score * quality,
+                        terms: Object.keys(match),
+                        match: match
+                    };
+                    Object.assign(result, this._storedFields.get(docId));
+                    if (searchOptions.filter == null || searchOptions.filter(result)) {
+                        results.push(result);
+                    }
                 }
-                return results;
-            }, [])
-                .sort(function (_a, _b) {
-                var a = _a.score;
-                var b = _b.score;
-                return a < b ? 1 : -1;
-            });
+            }
+            catch (e_8_1) { e_8 = { error: e_8_1 }; }
+            finally {
+                try {
+                    if (combinedResults_1_1 && !combinedResults_1_1.done && (_a = combinedResults_1.return)) _a.call(combinedResults_1);
+                }
+                finally { if (e_8) throw e_8.error; }
+            }
+            results.sort(byScore);
+            return results;
         };
         /**
          * Provide suggestions for the given search query
          *
          * The result is a list of suggested modified search queries, derived from the
          * given search query, each with a relevance score, sorted by descending score.
+         *
+         * By default, it uses the same options used for search, except that by
+         * default it performs prefix search on the last term of the query, and
+         * combine terms with `'AND'` (requiring all query terms to match). Custom
+         * options can be passed as a second argument. Defaults can be changed upon
+         * calling the `MiniSearch` constructor, by passing a `autoSuggestOptions`
+         * option.
          *
          * ### Basic usage:
          *
@@ -17934,34 +18373,52 @@ module.exports = localforage_js;
          * @param queryString  Query string to be expanded into suggestions
          * @param options  Search options. The supported options and default values
          * are the same as for the `search` method, except that by default prefix
-         * search is performed on the last term in the query.
+         * search is performed on the last term in the query, and terms are combined
+         * with `'AND'`.
          * @return  A sorted array of suggestions sorted by relevance score.
          */
         MiniSearch.prototype.autoSuggest = function (queryString, options) {
+            var e_9, _a, e_10, _b;
             if (options === void 0) { options = {}; }
-            options = __assign(__assign({}, defaultAutoSuggestOptions), options);
-            var suggestions = this.search(queryString, options).reduce(function (suggestions, _a) {
-                var score = _a.score, terms = _a.terms;
-                var phrase = terms.join(' ');
-                if (suggestions[phrase] == null) {
-                    suggestions[phrase] = { score: score, terms: terms, count: 1 };
+            options = __assign(__assign({}, this._options.autoSuggestOptions), options);
+            var suggestions = new Map();
+            try {
+                for (var _c = __values(this.search(queryString, options)), _d = _c.next(); !_d.done; _d = _c.next()) {
+                    var _e = _d.value, score = _e.score, terms = _e.terms;
+                    var phrase = terms.join(' ');
+                    var suggestion = suggestions.get(phrase);
+                    if (suggestion != null) {
+                        suggestion.score += score;
+                        suggestion.count += 1;
+                    }
+                    else {
+                        suggestions.set(phrase, { score: score, terms: terms, count: 1 });
+                    }
                 }
-                else {
-                    suggestions[phrase].score += score;
-                    suggestions[phrase].count += 1;
+            }
+            catch (e_9_1) { e_9 = { error: e_9_1 }; }
+            finally {
+                try {
+                    if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
                 }
-                return suggestions;
-            }, {});
-            return Object.entries(suggestions)
-                .map(function (_a) {
-                var _b = __read(_a, 2), suggestion = _b[0], _c = _b[1], score = _c.score, terms = _c.terms, count = _c.count;
-                return ({ suggestion: suggestion, terms: terms, score: score / count });
-            })
-                .sort(function (_a, _b) {
-                var a = _a.score;
-                var b = _b.score;
-                return a < b ? 1 : -1;
-            });
+                finally { if (e_9) throw e_9.error; }
+            }
+            var results = [];
+            try {
+                for (var suggestions_1 = __values(suggestions), suggestions_1_1 = suggestions_1.next(); !suggestions_1_1.done; suggestions_1_1 = suggestions_1.next()) {
+                    var _f = __read(suggestions_1_1.value, 2), suggestion = _f[0], _g = _f[1], score = _g.score, terms = _g.terms, count = _g.count;
+                    results.push({ suggestion: suggestion, terms: terms, score: score / count });
+                }
+            }
+            catch (e_10_1) { e_10 = { error: e_10_1 }; }
+            finally {
+                try {
+                    if (suggestions_1_1 && !suggestions_1_1.done && (_b = suggestions_1.return)) _b.call(suggestions_1);
+                }
+                finally { if (e_10) throw e_10.error; }
+            }
+            results.sort(byScore);
+            return results;
         };
         Object.defineProperty(MiniSearch.prototype, "documentCount", {
             /**
@@ -17974,8 +18431,8 @@ module.exports = localforage_js;
             configurable: true
         });
         /**
-         * Deserializes a JSON index (serialized with `miniSearch.toJSON()`) and
-         * instantiates a MiniSearch instance. It should be given the same options
+         * Deserializes a JSON index (serialized with `JSON.stringify(miniSearch)`)
+         * and instantiates a MiniSearch instance. It should be given the same options
          * originally used when serializing the index.
          *
          * ### Usage:
@@ -18033,17 +18490,52 @@ module.exports = localforage_js;
          * @ignore
          */
         MiniSearch.loadJS = function (js, options) {
-            var index = js.index, documentCount = js.documentCount, nextId = js.nextId, documentIds = js.documentIds, fieldIds = js.fieldIds, fieldLength = js.fieldLength, averageFieldLength = js.averageFieldLength, storedFields = js.storedFields;
+            var e_11, _a, e_12, _b;
+            var index = js.index, documentCount = js.documentCount, nextId = js.nextId, documentIds = js.documentIds, fieldIds = js.fieldIds, fieldLength = js.fieldLength, averageFieldLength = js.averageFieldLength, storedFields = js.storedFields, serializationVersion = js.serializationVersion;
+            if (serializationVersion !== 1 && serializationVersion !== 2) {
+                throw new Error('MiniSearch: cannot deserialize an index created with an incompatible version');
+            }
             var miniSearch = new MiniSearch(options);
-            miniSearch._index = new SearchableMap(index._tree, index._prefix);
             miniSearch._documentCount = documentCount;
             miniSearch._nextId = nextId;
-            miniSearch._documentIds = documentIds;
+            miniSearch._documentIds = objectToNumericMap(documentIds);
             miniSearch._fieldIds = fieldIds;
-            miniSearch._fieldLength = fieldLength;
-            miniSearch._averageFieldLength = averageFieldLength;
-            miniSearch._fieldIds = fieldIds;
-            miniSearch._storedFields = storedFields || {};
+            miniSearch._fieldLength = objectToNumericMap(fieldLength);
+            miniSearch._avgFieldLength = averageFieldLength;
+            miniSearch._storedFields = objectToNumericMap(storedFields);
+            miniSearch._index = new SearchableMap();
+            try {
+                for (var index_1 = __values(index), index_1_1 = index_1.next(); !index_1_1.done; index_1_1 = index_1.next()) {
+                    var _c = __read(index_1_1.value, 2), term = _c[0], data = _c[1];
+                    var dataMap = new Map();
+                    try {
+                        for (var _d = (e_12 = void 0, __values(Object.keys(data))), _e = _d.next(); !_e.done; _e = _d.next()) {
+                            var fieldId = _e.value;
+                            var indexEntry = data[fieldId];
+                            // Version 1 used to nest the index entry inside a field called ds
+                            if (serializationVersion === 1) {
+                                indexEntry = indexEntry.ds;
+                            }
+                            dataMap.set(parseInt(fieldId, 10), objectToNumericMap(indexEntry));
+                        }
+                    }
+                    catch (e_12_1) { e_12 = { error: e_12_1 }; }
+                    finally {
+                        try {
+                            if (_e && !_e.done && (_b = _d.return)) _b.call(_d);
+                        }
+                        finally { if (e_12) throw e_12.error; }
+                    }
+                    miniSearch._index.set(term, dataMap);
+                }
+            }
+            catch (e_11_1) { e_11 = { error: e_11_1 }; }
+            finally {
+                try {
+                    if (index_1_1 && !index_1_1.done && (_a = index_1.return)) _a.call(index_1);
+                }
+                finally { if (e_11) throw e_11.error; }
+            }
             return miniSearch;
         };
         /**
@@ -18052,27 +18544,15 @@ module.exports = localforage_js;
         MiniSearch.prototype.executeQuery = function (query, searchOptions) {
             var _this = this;
             if (searchOptions === void 0) { searchOptions = {}; }
-            if (typeof query === 'string') {
-                return this.executeSearch(query, searchOptions);
+            if (typeof query !== 'string') {
+                var options_1 = __assign(__assign(__assign({}, searchOptions), query), { queries: undefined });
+                var results_1 = query.queries.map(function (subquery) { return _this.executeQuery(subquery, options_1); });
+                return this.combineResults(results_1, query.combineWith);
             }
-            else {
-                var results = query.queries.map(function (subquery) {
-                    var options = __assign(__assign(__assign({}, searchOptions), query), { queries: undefined });
-                    return _this.executeQuery(subquery, options);
-                });
-                return this.combineResults(results, query.combineWith);
-            }
-        };
-        /**
-         * @ignore
-         */
-        MiniSearch.prototype.executeSearch = function (queryString, searchOptions) {
-            var _this = this;
-            if (searchOptions === void 0) { searchOptions = {}; }
             var _a = this._options, tokenize = _a.tokenize, processTerm = _a.processTerm, globalSearchOptions = _a.searchOptions;
             var options = __assign(__assign({ tokenize: tokenize, processTerm: processTerm }, globalSearchOptions), searchOptions);
             var searchTokenize = options.tokenize, searchProcessTerm = options.processTerm;
-            var terms = searchTokenize(queryString)
+            var terms = searchTokenize(query)
                 .map(function (term) { return searchProcessTerm(term); })
                 .filter(function (term) { return !!term; });
             var queries = terms.map(termToQuerySpec(options));
@@ -18083,35 +18563,78 @@ module.exports = localforage_js;
          * @ignore
          */
         MiniSearch.prototype.executeQuerySpec = function (query, searchOptions) {
-            var _this = this;
+            var e_13, _a, e_14, _b;
             var options = __assign(__assign({}, this._options.searchOptions), searchOptions);
             var boosts = (options.fields || this._options.fields).reduce(function (boosts, field) {
                 var _a;
                 return (__assign(__assign({}, boosts), (_a = {}, _a[field] = getOwnProperty(boosts, field) || 1, _a)));
             }, options.boost || {});
             var boostDocument = options.boostDocument, weights = options.weights, maxFuzzy = options.maxFuzzy;
-            var _a = __assign(__assign({}, defaultSearchOptions.weights), weights), fuzzyWeight = _a.fuzzy, prefixWeight = _a.prefix;
-            var exactMatch = this.termResults(query.term, boosts, boostDocument, this._index.get(query.term));
-            if (!query.fuzzy && !query.prefix) {
-                return exactMatch;
-            }
-            var results = [exactMatch];
+            var _c = __assign(__assign({}, defaultSearchOptions.weights), weights), fuzzyWeight = _c.fuzzy, prefixWeight = _c.prefix;
+            var data = this._index.get(query.term);
+            var results = this.termResults(query.term, query.term, 1, data, boosts, boostDocument);
+            var prefixMatches;
+            var fuzzyMatches;
             if (query.prefix) {
-                this._index.atPrefix(query.term).forEach(function (term, data) {
-                    var weightedDistance = (0.3 * (term.length - query.term.length)) / term.length;
-                    results.push(_this.termResults(term, boosts, boostDocument, data, prefixWeight, weightedDistance));
-                });
+                prefixMatches = this._index.atPrefix(query.term);
             }
             if (query.fuzzy) {
                 var fuzzy = (query.fuzzy === true) ? 0.2 : query.fuzzy;
                 var maxDistance = fuzzy < 1 ? Math.min(maxFuzzy, Math.round(query.term.length * fuzzy)) : fuzzy;
-                Object.entries(this._index.fuzzyGet(query.term, maxDistance)).forEach(function (_a) {
-                    var _b = __read(_a, 2), term = _b[0], _c = __read(_b[1], 2), data = _c[0], distance = _c[1];
-                    var weightedDistance = distance / term.length;
-                    results.push(_this.termResults(term, boosts, boostDocument, data, fuzzyWeight, weightedDistance));
-                });
+                if (maxDistance)
+                    fuzzyMatches = this._index.fuzzyGet(query.term, maxDistance);
             }
-            return results.reduce(combinators[OR]);
+            if (prefixMatches) {
+                try {
+                    for (var prefixMatches_1 = __values(prefixMatches), prefixMatches_1_1 = prefixMatches_1.next(); !prefixMatches_1_1.done; prefixMatches_1_1 = prefixMatches_1.next()) {
+                        var _d = __read(prefixMatches_1_1.value, 2), term = _d[0], data_1 = _d[1];
+                        var distance = term.length - query.term.length;
+                        if (!distance) {
+                            continue;
+                        } // Skip exact match.
+                        // Delete the term from fuzzy results (if present) if it is also a
+                        // prefix result. This entry will always be scored as a prefix result.
+                        fuzzyMatches === null || fuzzyMatches === void 0 ? void 0 : fuzzyMatches.delete(term);
+                        // Weight gradually approaches 0 as distance goes to infinity, with the
+                        // weight for the hypothetical distance 0 being equal to prefixWeight.
+                        // The rate of change is much lower than that of fuzzy matches to
+                        // account for the fact that prefix matches stay more relevant than
+                        // fuzzy matches for longer distances.
+                        var weight = prefixWeight * term.length / (term.length + 0.3 * distance);
+                        this.termResults(query.term, term, weight, data_1, boosts, boostDocument, results);
+                    }
+                }
+                catch (e_13_1) { e_13 = { error: e_13_1 }; }
+                finally {
+                    try {
+                        if (prefixMatches_1_1 && !prefixMatches_1_1.done && (_a = prefixMatches_1.return)) _a.call(prefixMatches_1);
+                    }
+                    finally { if (e_13) throw e_13.error; }
+                }
+            }
+            if (fuzzyMatches) {
+                try {
+                    for (var _e = __values(fuzzyMatches.keys()), _f = _e.next(); !_f.done; _f = _e.next()) {
+                        var term = _f.value;
+                        var _g = __read(fuzzyMatches.get(term), 2), data_2 = _g[0], distance = _g[1];
+                        if (!distance) {
+                            continue;
+                        } // Skip exact match.
+                        // Weight gradually approaches 0 as distance goes to infinity, with the
+                        // weight for the hypothetical distance 0 being equal to fuzzyWeight.
+                        var weight = fuzzyWeight * term.length / (term.length + distance);
+                        this.termResults(query.term, term, weight, data_2, boosts, boostDocument, results);
+                    }
+                }
+                catch (e_14_1) { e_14 = { error: e_14_1 }; }
+                finally {
+                    try {
+                        if (_f && !_f.done && (_b = _e.return)) _b.call(_e);
+                    }
+                    finally { if (e_14) throw e_14.error; }
+                }
+            }
+            return results;
         };
         /**
          * @ignore
@@ -18119,10 +18642,10 @@ module.exports = localforage_js;
         MiniSearch.prototype.combineResults = function (results, combineWith) {
             if (combineWith === void 0) { combineWith = OR; }
             if (results.length === 0) {
-                return {};
+                return new Map();
             }
             var operator = combineWith.toLowerCase();
-            return results.reduce(combinators[operator]) || {};
+            return results.reduce(combinators[operator]) || new Map();
         };
         /**
          * Allows serialization of the index to JSON, to possibly store it and later
@@ -18149,92 +18672,161 @@ module.exports = localforage_js;
          * @return A plain-object serializeable representation of the search index.
          */
         MiniSearch.prototype.toJSON = function () {
+            var e_15, _a, e_16, _b;
+            var index = [];
+            try {
+                for (var _c = __values(this._index), _d = _c.next(); !_d.done; _d = _c.next()) {
+                    var _e = __read(_d.value, 2), term = _e[0], fieldIndex = _e[1];
+                    var data = {};
+                    try {
+                        for (var fieldIndex_1 = (e_16 = void 0, __values(fieldIndex)), fieldIndex_1_1 = fieldIndex_1.next(); !fieldIndex_1_1.done; fieldIndex_1_1 = fieldIndex_1.next()) {
+                            var _f = __read(fieldIndex_1_1.value, 2), fieldId = _f[0], freqs = _f[1];
+                            data[fieldId] = Object.fromEntries(freqs);
+                        }
+                    }
+                    catch (e_16_1) { e_16 = { error: e_16_1 }; }
+                    finally {
+                        try {
+                            if (fieldIndex_1_1 && !fieldIndex_1_1.done && (_b = fieldIndex_1.return)) _b.call(fieldIndex_1);
+                        }
+                        finally { if (e_16) throw e_16.error; }
+                    }
+                    index.push([term, data]);
+                }
+            }
+            catch (e_15_1) { e_15 = { error: e_15_1 }; }
+            finally {
+                try {
+                    if (_d && !_d.done && (_a = _c.return)) _a.call(_c);
+                }
+                finally { if (e_15) throw e_15.error; }
+            }
             return {
-                index: this._index,
                 documentCount: this._documentCount,
                 nextId: this._nextId,
-                documentIds: this._documentIds,
+                documentIds: Object.fromEntries(this._documentIds),
                 fieldIds: this._fieldIds,
-                fieldLength: this._fieldLength,
-                averageFieldLength: this._averageFieldLength,
-                storedFields: this._storedFields
+                fieldLength: Object.fromEntries(this._fieldLength),
+                averageFieldLength: this._avgFieldLength,
+                storedFields: Object.fromEntries(this._storedFields),
+                index: index,
+                serializationVersion: 2
             };
         };
         /**
          * @ignore
          */
-        MiniSearch.prototype.termResults = function (term, boosts, boostDocument, indexData, weight, editDistance) {
-            var _this = this;
-            if (editDistance === void 0) { editDistance = 0; }
-            if (indexData == null) {
-                return {};
-            }
-            return Object.entries(boosts).reduce(function (results, _a) {
-                var _b = __read(_a, 2), field = _b[0], boost = _b[1];
-                var fieldId = _this._fieldIds[field];
-                var _c = indexData[fieldId] || { ds: {} }, df = _c.df, ds = _c.ds;
-                Object.entries(ds).forEach(function (_a) {
-                    var _b = __read(_a, 2), documentId = _b[0], tf = _b[1];
-                    var docBoost = boostDocument ? boostDocument(_this._documentIds[documentId], term) : 1;
-                    if (!docBoost) {
-                        return;
-                    }
-                    var normalizedLength = _this._fieldLength[documentId][fieldId] / _this._averageFieldLength[fieldId];
-                    results[documentId] = results[documentId] || { score: 0, match: {}, terms: [] };
-                    results[documentId].terms.push(term);
-                    results[documentId].match[term] = getOwnProperty(results[documentId].match, term) || [];
-                    results[documentId].score += docBoost * score(tf, df, _this._documentCount, normalizedLength, boost, editDistance);
-                    results[documentId].match[term].push(field);
-                });
+        MiniSearch.prototype.termResults = function (sourceTerm, derivedTerm, termWeight, fieldTermData, fieldBoosts, boostDocumentFn, results) {
+            var e_17, _a, e_18, _b, _c;
+            if (results === void 0) { results = new Map(); }
+            if (fieldTermData == null)
                 return results;
-            }, {});
+            try {
+                for (var _d = __values(Object.keys(fieldBoosts)), _e = _d.next(); !_e.done; _e = _d.next()) {
+                    var field = _e.value;
+                    var fieldBoost = fieldBoosts[field];
+                    var fieldId = this._fieldIds[field];
+                    var fieldTermFreqs = fieldTermData.get(fieldId);
+                    if (fieldTermFreqs == null)
+                        continue;
+                    var matchingFields = fieldTermFreqs.size;
+                    var avgFieldLength = this._avgFieldLength[fieldId];
+                    try {
+                        for (var _f = (e_18 = void 0, __values(fieldTermFreqs.keys())), _g = _f.next(); !_g.done; _g = _f.next()) {
+                            var docId = _g.value;
+                            var docBoost = boostDocumentFn ? boostDocumentFn(this._documentIds.get(docId), derivedTerm) : 1;
+                            if (!docBoost)
+                                continue;
+                            var termFreq = fieldTermFreqs.get(docId);
+                            var fieldLength = this._fieldLength.get(docId)[fieldId];
+                            // NOTE: The total number of fields is set to the number of documents
+                            // `this._documentCount`. It could also make sense to use the number of
+                            // documents where the current field is non-blank as a normalisation
+                            // factor. This will make a difference in scoring if the field is rarely
+                            // present. This is currently not supported, and may require further
+                            // analysis to see if it is a valid use case.
+                            var rawScore = calcBM25Score(termFreq, matchingFields, this._documentCount, fieldLength, avgFieldLength);
+                            var weightedScore = termWeight * fieldBoost * docBoost * rawScore;
+                            var result = results.get(docId);
+                            if (result) {
+                                result.score += weightedScore;
+                                assignUniqueTerm(result.terms, sourceTerm);
+                                var match = getOwnProperty(result.match, derivedTerm);
+                                if (match) {
+                                    match.push(field);
+                                }
+                                else {
+                                    result.match[derivedTerm] = [field];
+                                }
+                            }
+                            else {
+                                results.set(docId, {
+                                    score: weightedScore,
+                                    terms: [sourceTerm],
+                                    match: (_c = {}, _c[derivedTerm] = [field], _c)
+                                });
+                            }
+                        }
+                    }
+                    catch (e_18_1) { e_18 = { error: e_18_1 }; }
+                    finally {
+                        try {
+                            if (_g && !_g.done && (_b = _f.return)) _b.call(_f);
+                        }
+                        finally { if (e_18) throw e_18.error; }
+                    }
+                }
+            }
+            catch (e_17_1) { e_17 = { error: e_17_1 }; }
+            finally {
+                try {
+                    if (_e && !_e.done && (_a = _d.return)) _a.call(_d);
+                }
+                finally { if (e_17) throw e_17.error; }
+            }
+            return results;
         };
         /**
          * @ignore
          */
         MiniSearch.prototype.addTerm = function (fieldId, documentId, term) {
-            this._index.update(term, function (indexData) {
-                var _a;
-                indexData = indexData || {};
-                var fieldIndex = indexData[fieldId] || { df: 0, ds: {} };
-                if (fieldIndex.ds[documentId] == null) {
-                    fieldIndex.df += 1;
-                }
-                fieldIndex.ds[documentId] = (fieldIndex.ds[documentId] || 0) + 1;
-                return __assign(__assign({}, indexData), (_a = {}, _a[fieldId] = fieldIndex, _a));
-            });
+            var indexData = this._index.fetch(term, createMap);
+            var fieldIndex = indexData.get(fieldId);
+            if (fieldIndex == null) {
+                fieldIndex = new Map();
+                fieldIndex.set(documentId, 1);
+                indexData.set(fieldId, fieldIndex);
+            }
+            else {
+                var docs = fieldIndex.get(documentId);
+                fieldIndex.set(documentId, (docs || 0) + 1);
+            }
         };
         /**
          * @ignore
          */
         MiniSearch.prototype.removeTerm = function (fieldId, documentId, term) {
-            var _this = this;
             if (!this._index.has(term)) {
                 this.warnDocumentChanged(documentId, fieldId, term);
                 return;
             }
-            this._index.update(term, function (indexData) {
-                var _a;
-                var fieldIndex = indexData[fieldId];
-                if (fieldIndex == null || fieldIndex.ds[documentId] == null) {
-                    _this.warnDocumentChanged(documentId, fieldId, term);
-                    return indexData;
+            var indexData = this._index.fetch(term, createMap);
+            var fieldIndex = indexData.get(fieldId);
+            if (fieldIndex == null || fieldIndex.get(documentId) == null) {
+                this.warnDocumentChanged(documentId, fieldId, term);
+            }
+            else if (fieldIndex.get(documentId) <= 1) {
+                if (fieldIndex.size <= 1) {
+                    indexData.delete(fieldId);
                 }
-                if (fieldIndex.ds[documentId] <= 1) {
-                    if (fieldIndex.df <= 1) {
-                        delete indexData[fieldId];
-                        return indexData;
-                    }
-                    fieldIndex.df -= 1;
+                else {
+                    fieldIndex.delete(documentId);
                 }
-                if (fieldIndex.ds[documentId] <= 1) {
-                    delete fieldIndex.ds[documentId];
-                    return indexData;
-                }
-                fieldIndex.ds[documentId] -= 1;
-                return __assign(__assign({}, indexData), (_a = {}, _a[fieldId] = fieldIndex, _a));
-            });
-            if (Object.keys(this._index.get(term)).length === 0) {
+            }
+            else {
+                fieldIndex.set(documentId, fieldIndex.get(documentId) - 1);
+            }
+            if (this._index.get(term).size === 0) {
                 this._index.delete(term);
             }
         };
@@ -18242,21 +18834,33 @@ module.exports = localforage_js;
          * @ignore
          */
         MiniSearch.prototype.warnDocumentChanged = function (shortDocumentId, fieldId, term) {
+            var e_19, _a;
             if (console == null || console.warn == null) {
                 return;
             }
-            var fieldName = Object.entries(this._fieldIds).find(function (_a) {
-                var _b = __read(_a, 2); _b[0]; var id = _b[1];
-                return id === fieldId;
-            })[0];
-            console.warn("MiniSearch: document with ID ".concat(this._documentIds[shortDocumentId], " has changed before removal: term \"").concat(term, "\" was not present in field \"").concat(fieldName, "\". Removing a document after it has changed can corrupt the index!"));
+            try {
+                for (var _b = __values(Object.keys(this._fieldIds)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var fieldName = _c.value;
+                    if (this._fieldIds[fieldName] === fieldId) {
+                        console.warn("MiniSearch: document with ID ".concat(this._documentIds.get(shortDocumentId), " has changed before removal: term \"").concat(term, "\" was not present in field \"").concat(fieldName, "\". Removing a document after it has changed can corrupt the index!"));
+                        return;
+                    }
+                }
+            }
+            catch (e_19_1) { e_19 = { error: e_19_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_19) throw e_19.error; }
+            }
         };
         /**
          * @ignore
          */
         MiniSearch.prototype.addDocumentId = function (documentId) {
-            var shortDocumentId = this._nextId.toString(36);
-            this._documentIds[shortDocumentId] = documentId;
+            var shortDocumentId = this._nextId;
+            this._documentIds.set(shortDocumentId, documentId);
             this._documentCount += 1;
             this._nextId += 1;
             return shortDocumentId;
@@ -18265,43 +18869,56 @@ module.exports = localforage_js;
          * @ignore
          */
         MiniSearch.prototype.addFields = function (fields) {
-            var _this = this;
-            fields.forEach(function (field, i) { _this._fieldIds[field] = i; });
+            for (var i = 0; i < fields.length; i++) {
+                this._fieldIds[fields[i]] = i;
+            }
         };
         /**
          * @ignore
          */
         MiniSearch.prototype.addFieldLength = function (documentId, fieldId, count, length) {
-            this._averageFieldLength[fieldId] = this._averageFieldLength[fieldId] || 0;
-            var totalLength = (this._averageFieldLength[fieldId] * count) + length;
-            this._fieldLength[documentId] = this._fieldLength[documentId] || {};
-            this._fieldLength[documentId][fieldId] = length;
-            this._averageFieldLength[fieldId] = totalLength / (count + 1);
+            var fieldLengths = this._fieldLength.get(documentId);
+            if (fieldLengths == null)
+                this._fieldLength.set(documentId, fieldLengths = []);
+            fieldLengths[fieldId] = length;
+            var averageFieldLength = this._avgFieldLength[fieldId] || 0;
+            var totalFieldLength = (averageFieldLength * count) + length;
+            this._avgFieldLength[fieldId] = totalFieldLength / (count + 1);
         };
         /**
          * @ignore
          */
         MiniSearch.prototype.removeFieldLength = function (documentId, fieldId, count, length) {
-            var totalLength = (this._averageFieldLength[fieldId] * count) - length;
-            this._averageFieldLength[fieldId] = totalLength / (count - 1);
+            var totalFieldLength = (this._avgFieldLength[fieldId] * count) - length;
+            this._avgFieldLength[fieldId] = totalFieldLength / (count - 1);
         };
         /**
          * @ignore
          */
         MiniSearch.prototype.saveStoredFields = function (documentId, doc) {
-            var _this = this;
-            var _a = this._options, storeFields = _a.storeFields, extractField = _a.extractField;
+            var e_20, _a;
+            var _b = this._options, storeFields = _b.storeFields, extractField = _b.extractField;
             if (storeFields == null || storeFields.length === 0) {
                 return;
             }
-            this._storedFields[documentId] = this._storedFields[documentId] || {};
-            storeFields.forEach(function (fieldName) {
-                var fieldValue = extractField(doc, fieldName);
-                if (fieldValue === undefined) {
-                    return;
+            var documentFields = this._storedFields.get(documentId);
+            if (documentFields == null)
+                this._storedFields.set(documentId, documentFields = {});
+            try {
+                for (var storeFields_1 = __values(storeFields), storeFields_1_1 = storeFields_1.next(); !storeFields_1_1.done; storeFields_1_1 = storeFields_1.next()) {
+                    var fieldName = storeFields_1_1.value;
+                    var fieldValue = extractField(doc, fieldName);
+                    if (fieldValue !== undefined)
+                        documentFields[fieldName] = fieldValue;
                 }
-                _this._storedFields[documentId][fieldName] = fieldValue;
-            });
+            }
+            catch (e_20_1) { e_20 = { error: e_20_1 }; }
+            finally {
+                try {
+                    if (storeFields_1_1 && !storeFields_1_1.done && (_a = storeFields_1.return)) _a.call(storeFields_1);
+                }
+                finally { if (e_20) throw e_20.error; }
+            }
         };
         return MiniSearch;
     }());
@@ -18310,46 +18927,84 @@ module.exports = localforage_js;
     };
     var combinators = (_a = {},
         _a[OR] = function (a, b) {
-            return Object.entries(b).reduce(function (combined, _a) {
-                var _b;
-                var _c = __read(_a, 2), documentId = _c[0], _d = _c[1], score = _d.score, match = _d.match, terms = _d.terms;
-                if (combined[documentId] == null) {
-                    combined[documentId] = { score: score, match: match, terms: terms };
+            var e_21, _a;
+            try {
+                for (var _b = __values(b.keys()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var docId = _c.value;
+                    var existing = a.get(docId);
+                    if (existing == null) {
+                        a.set(docId, b.get(docId));
+                    }
+                    else {
+                        var _d = b.get(docId), score = _d.score, terms = _d.terms, match = _d.match;
+                        existing.score = existing.score + score;
+                        existing.match = Object.assign(existing.match, match);
+                        assignUniqueTerms(existing.terms, terms);
+                    }
                 }
-                else {
-                    combined[documentId].score += score;
-                    combined[documentId].score *= 1.5;
-                    (_b = combined[documentId].terms).push.apply(_b, __spreadArray([], __read(terms), false));
-                    Object.assign(combined[documentId].match, match);
+            }
+            catch (e_21_1) { e_21 = { error: e_21_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
                 }
-                return combined;
-            }, a || {});
+                finally { if (e_21) throw e_21.error; }
+            }
+            return a;
         },
         _a[AND] = function (a, b) {
-            return Object.entries(b).reduce(function (combined, _a) {
-                var _b = __read(_a, 2), documentId = _b[0], _c = _b[1], score = _c.score, match = _c.match, terms = _c.terms;
-                if (a[documentId] === undefined) {
-                    return combined;
+            var e_22, _a;
+            var combined = new Map();
+            try {
+                for (var _b = __values(b.keys()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var docId = _c.value;
+                    var existing = a.get(docId);
+                    if (existing == null)
+                        continue;
+                    var _d = b.get(docId), score = _d.score, terms = _d.terms, match = _d.match;
+                    assignUniqueTerms(existing.terms, terms);
+                    combined.set(docId, {
+                        score: existing.score + score,
+                        terms: existing.terms,
+                        match: Object.assign(existing.match, match)
+                    });
                 }
-                combined[documentId] = combined[documentId] || {};
-                combined[documentId].score = a[documentId].score + score;
-                combined[documentId].match = __assign(__assign({}, a[documentId].match), match);
-                combined[documentId].terms = __spreadArray(__spreadArray([], __read(a[documentId].terms), false), __read(terms), false);
-                return combined;
-            }, {});
+            }
+            catch (e_22_1) { e_22 = { error: e_22_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_22) throw e_22.error; }
+            }
+            return combined;
         },
         _a[AND_NOT] = function (a, b) {
-            return Object.entries(b).reduce(function (combined, _a) {
-                var _b = __read(_a, 2), documentId = _b[0], _c = _b[1]; _c.score; _c.match; _c.terms;
-                delete combined[documentId];
-                return combined;
-            }, a || {});
+            var e_23, _a;
+            try {
+                for (var _b = __values(b.keys()), _c = _b.next(); !_c.done; _c = _b.next()) {
+                    var docId = _c.value;
+                    a.delete(docId);
+                }
+            }
+            catch (e_23_1) { e_23 = { error: e_23_1 }; }
+            finally {
+                try {
+                    if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                }
+                finally { if (e_23) throw e_23.error; }
+            }
+            return a;
         },
         _a);
-    var tfIdf = function (tf, df, n) { return tf * Math.log(n / df); };
-    var score = function (termFrequency, documentFrequency, documentCount, normalizedLength, boost, editDistance) {
-        var weight = boost / (1 + (0.333 * boost * editDistance));
-        return weight * tfIdf(termFrequency, documentFrequency, documentCount) / normalizedLength;
+    // https://en.wikipedia.org/wiki/Okapi_BM25
+    // https://opensourceconnections.com/blog/2015/10/16/bm25-the-next-generation-of-lucene-relevation/
+    var k = 1.2; // Term frequency saturation point. Recommended values are between 1.2 and 2.
+    var b = 0.7; // Length normalization impact. Recommended values are around 0.75.
+    var d = 0.5; // BM25+ frequency normalization lower bound. Recommended values are between 0.5 and 1.
+    var calcBM25Score = function (termFreq, matchingCount, totalCount, fieldLength, avgFieldLength) {
+        var invDocFreq = Math.log(1 + (totalCount - matchingCount + 0.5) / (matchingCount + 0.5));
+        return invDocFreq * (d + termFreq * (k + 1) / (termFreq + k * (1 - b + b * fieldLength / avgFieldLength)));
     };
     var termToQuerySpec = function (options) { return function (term, i, terms) {
         var fuzzy = (typeof options.fuzzy === 'function')
@@ -18360,9 +19015,6 @@ module.exports = localforage_js;
             : (options.prefix === true);
         return { term: term, fuzzy: fuzzy, prefix: prefix };
     }; };
-    var uniq = function (array) {
-        return array.filter(function (element, i, array) { return array.indexOf(element) === i; });
-    };
     var defaultOptions = {
         idField: 'id',
         extractField: function (document, fieldName) { return document[fieldName]; },
@@ -18378,12 +19030,60 @@ module.exports = localforage_js;
         fuzzy: false,
         maxFuzzy: 6,
         boost: {},
-        weights: { fuzzy: 0.9, prefix: 0.75 }
+        weights: { fuzzy: 0.45, prefix: 0.375 }
     };
     var defaultAutoSuggestOptions = {
+        combineWith: AND,
         prefix: function (term, i, terms) {
             return i === terms.length - 1;
         }
+    };
+    var assignUniqueTerm = function (target, term) {
+        // Avoid adding duplicate terms.
+        if (!target.includes(term))
+            target.push(term);
+    };
+    var assignUniqueTerms = function (target, source) {
+        var e_24, _a;
+        try {
+            for (var source_1 = __values(source), source_1_1 = source_1.next(); !source_1_1.done; source_1_1 = source_1.next()) {
+                var term = source_1_1.value;
+                // Avoid adding duplicate terms.
+                if (!target.includes(term))
+                    target.push(term);
+            }
+        }
+        catch (e_24_1) { e_24 = { error: e_24_1 }; }
+        finally {
+            try {
+                if (source_1_1 && !source_1_1.done && (_a = source_1.return)) _a.call(source_1);
+            }
+            finally { if (e_24) throw e_24.error; }
+        }
+    };
+    var byScore = function (_a, _b) {
+        var a = _a.score;
+        var b = _b.score;
+        return b - a;
+    };
+    var createMap = function () { return new Map(); };
+    var objectToNumericMap = function (object) {
+        var e_25, _a;
+        var map = new Map();
+        try {
+            for (var _b = __values(Object.keys(object)), _c = _b.next(); !_c.done; _c = _b.next()) {
+                var key = _c.value;
+                map.set(parseInt(key, 10), object[key]);
+            }
+        }
+        catch (e_25_1) { e_25 = { error: e_25_1 }; }
+        finally {
+            try {
+                if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+            }
+            finally { if (e_25) throw e_25.error; }
+        }
+        return map;
     };
     // This regular expression matches any Unicode space or punctuation character
     // Adapted from https://unicode.org/cldr/utility/list-unicodeset.jsp?a=%5Cp%7BZ%7D%5Cp%7BP%7D&abb=on&c=on&esc=on
@@ -18394,7 +19094,7 @@ module.exports = localforage_js;
 }));
 
 
-},{}],78:[function(require,module,exports){
+},{}],87:[function(require,module,exports){
 "use strict";
 
 var behavior = require("./sinon/behavior");
@@ -18447,7 +19147,7 @@ var api = extend(sandbox, apiMethods);
 
 module.exports = api;
 
-},{"./sinon/assert":79,"./sinon/behavior":80,"./sinon/create-sandbox":83,"./sinon/mock-expectation":86,"./sinon/promise":88,"./sinon/restore-object":93,"./sinon/sandbox":94,"./sinon/stub":97,"./sinon/util/core/default-config":99,"./sinon/util/core/extend":101,"./sinon/util/core/format":102,"./sinon/util/fake-timers":116,"@sinonjs/samsam":162,"nise":181}],79:[function(require,module,exports){
+},{"./sinon/assert":88,"./sinon/behavior":89,"./sinon/create-sandbox":92,"./sinon/mock-expectation":95,"./sinon/promise":97,"./sinon/restore-object":102,"./sinon/sandbox":103,"./sinon/stub":106,"./sinon/util/core/default-config":108,"./sinon/util/core/extend":110,"./sinon/util/core/format":111,"./sinon/util/fake-timers":125,"@sinonjs/samsam":171,"nise":190}],88:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -18744,7 +19444,7 @@ function createAssertObject() {
 module.exports = createAssertObject();
 module.exports.createAssertObject = createAssertObject;
 
-},{"./util/core/format":102,"./util/core/times-in-words":111,"@sinonjs/commons":123,"@sinonjs/samsam":162}],80:[function(require,module,exports){
+},{"./util/core/format":111,"./util/core/times-in-words":120,"@sinonjs/commons":132,"@sinonjs/samsam":171}],89:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -19018,7 +19718,7 @@ var asyncBehaviors = exportAsyncBehaviors(proto);
 
 module.exports = extend.nonEnum({}, proto, asyncBehaviors);
 
-},{"./util/core/export-async-behaviors":100,"./util/core/extend":101,"./util/core/next-tick":110,"@sinonjs/commons":123}],81:[function(require,module,exports){
+},{"./util/core/export-async-behaviors":109,"./util/core/extend":110,"./util/core/next-tick":119,"@sinonjs/commons":132}],90:[function(require,module,exports){
 "use strict";
 
 var walk = require("./util/core/walk");
@@ -19047,7 +19747,7 @@ function collectOwnMethods(object) {
 
 module.exports = collectOwnMethods;
 
-},{"./util/core/get-property-descriptor":105,"./util/core/walk":114,"@sinonjs/commons":123}],82:[function(require,module,exports){
+},{"./util/core/get-property-descriptor":114,"./util/core/walk":123,"@sinonjs/commons":132}],91:[function(require,module,exports){
 "use strict";
 
 var supportsColor = require("supports-color");
@@ -19080,7 +19780,7 @@ exports.bold = function (str) {
     return colorize(str, 1);
 };
 
-},{"supports-color":183}],83:[function(require,module,exports){
+},{"supports-color":192}],92:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -19150,7 +19850,7 @@ function createSandbox(config) {
 
 module.exports = createSandbox;
 
-},{"./sandbox":94,"@sinonjs/commons":123}],84:[function(require,module,exports){
+},{"./sandbox":103,"@sinonjs/commons":132}],93:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -19435,7 +20135,7 @@ var asyncBehaviors = exportAsyncBehaviors(defaultBehaviors);
 
 module.exports = extend({}, defaultBehaviors, asyncBehaviors);
 
-},{"./util/core/export-async-behaviors":100,"./util/core/extend":101,"./util/core/is-property-configurable":108,"@sinonjs/commons":123}],85:[function(require,module,exports){
+},{"./util/core/export-async-behaviors":109,"./util/core/extend":110,"./util/core/is-property-configurable":117,"@sinonjs/commons":132}],94:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -19724,7 +20424,7 @@ function getError(value) {
     return value instanceof Error ? value : new Error(value);
 }
 
-},{"./proxy":92,"./util/core/next-tick":110,"@sinonjs/commons":123}],86:[function(require,module,exports){
+},{"./proxy":101,"./util/core/next-tick":119,"@sinonjs/commons":132}],95:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -20047,7 +20747,7 @@ var mockExpectation = {
 
 module.exports = mockExpectation;
 
-},{"./assert":79,"./proxy-call":90,"./proxy-invoke":91,"./stub":97,"./util/core/extend":101,"./util/core/format":102,"./util/core/times-in-words":111,"@sinonjs/commons":123,"@sinonjs/samsam":162}],87:[function(require,module,exports){
+},{"./assert":88,"./proxy-call":99,"./proxy-invoke":100,"./stub":106,"./util/core/extend":110,"./util/core/format":111,"./util/core/times-in-words":120,"@sinonjs/commons":132,"@sinonjs/samsam":171}],96:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -20263,7 +20963,7 @@ extend(mock, {
 
 module.exports = mock;
 
-},{"./mock-expectation":86,"./proxy-call":90,"./util/core/extend":101,"./util/core/use-promise-library":112,"./util/core/wrap-method":115,"@sinonjs/commons":123,"@sinonjs/samsam":162}],88:[function(require,module,exports){
+},{"./mock-expectation":95,"./proxy-call":99,"./util/core/extend":110,"./util/core/use-promise-library":121,"./util/core/wrap-method":124,"@sinonjs/commons":132,"@sinonjs/samsam":171}],97:[function(require,module,exports){
 "use strict";
 
 var fake = require("./fake");
@@ -20349,7 +21049,7 @@ function promise(executor) {
 
 module.exports = promise;
 
-},{"./fake":85,"./util/core/is-restorable":109}],89:[function(require,module,exports){
+},{"./fake":94,"./util/core/is-restorable":118}],98:[function(require,module,exports){
 "use strict";
 
 var push = require("@sinonjs/commons").prototypes.array.push;
@@ -20418,7 +21118,7 @@ exports.delegateToCalls = function delegateToCalls(
     };
 };
 
-},{"@sinonjs/commons":123}],90:[function(require,module,exports){
+},{"@sinonjs/commons":132}],99:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -20711,7 +21411,7 @@ createProxyCall.toString = callProto.toString; // used by mocks
 
 module.exports = createProxyCall;
 
-},{"./util/core/format":102,"@sinonjs/commons":123,"@sinonjs/samsam":162}],91:[function(require,module,exports){
+},{"./util/core/format":111,"@sinonjs/commons":132,"@sinonjs/samsam":171}],100:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -20801,7 +21501,7 @@ module.exports = function invoke(func, thisValue, args) {
     return returnValue;
 };
 
-},{"./proxy-call-util":89,"@sinonjs/commons":123}],92:[function(require,module,exports){
+},{"./proxy-call-util":98,"@sinonjs/commons":132}],101:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -21169,7 +21869,7 @@ function wrapFunction(func, originalFunc) {
 
 module.exports = createProxy;
 
-},{"./proxy-call":90,"./proxy-call-util":89,"./proxy-invoke":91,"./spy-formatters":95,"./util/core/extend":101,"./util/core/format":102,"./util/core/function-to-string":103,"@sinonjs/commons":123}],93:[function(require,module,exports){
+},{"./proxy-call":99,"./proxy-call-util":98,"./proxy-invoke":100,"./spy-formatters":104,"./util/core/extend":110,"./util/core/format":111,"./util/core/function-to-string":112,"@sinonjs/commons":132}],102:[function(require,module,exports){
 "use strict";
 
 var walkObject = require("./util/core/walk-object");
@@ -21188,7 +21888,7 @@ function restoreObject(object) {
 
 module.exports = restoreObject;
 
-},{"./util/core/walk-object":113}],94:[function(require,module,exports){
+},{"./util/core/walk-object":122}],103:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -21662,7 +22362,7 @@ Sandbox.prototype.match = match;
 
 module.exports = Sandbox;
 
-},{"./assert":79,"./collect-own-methods":81,"./fake":85,"./mock":87,"./spy":96,"./stub":97,"./util/core/get-property-descriptor":105,"./util/core/is-property-configurable":108,"./util/core/use-promise-library":112,"./util/fake-timers":116,"@sinonjs/commons":123,"@sinonjs/samsam":162,"nise":181}],95:[function(require,module,exports){
+},{"./assert":88,"./collect-own-methods":90,"./fake":94,"./mock":96,"./spy":105,"./stub":106,"./util/core/get-property-descriptor":114,"./util/core/is-property-configurable":117,"./util/core/use-promise-library":121,"./util/fake-timers":125,"@sinonjs/commons":132,"@sinonjs/samsam":171,"nise":190}],104:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -21807,7 +22507,7 @@ module.exports = {
     },
 };
 
-},{"./color":82,"./util/core/format":102,"./util/core/times-in-words":111,"@sinonjs/commons":123,"@sinonjs/samsam":162,"diff":166}],96:[function(require,module,exports){
+},{"./color":91,"./util/core/format":111,"./util/core/times-in-words":120,"@sinonjs/commons":132,"@sinonjs/samsam":171,"diff":175}],105:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -22003,7 +22703,7 @@ function spy(object, property, types) {
 extend(spy, spyApi);
 module.exports = spy;
 
-},{"./proxy":92,"./proxy-call-util":89,"./util/core/extend":101,"./util/core/get-property-descriptor":105,"./util/core/is-es-module":106,"./util/core/walk-object":113,"./util/core/wrap-method":115,"@sinonjs/commons":123,"@sinonjs/samsam":162}],97:[function(require,module,exports){
+},{"./proxy":101,"./proxy-call-util":98,"./util/core/extend":110,"./util/core/get-property-descriptor":114,"./util/core/is-es-module":115,"./util/core/walk-object":122,"./util/core/wrap-method":124,"@sinonjs/commons":132,"@sinonjs/samsam":171}],106:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -22249,7 +22949,7 @@ forEach(Object.keys(behaviors), function (method) {
 extend(stub, proto);
 module.exports = stub;
 
-},{"./behavior":80,"./default-behaviors":84,"./proxy":92,"./spy":96,"./throw-on-falsy-object":98,"./util/core/extend":101,"./util/core/get-property-descriptor":105,"./util/core/is-es-module":106,"./util/core/is-non-existent-property":107,"./util/core/walk-object":113,"./util/core/wrap-method":115,"@sinonjs/commons":123}],98:[function(require,module,exports){
+},{"./behavior":89,"./default-behaviors":93,"./proxy":101,"./spy":105,"./throw-on-falsy-object":107,"./util/core/extend":110,"./util/core/get-property-descriptor":114,"./util/core/is-es-module":115,"./util/core/is-non-existent-property":116,"./util/core/walk-object":122,"./util/core/wrap-method":124,"@sinonjs/commons":132}],107:[function(require,module,exports){
 "use strict";
 var valueToString = require("@sinonjs/commons").valueToString;
 
@@ -22264,7 +22964,7 @@ function throwOnFalsyObject(object, property) {
 
 module.exports = throwOnFalsyObject;
 
-},{"@sinonjs/commons":123}],99:[function(require,module,exports){
+},{"@sinonjs/commons":132}],108:[function(require,module,exports){
 "use strict";
 
 module.exports = {
@@ -22286,7 +22986,7 @@ module.exports = {
     useFakeServer: true,
 };
 
-},{}],100:[function(require,module,exports){
+},{}],109:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -22310,7 +23010,7 @@ module.exports = function exportAsyncBehaviors(behaviorMethods) {
     );
 };
 
-},{"@sinonjs/commons":123}],101:[function(require,module,exports){
+},{"@sinonjs/commons":132}],110:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -22466,7 +23166,7 @@ module.exports.nonEnum = function extendNonEnum(target, ...sources) {
     );
 };
 
-},{"@sinonjs/commons":123}],102:[function(require,module,exports){
+},{"@sinonjs/commons":132}],111:[function(require,module,exports){
 "use strict";
 
 var inspect = require("util").inspect;
@@ -22490,7 +23190,7 @@ format.setFormatter = function (aCustomFormatter) {
 
 module.exports = format;
 
-},{"util":74}],103:[function(require,module,exports){
+},{"util":83}],112:[function(require,module,exports){
 "use strict";
 
 module.exports = function toString() {
@@ -22517,7 +23217,7 @@ module.exports = function toString() {
     return this.displayName || "sinon fake";
 };
 
-},{}],104:[function(require,module,exports){
+},{}],113:[function(require,module,exports){
 "use strict";
 
 /* istanbul ignore next : not testing that setTimeout works */
@@ -22537,7 +23237,7 @@ module.exports = function getNextTick(process, setImmediate) {
     return nextTick;
 };
 
-},{}],105:[function(require,module,exports){
+},{}],114:[function(require,module,exports){
 "use strict";
 
 module.exports = function getPropertyDescriptor(object, property) {
@@ -22561,7 +23261,7 @@ module.exports = function getPropertyDescriptor(object, property) {
     return descriptor;
 };
 
-},{}],106:[function(require,module,exports){
+},{}],115:[function(require,module,exports){
 "use strict";
 
 /**
@@ -22584,7 +23284,7 @@ module.exports = function (object) {
     );
 };
 
-},{}],107:[function(require,module,exports){
+},{}],116:[function(require,module,exports){
 "use strict";
 
 /**
@@ -22600,7 +23300,7 @@ function isNonExistentProperty(object, property) {
 
 module.exports = isNonExistentProperty;
 
-},{}],108:[function(require,module,exports){
+},{}],117:[function(require,module,exports){
 "use strict";
 
 var getPropertyDescriptor = require("./get-property-descriptor");
@@ -22613,7 +23313,7 @@ function isPropertyConfigurable(obj, propName) {
 
 module.exports = isPropertyConfigurable;
 
-},{"./get-property-descriptor":105}],109:[function(require,module,exports){
+},{"./get-property-descriptor":114}],118:[function(require,module,exports){
 "use strict";
 
 function isRestorable(obj) {
@@ -22626,7 +23326,7 @@ function isRestorable(obj) {
 
 module.exports = isRestorable;
 
-},{}],110:[function(require,module,exports){
+},{}],119:[function(require,module,exports){
 "use strict";
 
 var globalObject = require("@sinonjs/commons").global;
@@ -22634,7 +23334,7 @@ var getNextTick = require("./get-next-tick");
 
 module.exports = getNextTick(globalObject.process, globalObject.setImmediate);
 
-},{"./get-next-tick":104,"@sinonjs/commons":123}],111:[function(require,module,exports){
+},{"./get-next-tick":113,"@sinonjs/commons":132}],120:[function(require,module,exports){
 "use strict";
 
 var array = [null, "once", "twice", "thrice"];
@@ -22643,7 +23343,7 @@ module.exports = function timesInWords(count) {
     return array[count] || `${count || 0} times`;
 };
 
-},{}],112:[function(require,module,exports){
+},{}],121:[function(require,module,exports){
 "use strict";
 
 var forEach = Array.prototype.forEach;
@@ -22666,7 +23366,7 @@ function usePromiseLibrary(library, fakes) {
 
 module.exports = usePromiseLibrary;
 
-},{}],113:[function(require,module,exports){
+},{}],122:[function(require,module,exports){
 "use strict";
 
 var functionName = require("@sinonjs/commons").functionName;
@@ -22713,7 +23413,7 @@ function walkObject(predicate, object, filter) {
 
 module.exports = walkObject;
 
-},{"./get-property-descriptor":105,"./walk":114,"@sinonjs/commons":123}],114:[function(require,module,exports){
+},{"./get-property-descriptor":114,"./walk":123,"@sinonjs/commons":132}],123:[function(require,module,exports){
 "use strict";
 
 var forEach = require("@sinonjs/commons").prototypes.array.forEach;
@@ -22764,7 +23464,7 @@ module.exports = function walk(obj, iterator, context) {
     return walkInternal(obj, iterator, context, obj, {});
 };
 
-},{"@sinonjs/commons":123}],115:[function(require,module,exports){
+},{"@sinonjs/commons":132}],124:[function(require,module,exports){
 "use strict";
 
 var getPropertyDescriptor = require("./get-property-descriptor");
@@ -23002,7 +23702,7 @@ module.exports = function wrapMethod(object, property, method) {
     return method;
 };
 
-},{"./extend":101,"./get-property-descriptor":105,"@sinonjs/commons":123}],116:[function(require,module,exports){
+},{"./extend":110,"./get-property-descriptor":114,"@sinonjs/commons":132}],125:[function(require,module,exports){
 "use strict";
 
 var extend = require("./core/extend");
@@ -23082,7 +23782,7 @@ addIfDefined(timers, "clearImmediate");
 
 exports.timers = timers;
 
-},{"./core/extend":101,"@sinonjs/commons":123,"@sinonjs/fake-timers":135}],117:[function(require,module,exports){
+},{"./core/extend":110,"@sinonjs/commons":132,"@sinonjs/fake-timers":144}],126:[function(require,module,exports){
 "use strict";
 
 var every = require("./prototypes/array").every;
@@ -23141,7 +23841,7 @@ function calledInOrder(spies) {
 
 module.exports = calledInOrder;
 
-},{"./prototypes/array":125}],118:[function(require,module,exports){
+},{"./prototypes/array":134}],127:[function(require,module,exports){
 "use strict";
 
 var functionName = require("./function-name");
@@ -23170,7 +23870,7 @@ function className(value) {
 
 module.exports = className;
 
-},{"./function-name":121}],119:[function(require,module,exports){
+},{"./function-name":130}],128:[function(require,module,exports){
 (function (process){(function (){
 /* eslint-disable no-console */
 "use strict";
@@ -23232,7 +23932,7 @@ exports.printWarning = function(msg) {
 };
 
 }).call(this)}).call(this,require('_process'))
-},{"_process":64}],120:[function(require,module,exports){
+},{"_process":73}],129:[function(require,module,exports){
 "use strict";
 
 /**
@@ -23261,7 +23961,7 @@ module.exports = function every(obj, fn) {
     return pass;
 };
 
-},{}],121:[function(require,module,exports){
+},{}],130:[function(require,module,exports){
 "use strict";
 
 /**
@@ -23292,7 +23992,7 @@ module.exports = function functionName(func) {
     }
 };
 
-},{}],122:[function(require,module,exports){
+},{}],131:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -23318,7 +24018,7 @@ if (typeof global !== "undefined") {
 module.exports = globalObject;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],123:[function(require,module,exports){
+},{}],132:[function(require,module,exports){
 "use strict";
 
 module.exports = {
@@ -23334,7 +24034,7 @@ module.exports = {
     valueToString: require("./value-to-string")
 };
 
-},{"./called-in-order":117,"./class-name":118,"./deprecated":119,"./every":120,"./function-name":121,"./global":122,"./order-by-first-call":124,"./prototypes":128,"./type-of":133,"./value-to-string":134}],124:[function(require,module,exports){
+},{"./called-in-order":126,"./class-name":127,"./deprecated":128,"./every":129,"./function-name":130,"./global":131,"./order-by-first-call":133,"./prototypes":137,"./type-of":142,"./value-to-string":143}],133:[function(require,module,exports){
 "use strict";
 
 var sort = require("./prototypes/array").sort;
@@ -23372,14 +24072,14 @@ function orderByFirstCall(spies) {
 
 module.exports = orderByFirstCall;
 
-},{"./prototypes/array":125}],125:[function(require,module,exports){
+},{"./prototypes/array":134}],134:[function(require,module,exports){
 "use strict";
 
 var copyPrototype = require("./copy-prototype");
 
 module.exports = copyPrototype(Array.prototype);
 
-},{"./copy-prototype":126}],126:[function(require,module,exports){
+},{"./copy-prototype":135}],135:[function(require,module,exports){
 "use strict";
 
 var call = Function.call;
@@ -23402,14 +24102,14 @@ module.exports = function copyPrototypeMethods(prototype) {
     }, Object.create(null));
 };
 
-},{}],127:[function(require,module,exports){
+},{}],136:[function(require,module,exports){
 "use strict";
 
 var copyPrototype = require("./copy-prototype");
 
 module.exports = copyPrototype(Function.prototype);
 
-},{"./copy-prototype":126}],128:[function(require,module,exports){
+},{"./copy-prototype":135}],137:[function(require,module,exports){
 "use strict";
 
 module.exports = {
@@ -23421,35 +24121,35 @@ module.exports = {
     string: require("./string")
 };
 
-},{"./array":125,"./function":127,"./map":129,"./object":130,"./set":131,"./string":132}],129:[function(require,module,exports){
+},{"./array":134,"./function":136,"./map":138,"./object":139,"./set":140,"./string":141}],138:[function(require,module,exports){
 "use strict";
 
 var copyPrototype = require("./copy-prototype");
 
 module.exports = copyPrototype(Map.prototype);
 
-},{"./copy-prototype":126}],130:[function(require,module,exports){
+},{"./copy-prototype":135}],139:[function(require,module,exports){
 "use strict";
 
 var copyPrototype = require("./copy-prototype");
 
 module.exports = copyPrototype(Object.prototype);
 
-},{"./copy-prototype":126}],131:[function(require,module,exports){
+},{"./copy-prototype":135}],140:[function(require,module,exports){
 "use strict";
 
 var copyPrototype = require("./copy-prototype");
 
 module.exports = copyPrototype(Set.prototype);
 
-},{"./copy-prototype":126}],132:[function(require,module,exports){
+},{"./copy-prototype":135}],141:[function(require,module,exports){
 "use strict";
 
 var copyPrototype = require("./copy-prototype");
 
 module.exports = copyPrototype(String.prototype);
 
-},{"./copy-prototype":126}],133:[function(require,module,exports){
+},{"./copy-prototype":135}],142:[function(require,module,exports){
 "use strict";
 
 var type = require("type-detect");
@@ -23464,7 +24164,7 @@ module.exports = function typeOf(value) {
     return type(value).toLowerCase();
 };
 
-},{"type-detect":184}],134:[function(require,module,exports){
+},{"type-detect":193}],143:[function(require,module,exports){
 "use strict";
 
 /**
@@ -23483,7 +24183,7 @@ function valueToString(value) {
 
 module.exports = valueToString;
 
-},{}],135:[function(require,module,exports){
+},{}],144:[function(require,module,exports){
 "use strict";
 
 var globalObject = require("@sinonjs/commons").global;
@@ -24894,7 +25594,7 @@ exports.createClock = defaultImplementation.createClock;
 exports.install = defaultImplementation.install;
 exports.withGlobal = withGlobal;
 
-},{"@sinonjs/commons":123,"util":74}],136:[function(require,module,exports){
+},{"@sinonjs/commons":132,"util":83}],145:[function(require,module,exports){
 "use strict";
 
 var ARRAY_TYPES = [
@@ -24912,7 +25612,7 @@ var ARRAY_TYPES = [
 
 module.exports = ARRAY_TYPES;
 
-},{}],137:[function(require,module,exports){
+},{}],146:[function(require,module,exports){
 "use strict";
 
 var arrayProto = require("@sinonjs/commons").prototypes.array;
@@ -25285,7 +25985,7 @@ createMatcher.symbol = createMatcher.typeOf("symbol");
 
 module.exports = createMatcher;
 
-},{"./create-matcher/assert-matcher":138,"./create-matcher/assert-method-exists":139,"./create-matcher/assert-type":140,"./create-matcher/is-iterable":141,"./create-matcher/is-matcher":142,"./create-matcher/matcher-prototype":144,"./create-matcher/type-map":145,"./deep-equal":146,"./iterable-to-string":160,"@sinonjs/commons":123,"lodash.get":169}],138:[function(require,module,exports){
+},{"./create-matcher/assert-matcher":147,"./create-matcher/assert-method-exists":148,"./create-matcher/assert-type":149,"./create-matcher/is-iterable":150,"./create-matcher/is-matcher":151,"./create-matcher/matcher-prototype":153,"./create-matcher/type-map":154,"./deep-equal":155,"./iterable-to-string":169,"@sinonjs/commons":132,"lodash.get":178}],147:[function(require,module,exports){
 "use strict";
 
 var isMatcher = require("./is-matcher");
@@ -25304,7 +26004,7 @@ function assertMatcher(value) {
 
 module.exports = assertMatcher;
 
-},{"./is-matcher":142}],139:[function(require,module,exports){
+},{"./is-matcher":151}],148:[function(require,module,exports){
 "use strict";
 
 /**
@@ -25325,7 +26025,7 @@ function assertMethodExists(value, method, name, methodPath) {
 
 module.exports = assertMethodExists;
 
-},{}],140:[function(require,module,exports){
+},{}],149:[function(require,module,exports){
 "use strict";
 
 var typeOf = require("@sinonjs/commons").typeOf;
@@ -25351,7 +26051,7 @@ function assertType(value, type, name) {
 
 module.exports = assertType;
 
-},{"@sinonjs/commons":123}],141:[function(require,module,exports){
+},{"@sinonjs/commons":132}],150:[function(require,module,exports){
 "use strict";
 
 var typeOf = require("@sinonjs/commons").typeOf;
@@ -25369,7 +26069,7 @@ function isIterable(value) {
 
 module.exports = isIterable;
 
-},{"@sinonjs/commons":123}],142:[function(require,module,exports){
+},{"@sinonjs/commons":132}],151:[function(require,module,exports){
 "use strict";
 
 var isPrototypeOf = require("@sinonjs/commons").prototypes.object.isPrototypeOf;
@@ -25389,7 +26089,7 @@ function isMatcher(object) {
 
 module.exports = isMatcher;
 
-},{"./matcher-prototype":144,"@sinonjs/commons":123}],143:[function(require,module,exports){
+},{"./matcher-prototype":153,"@sinonjs/commons":132}],152:[function(require,module,exports){
 "use strict";
 
 var every = require("@sinonjs/commons").prototypes.array.every;
@@ -25446,7 +26146,7 @@ function matchObject(actual, expectation, matcher) {
 
 module.exports = matchObject;
 
-},{"../deep-equal":146,"./is-matcher":142,"@sinonjs/commons":123}],144:[function(require,module,exports){
+},{"../deep-equal":155,"./is-matcher":151,"@sinonjs/commons":132}],153:[function(require,module,exports){
 "use strict";
 
 var matcherPrototype = {
@@ -25497,7 +26197,7 @@ matcherPrototype.and = function (valueOrMatcher) {
 
 module.exports = matcherPrototype;
 
-},{"../create-matcher":137}],145:[function(require,module,exports){
+},{"../create-matcher":146}],154:[function(require,module,exports){
 "use strict";
 
 var functionName = require("@sinonjs/commons").functionName;
@@ -25561,7 +26261,7 @@ var createTypeMap = function (match) {
 
 module.exports = createTypeMap;
 
-},{"./match-object":143,"@sinonjs/commons":123}],146:[function(require,module,exports){
+},{"./match-object":152,"@sinonjs/commons":132}],155:[function(require,module,exports){
 "use strict";
 
 var valueToString = require("@sinonjs/commons").valueToString;
@@ -25854,7 +26554,7 @@ deepEqualCyclic.use = function (match) {
 
 module.exports = deepEqualCyclic;
 
-},{"./get-class":147,"./identical":148,"./is-arguments":149,"./is-array-type":150,"./is-date":151,"./is-element":152,"./is-iterable":153,"./is-map":154,"./is-nan":155,"./is-object":157,"./is-set":158,"./is-subset":159,"@sinonjs/commons":123}],147:[function(require,module,exports){
+},{"./get-class":156,"./identical":157,"./is-arguments":158,"./is-array-type":159,"./is-date":160,"./is-element":161,"./is-iterable":162,"./is-map":163,"./is-nan":164,"./is-object":166,"./is-set":167,"./is-subset":168,"@sinonjs/commons":132}],156:[function(require,module,exports){
 "use strict";
 
 var toString = require("@sinonjs/commons").prototypes.object.toString;
@@ -25874,7 +26574,7 @@ function getClass(value) {
 
 module.exports = getClass;
 
-},{"@sinonjs/commons":123}],148:[function(require,module,exports){
+},{"@sinonjs/commons":132}],157:[function(require,module,exports){
 "use strict";
 
 var isNaN = require("./is-nan");
@@ -25907,7 +26607,7 @@ function identical(obj1, obj2) {
 
 module.exports = identical;
 
-},{"./is-nan":155,"./is-neg-zero":156}],149:[function(require,module,exports){
+},{"./is-nan":164,"./is-neg-zero":165}],158:[function(require,module,exports){
 "use strict";
 
 var getClass = require("./get-class");
@@ -25925,7 +26625,7 @@ function isArguments(object) {
 
 module.exports = isArguments;
 
-},{"./get-class":147}],150:[function(require,module,exports){
+},{"./get-class":156}],159:[function(require,module,exports){
 "use strict";
 
 var functionName = require("@sinonjs/commons").functionName;
@@ -25947,7 +26647,7 @@ function isArrayType(object) {
 
 module.exports = isArrayType;
 
-},{"./array-types":136,"@sinonjs/commons":123,"type-detect":184}],151:[function(require,module,exports){
+},{"./array-types":145,"@sinonjs/commons":132,"type-detect":193}],160:[function(require,module,exports){
 "use strict";
 
 /**
@@ -25963,7 +26663,7 @@ function isDate(value) {
 
 module.exports = isDate;
 
-},{}],152:[function(require,module,exports){
+},{}],161:[function(require,module,exports){
 "use strict";
 
 var div = typeof document !== "undefined" && document.createElement("div");
@@ -25994,7 +26694,7 @@ function isElement(object) {
 
 module.exports = isElement;
 
-},{}],153:[function(require,module,exports){
+},{}],162:[function(require,module,exports){
 "use strict";
 
 /**
@@ -26014,7 +26714,7 @@ function isIterable(val) {
 
 module.exports = isIterable;
 
-},{}],154:[function(require,module,exports){
+},{}],163:[function(require,module,exports){
 "use strict";
 
 /**
@@ -26030,7 +26730,7 @@ function isMap(value) {
 
 module.exports = isMap;
 
-},{}],155:[function(require,module,exports){
+},{}],164:[function(require,module,exports){
 "use strict";
 
 /**
@@ -26051,7 +26751,7 @@ function isNaN(value) {
 
 module.exports = isNaN;
 
-},{}],156:[function(require,module,exports){
+},{}],165:[function(require,module,exports){
 "use strict";
 
 /**
@@ -26067,7 +26767,7 @@ function isNegZero(value) {
 
 module.exports = isNegZero;
 
-},{}],157:[function(require,module,exports){
+},{}],166:[function(require,module,exports){
 "use strict";
 
 /**
@@ -26100,7 +26800,7 @@ function isObject(value) {
 
 module.exports = isObject;
 
-},{}],158:[function(require,module,exports){
+},{}],167:[function(require,module,exports){
 "use strict";
 
 /**
@@ -26116,7 +26816,7 @@ function isSet(val) {
 
 module.exports = isSet;
 
-},{}],159:[function(require,module,exports){
+},{}],168:[function(require,module,exports){
 "use strict";
 
 var forEach = require("@sinonjs/commons").prototypes.set.forEach;
@@ -26148,7 +26848,7 @@ function isSubset(s1, s2, compare) {
 
 module.exports = isSubset;
 
-},{"@sinonjs/commons":123}],160:[function(require,module,exports){
+},{"@sinonjs/commons":132}],169:[function(require,module,exports){
 "use strict";
 
 var slice = require("@sinonjs/commons").prototypes.string.slice;
@@ -26221,7 +26921,7 @@ function stringify(item) {
 
 module.exports = iterableToString;
 
-},{"@sinonjs/commons":123}],161:[function(require,module,exports){
+},{"@sinonjs/commons":132}],170:[function(require,module,exports){
 "use strict";
 
 var valueToString = require("@sinonjs/commons").valueToString;
@@ -26397,7 +27097,7 @@ forEach(Object.keys(createMatcher), function (key) {
 
 module.exports = match;
 
-},{"./create-matcher":137,"./deep-equal":146,"./is-array-type":150,"./is-subset":159,"@sinonjs/commons":123,"type-detect":184}],162:[function(require,module,exports){
+},{"./create-matcher":146,"./deep-equal":155,"./is-array-type":159,"./is-subset":168,"@sinonjs/commons":132,"type-detect":193}],171:[function(require,module,exports){
 "use strict";
 
 /**
@@ -26425,7 +27125,7 @@ module.exports = {
     match: match,
 };
 
-},{"./create-matcher":137,"./deep-equal":146,"./identical":148,"./is-arguments":149,"./is-element":152,"./is-map":154,"./is-neg-zero":156,"./is-set":158,"./match":161}],163:[function(require,module,exports){
+},{"./create-matcher":146,"./deep-equal":155,"./identical":157,"./is-arguments":158,"./is-element":161,"./is-map":163,"./is-neg-zero":165,"./is-set":167,"./match":170}],172:[function(require,module,exports){
 // This is free and unencumbered software released into the public domain.
 // See LICENSE.md for more information.
 
@@ -26436,7 +27136,7 @@ module.exports = {
   TextDecoder: encoding.TextDecoder,
 };
 
-},{"./lib/encoding.js":165}],164:[function(require,module,exports){
+},{"./lib/encoding.js":174}],173:[function(require,module,exports){
 (function(global) {
   'use strict';
 
@@ -26484,7 +27184,7 @@ module.exports = {
 // For strict environments where `this` inside the global scope
 // is `undefined`, take a pure object instead
 }(this || {}));
-},{}],165:[function(require,module,exports){
+},{}],174:[function(require,module,exports){
 // This is free and unencumbered software released into the public domain.
 // See LICENSE.md for more information.
 
@@ -29798,7 +30498,44 @@ module.exports = {
 // For strict environments where `this` inside the global scope
 // is `undefined`, take a pure object instead
 }(this || {}));
-},{"./encoding-indexes.js":164}],166:[function(require,module,exports){
+},{"./encoding-indexes.js":173}],175:[function(require,module,exports){
+/*!
+
+ diff v5.1.0
+
+Software License Agreement (BSD License)
+
+Copyright (c) 2009-2015, Kevin Decker <kpdecker@gmail.com>
+
+All rights reserved.
+
+Redistribution and use of this software in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above
+  copyright notice, this list of conditions and the
+  following disclaimer.
+
+* Redistributions in binary form must reproduce the above
+  copyright notice, this list of conditions and the
+  following disclaimer in the documentation and/or other
+  materials provided with the distribution.
+
+* Neither the name of Kevin Decker nor the names of its
+  contributors may be used to endorse or promote products
+  derived from this software without specific prior
+  written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+@license
+*/
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -29839,6 +30576,11 @@ module.exports = {
           oldLen = oldString.length;
       var editLength = 1;
       var maxEditLength = newLen + oldLen;
+
+      if (options.maxEditLength) {
+        maxEditLength = Math.min(maxEditLength, options.maxEditLength);
+      }
+
       var bestPath = [{
         newPos: -1,
         components: []
@@ -29903,15 +30645,13 @@ module.exports = {
         editLength++;
       } // Performs the length of edit iteration. Is a bit fugly as this has to support the
       // sync and async mode which is never fun. Loops over execEditLength until a value
-      // is produced.
+      // is produced, or until the edit length exceeds options.maxEditLength (if given),
+      // in which case it will return undefined.
 
 
       if (callback) {
         (function exec() {
           setTimeout(function () {
-            // This should not happen, but we want to be safe.
-
-            /* istanbul ignore next */
             if (editLength > maxEditLength) {
               return callback();
             }
@@ -30729,6 +31469,11 @@ module.exports = {
     }
 
     var diff = diffLines(oldStr, newStr, options);
+
+    if (!diff) {
+      return;
+    }
+
     diff.push({
       value: '',
       lines: []
@@ -31382,12 +32127,12 @@ module.exports = {
 
 })));
 
-},{}],167:[function(require,module,exports){
+},{}],176:[function(require,module,exports){
 module.exports = Array.isArray || function (arr) {
   return Object.prototype.toString.call(arr) == '[object Array]';
 };
 
-},{}],168:[function(require,module,exports){
+},{}],177:[function(require,module,exports){
 module.exports = extend;
 
 /*
@@ -31461,7 +32206,7 @@ function isUnextendable(val) {
   return !val || (typeof val != 'object' && typeof val != 'function');
 }
 
-},{}],169:[function(require,module,exports){
+},{}],178:[function(require,module,exports){
 (function (global){(function (){
 /**
  * lodash (Custom Build) <https://lodash.com/>
@@ -32396,7 +33141,7 @@ function get(object, path, defaultValue) {
 module.exports = get;
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],170:[function(require,module,exports){
+},{}],179:[function(require,module,exports){
 "use strict";
 
 // cache a reference to setTimeout, so that our reference won't be stubbed out
@@ -32451,7 +33196,7 @@ function configureLogger(config) {
 
 module.exports = configureLogger;
 
-},{}],171:[function(require,module,exports){
+},{}],180:[function(require,module,exports){
 "use strict";
 
 var Event = require("./event");
@@ -32467,7 +33212,7 @@ CustomEvent.prototype.constructor = CustomEvent;
 
 module.exports = CustomEvent;
 
-},{"./event":173}],172:[function(require,module,exports){
+},{"./event":182}],181:[function(require,module,exports){
 "use strict";
 
 function flattenOptions(options) {
@@ -32591,7 +33336,7 @@ var EventTarget = {
 
 module.exports = EventTarget;
 
-},{}],173:[function(require,module,exports){
+},{}],182:[function(require,module,exports){
 "use strict";
 
 function Event(type, bubbles, cancelable, target) {
@@ -32617,7 +33362,7 @@ Event.prototype = {
 
 module.exports = Event;
 
-},{}],174:[function(require,module,exports){
+},{}],183:[function(require,module,exports){
 "use strict";
 
 module.exports = {
@@ -32627,7 +33372,7 @@ module.exports = {
     EventTarget: require("./event-target")
 };
 
-},{"./custom-event":171,"./event":173,"./event-target":172,"./progress-event":175}],175:[function(require,module,exports){
+},{"./custom-event":180,"./event":182,"./event-target":181,"./progress-event":184}],184:[function(require,module,exports){
 "use strict";
 
 var Event = require("./event");
@@ -32651,7 +33396,7 @@ ProgressEvent.prototype.constructor = ProgressEvent;
 
 module.exports = ProgressEvent;
 
-},{"./event":173}],176:[function(require,module,exports){
+},{"./event":182}],185:[function(require,module,exports){
 "use strict";
 
 var FakeTimers = require("@sinonjs/fake-timers");
@@ -32726,7 +33471,7 @@ fakeServerWithClock.restore = function restore() {
 
 module.exports = fakeServerWithClock;
 
-},{"./index":177,"@sinonjs/fake-timers":135}],177:[function(require,module,exports){
+},{"./index":186,"@sinonjs/fake-timers":144}],186:[function(require,module,exports){
 (function (process){(function (){
 "use strict";
 
@@ -33063,7 +33808,7 @@ var fakeServer = {
 module.exports = fakeServer;
 
 }).call(this)}).call(this,require('_process'))
-},{"../configure-logger":170,"../fake-xhr":180,"./log":178,"_process":64,"path-to-regexp":182}],178:[function(require,module,exports){
+},{"../configure-logger":179,"../fake-xhr":189,"./log":187,"_process":73,"path-to-regexp":191}],187:[function(require,module,exports){
 "use strict";
 var inspect = require("util").inspect;
 
@@ -33081,7 +33826,7 @@ function log(response, request) {
 
 module.exports = log;
 
-},{"util":74}],179:[function(require,module,exports){
+},{"util":83}],188:[function(require,module,exports){
 "use strict";
 
 exports.isSupported = (function() {
@@ -33092,7 +33837,7 @@ exports.isSupported = (function() {
     }
 })();
 
-},{}],180:[function(require,module,exports){
+},{}],189:[function(require,module,exports){
 "use strict";
 
 var GlobalTextEncoder =
@@ -34014,7 +34759,7 @@ module.exports = extend(fakeXMLHttpRequestFor(globalObject), {
     fakeXMLHttpRequestFor: fakeXMLHttpRequestFor
 });
 
-},{"../configure-logger":170,"../event":174,"./blob":179,"@sinonjs/commons":123,"@sinonjs/text-encoding":163,"just-extend":168}],181:[function(require,module,exports){
+},{"../configure-logger":179,"../event":183,"./blob":188,"@sinonjs/commons":132,"@sinonjs/text-encoding":172,"just-extend":177}],190:[function(require,module,exports){
 "use strict";
 
 module.exports = {
@@ -34023,7 +34768,7 @@ module.exports = {
     fakeXhr: require("./fake-xhr")
 };
 
-},{"./fake-server":177,"./fake-server/fake-server-with-clock":176,"./fake-xhr":180}],182:[function(require,module,exports){
+},{"./fake-server":186,"./fake-server/fake-server-with-clock":185,"./fake-xhr":189}],191:[function(require,module,exports){
 var isarray = require('isarray')
 
 /**
@@ -34451,14 +35196,14 @@ function pathToRegexp (path, keys, options) {
   return stringToRegexp(/** @type {string} */ (path), /** @type {!Array} */ (keys), options)
 }
 
-},{"isarray":167}],183:[function(require,module,exports){
+},{"isarray":176}],192:[function(require,module,exports){
 'use strict';
 module.exports = {
 	stdout: false,
 	stderr: false
 };
 
-},{}],184:[function(require,module,exports){
+},{}],193:[function(require,module,exports){
 (function (global){(function (){
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -34850,7 +35595,7 @@ return typeDetect;
 })));
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],185:[function(require,module,exports){
+},{}],194:[function(require,module,exports){
 (function (global){(function (){
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -34861,19 +35606,19 @@ return typeDetect;
     exports.noConflict = function () { global._ = current; return exports; };
   }()));
 }(this, (function () {
-  //     Underscore.js 1.13.2
+  //     Underscore.js 1.13.6
   //     https://underscorejs.org
-  //     (c) 2009-2021 Jeremy Ashkenas, Julian Gonggrijp, and DocumentCloud and Investigative Reporters & Editors
+  //     (c) 2009-2022 Jeremy Ashkenas, Julian Gonggrijp, and DocumentCloud and Investigative Reporters & Editors
   //     Underscore may be freely distributed under the MIT license.
 
   // Current version.
-  var VERSION = '1.13.2';
+  var VERSION = '1.13.6';
 
   // Establish the root object, `window` (`self`) in the browser, `global`
   // on the server, or `this` in some virtual machines. We use `self`
   // instead of `window` for `WebWorker` support.
-  var root = typeof self == 'object' && self.self === self && self ||
-            typeof global == 'object' && global.global === global && global ||
+  var root = (typeof self == 'object' && self.self === self && self) ||
+            (typeof global == 'object' && global.global === global && global) ||
             Function('return this')() ||
             {};
 
@@ -34941,7 +35686,7 @@ return typeDetect;
   // Is a given variable an object?
   function isObject(obj) {
     var type = typeof obj;
-    return type === 'function' || type === 'object' && !!obj;
+    return type === 'function' || (type === 'object' && !!obj);
   }
 
   // Is a given value equal to null?
@@ -35118,7 +35863,7 @@ return typeDetect;
     keys = emulatedSet(keys);
     var nonEnumIdx = nonEnumerableProps.length;
     var constructor = obj.constructor;
-    var proto = isFunction$1(constructor) && constructor.prototype || ObjProto;
+    var proto = (isFunction$1(constructor) && constructor.prototype) || ObjProto;
 
     // Constructor is a special case.
     var prop = 'constructor';
@@ -36321,7 +37066,7 @@ return typeDetect;
   function max(obj, iteratee, context) {
     var result = -Infinity, lastComputed = -Infinity,
         value, computed;
-    if (iteratee == null || typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null) {
+    if (iteratee == null || (typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null)) {
       obj = isArrayLike(obj) ? obj : values(obj);
       for (var i = 0, length = obj.length; i < length; i++) {
         value = obj[i];
@@ -36333,7 +37078,7 @@ return typeDetect;
       iteratee = cb(iteratee, context);
       each(obj, function(v, index, list) {
         computed = iteratee(v, index, list);
-        if (computed > lastComputed || computed === -Infinity && result === -Infinity) {
+        if (computed > lastComputed || (computed === -Infinity && result === -Infinity)) {
           result = v;
           lastComputed = computed;
         }
@@ -36346,7 +37091,7 @@ return typeDetect;
   function min(obj, iteratee, context) {
     var result = Infinity, lastComputed = Infinity,
         value, computed;
-    if (iteratee == null || typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null) {
+    if (iteratee == null || (typeof iteratee == 'number' && typeof obj[0] != 'object' && obj != null)) {
       obj = isArrayLike(obj) ? obj : values(obj);
       for (var i = 0, length = obj.length; i < length; i++) {
         value = obj[i];
@@ -36358,7 +37103,7 @@ return typeDetect;
       iteratee = cb(iteratee, context);
       each(obj, function(v, index, list) {
         computed = iteratee(v, index, list);
-        if (computed < lastComputed || computed === Infinity && result === Infinity) {
+        if (computed < lastComputed || (computed === Infinity && result === Infinity)) {
           result = v;
           lastComputed = computed;
         }
@@ -36626,7 +37371,7 @@ return typeDetect;
   // Complement of zip. Unzip accepts an array of arrays and groups
   // each array's elements on shared indices.
   function unzip(array) {
-    var length = array && max(array, getLength).length || 0;
+    var length = (array && max(array, getLength).length) || 0;
     var result = Array(length);
 
     for (var index = 0; index < length; index++) {
@@ -36896,7 +37641,7 @@ return typeDetect;
 
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],186:[function(require,module,exports){
+},{}],195:[function(require,module,exports){
 "use strict";
 
 var active;
@@ -36919,7 +37664,7 @@ describe('active', function () {
   });
 });
 
-},{"../lib/active":2}],187:[function(require,module,exports){
+},{"../lib/active":2}],196:[function(require,module,exports){
 "use strict";
 
 var drop, expect, mockDrop, mockFile, mockUrl, signal;
@@ -37098,7 +37843,7 @@ describe('drop', function () {
   });
 });
 
-},{"../lib/drop":6,"expect.js":43}],188:[function(require,module,exports){
+},{"../lib/drop":6,"expect.js":51}],197:[function(require,module,exports){
 "use strict";
 
 var expect, lineup, newPage;
@@ -37207,7 +37952,7 @@ describe('lineup', function () {
   });
 });
 
-},{"../lib/lineup":13,"../lib/page":17,"expect.js":43}],189:[function(require,module,exports){
+},{"../lib/lineup":12,"../lib/page":16,"expect.js":51}],198:[function(require,module,exports){
 "use strict";
 
 var simulatePageFound, simulatePageNotFound, sinon;
@@ -37231,7 +37976,7 @@ module.exports = {
   simulatePageFound: simulatePageFound
 };
 
-},{"sinon":78}],190:[function(require,module,exports){
+},{"sinon":87}],199:[function(require,module,exports){
 "use strict";
 
 var _, expect, neighborhood;
@@ -37337,7 +38082,7 @@ describe('neighborhood', function () {
   });
 });
 
-},{"../lib/neighborhood":15,"expect.js":43,"underscore":185}],191:[function(require,module,exports){
+},{"../lib/neighborhood":14,"expect.js":51,"underscore":194}],200:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -37513,7 +38258,7 @@ describe('page', function () {
 });
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../lib/page":17,"expect.js":43}],192:[function(require,module,exports){
+},{"../lib/page":16,"expect.js":51}],201:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -37717,7 +38462,7 @@ describe('pageHandler.put', function () {
 });
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../lib/pageHandler":18,"./mockServer":189,"expect.js":43,"sinon":78,"underscore":185}],193:[function(require,module,exports){
+},{"../lib/pageHandler":17,"./mockServer":198,"expect.js":51,"sinon":87,"underscore":194}],202:[function(require,module,exports){
 "use strict";
 
 var expect, plugin, sinon;
@@ -37756,7 +38501,7 @@ describe('plugin', function () {
   });
 });
 
-},{"../lib/plugin":20,"expect.js":43,"sinon":78}],194:[function(require,module,exports){
+},{"../lib/plugin":19,"expect.js":51,"sinon":87}],203:[function(require,module,exports){
 "use strict";
 
 var expect, random;
@@ -37783,7 +38528,7 @@ describe('random', function () {
   });
 });
 
-},{"../lib/random":22,"expect.js":43}],195:[function(require,module,exports){
+},{"../lib/random":21,"expect.js":51}],204:[function(require,module,exports){
 (function (global){(function (){
 "use strict";
 
@@ -37892,20 +38637,12 @@ describe('refresh', function () {
 });
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../lib/lineup":13,"../lib/refresh":24,"./mockServer":189}],196:[function(require,module,exports){
+},{"../lib/lineup":12,"../lib/refresh":23,"./mockServer":198}],205:[function(require,module,exports){
 "use strict";
 
-function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableRest(); }
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var _toArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toArray"));
 
 var action, expect, expectText, fixture, id, item, newPage, revision;
 
@@ -37937,7 +38674,7 @@ action = function action(a) {
 
   var _a$split = a.split('');
 
-  var _a$split2 = _toArray(_a$split);
+  var _a$split2 = (0, _toArray2["default"])(_a$split);
 
   t = _a$split2[0];
   i = _a$split2[1];
@@ -38449,7 +39186,7 @@ describe('revision', function () {
   });
 });
 
-},{"../lib/page":17,"../lib/revision":26,"expect.js":43}],197:[function(require,module,exports){
+},{"../lib/page":16,"../lib/revision":25,"@babel/runtime/helpers/interopRequireDefault":36,"@babel/runtime/helpers/toArray":41,"expect.js":51}],206:[function(require,module,exports){
 "use strict";
 
 var createSearch;
@@ -38471,7 +39208,7 @@ describe('search', function () {
   });
 });
 
-},{"../lib/search":27}],198:[function(require,module,exports){
+},{"../lib/search":26}],207:[function(require,module,exports){
 "use strict";
 
 var expect, timezoneOffset, util;
@@ -38500,7 +39237,7 @@ describe('util', function () {
   });
 });
 
-},{"../lib/util":33,"expect.js":43}],199:[function(require,module,exports){
+},{"../lib/util":32,"expect.js":51}],208:[function(require,module,exports){
 "use strict";
 
 var expect, wiki;
@@ -38564,7 +39301,7 @@ describe('wiki', function () {
   });
 });
 
-},{"../lib/wiki":34,"expect.js":43}],200:[function(require,module,exports){
+},{"../lib/wiki":33,"expect.js":51}],209:[function(require,module,exports){
 "use strict";
 
 mocha.setup('bdd');
@@ -38605,4 +39342,4 @@ $(function () {
   return mocha.run();
 });
 
-},{"./lib/bind":4,"./lib/plugins":21,"./lib/wiki":34,"./test/active":186,"./test/drop":187,"./test/lineup":188,"./test/neighborhood":190,"./test/page":191,"./test/pageHandler":192,"./test/plugin":193,"./test/random":194,"./test/refresh":195,"./test/revision":196,"./test/search":197,"./test/util":198,"./test/wiki":199}]},{},[200]);
+},{"./lib/bind":4,"./lib/plugins":20,"./lib/wiki":33,"./test/active":195,"./test/drop":196,"./test/lineup":197,"./test/neighborhood":199,"./test/page":200,"./test/pageHandler":201,"./test/plugin":202,"./test/random":203,"./test/refresh":204,"./test/revision":205,"./test/search":206,"./test/util":207,"./test/wiki":208}]},{},[209]);

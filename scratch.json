@@ -4,7 +4,7 @@
     {
       "type": "grep",
       "id": "bbfe8d0fc9b503c1",
-      "text": "ITEM image"
+      "text": "ITEM html\nTEXT <img"
     }
   ],
   "journal": [
@@ -34,6 +34,26 @@
         "text": "ITEM image"
       },
       "date": 1661616786788
+    },
+    {
+      "type": "edit",
+      "id": "bbfe8d0fc9b503c1",
+      "item": {
+        "type": "grep",
+        "id": "bbfe8d0fc9b503c1",
+        "text": "ITEM html\n"
+      },
+      "date": 1666795127466
+    },
+    {
+      "type": "edit",
+      "id": "bbfe8d0fc9b503c1",
+      "item": {
+        "type": "grep",
+        "id": "bbfe8d0fc9b503c1",
+        "text": "ITEM html\nTEXT <img"
+      },
+      "date": 1666795178318
     }
   ]
 }
