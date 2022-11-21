@@ -20,6 +20,36 @@
       "type": "paragraph",
       "id": "5834ce3b5bbabd95",
       "text": "This is what statisticians call a positively skewed distribution. ... This is the secret problem with MTTR. Mean, median, and mode are measures of central tendency which cannot represent your data when you have skewed distributions."
+    },
+    {
+      "type": "paragraph",
+      "id": "389e0d22a26769f6",
+      "text": "Presumably, you calculate and track a metric like this [MTTR] in order to improve (or know when things are getting worse), which means you need to be able to detect changes in that metric."
+    },
+    {
+      "type": "paragraph",
+      "id": "dfd5f51378c557d4",
+      "text": "Even more surprisingly, Davidovič ran the same simulation with no changes to either sample group. … Davidovič concluded, “We’ve learned that even without any intentional change to the incident durations, many [simulations] would make you believe that the MTTR got much shorter—or much longer—without any structural change. If you can’t tell when things aren’t changing, you’ll have a hard time telling when they do.”"
+    },
+    {
+      "type": "paragraph",
+      "id": "5d5414e474bb9240",
+      "text": "If the metric you’re using isn’t itself reliable, then how could it possibly be valuable as a broader measure of system reliability?"
+    },
+    {
+      "type": "paragraph",
+      "id": "19c2da067ae16cdf",
+      "text": "He also went further to demonstrate that other measures—often called MTTx, including the median, geometric mean, absolute duration sum, —all fell prey to similar problems with the high variance of the data (this applied for incident total counts as well)."
+    },
+    {
+      "type": "pagefold",
+      "id": "165721f86c0132f8",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "431b023a81a406a2",
+      "text": "MTTx is all noise and no signal."
     }
   ],
   "journal": [
@@ -97,6 +127,82 @@
         "text": "This is what statisticians call a positively skewed distribution. ... This is the secret problem with MTTR. Mean, median, and mode are measures of central tendency which cannot represent your data when you have skewed distributions."
       },
       "date": 1659358839312
+    },
+    {
+      "type": "add",
+      "id": "389e0d22a26769f6",
+      "item": {
+        "type": "paragraph",
+        "id": "389e0d22a26769f6",
+        "text": "Presumably, you calculate and track a metric like this [MTTR] in order to improve (or know when things are getting worse), which means you need to be able to detect changes in that metric."
+      },
+      "after": "5834ce3b5bbabd95",
+      "date": 1669058693668
+    },
+    {
+      "type": "add",
+      "id": "dfd5f51378c557d4",
+      "item": {
+        "type": "paragraph",
+        "id": "dfd5f51378c557d4",
+        "text": "Even more surprisingly, Davidovič ran the same simulation with no changes to either sample group. … Davidovič concluded, “We’ve learned that even without any intentional change to the incident durations, many [simulations] would make you believe that the MTTR got much shorter—or much longer—without any structural change. If you can’t tell when things aren’t changing, you’ll have a hard time telling when they do.”"
+      },
+      "after": "389e0d22a26769f6",
+      "date": 1669058737338
+    },
+    {
+      "type": "add",
+      "id": "5d5414e474bb9240",
+      "item": {
+        "type": "paragraph",
+        "id": "5d5414e474bb9240",
+        "text": "If the metric you’re using isn’t itself reliable, then how could it possibly be valuable as a broader measure of system reliability?"
+      },
+      "after": "dfd5f51378c557d4",
+      "date": 1669058769036
+    },
+    {
+      "type": "add",
+      "id": "19c2da067ae16cdf",
+      "item": {
+        "type": "paragraph",
+        "id": "19c2da067ae16cdf",
+        "text": "He also went further to demonstrate that other measures—often called MTTx, including the median, geometric mean, absolute duration sum, —all fell prey to similar problems with the high variance of the data (this applied for incident total counts as well)."
+      },
+      "after": "5d5414e474bb9240",
+      "date": 1669058803521
+    },
+    {
+      "type": "add",
+      "id": "165721f86c0132f8",
+      "item": {
+        "type": "paragraph",
+        "id": "165721f86c0132f8",
+        "text": "..."
+      },
+      "after": "19c2da067ae16cdf",
+      "date": 1669059783312
+    },
+    {
+      "type": "add",
+      "id": "431b023a81a406a2",
+      "item": {
+        "type": "paragraph",
+        "id": "431b023a81a406a2",
+        "text": "MTTx is all noise and no signal."
+      },
+      "after": "165721f86c0132f8",
+      "date": 1669059882689
+    },
+    {
+      "type": "edit",
+      "id": "165721f86c0132f8",
+      "item": {
+        "type": "pagefold",
+        "id": "165721f86c0132f8",
+        "text": "."
+      },
+      "date": 1669059889334
     }
   ]
 }
