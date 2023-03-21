@@ -1,0 +1,150 @@
+{
+  "title": "Project Premortem",
+  "story": [
+    {
+      "id": "7982c000",
+      "type": "paragraph",
+      "text": "In a premortem, team members assume that the project they are planning has just failed and then generate plausible reasons for its demise. Those with reservations may speak freely at the outset, so that the project can be improved rather than autopsied.\n\t\t\t\tPerforming a Project Premortem\n\t\t\tby Gary Klein [https://hbr.org/2007/09/performing-a-project-premortem article]"
+    },
+    {
+      "id": "4ecce000",
+      "type": "paragraph",
+      "text": "By making it safe for dissenters who are knowledgeable about the undertaking and worried about its weaknesses to speak up, you can improve a project’s chances of success."
+    },
+    {
+      "id": "734b0000",
+      "type": "paragraph",
+      "text": "A typical premortem begins after the team has been briefed on the plan. The leader starts the exercise by informing everyone that the project has failed spectacularly. Over the next few minutes those in the room independently write down every reason they can think of for the failure—especially the kinds of things they ordinarily wouldn’t mention as potential problems, for fear of being impolitic."
+    },
+    {
+      "id": "1c408000",
+      "type": "paragraph",
+      "text": "Next the leader asks each team member, starting with the project manager, to read one reason from his or her list; everyone states a different reason until all have been recorded. After the session is over, the project manager reviews the list, looking for ways to strengthen the plan."
+    },
+    {
+      "type": "paragraph",
+      "id": "253330dead5d22c1",
+      "text": "The premortem doesn’t just help teams to identify potential problems early on. It also reduces the kind of damn-the-torpedoes attitude often assumed by people who are overinvested in a project. Moreover, in describing weaknesses that no one else has mentioned, team members feel valued for their intelligence and experience, and others learn from them. The exercise also sensitizes the team to pick up early signs of trouble once the project gets under way. In the end, a premortem may be the best way to circumvent any need for a painful postmortem."
+    },
+    {
+      "type": "pagefold",
+      "id": "0ce9af0e95b870b9",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "3d5a0a614f7b8640",
+      "text": "Compare chaos engineering experiment design."
+    },
+    {
+      "type": "paragraph",
+      "id": "6807cf1a137881ed",
+      "text": "Compare failure mode analysis."
+    },
+    {
+      "type": "paragraph",
+      "id": "5c6056254023e05b",
+      "text": "Compare residuality theory."
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Project Premortem",
+        "story": [
+          {
+            "id": "7982c000",
+            "type": "paragraph",
+            "text": "In a premortem, team members assume that the project they are planning has just failed and then generate plausible reasons for its demise. Those with reservations may speak freely at the outset, so that the project can be improved rather than autopsied.\n\t\t\t\tPerforming a Project Premortem\n\t\t\tby Gary Klein [https://hbr.org/2007/09/performing-a-project-premortem article]"
+          },
+          {
+            "id": "4ecce000",
+            "type": "paragraph",
+            "text": "By making it safe for dissenters who are knowledgeable about the undertaking and worried about its weaknesses to speak up, you can improve a project’s chances of success."
+          },
+          {
+            "id": "734b0000",
+            "type": "paragraph",
+            "text": "A typical premortem begins after the team has been briefed on the plan. The leader starts the exercise by informing everyone that the project has failed spectacularly. Over the next few minutes those in the room independently write down every reason they can think of for the failure—especially the kinds of things they ordinarily wouldn’t mention as potential problems, for fear of being impolitic."
+          },
+          {
+            "id": "1c408000",
+            "type": "paragraph",
+            "text": "Next the leader asks each team member, starting with the project manager, to read one reason from his or her list; everyone states a different reason until all have been recorded. After the session is over, the project manager reviews the list, looking for ways to strengthen the plan."
+          }
+        ]
+      },
+      "date": 1669110011360
+    },
+    {
+      "type": "fork",
+      "date": 1669110022580
+    },
+    {
+      "type": "add",
+      "id": "0ce9af0e95b870b9",
+      "item": {
+        "type": "paragraph",
+        "id": "0ce9af0e95b870b9",
+        "text": "..."
+      },
+      "after": "1c408000",
+      "date": 1669110034498
+    },
+    {
+      "type": "add",
+      "id": "3d5a0a614f7b8640",
+      "item": {
+        "type": "paragraph",
+        "id": "3d5a0a614f7b8640",
+        "text": "Compare chaos engineering experiment design."
+      },
+      "after": "0ce9af0e95b870b9",
+      "date": 1669110070094
+    },
+    {
+      "type": "add",
+      "id": "6807cf1a137881ed",
+      "item": {
+        "type": "paragraph",
+        "id": "6807cf1a137881ed",
+        "text": "Compare failure mode analysis."
+      },
+      "after": "3d5a0a614f7b8640",
+      "date": 1669110099720
+    },
+    {
+      "type": "edit",
+      "id": "0ce9af0e95b870b9",
+      "item": {
+        "type": "pagefold",
+        "id": "0ce9af0e95b870b9",
+        "text": "."
+      },
+      "date": 1669110107815
+    },
+    {
+      "type": "add",
+      "id": "5c6056254023e05b",
+      "item": {
+        "type": "paragraph",
+        "id": "5c6056254023e05b",
+        "text": "Compare residuality theory."
+      },
+      "after": "6807cf1a137881ed",
+      "date": 1669995671047
+    },
+    {
+      "type": "add",
+      "id": "253330dead5d22c1",
+      "item": {
+        "type": "paragraph",
+        "id": "253330dead5d22c1",
+        "text": "The premortem doesn’t just help teams to identify potential problems early on. It also reduces the kind of damn-the-torpedoes attitude often assumed by people who are overinvested in a project. Moreover, in describing weaknesses that no one else has mentioned, team members feel valued for their intelligence and experience, and others learn from them. The exercise also sensitizes the team to pick up early signs of trouble once the project gets under way. In the end, a premortem may be the best way to circumvent any need for a painful postmortem."
+      },
+      "after": "1c408000",
+      "date": 1669995791788
+    }
+  ]
+}

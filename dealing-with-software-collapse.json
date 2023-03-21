@@ -1,0 +1,140 @@
+{
+  "title": "Dealing With Software Collapse",
+  "story": [
+    {
+      "id": "53741000",
+      "type": "paragraph",
+      "text": "In\nthe world of bits, there is no such thing as a small change. Konrad Hinsen proposes the term software collapse to describe the need to continually update code to accommodate changes in the ecosystem of dependencies for that code. Hinsen describes scientific computing, but the concept applies to all software. He his own project as a case study that illustrates the problem: the Molecular Modelling Toolkit begun in python in 1997.  Konrad Hinsen. Dealing With Software Collapse. Computing in Science and Engineering, 2019, 21\n(3), pp.104-108. DOI:10.1109/MCSE.2019.2900945 hal-0211758. [https://doi.org/10.1109/MCSE.2019.2900945 doi] [https://hal.science/hal-02117588 hal]"
+    },
+    {
+      "id": "24f7b000",
+      "type": "paragraph",
+      "text": "In the world of bits, there is no such thing as a small change."
+    },
+    {
+      "id": "22034000",
+      "type": "paragraph",
+      "text": "Numerical Python had been\naround for ten years with continuous improvements, but no\nbreaking changes and few major bugs. It had just been su-\nperseded by NumPy a year before, and everyone, including\nmyself, was at some stage of migration, but since NumPy\nhad a compatibility module for Numeric, that wasn’t much\nof an issue. My own MMTK had evolved enormously but\nwithout ever introducing breaking changes. My very first\nsimulation scripts from 1997 still worked fine. netCDF had\nan excellent track record of stability as well. In short, I had\nno reason to expect any trouble.\n"
+    },
+    {
+      "id": "20d2f000",
+      "type": "paragraph",
+      "text": "Over the seven years of the project, I ended up\nspending a lot of time catching up with dependencies. New\nreleases of NumPy and matplotlib made my code collapse,\nand the increasing complexity of Python installations added\nanother dose of instability. When I got a new computer in\n2013 and installed the then-current versions of everything,\nsome of my scripts no longer worked and, worse, one\nof them produced different results."
+    },
+    {
+      "id": "38834000",
+      "type": "paragraph",
+      "text": "NumPy 1.9 caused the collapse of my Molecular\nModelling Toolkit, and it seems hardly worth doing much\nabout it because the upcoming end of support for Python 2\nin 2020 will be the final death blow., since porting the code\nto Python 3 would almost be a complete rewrite.\n"
+    },
+    {
+      "id": "6e149000",
+      "type": "paragraph",
+      "text": "The only conclusion I have drawn so far is to make my\nsoftware much more modular, to prevent collapse from\naffecting all of it. Today I would definitely no longer start\na “molecular modelling toolkit” project combining lots of\ndistinct functionality in one package.\n"
+    },
+    {
+      "id": "32239000",
+      "type": "paragraph",
+      "text": "The lesson to be learned from this is that second-order\neffects can be important: the time scales of change are\nthemselves subject to change. Another second-order risk\nfactor is the uncertain survival probability of a project.\nFunding for scientific software development is still very\ndifficult to obtain, and therefore projects flourishing today\ncould well be starving in a few years.\n"
+    },
+    {
+      "id": "14d96000",
+      "type": "pagefold",
+      "text": "."
+    },
+    {
+      "id": "5c7e4000",
+      "type": "paragraph",
+      "text": "His last sentiment is the most alarming to me. In software I don't think there is actually something too big to fail. In particular, C programs are dependent upon the unmaintained autotools build system."
+    },
+    {
+      "id": "70ffe000",
+      "type": "paragraph",
+      "text": "Back to Hinsen:"
+    },
+    {
+      "id": "42958000",
+      "type": "paragraph",
+      "text": "The only reasonable protection against this is software foundations that\nhave multiple implementations, ideally based on a common\nwritten standard. C, Fortran, BLAS, and Unix are likely\nto be around in 20 years even if the development teams\nor companies backing them today disappear for whatever\nreason. They are the software equivalent of institutions that\nare too big to fail because too much depends on them.\n"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Dealing With Software Collapse",
+        "story": [
+          {
+            "id": "53741000",
+            "type": "paragraph",
+            "text": "In\nthe world of bits, there is no such thing as a small change. Konrad Hinsen proposes the term software collapse to describe the need to continually update code to accommodate changes in the ecosystem of dependencies for that code. Hinsen describes scientific computing, but the concept applies to all software. He his own project as a case study that illustrates the problem: the Molecular Modelling Toolkit begun in python in 1997.  Konrad Hinsen. Dealing With Software Collapse. Computing in Science and Engineering, 2019, 21\n(3), pp.104-108. DOI:10.1109/MCSE.2019.2900945 hal-0211758. [https://doi.org/10.1109/MCSE.2019.2900945 doi] [https://hal.science/hal-02117588 hal]"
+          },
+          {
+            "id": "24f7b000",
+            "type": "paragraph",
+            "text": "In the world of bits, there is no such thing as a small change."
+          },
+          {
+            "id": "22034000",
+            "type": "paragraph",
+            "text": "Numerical Python had been\naround for ten years with continuous improvements, but no\nbreaking changes and few major bugs. It had just been su-\nperseded by NumPy a year before, and everyone, including\nmyself, was at some stage of migration, but since NumPy\nhad a compatibility module for Numeric, that wasn’t much\nof an issue. My own MMTK had evolved enormously but\nwithout ever introducing breaking changes. My very first\nsimulation scripts from 1997 still worked fine. netCDF had\nan excellent track record of stability as well. In short, I had\nno reason to expect any trouble.\n"
+          },
+          {
+            "id": "20d2f000",
+            "type": "paragraph",
+            "text": "Over the seven years of the project, I ended up\nspending a lot of time catching up with dependencies. New\nreleases of NumPy and matplotlib made my code collapse,\nand the increasing complexity of Python installations added\nanother dose of instability. When I got a new computer in\n2013 and installed the then-current versions of everything,\nsome of my scripts no longer worked and, worse, one\nof them produced different results."
+          },
+          {
+            "id": "38834000",
+            "type": "paragraph",
+            "text": "NumPy 1.9 caused the collapse of my Molecular\nModelling Toolkit, and it seems hardly worth doing much\nabout it because the upcoming end of support for Python 2\nin 2020 will be the final death blow., since porting the code\nto Python 3 would almost be a complete rewrite.\n"
+          },
+          {
+            "id": "6e149000",
+            "type": "paragraph",
+            "text": "The only conclusion I have drawn so far is to make my\nsoftware much more modular, to prevent collapse from\naffecting all of it. Today I would definitely no longer start\na “molecular modelling toolkit” project combining lots of\ndistinct functionality in one package.\n"
+          },
+          {
+            "id": "32239000",
+            "type": "paragraph",
+            "text": "The lesson to be learned from this is that second-order\neffects can be important: the time scales of change are\nthemselves subject to change. Another second-order risk\nfactor is the uncertain survival probability of a project.\nFunding for scientific software development is still very\ndifficult to obtain, and therefore projects flourishing today\ncould well be starving in a few years.\n"
+          },
+          {
+            "id": "14d96000",
+            "type": "paragraph",
+            "text": "..."
+          },
+          {
+            "id": "5c7e4000",
+            "type": "paragraph",
+            "text": "His last sentiment is the most alarming to me. In software I don't think there is actually something too big to fail. In particular, C programs are dependent upon the unmaintained autotools build system."
+          },
+          {
+            "id": "70ffe000",
+            "type": "paragraph",
+            "text": "Back to Hinsen:"
+          },
+          {
+            "id": "42958000",
+            "type": "paragraph",
+            "text": "The only reasonable protection against this is software foundations that\nhave multiple implementations, ideally based on a common\nwritten standard. C, Fortran, BLAS, and Unix are likely\nto be around in 20 years even if the development teams\nor companies backing them today disappear for whatever\nreason. They are the software equivalent of institutions that\nare too big to fail because too much depends on them.\n"
+          }
+        ]
+      },
+      "date": 1679325909396
+    },
+    {
+      "type": "fork",
+      "date": 1679325914806
+    },
+    {
+      "type": "edit",
+      "id": "14d96000",
+      "item": {
+        "id": "14d96000",
+        "type": "pagefold",
+        "text": "."
+      },
+      "date": 1679325921354
+    }
+  ]
+}

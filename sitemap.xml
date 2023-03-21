@@ -81,6 +81,10 @@
     <lastmod>2022-03-16</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/project-premortem.html</loc>
+    <lastmod>2022-12-02</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/queue-depth-grows.html</loc>
     <lastmod>2022-10-26</lastmod>
   </url>
@@ -171,5 +175,9 @@
   <url>
     <loc>http://wander.localhost/wrangling-css-at-github.html</loc>
     <lastmod>2022-07-20</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/dealing-with-software-collapse.html</loc>
+    <lastmod>2023-03-20</lastmod>
   </url>
 </urlset>
