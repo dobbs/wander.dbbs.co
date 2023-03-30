@@ -1,0 +1,88 @@
+{
+  "title": "One Learning Schematic",
+  "story": [
+    {
+      "id": "4fd08000",
+      "type": "paragraph",
+      "text": "Stefan Lesser asks: What if navigation wasn’t through arbitrary chunks (pages) but aligned with the structure of the content (sections > paragraphs > sentences)? Too much effort goes into transforming trees into sequences (writing) and back (reading). What if we just kept the trees? (fig. and lit.) [https://twitter.com/stefanlesser/status/1230736325659127810 tweet]"
+    },
+    {
+      "id": "54f54a00",
+      "type": "image",
+      "text": "Here’s a terrible (handwritten) sketch I made about it. Probably raises more questions than it gives answers. :-) [https://twitter.com/stefanlesser/status/1230799474504720384 tweet]",
+      "size": "wide",
+      "width": 430,
+      "height": 466,
+      "url": "/assets/plugins/image/cbe3b9cf34061760453e2fbcd46e5b2c.jpg"
+    },
+    {
+      "id": "41162000",
+      "type": "paragraph",
+      "text": "Here’s a terrible (handwritten) sketch I made about it. Probably raises more questions than it gives answers. :-) [https://twitter.com/stefanlesser/status/1230799474504720384 tweet]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "One Learning Schematic",
+        "story": [
+          {
+            "id": "4fd08000",
+            "type": "paragraph",
+            "text": "What if navigation wasn’t through arbitrary chunks (pages) but aligned with the structure of the content (sections > paragraphs > sentences)? Too much effort goes into transforming trees into sequences (writing) and back (reading). What if we just kept the trees? (fig. and lit.) [https://twitter.com/stefanlesser/status/1230736325659127810 tweet]"
+          },
+          {
+            "id": "54f54a00",
+            "type": "paragraph",
+            "text": "HOLD for image"
+          },
+          {
+            "id": "41162000",
+            "type": "paragraph",
+            "text": "Here’s a terrible (handwritten) sketch I made about it. Probably raises more questions than it gives answers. :-) [https://twitter.com/stefanlesser/status/1230799474504720384 tweet]"
+          }
+        ]
+      },
+      "date": 1680116788058
+    },
+    {
+      "type": "fork",
+      "date": 1680116794064
+    },
+    {
+      "type": "edit",
+      "id": "54f54a00",
+      "item": {
+        "id": "54f54a00",
+        "type": "factory",
+        "text": "Here’s a terrible (handwritten) sketch I made about it. Probably raises more questions than it gives answers. :-) [https://twitter.com/stefanlesser/status/1230799474504720384 tweet]"
+      },
+      "date": 1680116828230
+    },
+    {
+      "type": "edit",
+      "id": "54f54a00",
+      "item": {
+        "id": "54f54a00",
+        "type": "image",
+        "text": "Here’s a terrible (handwritten) sketch I made about it. Probably raises more questions than it gives answers. :-) [https://twitter.com/stefanlesser/status/1230799474504720384 tweet]",
+        "size": "wide",
+        "width": 430,
+        "height": 466,
+        "url": "/assets/plugins/image/cbe3b9cf34061760453e2fbcd46e5b2c.jpg"
+      },
+      "date": 1680116901759
+    },
+    {
+      "type": "edit",
+      "id": "4fd08000",
+      "item": {
+        "id": "4fd08000",
+        "type": "paragraph",
+        "text": "Stefan Lesser asks: What if navigation wasn’t through arbitrary chunks (pages) but aligned with the structure of the content (sections > paragraphs > sentences)? Too much effort goes into transforming trees into sequences (writing) and back (reading). What if we just kept the trees? (fig. and lit.) [https://twitter.com/stefanlesser/status/1230736325659127810 tweet]"
+      },
+      "date": 1680116950897
+    }
+  ]
+}

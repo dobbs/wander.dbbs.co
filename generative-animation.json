@@ -1,0 +1,111 @@
+{
+  "title": "Generative Animation",
+  "story": [
+    {
+      "id": "3d2e9000",
+      "type": "paragraph",
+      "text": "We were pointed to the open source release of Motion Canvas. Delight burst forward after a moment of studying the example function makeScene(). We see immediate associations between this expressive use of generators and our own 20 year old animation language. [https://motioncanvas.io/ site] [https://github.com/motion-canvas/motion-canvas github] [https://www.youtube.com/watch?v=H5GETOP7ivs youtube]"
+    },
+    {
+      "type": "video",
+      "id": "b6cd26cd3103ae4a",
+      "text": "YOUTUBE H5GETOP7ivs\nMotion Canvas is now open source.\n[https://www.youtube.com/watch?v=H5GETOP7ivs youtube]"
+    },
+    {
+      "id": "408ce000",
+      "type": "code",
+      "text": "export makeScene(function* (view) {\n  const circle = createRef<Circle>();\n  view.add(\n    <Circle\n       ref={circle}\n       width={320}\n       height={320}\n       fill={'blue'}\n     />\n  );\n  yield* circle().scale(2, 0.3);\n  yield* waitUntil('event');\n  yield* all(\n    circle().scale(1, 0.3),\n    circle().position.y(200, 0.3),\n  );\n  yield* circle().fill('green', 0.3);\n});"
+    },
+    {
+      "id": "eb54000",
+      "type": "reference",
+      "text": "In 2003 I re-created an animation of a vanishing point in javascript and SVG.  The original animation was built with AutoCAD 10 and custom AUTOLISP scripts I created in the fall of 1990.  Happily amazed that 15 years later this code runs unchanged in modern browsers. [http://dobbse.net/thinair/2003/12/vanishing-point.html blog]",
+      "site": "wiki.dbbs.co",
+      "slug": "vanishing-point",
+      "title": "Vanishing Point"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Generative Animation",
+        "story": [
+          {
+            "id": "3d2e9000",
+            "type": "paragraph",
+            "text": "We were pointed to the open source release of Motion Canvas. Delight burst forward after a moment of studying the example function makeScene(). We see immediate associations between this expressive use of generators and our own 20 year old animation language. [https://motioncanvas.io/ site] [https://github.com/motion-canvas/motion-canvas github] [https://www.youtube.com/watch?v=H5GETOP7ivs youtube]"
+          },
+          {
+            "id": "408ce000",
+            "type": "code",
+            "text": "export makeScene(function* (view) {\n  const circle = createRef<Circle>();\n  view.add(\n    <Circle\n       ref={circle}\n       width={320}\n       height={320}\n       fill={'blue'}\n     />\n  );\n  yield* circle().scale(2, 0.3);\n  yield* waitUntil('event');\n  yield* all(\n    circle().scale(1, 0.3),\n    circle().position.y(200, 0.3),\n  );\n  yield* circle().fill('green', 0.3);\n});"
+          },
+          {
+            "id": "eb54000",
+            "type": "paragraph",
+            "text": "hold for reference to Vanishing Point"
+          }
+        ]
+      },
+      "date": 1680184717161
+    },
+    {
+      "type": "edit",
+      "id": "408ce000",
+      "item": {
+        "id": "408ce000",
+        "type": "code",
+        "text": "export makeScene(function* (view) {\n  const circle = createRef<Circle>();\n  view.add(\n    <Circle\n       ref={circle}\n       width={320}\n       height={320}\n       fill={'blue'}\n     />\n  );\n  yield* circle().scale(2, 0.3);\n  yield* waitUntil('event');\n  yield* all(\n    circle().scale(1, 0.3),\n    circle().position.y(200, 0.3),\n  );\n  yield* circle().fill('green', 0.3);\n});"
+      },
+      "date": 1680184780988,
+      "error": {
+        "type": "error",
+        "msg": "Not Found",
+        "response": "Page not found"
+      }
+    },
+    {
+      "type": "edit",
+      "id": "eb54000",
+      "item": {
+        "id": "eb54000",
+        "type": "reference",
+        "text": "In 2003 I re-created an animation of a vanishing point in javascript and SVG.  The original animation was built with AutoCAD 10 and custom AUTOLISP scripts I created in the fall of 1990.  Happily amazed that 15 years later this code runs unchanged in modern browsers. [http://dobbse.net/thinair/2003/12/vanishing-point.html blog]",
+        "site": "wiki.dbbs.co",
+        "slug": "vanishing-point",
+        "title": "Vanishing Point"
+      },
+      "date": 1680184795009,
+      "error": {
+        "type": "error",
+        "msg": ""
+      }
+    },
+    {
+      "type": "fork",
+      "date": 1680184980484
+    },
+    {
+      "type": "add",
+      "id": "b6cd26cd3103ae4a",
+      "item": {
+        "type": "factory",
+        "id": "b6cd26cd3103ae4a",
+        "text": "..."
+      },
+      "after": "3d2e9000",
+      "date": 1680185019624
+    },
+    {
+      "type": "edit",
+      "id": "b6cd26cd3103ae4a",
+      "item": {
+        "type": "video",
+        "id": "b6cd26cd3103ae4a",
+        "text": "YOUTUBE H5GETOP7ivs\nMotion Canvas is now open source.\n[https://www.youtube.com/watch?v=H5GETOP7ivs youtube]"
+      },
+      "date": 1680185058229
+    }
+  ]
+}
