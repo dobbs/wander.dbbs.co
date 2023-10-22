@@ -1,0 +1,50 @@
+{
+  "title": "Cognitive Apprenticeship",
+  "story": [
+    {
+      "id": "2f0e3800",
+      "type": "paragraph",
+      "text": "Cognitive Apprenticeship in Practice with Alert Triage Hour of Power by Paige Cruz @ SREcon 23 Americas [https://www.youtube.com/watch?v=c8uRsQPeg_g youtube]"
+    },
+    {
+      "id": "7b541000",
+      "type": "video",
+      "text": "YOUTUBE c8uRsQPeg_g\nCognitive Apprenticeship in Practice with Alert Triage Hour of Power by Paige Cruz @ SREcon 23 Americas [https://www.youtube.com/watch?v=c8uRsQPeg_g youtube]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Cognitive Apprenticeship",
+        "story": [
+          {
+            "id": "2f0e3800",
+            "type": "paragraph",
+            "text": "Cognitive Apprenticeship in Practice with Alert Triage Hour of Power by Paige Cruz @ SREcon 23 Americas [https://www.youtube.com/watch?v=c8uRsQPeg_g youtube]"
+          },
+          {
+            "id": "7b541000",
+            "type": "paragraph",
+            "text": "Cognitive Apprenticeship in Practice with Alert Triage Hour of Power by Paige Cruz @ SREcon 23 Americas [https://www.youtube.com/watch?v=c8uRsQPeg_g youtube]"
+          }
+        ]
+      },
+      "date": 1697921330193
+    },
+    {
+      "type": "fork",
+      "date": 1697921334613
+    },
+    {
+      "type": "edit",
+      "id": "7b541000",
+      "item": {
+        "id": "7b541000",
+        "type": "video",
+        "text": "YOUTUBE c8uRsQPeg_g\nCognitive Apprenticeship in Practice with Alert Triage Hour of Power by Paige Cruz @ SREcon 23 Americas [https://www.youtube.com/watch?v=c8uRsQPeg_g youtube]"
+      },
+      "date": 1697921351955
+    }
+  ]
+}

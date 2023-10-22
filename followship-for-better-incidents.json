@@ -1,0 +1,65 @@
+{
+  "title": "Followship for Better Incidents",
+  "story": [
+    {
+      "id": "14adb000",
+      "type": "paragraph",
+      "text": "Followship: A proposed model of incident organization for how to have better incidents. A cognitive systems approach to coordination by Dr. Laura Maguire @ SREcon 23 Americas [https://www.youtube.com/watch?v=m6NlJFsfimw youtube] [https://www.usenix.org/conference/srecon23americas/presentation/maguire usenix]"
+    },
+    {
+      "type": "video",
+      "id": "50c5ec73fdbf258f",
+      "text": "YOUTUBE m6NlJFsfimw\nFollowship: A proposed model of incident organization for how to have better incidents. A cognitive systems approach to coordination by Dr. Laura Maguire @ SREcon 23 Americas [https://www.youtube.com/watch?v=m6NlJFsfimw youtube]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Followship for Better Incidents",
+        "story": [
+          {
+            "id": "14adb000",
+            "type": "paragraph",
+            "text": "Followship: A proposed model of incident organization for how to have better incidents. A cognitive systems approach to coordination by Dr. Laura Maguire @ SREcon 23 Americas [https://www.youtube.com/watch?v=m6NlJFsfimw youtube]"
+          }
+        ]
+      },
+      "date": 1697921174936
+    },
+    {
+      "type": "fork",
+      "date": 1697921177768
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "50c5ec73fdbf258f"
+      },
+      "id": "50c5ec73fdbf258f",
+      "type": "add",
+      "after": "14adb000",
+      "date": 1697921194931
+    },
+    {
+      "type": "edit",
+      "id": "50c5ec73fdbf258f",
+      "item": {
+        "type": "video",
+        "id": "50c5ec73fdbf258f",
+        "text": "YOUTUBE m6NlJFsfimw\nFollowship: A proposed model of incident organization for how to have better incidents. A cognitive systems approach to coordination by Dr. Laura Maguire @ SREcon 23 Americas [https://www.youtube.com/watch?v=m6NlJFsfimw youtube]"
+      },
+      "date": 1697921205830
+    },
+    {
+      "type": "edit",
+      "id": "14adb000",
+      "item": {
+        "id": "14adb000",
+        "type": "paragraph",
+        "text": "Followship: A proposed model of incident organization for how to have better incidents. A cognitive systems approach to coordination by Dr. Laura Maguire @ SREcon 23 Americas [https://www.youtube.com/watch?v=m6NlJFsfimw youtube] [https://www.usenix.org/conference/srecon23americas/presentation/maguire usenix]"
+      },
+      "date": 1698034702550
+    }
+  ]
+}

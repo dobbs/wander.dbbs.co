@@ -1,0 +1,50 @@
+{
+  "title": "Patterns Not Categories",
+  "story": [
+    {
+      "id": "abf0000",
+      "type": "paragraph",
+      "text": "Patterns, Not Categories: Learning Across Incidents by Tanner Lund @ SRECon 23 Asia/Pacific [https://www.youtube.com/watch?v=ooDsfvuWoww youtube]"
+    },
+    {
+      "id": "dba0800",
+      "type": "video",
+      "text": "YOUTUBE ooDsfvuWoww\nPatterns, Not Categories: Learning Across Incidents by Tanner Lund @ SRECon 23 Asia/Pacific [https://www.youtube.com/watch?v=ooDsfvuWoww youtube]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Patterns Not Categories",
+        "story": [
+          {
+            "id": "abf0000",
+            "type": "paragraph",
+            "text": "Patterns, Not Categories: Learning Across Incidents by Tanner Lund @ SRECon 23 Asia/Pacific [https://www.youtube.com/watch?v=ooDsfvuWoww youtube]"
+          },
+          {
+            "id": "dba0800",
+            "type": "paragraph",
+            "text": "Patterns, Not Categories: Learning Across Incidents by Tanner Lund @ SRECon 23 Asia/Pacific [https://www.youtube.com/watch?v=ooDsfvuWoww youtube]"
+          }
+        ]
+      },
+      "date": 1697921486619
+    },
+    {
+      "type": "fork",
+      "date": 1697921488350
+    },
+    {
+      "type": "edit",
+      "id": "dba0800",
+      "item": {
+        "id": "dba0800",
+        "type": "video",
+        "text": "YOUTUBE ooDsfvuWoww\nPatterns, Not Categories: Learning Across Incidents by Tanner Lund @ SRECon 23 Asia/Pacific [https://www.youtube.com/watch?v=ooDsfvuWoww youtube]"
+      },
+      "date": 1697921503665
+    }
+  ]
+}
