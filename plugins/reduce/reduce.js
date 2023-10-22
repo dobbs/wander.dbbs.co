@@ -1,17 +1,11 @@
 "use strict";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 (function () {
   /*
    * Federated Wiki : Reduce Plugin
@@ -19,19 +13,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
    * Licensed under the MIT license.
    * https://github.com/fedwiki/wiki-plugin-reduce/blob/master/LICENSE.txt
    */
-  var bind, code, compile, emit, emitrow, find, format, generate, parse, _performMethod, _performTitle, prefetch, recalculate; // interpret item's markup
+  var bind, code, compile, emit, emitrow, find, format, generate, parse, _performMethod, _performTitle, prefetch, recalculate;
 
-
+  // interpret item's markup
   parse = function parse(text) {
     var j, len, line, program, ref, words;
     program = {};
     ref = text.split(/\n/);
-
     for (j = 0, len = ref.length; j < len; j++) {
       line = ref[j];
       words = line.match(/\S+/g);
+      if (words === null || words.length < 1) {
 
-      if (words === null || words.length < 1) {// ignore it
+        // ignore it
       } else if (words[0] === 'FOLD') {
         program.find = words.slice(1).join(' ');
       } else if (words[0] === 'WATCH') {
@@ -45,20 +39,15 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         };
       }
     }
-
     return program;
   };
-
   find = function find(program, page) {
     var item, j, k, len, len1, link, links, parsing, ref, titles;
     titles = [];
-
     if (program.find) {
       ref = page.story;
-
       for (j = 0, len = ref.length; j < len; j++) {
         item = ref[j];
-
         if (item.type === 'pagefold') {
           parsing = item.text === program.find;
         } else if (parsing && item.type === 'paragraph') {
@@ -73,45 +62,36 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         }
       }
     }
-
     return titles;
   };
-
   format = function format(program, titles) {
     var j, len, rows, title;
     rows = [];
-
     if (program.error) {
       rows.push("<tr><td><p class=\"error\">".concat(program.error.line, " <span title=\"").concat(program.error.message, "\">*"));
     }
-
     for (j = 0, len = titles.length; j < len; j++) {
       title = titles[j];
       rows.push("<tr><td>".concat(title.title, "<td style=\"text-align:right;\">50"));
     }
-
     return rows.join("\n");
-  }; // translate to functional form (excel)
+  };
 
-
+  // translate to functional form (excel)
   emitrow = function emitrow(context, label, funct) {
     if (label) {
       context.vars[label] = context.ops.length;
     }
-
     return context.ops.push("".concat(label || '', "\t").concat(funct || ''));
   };
-
   generate = function generate(context, text) {
     var args, j, len, line, loc, ref, results;
     loc = context.ops.length + 1;
     ref = text.split(/\n/);
     results = [];
-
     for (j = 0, len = ref.length; j < len; j++) {
       line = ref[j];
       console.log(line, context);
-
       if (args = line.match(/^([0-9.eE-]+) +([\w \/%(){},&-]+)$/)) {
         results.push(emitrow(context, args[2], args[1]));
       } else if (args = line.match(/^([A-Z]+) +([\w \/%(){},&-]+)$/)) {
@@ -128,63 +108,49 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         results.push(emitrow(context, "can't parse '".concat(line, "'")));
       }
     }
-
     return results;
   };
-
   compile = function compile(program, titles, done) {
     var _$;
-
     var fetch, title;
-
     fetch = function () {
       var j, len, results;
       results = [];
-
       for (j = 0, len = titles.length; j < len; j++) {
         title = titles[j];
         results.push($.getJSON("/".concat(wiki.asSlug(title.title), ".json")));
       }
-
       return results;
     }();
-
     return (_$ = $).when.apply(_$, _toConsumableArray(fetch)).then(function () {
       var context, item, j, k, len, len1, ref, xhr;
       context = {
         ops: [],
         vars: {}
       };
-
       if (program.slide) {
         emitrow(context, program.slide, 50);
       }
-
       for (var _len = arguments.length, xhrs = new Array(_len), _key = 0; _key < _len; _key++) {
         xhrs[_key] = arguments[_key];
       }
-
       for (j = 0, len = xhrs.length; j < len; j++) {
         xhr = xhrs[j];
         emitrow(context);
         emitrow(context, xhr[0].title);
         ref = xhr[0].story;
-
         for (k = 0, len1 = ref.length; k < len1; k++) {
           item = ref[k];
-
           switch (item.type) {
             case 'method':
               generate(context, item.text);
           }
         }
       }
-
       console.log(context);
       return done(context.ops.join("\n"));
     });
   };
-
   code = function code($item, item, done) {
     var page, program, titles;
     program = parse(item.text);
@@ -192,82 +158,63 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     titles = find(program, page);
     return compile(program, titles, done);
   };
-
   prefetch = function prefetch(titles, done) {
     var _$2;
-
     var fetch, title;
-
     fetch = function () {
       var j, len, results;
       results = [];
-
       for (j = 0, len = titles.length; j < len; j++) {
         title = titles[j];
         results.push($.getJSON("/".concat(wiki.asSlug(title.title), ".json")));
       }
-
       return results;
     }();
-
     return (_$2 = $).when.apply(_$2, _toConsumableArray(fetch)).then(function () {
       var i, item, j, k, len, ref, ref1, xhr;
-
       for (var _len2 = arguments.length, xhrs = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
         xhrs[_key2] = arguments[_key2];
       }
-
       for (i = j = 0, ref = titles.length - 1; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
         title = titles[i];
         xhr = xhrs[i];
         title.items = [];
         ref1 = xhr[0].story;
-
         for (k = 0, len = ref1.length; k < len; k++) {
           item = ref1[k];
-
           switch (item.type) {
             case 'method':
               title.items.push(item);
           }
         }
       }
-
       return done(titles);
     });
   };
-
   _performMethod = function performMethod(state, done) {
     if (state.methods.length > 0) {
-      state.plugin.eval(state, state.methods.shift(), state.input, function (state, output) {
-        return state.output = output;
+      return state.plugin.eval(state, state.methods.shift(), state.input, function (state, output) {
+        state.output = output;
+        _.extend(state.input, output);
+        return _performMethod(state, done);
       });
-
-      _.extend(state.input, output);
-
-      return _performMethod(state, done);
     } else {
       return done(state);
     }
   };
-
   _performTitle = function performTitle(state, done) {
     var item;
-
     if (state.titles.length > 0) {
       state.methods = function () {
         var j, len, ref, results;
         ref = state.titles[0].items;
         results = [];
-
         for (j = 0, len = ref.length; j < len; j++) {
           item = ref[j];
           results.push(item);
         }
-
         return results;
       }();
-
       return _performMethod(state, function (state) {
         var value;
         value = state.input[state.program.watch || state.program.slide];
@@ -279,7 +226,6 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       return done(state);
     }
   };
-
   recalculate = function recalculate(program, input, titles, done) {
     return wiki.getPlugin('method', function (plugin) {
       var state, t;
@@ -290,21 +236,19 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         titles: function () {
           var j, len, results;
           results = [];
-
           for (j = 0, len = titles.length; j < len; j++) {
             t = titles[j];
             results.push(t);
           }
-
           return results;
         }(),
         errors: []
       };
       return _performTitle(state, done);
     });
-  }; // render in the wiki page
+  };
 
-
+  // render in the wiki page
   emit = function emit($item, item) {
     var candidates, elem, input, j, k, len, len1, nominal, output, page, program, row, sign, slider, title, titles;
     program = parse(item.text);
@@ -313,29 +257,23 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     input = {};
     output = {};
     candidates = $(".item:lt(".concat($('.item').index($item), ")"));
-
     for (j = 0, len = candidates.length; j < len; j++) {
       elem = candidates[j];
       elem = $(elem);
-
       if (elem.hasClass('radar-source')) {
         _.extend(input, elem.get(0).radarData());
       } else if (elem.hasClass('data')) {
         _.extend(input, elem.data('item').data[0]);
       }
     }
-
     $item.append(slider = $('<div class=slider />'));
-
     if (program.slide) {
       nominal = output[program.slide] = +input[program.slide] || 50;
       sign = nominal < 0 ? -1 : 1;
       $item.addClass('radar-source');
-
       $item.get(0).radarData = function () {
         return output;
       };
-
       slider.slider({
         animate: 'fast',
         value: Math.abs(nominal),
@@ -350,15 +288,12 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
         }
       });
     }
-
     $item.append("<table style=\"width:100%; background:#eee; padding:.8em; margin-bottom:5px;\">\n  <tr><td>".concat(program.slide, "<td style=\"text-align:right;\">").concat(nominal, "\n</table>"));
-
     for (k = 0, len1 = titles.length; k < len1; k++) {
       title = titles[k];
       title.row = row = $("<tr><td>".concat(title.title, "<td style=\"text-align:right;\">"));
       $item.find('table').append(title.row);
     }
-
     return prefetch(titles, function (titles) {
       input[program.slide] = nominal;
       return recalculate(program, input, titles, function () {
@@ -366,25 +301,22 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       });
     });
   };
-
   bind = function bind($item, item) {
-    $item.find('table').dblclick(function () {
+    $item.find('table').on('dblclick', function () {
       return wiki.textEditor($item, item);
     });
-    return $item.find('.slider').dblclick(function () {
+    return $item.find('.slider').on('dblclick', function () {
       return code($item, item, function (formula) {
         return wiki.dialog("Slider Computation", "<pre>".concat(formula, "</pre>"));
       });
     });
   };
-
   if (typeof window !== "undefined" && window !== null) {
     window.plugins.reduce = {
       emit: emit,
       bind: bind
     };
   }
-
   if (typeof module !== "undefined" && module !== null) {
     module.exports = {
       parse: parse

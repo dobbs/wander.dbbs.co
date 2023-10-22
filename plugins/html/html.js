@@ -6,25 +6,70 @@
  */
 var builtins;
 
-const dependencyLoaded = import('/plugins/html/DOMPurify-2.3.3/purify.min.js');
+const dependencyLoaded = import('https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js');
 
 builtins = {
   'http://new_page/': params => {
-    const clone = obj => JSON.parse(JSON.stringify(obj))
-    const date = Date.now()
-    const page = {
-      "title": params.title,
-      "story": [
-        {
-          "id": "98234090910324",
-          "type": "future",
-          "text": "Click to create this page.",
-          "title": params.title
+    let title = params.title.trim()
+    let slug = wiki.asSlug(title)
+    console.log('new page', title, slug)
+    let hits = []
+    let story = []
+    let foundLocally = false
+
+    Object.keys(wiki.neighborhoodObject.sites).forEach((site, index) => {
+      info = wiki.neighborhoodObject.sites[site]
+      if (info.sitemap != null) {
+        result = info.sitemap.find(element => element.slug == slug)
+        if (result != null) {
+          if (index == 0) {foundLocally = true}
+          hits.push({
+            "id": wiki.itemId,
+            "type": "reference",
+            "site": site,
+            "slug": slug,
+            "title": title,
+            "text": result.synopsis || ''
+          })
         }
-      ]
+        console.log(result)
+      }
+    })
+
+    if (hits.length > 0) {
+      story.push({
+        "id": wiki.itemId,
+        "type": "future",
+        "text": "Click to create this page",
+        "title": title
+      })
+      let text = ""
+      if (foundLocally == true) {
+        if (hits.length > 1) {
+          text = "We found the page on your wiki, and elsewhere in the neighborhood"
+        } else {
+          text = "We found the page on your wiki"
+        }
+      }
+      story.push({
+        "id": wiki.itemId,
+        "type": "paragraph",
+        "text": text
+      })
+      hits.forEach(element => story.push(element))
+    } else {
+      story.push({
+        "id": wiki.itemId,
+        "type": "future",
+        "text": "Click to create this page.",
+        "title": title
+      })
     }
-    page.journal = [{type: "create", date, item:clone(page)}]
-    return page
+    return {
+      "title": title,
+      "story": story,
+      "journal": []
+    }
   }
 };
 
@@ -33,7 +78,7 @@ async function emit($item, item) {
   function sanitize(dirty) {
     return window.DOMPurify.sanitize(dirty, {
       SANITIZE_DOM: false,
-      ADD_TAGS: ['foreignObject']
+      ADD_TAGS: ['foreignObject', 'feDropShadow']
     });
   }
   $item.css('overflow-x', 'auto');
@@ -44,9 +89,9 @@ a.external::after {content:url(/images/external-link-ltr-icon.png);}
 </style>`,
     window.wiki.resolveLinks(item.text, sanitize));
   var $form, el, lastButtonData;
-  $item.dblclick(() => window.wiki.textEditor($item, item));
-  $item.find('input').dblclick(e => e.stopPropagation());
-  $item.find('svg a[data-title]').click(event => {
+  $item.on('dblclick', () => window.wiki.textEditor($item, item));
+  $item.find('input').on('dblclick', e => e.stopPropagation());
+  $item.find('svg a[data-title]').on('click', event => {
     event.preventDefault();
     event.stopPropagation();
     let anchor = event.target.closest('a[data-title]');
@@ -57,7 +102,7 @@ a.external::after {content:url(/images/external-link-ltr-icon.png);}
   el = $item.get(0);
   lastButtonData = null;
   $form = $item.find('form');
-  $form.find(':submit').click(({target:button}) => {
+  $form.find(':submit').on('click',({target:button}) => {
     if (button && button.name) {
       lastButtonData = {
         name: button.name,

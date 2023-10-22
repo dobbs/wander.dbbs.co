@@ -2,17 +2,11 @@
 "use strict";
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
 /*
  * Federated Wiki : Activity Plugin
  *
@@ -20,28 +14,25 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
  * https://github.com/fedwiki/wiki-plugin-activity/blob/master/LICENSE.txt
  */
 var _,
-    bind,
-    createElement,
-    diff,
-    emit,
-    escape,
-    h,
-    open_conversation,
-    parse,
-    patch,
-    setDefaults,
-    indexOf = [].indexOf;
-
+  bind,
+  createElement,
+  diff,
+  emit,
+  escape,
+  h,
+  open_conversation,
+  parse,
+  patch,
+  setDefaults,
+  indexOf = [].indexOf;
 h = require('virtual-dom/h');
 diff = require('virtual-dom/diff');
 patch = require('virtual-dom/patch');
 createElement = require('virtual-dom/create-element');
 _ = require('lodash');
-
 escape = function escape(line) {
   return line.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 };
-
 setDefaults = function setDefaults(query) {
   query.since = 0;
   query.listing = [];
@@ -56,56 +47,44 @@ setDefaults = function setDefaults(query) {
   query.conversation = false;
   return query.narrative = false;
 };
-
 open_conversation = function open_conversation(this_page, uri) {
   var results, site, slug, tuples;
   tuples = uri.split('/');
   tuples.shift();
   results = [];
-
   while (tuples.length) {
     site = tuples.shift();
     slug = tuples.shift();
     wiki.doInternalLink(slug, this_page, site);
     results.push(this_page = null);
   }
-
   return results;
 };
-
 parse = function parse(query, text, $item, item) {
   var arg, days, err, html, items, j, len, line, match, op, ref, results, site, sources, today, todayStart, words;
   query.listing = [];
   query.errors = 0;
   ref = text.split(/\r?\n/);
   results = [];
-
   for (j = 0, len = ref.length; j < len; j++) {
     line = ref[j];
-
     if (!(words = line.match(/\S+/g))) {
       continue;
-    } // switch words[0]
+    }
+    // switch words[0]
     //   when 'SINCE' then since = +(words[1] || 1)
-
-
     html = escape(line);
     today = new Date();
     todayStart = today.setHours(0, 0, 0, 0);
-
     try {
       var _line$match = line.match(/^\s*(\w*)\s*(.*)$/);
-
       var _line$match2 = _slicedToArray(_line$match, 3);
-
       match = _line$match2[0];
       op = _line$match2[1];
       arg = _line$match2[2];
-
       switch (op) {
         case '':
           break;
-
         case 'SINCE':
           if (match = arg.match(/^(\d+) hours?$/i)) {
             query.since = Date.now() - +match[1] * 1000 * 60 * 60;
@@ -123,9 +102,7 @@ parse = function parse(query, text, $item, item) {
               message: "don't know SINCE '".concat(arg, "' argument")
             };
           }
-
           break;
-
         case 'NEIGHBORHOOD':
           if (arg.match(/^yes/i)) {
             query.includeNeighbors = true;
@@ -136,9 +113,7 @@ parse = function parse(query, text, $item, item) {
               message: "don't know NEIGHBORHOOD '".concat(arg, "' argument")
             };
           }
-
           break;
-
         case 'TWINS':
           if (match = arg.match(/^(\d+)/)) {
             query.twins = +match[1];
@@ -147,9 +122,7 @@ parse = function parse(query, text, $item, item) {
               message: "don't know TWINS '".concat(arg, "' argument")
             };
           }
-
           break;
-
         case 'SORT':
           if (arg.match(/^titles?$/i)) {
             query.sortOrder = "title";
@@ -160,58 +133,46 @@ parse = function parse(query, text, $item, item) {
               message: "don't know SORT '".concat(arg, "' argument")
             };
           }
-
           break;
-
         case 'SEARCH':
           query.searchTerm = arg;
           query.searchResults = wiki.neighborhoodObject.search(query.searchTerm);
           break;
-
         case 'ROSTER':
           query.includeNeighbors = false;
           items = $(".item:lt(".concat($('.item').index($item), ")"));
           sources = items.filter(".roster-source");
           sources.each(function (i, source) {
-            var key, results1, roster, site, value; // console.log 'source', source
-
+            var key, results1, roster, site, value;
+            // console.log 'source', source
             roster = source.getRoster();
             results1 = [];
-
             for (key in roster) {
               value = roster[key];
-
               if (key.toLowerCase().indexOf(arg.toLowerCase()) >= 0) {
                 results1.push(function () {
                   var k, len1, results2;
                   results2 = [];
-
                   for (k = 0, len1 = value.length; k < len1; k++) {
                     site = value[k];
                     results2.push(query.rosterResults[site] = true);
                   }
-
                   return results2;
                 }());
               } else {
                 results1.push(void 0);
               }
             }
-
             return results1;
           });
-
           if (!query.rosterResults[location.host]) {
             query.mine = "no";
-          } // load the sitemaps for the sites in the roster
-
-
+          }
+          // load the sitemaps for the sites in the roster
           for (site in query.rosterResults) {
             wiki.neighborhoodObject.registerNeighbor(site);
           }
-
           break;
-
         case 'MINE':
           if (arg.match(/^yes/i)) {
             query.mine = "yes";
@@ -226,17 +187,13 @@ parse = function parse(query, text, $item, item) {
               message: "don't know MINE '".concat(arg, "' argument")
             };
           }
-
           break;
-
         case 'CONVERSATION':
           query.conversation = true;
           break;
-
         case 'NARRATIVE':
           query.narrative = true;
           break;
-
         default:
           throw {
             message: "don't know '".concat(op, "' command")
@@ -247,34 +204,28 @@ parse = function parse(query, text, $item, item) {
       query.errors++;
       html = "<span style=\"background-color:#fdd;width:100%;\" title=\"".concat(err.message, "\">").concat(html, "</span>");
     }
-
     results.push(query.listing.push(html));
   }
-
   return results;
 };
-
 emit = function emit($item, item) {};
-
 bind = function bind($item, item) {
   var display, merge, omitted, pages, query, rootNode, tree, unfilteredPages;
   tree = h('div');
   rootNode = createElement(tree);
   $item.append(rootNode);
-  unfilteredPages = {};
+  unfilteredPages = new Map();
   pages = {};
-
   display = function display(query, pages) {
-    var activityBody, activityTitle, bigger, context, conversationLink, each, flags, header, i, j, joint, k, l, len, len1, len2, len3, len4, links, m, n, narrativeLink, newTree, now, pageLink, patches, ref, ref1, ref2, ref3, section, sections, sites, smaller, subHeadStyle, twin; // Catch query errors
-
+    var activityBody, activityTitle, bigger, context, conversationLink, each, flags, header, i, j, joint, k, l, len, len1, len2, len3, len4, links, m, n, narrativeLink, newTree, now, pageLink, patches, ref, ref1, ref2, ref3, section, sections, sites, smaller, subHeadStyle, twin;
+    // Catch query errors
     if (query.errors) {
       newTree = h('div', h('p', query.listing.join('<br>')));
       patches = diff(tree, newTree);
       rootNode = patch(rootNode, patches);
       return;
-    } // create content for the plugin's title
-
-
+    }
+    // create content for the plugin's title
     header = [];
     subHeadStyle = {
       style: {
@@ -282,40 +233,31 @@ bind = function bind($item, item) {
         marginBottom: '0px'
       }
     };
-
     if (query.searchTerm) {
       // header.push h 'p', {style: {marginBottom: '0px'}}, "Page Activity"
       header.push(h('p', subHeadStyle, "searching for \"".concat(query.searchTerm, "\"")));
     }
-
     if (query.since) {
       header.push(h('p', subHeadStyle, "since ".concat(new Date(query.since).toDateString())));
     }
-
     if (query.twins > 0) {
       header.push(h('p', subHeadStyle, "more than ".concat(query.twins, " twins")));
     }
-
     if (query.sortOrder === "title") {
       header.push(h('p', subHeadStyle, "sorted by page title"));
     }
-
     if (query.includeNeighbors === false) {
       header.push(h('p', subHeadStyle, "excluding neighborhood"));
     }
-
     if (query.mine === 'no') {
       header.push(h('p', subHeadStyle, "excluding my pages"));
     }
-
     if (query.mine === 'only') {
       header.push(h('p', subHeadStyle, "including only pages I have a twin of"));
     }
-
     if (query.mine === 'exclude') {
       header.push(h('p', subHeadStyle, "including only pages I don't have a twin of"));
     }
-
     activityTitle = h('div', {
       style: {
         textAlign: 'center',
@@ -353,42 +295,33 @@ bind = function bind($item, item) {
       date: now,
       period: 'Seconds'
     }];
-
     if (query.sortOrder === "title") {
       bigger = '';
     } else {
       bigger = now;
     }
-
     activityBody = [];
-
     for (j = 0, len = pages.length; j < len; j++) {
       sites = pages[j];
-
       if ((sites.length >= query.twins || query.twins === 0) && (query.mine === 'only' && (ref = location.host, indexOf.call(function () {
         var k, len1, results;
         results = [];
-
         for (k = 0, len1 = sites.length; k < len1; k++) {
           twin = sites[k];
           results.push(twin.site);
         }
-
         return results;
       }(), ref) >= 0) || !(query.mine === 'only')) && (query.mine === 'exclude' && !(ref1 = location.host, indexOf.call(function () {
         var k, len1, results;
         results = [];
-
         for (k = 0, len1 = sites.length; k < len1; k++) {
           twin = sites[k];
           results.push(twin.site);
         }
-
         return results;
       }(), ref1) >= 0) || !(query.mine === 'exclude'))) {
         if (query.sortOrder === "title") {
           smaller = sites[0].page.title.substr(0, 1).toUpperCase();
-
           if (smaller !== bigger) {
             activityBody.push(h('h3', {
               style: {
@@ -399,17 +332,14 @@ bind = function bind($item, item) {
           }
         } else {
           smaller = sites[0].page.date;
-
           for (k = 0, len1 = sections.length; k < len1; k++) {
             section = sections[k];
-
             if (section.date > smaller && section.date < bigger) {
               activityBody.push(h('h3', "Within ".concat(section.period)));
               break;
             }
           }
         }
-
         bigger = smaller;
         context = sites[0].site === location.host ? "view" : "view => ".concat(sites[0].site);
         pageLink = h('a.internal', {
@@ -421,44 +351,35 @@ bind = function bind($item, item) {
           }
         }, "".concat(sites[0].page.title || sites[0].page.slug));
         links = [];
-
         if (query.narrative) {
           narrativeLink = sites[0].page.slug;
-
           for (i = l = 0, len2 = sites.length; l < len2; i = ++l) {
             each = sites[i];
             narrativeLink += "@".concat(each.site);
           }
-
           links.push(h('a', {
             href: "http://paul90.github.io/wiki-narrative-chart/#".concat(narrativeLink),
             title: "Narrative Chart",
             target: "narrative"
           }, "※"));
         }
-
         if (query.conversation) {
           conversationLink = '';
           ref2 = sites.slice().reverse();
-
           for (i = m = 0, len3 = ref2.length; m < len3; i = ++m) {
             each = ref2[i];
             conversationLink += "/".concat(each.site, "/").concat(each.page.slug);
-          } //links.push "" if query.narrative # separate with a narrow space
-
-
+          }
+          //links.push "" if query.narrative # separate with a narrow space
           links.push(h('a.conversation', {
             href: conversationLink,
             title: "Conversation",
             target: "conversation"
           }, "»"));
         }
-
         flags = [];
-
         for (i = n = 0, len4 = sites.length; n < len4; i = ++n) {
           each = sites[i];
-
           if (i < 10) {
             joint = ((ref3 = sites[i - 1]) != null ? ref3.page.date : void 0) === each.page.date ? "" : " ";
             flags.unshift(joint);
@@ -474,7 +395,6 @@ bind = function bind($item, item) {
             flags.unshift(' ⋯ ');
           }
         }
-
         activityBody.push(h('div', {
           style: {
             clear: 'both'
@@ -498,51 +418,40 @@ bind = function bind($item, item) {
         omitted++;
       }
     }
-
     if (omitted > 0) {
       activityBody.push(h('p', h('i', "".concat(omitted, " more titles"))));
     }
-
     newTree = h('div', [activityTitle, activityBody]);
     patches = diff(tree, newTree);
     rootNode = patch(rootNode, patches);
     tree = newTree;
-    return $item.find('.conversation').click(function (e) {
+    return $item.find('.conversation').on('click', function (e) {
       var this_page;
       e.stopPropagation();
       e.preventDefault();
-
       if (!e.shiftKey) {
         this_page = $item.parents('.page');
       }
-
       return open_conversation(this_page, $(this).attr('href'));
     });
   };
-
   merge = function merge(query, neighborhoodSites) {
     var each, j, k, len, len1, map, omitted, ref, site, sites, slug;
-
     for (j = 0, len = neighborhoodSites.length; j < len; j++) {
       site = neighborhoodSites[j];
       map = wiki.neighborhood[site];
-
       if (map.sitemapRequestInflight || !(map.sitemap != null)) {
         continue;
       }
-
       if (query.includeNeighbors || !query.includeNeighbors && site === location.host || site === location.host || query.rosterResults[site]) {
         if (!(query.mine === "no" && site === location.host)) {
           ref = map.sitemap;
-
           for (k = 0, len1 = ref.length; k < len1; k++) {
             each = ref[k];
-            sites = unfilteredPages[each.slug];
-
-            if (sites == null) {
-              unfilteredPages[each.slug] = sites = [];
+            if (!unfilteredPages.has(each.slug)) {
+              unfilteredPages.set(each.slug, []);
             }
-
+            sites = unfilteredPages.get(each.slug);
             if (_.findIndex(sites, ['site', site]) === -1) {
               sites.push({
                 site: site,
@@ -566,28 +475,22 @@ bind = function bind($item, item) {
         }
       }
     }
-
-    pages = unfilteredPages;
-
+    pages = Object.fromEntries(unfilteredPages);
     for (slug in pages) {
       sites = pages[slug];
       sites.sort(function (a, b) {
         return (b.page.date || 0) - (a.page.date || 0);
       });
     }
-
     pages = function () {
       var results;
       results = [];
-
       for (slug in pages) {
         sites = pages[slug];
         results.push(sites);
       }
-
       return results;
     }();
-
     pages.sort(function (a, b) {
       if (query.sortOrder === "title") {
         return a[0].page.title.localeCompare(b[0].page.title, {
@@ -601,7 +504,6 @@ bind = function bind($item, item) {
     return pages.filter(function (e) {
       var finds, ref1, willInclude;
       willInclude = true;
-
       if (query.since) {
         // console.log "Date: ", e[0].page.date
         if (e[0].page.date <= query.since || e[0].page.date === void 0) {
@@ -609,57 +511,49 @@ bind = function bind($item, item) {
           omitted++;
         }
       }
-
       if (query.searchTerm && willInclude) {
         if (!(ref1 = e[0].page, indexOf.call(function () {
           var l, len2, ref2, results;
           ref2 = query.searchResults.finds;
           results = [];
-
           for (l = 0, len2 = ref2.length; l < len2; l++) {
             finds = ref2[l];
             results.push(finds.page);
           }
-
           return results;
         }(), ref1) >= 0)) {
           willInclude = false;
           omitted++;
         }
       }
-
       return willInclude;
     });
   };
-
   query = {};
   setDefaults(query);
   parse(query, item.text || '', $item, item);
   omitted = 0;
   display(query, merge(query, Object.keys(wiki.neighborhood)));
   $('body').on('new-neighbor-done', function (e, site) {
-    var searchResults; // console.log "Pages: ", pages
-
+    var searchResults;
+    // console.log "Pages: ", pages
     if (query.searchTerm) {
       searchResults = wiki.neighborhoodObject.search(query.searchTerm);
     }
-
     omitted = 0;
     return display(query, merge(query, [site]));
   });
-  return $item.dblclick(function () {
+  return $item.on('dblclick', function () {
     $('body').off('new-neighbor-done');
     return wiki.textEditor($item, item);
   });
 };
-
 if (typeof window !== "undefined" && window !== null) {
   window.plugins.activity = {
     emit: emit,
     bind: bind
   };
 }
-
 if (typeof module !== "undefined" && module !== null) {
   module.exports = {
     escape: escape,
@@ -667,214 +561,9 @@ if (typeof module !== "undefined" && module !== null) {
   };
 }
 
-},{"lodash":9,"virtual-dom/create-element":10,"virtual-dom/diff":11,"virtual-dom/h":12,"virtual-dom/patch":13}],2:[function(require,module,exports){
+},{"lodash":3,"virtual-dom/create-element":4,"virtual-dom/diff":5,"virtual-dom/h":6,"virtual-dom/patch":14}],2:[function(require,module,exports){
 
 },{}],3:[function(require,module,exports){
-/*!
- * Cross-Browser Split 1.1.1
- * Copyright 2007-2012 Steven Levithan <stevenlevithan.com>
- * Available under the MIT License
- * ECMAScript compliant, uniform cross-browser split method
- */
-
-/**
- * Splits a string into an array of strings using a regex or string separator. Matches of the
- * separator are not included in the result array. However, if `separator` is a regex that contains
- * capturing groups, backreferences are spliced into the result each time `separator` is matched.
- * Fixes browser bugs compared to the native `String.prototype.split` and can be used reliably
- * cross-browser.
- * @param {String} str String to split.
- * @param {RegExp|String} separator Regex or string to use for separating the string.
- * @param {Number} [limit] Maximum number of items to include in the result array.
- * @returns {Array} Array of substrings.
- * @example
- *
- * // Basic use
- * split('a b c d', ' ');
- * // -> ['a', 'b', 'c', 'd']
- *
- * // With limit
- * split('a b c d', ' ', 2);
- * // -> ['a', 'b']
- *
- * // Backreferences in result array
- * split('..word1 word2..', /([a-z]+)(\d+)/i);
- * // -> ['..', 'word', '1', ' ', 'word', '2', '..']
- */
-module.exports = (function split(undef) {
-
-  var nativeSplit = String.prototype.split,
-    compliantExecNpcg = /()??/.exec("")[1] === undef,
-    // NPCG: nonparticipating capturing group
-    self;
-
-  self = function(str, separator, limit) {
-    // If `separator` is not a regex, use `nativeSplit`
-    if (Object.prototype.toString.call(separator) !== "[object RegExp]") {
-      return nativeSplit.call(str, separator, limit);
-    }
-    var output = [],
-      flags = (separator.ignoreCase ? "i" : "") + (separator.multiline ? "m" : "") + (separator.extended ? "x" : "") + // Proposed for ES6
-      (separator.sticky ? "y" : ""),
-      // Firefox 3+
-      lastLastIndex = 0,
-      // Make `global` and avoid `lastIndex` issues by working with a copy
-      separator = new RegExp(separator.source, flags + "g"),
-      separator2, match, lastIndex, lastLength;
-    str += ""; // Type-convert
-    if (!compliantExecNpcg) {
-      // Doesn't need flags gy, but they don't hurt
-      separator2 = new RegExp("^" + separator.source + "$(?!\\s)", flags);
-    }
-    /* Values for `limit`, per the spec:
-     * If undefined: 4294967295 // Math.pow(2, 32) - 1
-     * If 0, Infinity, or NaN: 0
-     * If positive number: limit = Math.floor(limit); if (limit > 4294967295) limit -= 4294967296;
-     * If negative number: 4294967296 - Math.floor(Math.abs(limit))
-     * If other: Type-convert, then use the above rules
-     */
-    limit = limit === undef ? -1 >>> 0 : // Math.pow(2, 32) - 1
-    limit >>> 0; // ToUint32(limit)
-    while (match = separator.exec(str)) {
-      // `separator.lastIndex` is not reliable cross-browser
-      lastIndex = match.index + match[0].length;
-      if (lastIndex > lastLastIndex) {
-        output.push(str.slice(lastLastIndex, match.index));
-        // Fix browsers whose `exec` methods don't consistently return `undefined` for
-        // nonparticipating capturing groups
-        if (!compliantExecNpcg && match.length > 1) {
-          match[0].replace(separator2, function() {
-            for (var i = 1; i < arguments.length - 2; i++) {
-              if (arguments[i] === undef) {
-                match[i] = undef;
-              }
-            }
-          });
-        }
-        if (match.length > 1 && match.index < str.length) {
-          Array.prototype.push.apply(output, match.slice(1));
-        }
-        lastLength = match[0].length;
-        lastLastIndex = lastIndex;
-        if (output.length >= limit) {
-          break;
-        }
-      }
-      if (separator.lastIndex === match.index) {
-        separator.lastIndex++; // Avoid an infinite loop
-      }
-    }
-    if (lastLastIndex === str.length) {
-      if (lastLength || !separator.test("")) {
-        output.push("");
-      }
-    } else {
-      output.push(str.slice(lastLastIndex));
-    }
-    return output.length > limit ? output.slice(0, limit) : output;
-  };
-
-  return self;
-})();
-
-},{}],4:[function(require,module,exports){
-'use strict';
-
-var OneVersionConstraint = require('individual/one-version');
-
-var MY_VERSION = '7';
-OneVersionConstraint('ev-store', MY_VERSION);
-
-var hashKey = '__EV_STORE_KEY@' + MY_VERSION;
-
-module.exports = EvStore;
-
-function EvStore(elem) {
-    var hash = elem[hashKey];
-
-    if (!hash) {
-        hash = elem[hashKey] = {};
-    }
-
-    return hash;
-}
-
-},{"individual/one-version":7}],5:[function(require,module,exports){
-(function (global){(function (){
-var topLevel = typeof global !== 'undefined' ? global :
-    typeof window !== 'undefined' ? window : {}
-var minDoc = require('min-document');
-
-var doccy;
-
-if (typeof document !== 'undefined') {
-    doccy = document;
-} else {
-    doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'];
-
-    if (!doccy) {
-        doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'] = minDoc;
-    }
-}
-
-module.exports = doccy;
-
-}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"min-document":2}],6:[function(require,module,exports){
-(function (global){(function (){
-'use strict';
-
-/*global window, global*/
-
-var root = typeof window !== 'undefined' ?
-    window : typeof global !== 'undefined' ?
-    global : {};
-
-module.exports = Individual;
-
-function Individual(key, value) {
-    if (key in root) {
-        return root[key];
-    }
-
-    root[key] = value;
-
-    return value;
-}
-
-}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],7:[function(require,module,exports){
-'use strict';
-
-var Individual = require('./index.js');
-
-module.exports = OneVersion;
-
-function OneVersion(moduleName, version, defaultValue) {
-    var key = '__INDIVIDUAL_ONE_VERSION_' + moduleName;
-    var enforceKey = key + '_ENFORCE_SINGLETON';
-
-    var versionValue = Individual(enforceKey, version);
-
-    if (versionValue !== version) {
-        throw new Error('Can only have one copy of ' +
-            moduleName + '.\n' +
-            'You already have version ' + versionValue +
-            ' installed.\n' +
-            'This means you cannot install version ' + version);
-    }
-
-    return Individual(key, defaultValue);
-}
-
-},{"./index.js":6}],8:[function(require,module,exports){
-'use strict';
-
-module.exports = function isObject(x) {
-	return typeof x === 'object' && x !== null;
-};
-
-},{}],9:[function(require,module,exports){
 (function (global){(function (){
 /**
  * @license
@@ -18087,27 +17776,242 @@ module.exports = function isObject(x) {
 }.call(this));
 
 }).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],10:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 var createElement = require("./vdom/create-element.js")
 
 module.exports = createElement
 
-},{"./vdom/create-element.js":15}],11:[function(require,module,exports){
+},{"./vdom/create-element.js":16}],5:[function(require,module,exports){
 var diff = require("./vtree/diff.js")
 
 module.exports = diff
 
-},{"./vtree/diff.js":35}],12:[function(require,module,exports){
+},{"./vtree/diff.js":36}],6:[function(require,module,exports){
 var h = require("./virtual-hyperscript/index.js")
 
 module.exports = h
 
-},{"./virtual-hyperscript/index.js":22}],13:[function(require,module,exports){
+},{"./virtual-hyperscript/index.js":23}],7:[function(require,module,exports){
+/*!
+ * Cross-Browser Split 1.1.1
+ * Copyright 2007-2012 Steven Levithan <stevenlevithan.com>
+ * Available under the MIT License
+ * ECMAScript compliant, uniform cross-browser split method
+ */
+
+/**
+ * Splits a string into an array of strings using a regex or string separator. Matches of the
+ * separator are not included in the result array. However, if `separator` is a regex that contains
+ * capturing groups, backreferences are spliced into the result each time `separator` is matched.
+ * Fixes browser bugs compared to the native `String.prototype.split` and can be used reliably
+ * cross-browser.
+ * @param {String} str String to split.
+ * @param {RegExp|String} separator Regex or string to use for separating the string.
+ * @param {Number} [limit] Maximum number of items to include in the result array.
+ * @returns {Array} Array of substrings.
+ * @example
+ *
+ * // Basic use
+ * split('a b c d', ' ');
+ * // -> ['a', 'b', 'c', 'd']
+ *
+ * // With limit
+ * split('a b c d', ' ', 2);
+ * // -> ['a', 'b']
+ *
+ * // Backreferences in result array
+ * split('..word1 word2..', /([a-z]+)(\d+)/i);
+ * // -> ['..', 'word', '1', ' ', 'word', '2', '..']
+ */
+module.exports = (function split(undef) {
+
+  var nativeSplit = String.prototype.split,
+    compliantExecNpcg = /()??/.exec("")[1] === undef,
+    // NPCG: nonparticipating capturing group
+    self;
+
+  self = function(str, separator, limit) {
+    // If `separator` is not a regex, use `nativeSplit`
+    if (Object.prototype.toString.call(separator) !== "[object RegExp]") {
+      return nativeSplit.call(str, separator, limit);
+    }
+    var output = [],
+      flags = (separator.ignoreCase ? "i" : "") + (separator.multiline ? "m" : "") + (separator.extended ? "x" : "") + // Proposed for ES6
+      (separator.sticky ? "y" : ""),
+      // Firefox 3+
+      lastLastIndex = 0,
+      // Make `global` and avoid `lastIndex` issues by working with a copy
+      separator = new RegExp(separator.source, flags + "g"),
+      separator2, match, lastIndex, lastLength;
+    str += ""; // Type-convert
+    if (!compliantExecNpcg) {
+      // Doesn't need flags gy, but they don't hurt
+      separator2 = new RegExp("^" + separator.source + "$(?!\\s)", flags);
+    }
+    /* Values for `limit`, per the spec:
+     * If undefined: 4294967295 // Math.pow(2, 32) - 1
+     * If 0, Infinity, or NaN: 0
+     * If positive number: limit = Math.floor(limit); if (limit > 4294967295) limit -= 4294967296;
+     * If negative number: 4294967296 - Math.floor(Math.abs(limit))
+     * If other: Type-convert, then use the above rules
+     */
+    limit = limit === undef ? -1 >>> 0 : // Math.pow(2, 32) - 1
+    limit >>> 0; // ToUint32(limit)
+    while (match = separator.exec(str)) {
+      // `separator.lastIndex` is not reliable cross-browser
+      lastIndex = match.index + match[0].length;
+      if (lastIndex > lastLastIndex) {
+        output.push(str.slice(lastLastIndex, match.index));
+        // Fix browsers whose `exec` methods don't consistently return `undefined` for
+        // nonparticipating capturing groups
+        if (!compliantExecNpcg && match.length > 1) {
+          match[0].replace(separator2, function() {
+            for (var i = 1; i < arguments.length - 2; i++) {
+              if (arguments[i] === undef) {
+                match[i] = undef;
+              }
+            }
+          });
+        }
+        if (match.length > 1 && match.index < str.length) {
+          Array.prototype.push.apply(output, match.slice(1));
+        }
+        lastLength = match[0].length;
+        lastLastIndex = lastIndex;
+        if (output.length >= limit) {
+          break;
+        }
+      }
+      if (separator.lastIndex === match.index) {
+        separator.lastIndex++; // Avoid an infinite loop
+      }
+    }
+    if (lastLastIndex === str.length) {
+      if (lastLength || !separator.test("")) {
+        output.push("");
+      }
+    } else {
+      output.push(str.slice(lastLastIndex));
+    }
+    return output.length > limit ? output.slice(0, limit) : output;
+  };
+
+  return self;
+})();
+
+},{}],8:[function(require,module,exports){
+'use strict';
+
+var OneVersionConstraint = require('individual/one-version');
+
+var MY_VERSION = '7';
+OneVersionConstraint('ev-store', MY_VERSION);
+
+var hashKey = '__EV_STORE_KEY@' + MY_VERSION;
+
+module.exports = EvStore;
+
+function EvStore(elem) {
+    var hash = elem[hashKey];
+
+    if (!hash) {
+        hash = elem[hashKey] = {};
+    }
+
+    return hash;
+}
+
+},{"individual/one-version":11}],9:[function(require,module,exports){
+(function (global){(function (){
+var topLevel = typeof global !== 'undefined' ? global :
+    typeof window !== 'undefined' ? window : {}
+var minDoc = require('min-document');
+
+var doccy;
+
+if (typeof document !== 'undefined') {
+    doccy = document;
+} else {
+    doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'];
+
+    if (!doccy) {
+        doccy = topLevel['__GLOBAL_DOCUMENT_CACHE@4'] = minDoc;
+    }
+}
+
+module.exports = doccy;
+
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"min-document":2}],10:[function(require,module,exports){
+(function (global){(function (){
+'use strict';
+
+/*global window, global*/
+
+var root = typeof window !== 'undefined' ?
+    window : typeof global !== 'undefined' ?
+    global : {};
+
+module.exports = Individual;
+
+function Individual(key, value) {
+    if (key in root) {
+        return root[key];
+    }
+
+    root[key] = value;
+
+    return value;
+}
+
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{}],11:[function(require,module,exports){
+'use strict';
+
+var Individual = require('./index.js');
+
+module.exports = OneVersion;
+
+function OneVersion(moduleName, version, defaultValue) {
+    var key = '__INDIVIDUAL_ONE_VERSION_' + moduleName;
+    var enforceKey = key + '_ENFORCE_SINGLETON';
+
+    var versionValue = Individual(enforceKey, version);
+
+    if (versionValue !== version) {
+        throw new Error('Can only have one copy of ' +
+            moduleName + '.\n' +
+            'You already have version ' + versionValue +
+            ' installed.\n' +
+            'This means you cannot install version ' + version);
+    }
+
+    return Individual(key, defaultValue);
+}
+
+},{"./index.js":10}],12:[function(require,module,exports){
+'use strict';
+
+module.exports = function isObject(x) {
+	return typeof x === 'object' && x !== null;
+};
+
+},{}],13:[function(require,module,exports){
+var nativeIsArray = Array.isArray
+var toString = Object.prototype.toString
+
+module.exports = nativeIsArray || isArray
+
+function isArray(obj) {
+    return toString.call(obj) === "[object Array]"
+}
+
+},{}],14:[function(require,module,exports){
 var patch = require("./vdom/patch.js")
 
 module.exports = patch
 
-},{"./vdom/patch.js":18}],14:[function(require,module,exports){
+},{"./vdom/patch.js":19}],15:[function(require,module,exports){
 var isObject = require("is-object")
 var isHook = require("../vnode/is-vhook.js")
 
@@ -18206,7 +18110,7 @@ function getPrototype(value) {
     }
 }
 
-},{"../vnode/is-vhook.js":26,"is-object":8}],15:[function(require,module,exports){
+},{"../vnode/is-vhook.js":27,"is-object":12}],16:[function(require,module,exports){
 var document = require("global/document")
 
 var applyProperties = require("./apply-properties")
@@ -18254,7 +18158,7 @@ function createElement(vnode, opts) {
     return node
 }
 
-},{"../vnode/handle-thunk.js":24,"../vnode/is-vnode.js":27,"../vnode/is-vtext.js":28,"../vnode/is-widget.js":29,"./apply-properties":14,"global/document":5}],16:[function(require,module,exports){
+},{"../vnode/handle-thunk.js":25,"../vnode/is-vnode.js":28,"../vnode/is-vtext.js":29,"../vnode/is-widget.js":30,"./apply-properties":15,"global/document":9}],17:[function(require,module,exports){
 // Maps a virtual DOM tree onto a real DOM tree in an efficient manner.
 // We don't want to read all of the DOM nodes in the tree so we use
 // the in-order tree indexing to eliminate recursion down certain branches.
@@ -18341,7 +18245,7 @@ function ascending(a, b) {
     return a > b ? 1 : -1
 }
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 var applyProperties = require("./apply-properties")
 
 var isWidget = require("../vnode/is-widget.js")
@@ -18494,7 +18398,7 @@ function replaceRoot(oldRoot, newRoot) {
     return newRoot;
 }
 
-},{"../vnode/is-widget.js":29,"../vnode/vpatch.js":32,"./apply-properties":14,"./update-widget":19}],18:[function(require,module,exports){
+},{"../vnode/is-widget.js":30,"../vnode/vpatch.js":33,"./apply-properties":15,"./update-widget":20}],19:[function(require,module,exports){
 var document = require("global/document")
 var isArray = require("x-is-array")
 
@@ -18576,7 +18480,7 @@ function patchIndices(patches) {
     return indices
 }
 
-},{"./create-element":15,"./dom-index":16,"./patch-op":17,"global/document":5,"x-is-array":36}],19:[function(require,module,exports){
+},{"./create-element":16,"./dom-index":17,"./patch-op":18,"global/document":9,"x-is-array":13}],20:[function(require,module,exports){
 var isWidget = require("../vnode/is-widget.js")
 
 module.exports = updateWidget
@@ -18593,7 +18497,7 @@ function updateWidget(a, b) {
     return false
 }
 
-},{"../vnode/is-widget.js":29}],20:[function(require,module,exports){
+},{"../vnode/is-widget.js":30}],21:[function(require,module,exports){
 'use strict';
 
 var EvStore = require('ev-store');
@@ -18622,7 +18526,7 @@ EvHook.prototype.unhook = function(node, propertyName) {
     es[propName] = undefined;
 };
 
-},{"ev-store":4}],21:[function(require,module,exports){
+},{"ev-store":8}],22:[function(require,module,exports){
 'use strict';
 
 module.exports = SoftSetHook;
@@ -18641,7 +18545,7 @@ SoftSetHook.prototype.hook = function (node, propertyName) {
     }
 };
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 'use strict';
 
 var isArray = require('x-is-array');
@@ -18780,7 +18684,7 @@ function errorString(obj) {
     }
 }
 
-},{"../vnode/is-thunk":25,"../vnode/is-vhook":26,"../vnode/is-vnode":27,"../vnode/is-vtext":28,"../vnode/is-widget":29,"../vnode/vnode.js":31,"../vnode/vtext.js":33,"./hooks/ev-hook.js":20,"./hooks/soft-set-hook.js":21,"./parse-tag.js":23,"x-is-array":36}],23:[function(require,module,exports){
+},{"../vnode/is-thunk":26,"../vnode/is-vhook":27,"../vnode/is-vnode":28,"../vnode/is-vtext":29,"../vnode/is-widget":30,"../vnode/vnode.js":32,"../vnode/vtext.js":34,"./hooks/ev-hook.js":21,"./hooks/soft-set-hook.js":22,"./parse-tag.js":24,"x-is-array":13}],24:[function(require,module,exports){
 'use strict';
 
 var split = require('browser-split');
@@ -18836,7 +18740,7 @@ function parseTag(tag, props) {
     return props.namespace ? tagName : tagName.toUpperCase();
 }
 
-},{"browser-split":3}],24:[function(require,module,exports){
+},{"browser-split":7}],25:[function(require,module,exports){
 var isVNode = require("./is-vnode")
 var isVText = require("./is-vtext")
 var isWidget = require("./is-widget")
@@ -18878,14 +18782,14 @@ function renderThunk(thunk, previous) {
     return renderedThunk
 }
 
-},{"./is-thunk":25,"./is-vnode":27,"./is-vtext":28,"./is-widget":29}],25:[function(require,module,exports){
+},{"./is-thunk":26,"./is-vnode":28,"./is-vtext":29,"./is-widget":30}],26:[function(require,module,exports){
 module.exports = isThunk
 
 function isThunk(t) {
     return t && t.type === "Thunk"
 }
 
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 module.exports = isHook
 
 function isHook(hook) {
@@ -18894,7 +18798,7 @@ function isHook(hook) {
        typeof hook.unhook === "function" && !hook.hasOwnProperty("unhook"))
 }
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 var version = require("./version")
 
 module.exports = isVirtualNode
@@ -18903,7 +18807,7 @@ function isVirtualNode(x) {
     return x && x.type === "VirtualNode" && x.version === version
 }
 
-},{"./version":30}],28:[function(require,module,exports){
+},{"./version":31}],29:[function(require,module,exports){
 var version = require("./version")
 
 module.exports = isVirtualText
@@ -18912,17 +18816,17 @@ function isVirtualText(x) {
     return x && x.type === "VirtualText" && x.version === version
 }
 
-},{"./version":30}],29:[function(require,module,exports){
+},{"./version":31}],30:[function(require,module,exports){
 module.exports = isWidget
 
 function isWidget(w) {
     return w && w.type === "Widget"
 }
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 module.exports = "2"
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 var version = require("./version")
 var isVNode = require("./is-vnode")
 var isWidget = require("./is-widget")
@@ -18996,7 +18900,7 @@ function VirtualNode(tagName, properties, children, key, namespace) {
 VirtualNode.prototype.version = version
 VirtualNode.prototype.type = "VirtualNode"
 
-},{"./is-thunk":25,"./is-vhook":26,"./is-vnode":27,"./is-widget":29,"./version":30}],32:[function(require,module,exports){
+},{"./is-thunk":26,"./is-vhook":27,"./is-vnode":28,"./is-widget":30,"./version":31}],33:[function(require,module,exports){
 var version = require("./version")
 
 VirtualPatch.NONE = 0
@@ -19020,7 +18924,7 @@ function VirtualPatch(type, vNode, patch) {
 VirtualPatch.prototype.version = version
 VirtualPatch.prototype.type = "VirtualPatch"
 
-},{"./version":30}],33:[function(require,module,exports){
+},{"./version":31}],34:[function(require,module,exports){
 var version = require("./version")
 
 module.exports = VirtualText
@@ -19032,7 +18936,7 @@ function VirtualText(text) {
 VirtualText.prototype.version = version
 VirtualText.prototype.type = "VirtualText"
 
-},{"./version":30}],34:[function(require,module,exports){
+},{"./version":31}],35:[function(require,module,exports){
 var isObject = require("is-object")
 var isHook = require("../vnode/is-vhook")
 
@@ -19092,7 +18996,7 @@ function getPrototype(value) {
   }
 }
 
-},{"../vnode/is-vhook":26,"is-object":8}],35:[function(require,module,exports){
+},{"../vnode/is-vhook":27,"is-object":12}],36:[function(require,module,exports){
 var isArray = require("x-is-array")
 
 var VPatch = require("../vnode/vpatch")
@@ -19521,14 +19425,4 @@ function appendPatch(apply, patch) {
     }
 }
 
-},{"../vnode/handle-thunk":24,"../vnode/is-thunk":25,"../vnode/is-vnode":27,"../vnode/is-vtext":28,"../vnode/is-widget":29,"../vnode/vpatch":32,"./diff-props":34,"x-is-array":36}],36:[function(require,module,exports){
-var nativeIsArray = Array.isArray
-var toString = Object.prototype.toString
-
-module.exports = nativeIsArray || isArray
-
-function isArray(obj) {
-    return toString.call(obj) === "[object Array]"
-}
-
-},{}]},{},[1]);
+},{"../vnode/handle-thunk":25,"../vnode/is-thunk":26,"../vnode/is-vnode":28,"../vnode/is-vtext":29,"../vnode/is-widget":30,"../vnode/vpatch":33,"./diff-props":35,"x-is-array":13}]},{},[1]);

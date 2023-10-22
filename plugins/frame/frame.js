@@ -21,7 +21,15 @@
       const hostname = matchData[1]
       return {src, hostname}
     } else if (matchData = line.match(/^PLUGIN (.+)$/)) {
-      return {src: `/plugins/${matchData[1]}`}
+      try {
+        src = new URL(`/plugins/${matchData[1]}`, window.document.baseURI).toString()
+        return {src}
+      } catch (error) {
+        if (! error instanceof TypeError) {
+          throw(error)
+        }
+        return {src, error}
+      }
     } else {
       const error = 'Error: frame src must include domain name'
       return {src, error}
@@ -61,17 +69,29 @@
     return {
       pageKey: $page.data("key"),
       itemId: item.id,
+      origin: window.origin,
       site: $page.data("site") || window.location.host,
       slug: $page.attr("id"),
       title: $page.data("data").title
     }
   }
 
+  function sandboxFor(url) {
+    if (url.startsWith('//')) {
+      const {protocol} = new URL(window.origin)
+      url = `${protocol}${url}`
+    }
+    return (window.origin == new URL(url).origin)
+          ? 'allow-scripts allow-downloads allow-forms'
+          : 'allow-scripts allow-downloads allow-forms allow-same-origin'
+  }
+
   function drawFrame($item, item, parsed) {
     const params = new URLSearchParams(identifiers($item, item)).toString()
     const frame = document.createElement('iframe')
+    const sandbox = sandboxFor(parsed.src)
     for (let [attr, value] of [
-      ['sandbox', 'allow-scripts allow-downloads allow-forms'],
+      ['sandbox', sandbox],
       ['width', '100%'],
       ['style', 'border: none;'],
       ['src', `${parsed.src}#${params}`]
@@ -115,7 +135,7 @@
     for (let topic of parsed.sources) {
       addSource(div, topic)
     }
-    return $item.dblclick(() => {
+    return $item.on('dblclick', () => {
       return wiki.textEditor($item, item)
     })
   }
@@ -223,8 +243,7 @@
     case "sendFrameContext":
       event.source.postMessage({
         action: "frameContext",
-        site: $page.data("site") || window.location.host,
-        slug: $page.attr("id"),
+        ...identifiers($item, $item.data()),
         item: $item.data("item"),
         page: $page.data("data")
       }, "*")
@@ -287,7 +306,9 @@
 
   if (typeof module !== "undefined" && module !== null) {
     wiki = {resolveLinks: (text, escape) => escape(text)}
-    module.exports = {expand, parse, publishSourceData, triggerThumb}
+    module.exports = {
+      expand, parse, publishSourceData, triggerThumb, sandboxFor
+    }
   }
 
 }).call(this)

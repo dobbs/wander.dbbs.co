@@ -2,78 +2,56 @@
 "use strict";
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
-
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; }, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return defineProperty(generator, "_invoke", { value: makeInvokeMethod(innerFn, self, context) }), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; defineProperty(this, "_invoke", { value: function value(method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); } }); } function makeInvokeMethod(innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; } function maybeInvokeDelegate(delegate, context) { var methodName = context.method, method = delegate.iterator[methodName]; if (undefined === method) return context.delegate = null, "throw" === methodName && delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method) || "return" !== methodName && (context.method = "throw", context.arg = new TypeError("The iterator does not provide a '" + methodName + "' method")), ContinueSentinel; var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, defineProperty(Gp, "constructor", { value: GeneratorFunctionPrototype, configurable: !0 }), defineProperty(GeneratorFunctionPrototype, "constructor", { value: GeneratorFunction, configurable: !0 }), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (val) { var object = Object(val), keys = []; for (var key in object) keys.push(key); return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
 // An Image plugin presents a picture with a caption. The image source
 // can be any URL but we have been using "data urls" so as to get the
 // proper sharing semantics if not storage efficency.
 var bind, editor, emit, exifr, md5;
 md5 = require('./md5');
 exifr = require('exifr');
-
 emit = function emit($item, item) {
   var alternates, img, ref, ref1;
-
   alternates = function alternates($item) {
     var action, j, journal, len, ref, ref1, remote, sites;
     sites = [];
-
     if (remote = $item.parents('.page').data('site')) {
       if (remote !== location.host) {
         sites.push(remote);
       }
     }
-
     journal = $item.parents('.page').data('data').journal;
     ref = journal.slice(0).reverse();
-
     for (j = 0, len = ref.length; j < len; j++) {
       action = ref[j];
-
       if (action.site != null && !sites.includes(action.site)) {
         sites.push(action.site);
       }
-
       if (((ref1 = action.attribution) != null ? ref1.site : void 0) != null && !sites.includes(action.attribution.site)) {
         sites.push(action.attribution.site);
       }
     }
-
     return sites.map(function (site) {
       return wiki.site(site).getURL(item.url.replace(/^\//, ''));
     });
   };
-
   item.text || (item.text = item.caption);
   $item.addClass(item.size || 'thumbnail');
   $item.append("<img class='".concat(item.size || 'thumbnail', "' src='").concat(item.url, "'> <p>").concat(wiki.resolveLinks(item.text), "</p>"));
   img = $item.children('img').first();
-
   if (item.width) {
     img.attr('width', item.width);
   }
-
   if (item.height) {
     img.attr('height', item.height);
   }
-
   img.data('sites', alternates($item));
   img.on('error', function () {
     var site, sites;
@@ -81,15 +59,12 @@ emit = function emit($item, item) {
     site = sites.shift();
     $(this).data('sites', sites);
     $(this).attr('src', site);
-
     if (sites.length === 0) {
       return $(this).off('error');
     }
   });
-
   if (((ref = item.location) != null ? ref.latitude : void 0) && ((ref1 = item.location) != null ? ref1.longitude : void 0)) {
     $item.addClass('marker-source');
-
     $item.get(0).markerData = function () {
       return {
         lat: item.location.latitude,
@@ -98,11 +73,9 @@ emit = function emit($item, item) {
       };
     };
   }
-
   if (isOwner) {
     return img.on('load', function () {
       var flag, flagURL, imgHost, overlay;
-
       if ($(this).attr('src') !== item.url) {
         imgHost = new URL($(this)[0].src).hostname;
         flagURL = wiki.site(imgHost).flag();
@@ -114,25 +87,210 @@ emit = function emit($item, item) {
         flag.setAttribute('src', flagURL);
         flag.setAttribute('class', 'overlay');
         overlay.append(flag);
-
         if ($(this)[0].nextSibling) {
           $(this)[0].parentNode.insertBefore(overlay, $(this)[0].nextSibling);
         } else {
           $(this)[0].parentNode.appendChild(overlay);
         }
-
         return $(flag).on('click', /*#__PURE__*/function () {
           var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
             var archiveFilename, imageNode;
             return _regeneratorRuntime().wrap(function _callee$(_context) {
-              while (1) {
-                switch (_context.prev = _context.next) {
+              while (1) switch (_context.prev = _context.next) {
+                case 0:
+                  e.preventDefault();
+                  imageNode = e.target.parentNode.previousSibling;
+                  archiveFilename = new URL(imageNode.src).pathname.split('/').pop();
+                  _context.next = 5;
+                  return fetch(imageNode.src).then(function (response) {
+                    return response.blob();
+                  }).then(function (blob) {
+                    var file, form;
+                    file = new File([blob], archiveFilename, {
+                      type: blob.type
+                    });
+                    form = new FormData();
+                    form.append('image', file, file.name);
+                    return fetch("/plugin/image/upload/".concat(archiveFilename), {
+                      method: 'POST',
+                      body: form
+                    }).then(function (response) {
+                      if (response.ok) {
+                        $(flag).off('click');
+                        return overlay.parentNode.removeChild(overlay);
+                      }
+                    })["catch"](function (err) {
+                      return console.log('image archive failed (save)', err);
+                    });
+                  })["catch"](function (err) {
+                    return console.log('image archive failed', err);
+                  });
+                case 5:
+                  return _context.abrupt("return", _context.sent);
+                case 6:
+                case "end":
+                  return _context.stop();
+              }
+            }, _callee);
+          }));
+          return function (_x) {
+            return _ref.apply(this, arguments);
+          };
+        }());
+      }
+    });
+  }
+};
+bind = function bind($item, item) {
+  // This only really works once the images have been rendered, so we know where we are...
+  if ($item.hasClass('thumbnail')) {
+    if ($item.offset().left - $item.parent().offset().left < 200) {
+      $item.addClass('left');
+    }
+  }
+  $item.on('dblclick', function () {
+    return editor({
+      $item: $item,
+      item: item
+    });
+  });
+  return $item.find('img').on('dblclick', function (event) {
+    var dialogTitle, url;
+    event.stopPropagation();
+    // somehow test for continued existnace? Maybe register an error handler?
+    url = item.source != null ? item.source : $item.children('img').first().attr('src');
+    dialogTitle = (item.text || '').replace(/\[\[([^\]]+)\]\]/gi, '').replace(/\[((http|https|ftp):.*?) (.*?)\]/gi, '').replace(/\<.*?\>/gi, '');
+    return wiki.dialog(dialogTitle, "<img style=\"width:100%\" src=\"".concat(url, "\">"));
+  });
+};
+editor = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(spec) {
+    var $imageEditor, $item, escape, exifrAvailable, filename, focusoutHandler, imageCaption, imageDataURL, imageLocation, imageSize, imageSourceURL, imgCurrentSize, imgPossibleSize, imgURL, item, keydownHandler, newImage, original, pasteLocation, ref, ref1, resizeImage;
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      while (1) switch (_context3.prev = _context3.next) {
+        case 0:
+          escape = function escape(string) {
+            return string.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+          };
+          imageSize = function imageSize(dataURL) {
+            var img;
+            img = new Image();
+            img.src = dataURL;
+            return img.decode().then(function () {
+              if (img.width > 415) {
+                return "wide";
+              } else {
+                return "thumbnail";
+              }
+            });
+          };
+          $item = spec.$item;
+          item = spec.item;
+          if ($('.editEnable').is(':visible')) {
+            _context3.next = 6;
+            break;
+          }
+          return _context3.abrupt("return");
+        case 6:
+          if (item.type === 'factory') {
+            // if new image is being added we have some extra information
+            imageDataURL = spec.imageDataURL;
+            filename = spec.filename;
+            imageSourceURL = spec.imageSourceURL;
+            imageCaption = spec.imageCaption;
+          }
+          if (item.type === 'factory') {
+            document.documentElement.style.cursor = 'default';
+            $item.removeClass('factory').addClass(item.type = 'image');
+            $item.off();
+            newImage = true;
+            item.source = imageSourceURL;
+          } else {
+            newImage = false;
+          }
+          keydownHandler = function keydownHandler(e) {
+            var page;
+            if (e.which === 27) {
+              // esc for save
+              e.preventDefault();
+              $item.trigger('focusout');
+              return false;
+            }
+            if ((e.ctrlKey || e.metaKey) && e.which === 83) {
+              // ctrl-s for save
+              e.preventDefault();
+              $item.trigger('focusout');
+              return false;
+            }
+            if ((e.ctrlKey || e.metaKey) && e.which === 73) {
+              // ctrl-i for information
+              e.preventDefault();
+              if (!e.shiftKey) {
+                page = $(e.target).parents('.page');
+              }
+              wiki.doInternalLink("about image plugin", page);
+              return false;
+            }
+          };
+          // lets not support ctrl-m, at least for now
+          focusoutHandler = /*#__PURE__*/function () {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(event) {
+              var $page, archiveFilename, archiveImage, captionChanged, editorDiv, index, locationChanged, ref, sizeChanged;
+              return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+                while (1) switch (_context2.prev = _context2.next) {
                   case 0:
-                    e.preventDefault();
-                    imageNode = e.target.parentNode.previousSibling;
-                    archiveFilename = new URL(imageNode.src).pathname.split('/').pop();
-                    _context.next = 5;
-                    return fetch(imageNode.src).then(function (response) {
+                    // need to test if focus is still within the imageEditor div
+                    // $item.removeClass 'imageEditing'
+                    editorDiv = document.querySelector('.imageEditing');
+                    if (!editorDiv.contains(event.relatedTarget)) {
+                      _context2.next = 3;
+                      break;
+                    }
+                    return _context2.abrupt("return");
+                  case 3:
+                    $page = $item.parents('.page:first');
+                    // if newImage
+                    //   item.url = await resizeImage imageDataURL
+                    $item.removeClass('imageEditing');
+                    $item.off();
+                    if (!($item.find('textarea').val().length > 0)) {
+                      _context2.next = 33;
+                      break;
+                    }
+                    captionChanged = item.text !== $item.find('textarea').val();
+                    locationChanged = item.location != null && (item.location.latitude !== $item.find('#location-lat').val() || item.location.longitude !== $item.find('#location-lon').val());
+                    sizeChanged = item.size != null && $item.find('#size-select').val() != null && item.size !== $item.find('#size-select').val();
+                    item.text = $item.find('textarea').val();
+                    item.size = (ref = $item.find('#size-select').val()) != null ? ref : 'thumbnail';
+                    if (newImage || sizeChanged) {
+                      item.width = $item.children('img')[0].width;
+                      item.height = $item.children('img')[0].height;
+                    }
+                    if ($item.find('#location-lat').val() && $item.find('#location-lon').val()) {
+                      item.location = {
+                        latitude: $item.find('#location-lat').val(),
+                        longitude: $item.find('#location-lon').val()
+                      };
+                    } else {
+                      delete item.location;
+                      $item.removeClass('marker-source');
+                    }
+                    // only save if newImage , caption, location, or size has been changed.
+                    if (!(newImage || captionChanged || locationChanged || sizeChanged)) {
+                      _context2.next = 29;
+                      break;
+                    }
+                    if (!newImage) {
+                      _context2.next = 22;
+                      break;
+                    }
+                    _context2.next = 18;
+                    return resizeImage(imageDataURL, 'archive');
+                  case 18:
+                    archiveImage = _context2.sent;
+                    archiveFilename = md5(imageDataURL) + '.jpg';
+                    _context2.next = 22;
+                    return fetch(archiveImage).then(function (response) {
                       return response.blob();
                     }).then(function (blob) {
                       var file, form;
@@ -146,8 +304,7 @@ emit = function emit($item, item) {
                         body: form
                       }).then(function (response) {
                         if (response.ok) {
-                          $(flag).off('click');
-                          return overlay.parentNode.removeChild(overlay);
+                          return item.url = "/assets/plugins/image/" + archiveFilename;
                         }
                       })["catch"](function (err) {
                         return console.log('image archive failed (save)', err);
@@ -155,462 +312,203 @@ emit = function emit($item, item) {
                     })["catch"](function (err) {
                       return console.log('image archive failed', err);
                     });
-
-                  case 5:
-                    return _context.abrupt("return", _context.sent);
-
-                  case 6:
+                  case 22:
+                    wiki.doPlugin($item.empty(), item);
+                    if (!(item === original)) {
+                      _context2.next = 25;
+                      break;
+                    }
+                    return _context2.abrupt("return");
+                  case 25:
+                    if (item.hasOwnProperty('caption')) {
+                      delete item.caption;
+                    }
+                    wiki.pageHandler.put($page, {
+                      type: 'edit',
+                      id: item.id,
+                      item: item
+                    });
+                    _context2.next = 31;
+                    break;
+                  case 29:
+                    index = $(".item").index($item);
+                    wiki.renderFrom(index);
+                  case 31:
+                    _context2.next = 37;
+                    break;
+                  case 33:
+                    wiki.pageHandler.put($page, {
+                      type: 'remove',
+                      id: item.id
+                    });
+                    index = $(".item").index($item);
+                    $item.remove();
+                    wiki.renderFrom(index);
+                  case 37:
+                    return _context2.abrupt("return", null);
+                  case 38:
                   case "end":
-                    return _context.stop();
+                    return _context2.stop();
                 }
-              }
-            }, _callee);
-          }));
-
-          return function (_x) {
-            return _ref.apply(this, arguments);
-          };
-        }());
-      }
-    });
-  }
-};
-
-bind = function bind($item, item) {
-  // This only really works once the images have been rendered, so we know where we are...
-  if ($item.hasClass('thumbnail')) {
-    if ($item.offset().left - $item.parent().offset().left < 200) {
-      $item.addClass('left');
-    }
-  }
-
-  $item.dblclick(function () {
-    return editor({
-      $item: $item,
-      item: item
-    });
-  });
-  return $item.find('img').dblclick(function (event) {
-    var dialogTitle, url;
-    event.stopPropagation(); // somehow test for continued existnace? Maybe register an error handler?
-
-    url = item.source != null ? item.source : $item.children('img').first().attr('src');
-    dialogTitle = (item.text || '').replace(/\[\[([^\]]+)\]\]/gi, '').replace(/\[((http|https|ftp):.*?) (.*?)\]/gi, '').replace(/\<.*?\>/gi, '');
-    return wiki.dialog(dialogTitle, "<img style=\"width:100%\" src=\"".concat(url, "\">"));
-  });
-};
-
-editor = /*#__PURE__*/function () {
-  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(spec) {
-    var $imageEditor, $item, escape, exifrAvailable, filename, focusoutHandler, imageCaption, imageDataURL, imageLocation, imageSize, imageSourceURL, imgCurrentSize, imgPossibleSize, imgURL, item, keydownHandler, newImage, original, pasteLocation, ref, ref1, resizeImage;
-    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
-      while (1) {
-        switch (_context3.prev = _context3.next) {
-          case 0:
-            escape = function escape(string) {
-              return string.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+              }, _callee2);
+            }));
+            return function focusoutHandler(_x3) {
+              return _ref3.apply(this, arguments);
             };
-
-            imageSize = function imageSize(dataURL) {
-              var img;
-              img = new Image();
-              img.src = dataURL;
-              return img.decode().then(function () {
-                if (img.width > 415) {
-                  return "wide";
-                } else {
-                  return "thumbnail";
-                }
-              });
-            };
-
-            $item = spec.$item;
-            item = spec.item;
-
-            if ($('.editEnable').is(':visible')) {
-              _context3.next = 6;
-              break;
-            }
-
-            return _context3.abrupt("return");
-
-          case 6:
-            if (item.type === 'factory') {
-              // if new image is being added we have some extra information
-              imageDataURL = spec.imageDataURL;
-              filename = spec.filename;
-              imageSourceURL = spec.imageSourceURL;
-              imageCaption = spec.imageCaption;
-            }
-
-            if (item.type === 'factory') {
-              document.documentElement.style.cursor = 'default';
-              $item.removeClass('factory').addClass(item.type = 'image');
-              $item.unbind();
-              newImage = true;
-              item.source = imageSourceURL;
-            } else {
-              newImage = false;
-            }
-
-            keydownHandler = function keydownHandler(e) {
-              var page;
-
-              if (e.which === 27) {
-                // esc for save
-                e.preventDefault();
-                $item.focusout();
-                return false;
-              }
-
-              if ((e.ctrlKey || e.metaKey) && e.which === 83) {
-                // ctrl-s for save
-                e.preventDefault();
-                $item.focusout();
-                return false;
-              }
-
-              if ((e.ctrlKey || e.metaKey) && e.which === 73) {
-                // ctrl-i for information
-                e.preventDefault();
-
-                if (!e.shiftKey) {
-                  page = $(e.target).parents('.page');
-                }
-
-                wiki.doInternalLink("about image plugin", page);
-                return false;
-              }
-            }; // lets not support ctrl-m, at least for now
-
-
-            focusoutHandler = /*#__PURE__*/function () {
-              var _ref3 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(event) {
-                var $page, archiveFilename, archiveImage, captionChanged, editorDiv, index, locationChanged, ref, sizeChanged;
-                return _regeneratorRuntime().wrap(function _callee2$(_context2) {
-                  while (1) {
-                    switch (_context2.prev = _context2.next) {
-                      case 0:
-                        // need to test if focus is still within the imageEditor div
-                        // $item.removeClass 'imageEditing'
-                        editorDiv = document.querySelector('.imageEditing');
-
-                        if (!editorDiv.contains(event.relatedTarget)) {
-                          _context2.next = 3;
-                          break;
-                        }
-
-                        return _context2.abrupt("return");
-
-                      case 3:
-                        $page = $item.parents('.page:first'); // if newImage
-                        //   item.url = await resizeImage imageDataURL
-
-                        $item.removeClass('imageEditing');
-                        $item.unbind();
-
-                        if (!($item.find('textarea').val().length > 0)) {
-                          _context2.next = 33;
-                          break;
-                        }
-
-                        captionChanged = item.text !== $item.find('textarea').val();
-                        locationChanged = item.location != null && (item.location.latitude !== $item.find('#location-lat').val() || item.location.longitude !== $item.find('#location-lon').val());
-                        sizeChanged = item.size != null && $item.find('#size-select').val() != null && item.size !== $item.find('#size-select').val();
-                        item.text = $item.find('textarea').val();
-                        item.size = (ref = $item.find('#size-select').val()) != null ? ref : 'thumbnail';
-
-                        if (newImage || sizeChanged) {
-                          item.width = $item.children('img')[0].width;
-                          item.height = $item.children('img')[0].height;
-                        }
-
-                        if ($item.find('#location-lat').val() && $item.find('#location-lon').val()) {
-                          item.location = {
-                            latitude: $item.find('#location-lat').val(),
-                            longitude: $item.find('#location-lon').val()
-                          };
-                        } else {
-                          delete item.location;
-                          $item.removeClass('marker-source');
-                        } // only save if newImage , caption, location, or size has been changed.
-
-
-                        if (!(newImage || captionChanged || locationChanged || sizeChanged)) {
-                          _context2.next = 29;
-                          break;
-                        }
-
-                        if (!newImage) {
-                          _context2.next = 22;
-                          break;
-                        }
-
-                        _context2.next = 18;
-                        return resizeImage(imageDataURL, 'archive');
-
-                      case 18:
-                        archiveImage = _context2.sent;
-                        archiveFilename = md5(imageDataURL) + '.jpg';
-                        _context2.next = 22;
-                        return fetch(archiveImage).then(function (response) {
-                          return response.blob();
-                        }).then(function (blob) {
-                          var file, form;
-                          file = new File([blob], archiveFilename, {
-                            type: blob.type
-                          });
-                          form = new FormData();
-                          form.append('image', file, file.name);
-                          return fetch("/plugin/image/upload/".concat(archiveFilename), {
-                            method: 'POST',
-                            body: form
-                          }).then(function (response) {
-                            if (response.ok) {
-                              return item.url = "/assets/plugins/image/" + archiveFilename;
-                            }
-                          })["catch"](function (err) {
-                            return console.log('image archive failed (save)', err);
-                          });
-                        })["catch"](function (err) {
-                          return console.log('image archive failed', err);
-                        });
-
-                      case 22:
-                        wiki.doPlugin($item.empty(), item);
-
-                        if (!(item === original)) {
-                          _context2.next = 25;
-                          break;
-                        }
-
-                        return _context2.abrupt("return");
-
-                      case 25:
-                        if (item.hasOwnProperty('caption')) {
-                          delete item.caption;
-                        }
-
-                        wiki.pageHandler.put($page, {
-                          type: 'edit',
-                          id: item.id,
-                          item: item
-                        });
-                        _context2.next = 31;
-                        break;
-
-                      case 29:
-                        index = $(".item").index($item);
-                        wiki.renderFrom(index);
-
-                      case 31:
-                        _context2.next = 37;
-                        break;
-
-                      case 33:
-                        wiki.pageHandler.put($page, {
-                          type: 'remove',
-                          id: item.id
-                        });
-                        index = $(".item").index($item);
-                        $item.remove();
-                        wiki.renderFrom(index);
-
-                      case 37:
-                        return _context2.abrupt("return", null);
-
-                      case 38:
-                      case "end":
-                        return _context2.stop();
-                    }
-                  }
-                }, _callee2);
-              }));
-
-              return function focusoutHandler(_x3) {
-                return _ref3.apply(this, arguments);
-              };
-            }();
-
-            if (!$item.hasClass('imageEditing')) {
-              _context3.next = 12;
-              break;
-            }
-
-            return _context3.abrupt("return");
-
-          case 12:
-            $item.addClass('imageEditing');
-            $item.unbind();
-            original = JSON.parse(JSON.stringify(item));
-
-            if (!newImage) {
-              _context3.next = 26;
-              break;
-            }
-
-            _context3.next = 18;
-            return exifr.gps(imageDataURL);
-
-          case 18:
-            imageLocation = _context3.sent;
-
-            if (imageLocation) {
-              exifrAvailable = true;
-              item.location = imageLocation;
-            }
-
-            _context3.next = 22;
-            return imageSize(imageDataURL);
-
-          case 22:
-            imgPossibleSize = _context3.sent;
-            imgURL = imageDataURL;
-            _context3.next = 29;
+          }();
+          if (!$item.hasClass('imageEditing')) {
+            _context3.next = 12;
             break;
-
-          case 26:
-            imgPossibleSize = $item.children('img').first()[0].naturalWidth > 415 ? 'wide' : 'thumbnail';
-            imgURL = $item.children('img').first().attr('src');
-            imageCaption = item.text || (item.text = item.caption);
-
-          case 29:
-            if (item.size) {
-              imgCurrentSize = item.size;
+          }
+          return _context3.abrupt("return");
+        case 12:
+          $item.addClass('imageEditing');
+          $item.off();
+          original = JSON.parse(JSON.stringify(item));
+          if (!newImage) {
+            _context3.next = 26;
+            break;
+          }
+          _context3.next = 18;
+          return exifr.gps(imageDataURL);
+        case 18:
+          imageLocation = _context3.sent;
+          if (imageLocation) {
+            exifrAvailable = true;
+            item.location = imageLocation;
+          }
+          _context3.next = 22;
+          return imageSize(imageDataURL);
+        case 22:
+          imgPossibleSize = _context3.sent;
+          imgURL = imageDataURL;
+          _context3.next = 29;
+          break;
+        case 26:
+          imgPossibleSize = $item.children('img').first()[0].naturalWidth > 415 ? 'wide' : 'thumbnail';
+          imgURL = $item.children('img').first().attr('src');
+          imageCaption = item.text || (item.text = item.caption);
+        case 29:
+          if (item.size) {
+            imgCurrentSize = item.size;
+          } else {
+            if (newImage) {
+              imgCurrentSize = imgPossibleSize;
             } else {
-              if (newImage) {
-                imgCurrentSize = imgPossibleSize;
-              } else {
-                imgCurrentSize = "thumbnail";
-              }
+              imgCurrentSize = "thumbnail";
             }
-
-            $item.addClass(imgCurrentSize);
-            $imageEditor = $("<img class='".concat(imgCurrentSize, "' src='").concat(imgURL, "'>\n<textarea>").concat(escape(imageCaption), "</textarea>"));
-            $item.html($imageEditor);
-            $item.append("<div id=\"image-options\"></div>");
-            $('#image-options').append("  <details ".concat(item.location ? 'open' : '', ">\n  <summary>Location:</summary>\n  <input type='text' id='location-lat' value='").concat(((ref = item.location) != null ? ref.latitude : void 0) || '', "' placeholder='Latitude'>\n  <input type='text' id='location-lon' value='").concat(((ref1 = item.location) != null ? ref1.longitude : void 0) || '', "' placeholder='Longitude'>\n</details>"));
-
-            pasteLocation = function pasteLocation(event) {
-              var pasteLat, pasteLon, pasted, separator;
-              event.preventDefault();
-              separator = /[,\/]/;
-              pasted = (event.originalEvent.clipboardData || window.clipboardData).getData('text');
-
-              if (separator.test(pasted)) {
-                var _pasted$split$map = pasted.split(separator).map(function (i) {
-                  return i.trim();
-                });
-
-                var _pasted$split$map2 = _slicedToArray(_pasted$split$map, 2);
-
-                pasteLat = _pasted$split$map2[0];
-                pasteLon = _pasted$split$map2[1];
-
-                if (!(isNaN(pasteLat) || isNaN(pasteLon))) {
-                  item.location = {
-                    latitude: pasteLat,
-                    longitude: pasteLon
-                  };
-                  $item.find('#location-lat').val(pasteLat);
-                  return $item.find('#location-lon').val(pasteLon);
-                }
-              }
-            };
-
-            $('#location-lat').on('paste', pasteLocation);
-            $('#location-lon').on('paste', pasteLocation);
-
-            if (imgPossibleSize === "wide") {
-              $('#image-options').append("<div>\n  <label>Image Size:</label>\n  <select id=\"size-select\">\n    <option value=\"\" disabled>--Please choose a size--</option>\n    <option value=\"thumbnail\">Half page width</option>\n    <option value=\"wide\">Full page width</option>\n  </select>\n</div>");
-              $item.find("#size-select option[value='".concat(imgCurrentSize, "']")).attr('selected', true);
-              $('#size-select').change(function () {
-                $item.removeClass("thumbnail wide");
-                $item.addClass($(this).val());
-                return $item.find('img').removeClass("thumbnail wide").addClass($(this).val());
+          }
+          $item.addClass(imgCurrentSize);
+          $imageEditor = $("<img class='".concat(imgCurrentSize, "' src='").concat(imgURL, "'>\n<textarea>").concat(escape(imageCaption), "</textarea>"));
+          $item.html($imageEditor);
+          $item.append("<div id=\"image-options\"></div>");
+          $('#image-options').append("  <details ".concat(item.location ? 'open' : '', ">\n  <summary>Location:</summary>\n  <input type='text' id='location-lat' value='").concat(((ref = item.location) != null ? ref.latitude : void 0) || '', "' placeholder='Latitude'>\n  <input type='text' id='location-lon' value='").concat(((ref1 = item.location) != null ? ref1.longitude : void 0) || '', "' placeholder='Longitude'>\n</details>"));
+          pasteLocation = function pasteLocation(event) {
+            var pasteLat, pasteLon, pasted, separator;
+            event.preventDefault();
+            separator = /[,\/]/;
+            pasted = (event.originalEvent.clipboardData || window.clipboardData).getData('text');
+            if (separator.test(pasted)) {
+              var _pasted$split$map = pasted.split(separator).map(function (i) {
+                return i.trim();
               });
-            }
-
-            $item.focusout(focusoutHandler).bind('keydown', keydownHandler);
-            $imageEditor.focus(); // from https://web.archive.org/web/20140327091827/http://www.benknowscode.com/2014/01/resizing-images-in-browser-using-canvas.html
-            // Patrick Oswald version from comment, coffeescript and further simplification for wiki
-
-            return _context3.abrupt("return", resizeImage = function resizeImage(dataURL) {
-              var cH, cW, imageQuality, smallEnough, src, tH, tW;
-              src = new Image();
-              cW = void 0;
-              cH = void 0; // target sizes
-
-              tW = 1920;
-              tH = 1080; // image quality
-
-              imageQuality = 0.5;
-
-              smallEnough = function smallEnough(img) {
-                return img.width <= tW && img.height <= tH;
-              };
-
-              return new Promise(function (resolve) {
-                src.src = dataURL;
-                return src.onload = function () {
-                  return resolve();
+              var _pasted$split$map2 = _slicedToArray(_pasted$split$map, 2);
+              pasteLat = _pasted$split$map2[0];
+              pasteLon = _pasted$split$map2[1];
+              if (!(isNaN(pasteLat) || isNaN(pasteLon))) {
+                item.location = {
+                  latitude: pasteLat,
+                  longitude: pasteLon
                 };
-              }).then(function () {
-                cW = src.naturalWidth;
-                return cH = src.naturalHeight;
-              }).then(function () {
-                var iterations, oversize, prescale; // determine size for first squeeze
-
-                if (smallEnough(src)) {
-                  return;
-                }
-
-                oversize = Math.max(1, cW / tW, cH / tH);
-                iterations = Math.floor(Math.log2(oversize));
-                prescale = oversize / Math.pow(2, iterations);
-                cW = Math.round(cW / prescale);
-                return cH = Math.round(cH / prescale);
-              }).then(function () {
-                return new Promise(function (resolve) {
-                  var tmp;
-                  tmp = new Image();
-                  tmp.src = src.src;
-                  return tmp.onload = function () {
-                    var canvas, context;
-
-                    if (smallEnough(tmp)) {
-                      return resolve(dataURL);
-                    }
-
-                    canvas = document.createElement('canvas');
-                    canvas.width = cW;
-                    canvas.height = cH;
-                    context = canvas.getContext('2d');
-                    context.drawImage(tmp, 0, 0, cW, cH);
-                    dataURL = canvas.toDataURL('image/jpeg', imageQuality);
-                    cW /= 2;
-                    cH /= 2;
-                    return tmp.src = dataURL;
-                  };
-                });
-              }).then(function () {
-                return dataURL;
-              });
+                $item.find('#location-lat').val(pasteLat);
+                return $item.find('#location-lon').val(pasteLon);
+              }
+            }
+          };
+          $('#location-lat').on('paste', pasteLocation);
+          $('#location-lon').on('paste', pasteLocation);
+          if (imgPossibleSize === "wide") {
+            $('#image-options').append("<div>\n  <label>Image Size:</label>\n  <select id=\"size-select\">\n    <option value=\"\" disabled>--Please choose a size--</option>\n    <option value=\"thumbnail\">Half page width</option>\n    <option value=\"wide\">Full page width</option>\n  </select>\n</div>");
+            $item.find("#size-select option[value='".concat(imgCurrentSize, "']")).attr('selected', true);
+            $('#size-select').on('change', function () {
+              $item.removeClass("thumbnail wide");
+              $item.addClass($(this).val());
+              return $item.find('img').removeClass("thumbnail wide").addClass($(this).val());
             });
+          }
+          $item.on('focusout', focusoutHandler).on('keydown', keydownHandler);
+          $imageEditor.trigger('focus');
 
-          case 42:
-          case "end":
-            return _context3.stop();
-        }
+          // from https://web.archive.org/web/20140327091827/http://www.benknowscode.com/2014/01/resizing-images-in-browser-using-canvas.html
+          // Patrick Oswald version from comment, coffeescript and further simplification for wiki
+          return _context3.abrupt("return", resizeImage = function resizeImage(dataURL) {
+            var cH, cW, imageQuality, smallEnough, src, tH, tW;
+            src = new Image();
+            cW = void 0;
+            cH = void 0;
+            // target sizes
+            tW = 1920;
+            tH = 1080;
+
+            // image quality
+            imageQuality = 0.5;
+            smallEnough = function smallEnough(img) {
+              return img.width <= tW && img.height <= tH;
+            };
+            return new Promise(function (resolve) {
+              src.src = dataURL;
+              return src.onload = function () {
+                return resolve();
+              };
+            }).then(function () {
+              cW = src.naturalWidth;
+              return cH = src.naturalHeight;
+            }).then(function () {
+              var iterations, oversize, prescale;
+              // determine size for first squeeze
+              if (smallEnough(src)) {
+                return;
+              }
+              oversize = Math.max(1, cW / tW, cH / tH);
+              iterations = Math.floor(Math.log2(oversize));
+              prescale = oversize / Math.pow(2, iterations);
+              cW = Math.round(cW / prescale);
+              return cH = Math.round(cH / prescale);
+            }).then(function () {
+              return new Promise(function (resolve) {
+                var tmp;
+                tmp = new Image();
+                tmp.src = src.src;
+                return tmp.onload = function () {
+                  var canvas, context;
+                  if (smallEnough(tmp)) {
+                    return resolve(dataURL);
+                  }
+                  canvas = document.createElement('canvas');
+                  canvas.width = cW;
+                  canvas.height = cH;
+                  context = canvas.getContext('2d');
+                  context.drawImage(tmp, 0, 0, cW, cH);
+                  dataURL = canvas.toDataURL('image/jpeg', imageQuality);
+                  cW /= 2;
+                  cH /= 2;
+                  return tmp.src = dataURL;
+                };
+              });
+            }).then(function () {
+              return dataURL;
+            });
+          });
+        case 42:
+        case "end":
+          return _context3.stop();
       }
     }, _callee3);
   }));
-
   return function editor(_x2) {
     return _ref2.apply(this, arguments);
   };
 }();
-
 if (typeof window !== "undefined" && window !== null) {
   window.plugins.image = {
     emit: emit,
@@ -618,7 +516,6 @@ if (typeof window !== "undefined" && window !== null) {
     editor: editor
   };
 }
-
 module.exports = {
   emit: emit,
   bind: bind,

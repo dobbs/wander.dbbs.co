@@ -397,7 +397,7 @@ ${item.dot??''}`
 
   async function bind($item, item) {
     await moduleLoaded
-    $item.dblclick(() => {
+    $item.on('dblclick', () => {
       return wiki.textEditor($item, includeStaticDotInText($item.data().item));
     });
 
@@ -411,7 +411,7 @@ ${item.dot??''}`
       document.body.removeChild(element);
     }
 
-    $item.click(event => {
+    $item.on('click', event => {
       const {target} = event
       const {action} = (target.closest("a")||{}).dataset
 
@@ -478,10 +478,12 @@ ${item.dot??''}`
             const title = Array.from(
               (node||edge).querySelectorAll("text")
             ).map(el => el.textContent.trim()).join(" ")
-            let $page = event.shiftKey ? null : $item.parents('.page')
+            let $page = $item.parents('.page')
             if (title) {
               console.log('click', title)
-              wiki.doInternalLink(title, $page)
+              // set context for doInternalLink
+              wiki.pageHandler.context = wiki.lineup.atKey($page.data('key')).getContext()
+              wiki.doInternalLink(title, event.shiftKey ? null : $page)
             }
           }
         }

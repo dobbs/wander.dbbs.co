@@ -8,52 +8,40 @@
    * https://github.com/fedwiki/wiki-plugin-changes/blob/master/LICENSE.txt
    */
   var constructor, escape, listItemHtml, pageBundle;
-
   escape = function escape(line) {
     return line.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   };
-
   listItemHtml = function listItemHtml(slug, title) {
     return "<li>\n  <a class=\"internal\" href=\"#\" title=\"local\" data-page-name=\"".concat(slug, "\" data-site=\"local\">").concat(escape(title), "</a>\n  <button class=\"delete\">\u2715</button>\n</li>");
   };
-
   pageBundle = function pageBundle() {
     var bundle, i, j, length, ref, slug;
     bundle = {};
     length = localStorage.length;
-
     for (i = j = 0, ref = length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
       slug = localStorage.key(i);
       bundle[slug] = JSON.parse(localStorage.getItem(slug));
     }
-
     return bundle;
   };
-
   constructor = function constructor($) {
     var dependencies = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
     var bind, emit, localStorage;
     localStorage = dependencies.localStorage || window.localStorage;
-
     emit = function emit($div, item) {
       var i, j, page, ref, slug, ul;
-
       if (localStorage.length === 0) {
         $div.append('<ul><p><i>no local changes</i></p></ul>');
         return;
       }
-
       $div.append(ul = $('<ul />'));
-
       for (i = j = 0, ref = localStorage.length; 0 <= ref ? j < ref : j > ref; i = 0 <= ref ? ++j : --j) {
         slug = localStorage.key(i);
         page = JSON.parse(localStorage.getItem(slug));
-
         if (page.title != null) {
           ul.append(listItemHtml(slug, page.title));
         }
       }
-
       if (localStorage.length > 0) {
         if (item.submit != null) {
           return ul.append("<button class=\"submit\">Submit Changes</button>");
@@ -62,7 +50,6 @@
         }
       }
     };
-
     bind = function bind($div, item) {
       $div.on('click', '.delete', function () {
         var slug;
@@ -80,11 +67,9 @@
           success: function success(citation, textStatus, jqXHR) {
             var before, beforeElement, itemElement, pageElement;
             wiki.log("ajax submit success", citation, textStatus, jqXHR);
-
             if (!(citation.type && citation.site)) {
               throw new Exception("Incomplete Submission");
             }
-
             pageElement = $div.parents('.page:first');
             itemElement = $("<div />", {
               "class": "item ".concat(citation.type)
@@ -115,22 +100,19 @@
         anchor.click();
         return document.body.removeChild(anchor);
       });
-      return $div.dblclick(function () {
+      return $div.on('dblclick', function () {
         var bundle, count;
         bundle = pageBundle();
         count = _.size(bundle);
         return wiki.dialog("JSON bundle for ".concat(count, " pages"), $('<pre/>').text(JSON.stringify(bundle, null, 2)));
       });
     };
-
     return {
       emit: emit,
       bind: bind
     };
   };
-
   wiki.registerPlugin('changes', constructor);
-
   if (typeof module !== "undefined" && module !== null) {
     module.exports = constructor;
   }

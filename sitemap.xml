@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://wander.localhost/-shuhari.html</loc>
+    <lastmod>2023-06-17</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/a-year-in-the-garden.html</loc>
     <lastmod>2022-01-26</lastmod>
   </url>
@@ -38,7 +42,7 @@
   </url>
   <url>
     <loc>http://wander.localhost/dealing-with-software-collapse.html</loc>
-    <lastmod>2023-03-20</lastmod>
+    <lastmod>2023-10-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/design-and-reality.html</loc>
@@ -59,6 +63,10 @@
   <url>
     <loc>http://wander.localhost/general-inductive-analysis.html</loc>
     <lastmod>2022-03-16</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/generative-animation.html</loc>
+    <lastmod>2023-03-30</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/incident-response-at-slack.html</loc>
@@ -185,7 +193,19 @@
     <lastmod>2022-07-20</lastmod>
   </url>
   <url>
-    <loc>http://wander.localhost/generative-animation.html</loc>
-    <lastmod>2023-03-30</lastmod>
+    <loc>http://wander.localhost/why-this-stuff-is-hard.html</loc>
+    <lastmod>2023-10-21</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/followship-for-better-incidents.html</loc>
+    <lastmod>2023-10-21</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/cognitive-apprenticeship.html</loc>
+    <lastmod>2023-10-21</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/patterns-not-categories.html</loc>
+    <lastmod>2023-10-21</lastmod>
   </url>
 </urlset>

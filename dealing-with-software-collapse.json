@@ -14,7 +14,7 @@
     {
       "id": "22034000",
       "type": "paragraph",
-      "text": "Numerical Python had been\naround for ten years with continuous improvements, but no\nbreaking changes and few major bugs. It had just been su-\nperseded by NumPy a year before, and everyone, including\nmyself, was at some stage of migration, but since NumPy\nhad a compatibility module for Numeric, that wasn’t much\nof an issue. My own MMTK had evolved enormously but\nwithout ever introducing breaking changes. My very first\nsimulation scripts from 1997 still worked fine. netCDF had\nan excellent track record of stability as well. In short, I had\nno reason to expect any trouble.\n"
+      "text": "Numerical Python had been\naround for ten years with continuous improvements, but no\nbreaking changes and few major bugs. It had just been superseded by NumPy a year before, and everyone, including\nmyself, was at some stage of migration, but since NumPy\nhad a compatibility module for Numeric, that wasn’t much\nof an issue. My own MMTK had evolved enormously but\nwithout ever introducing breaking changes. My very first\nsimulation scripts from 1997 still worked fine. netCDF had\nan excellent track record of stability as well. In short, I had\nno reason to expect any trouble.\n"
     },
     {
       "id": "20d2f000",
@@ -24,7 +24,7 @@
     {
       "id": "38834000",
       "type": "paragraph",
-      "text": "NumPy 1.9 caused the collapse of my Molecular\nModelling Toolkit, and it seems hardly worth doing much\nabout it because the upcoming end of support for Python 2\nin 2020 will be the final death blow., since porting the code\nto Python 3 would almost be a complete rewrite.\n"
+      "text": "NumPy 1.9 caused the collapse of my Molecular\nModelling Toolkit, and it seems hardly worth doing much\nabout it because the upcoming end of support for Python 2\nin 2020 will be the final death blow, since porting the code\nto Python 3 would almost be a complete rewrite.\n"
     },
     {
       "id": "6e149000",
@@ -135,6 +135,26 @@
         "text": "."
       },
       "date": 1679325921354
+    },
+    {
+      "type": "edit",
+      "id": "22034000",
+      "item": {
+        "id": "22034000",
+        "type": "paragraph",
+        "text": "Numerical Python had been\naround for ten years with continuous improvements, but no\nbreaking changes and few major bugs. It had just been superseded by NumPy a year before, and everyone, including\nmyself, was at some stage of migration, but since NumPy\nhad a compatibility module for Numeric, that wasn’t much\nof an issue. My own MMTK had evolved enormously but\nwithout ever introducing breaking changes. My very first\nsimulation scripts from 1997 still worked fine. netCDF had\nan excellent track record of stability as well. In short, I had\nno reason to expect any trouble.\n"
+      },
+      "date": 1697918321316
+    },
+    {
+      "type": "edit",
+      "id": "38834000",
+      "item": {
+        "id": "38834000",
+        "type": "paragraph",
+        "text": "NumPy 1.9 caused the collapse of my Molecular\nModelling Toolkit, and it seems hardly worth doing much\nabout it because the upcoming end of support for Python 2\nin 2020 will be the final death blow, since porting the code\nto Python 3 would almost be a complete rewrite.\n"
+      },
+      "date": 1697918357863
     }
   ]
 }
