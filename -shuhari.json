@@ -1,0 +1,117 @@
+{
+  "title": "守破離 Shuhari",
+  "story": [
+    {
+      "id": "4250000",
+      "type": "paragraph",
+      "text": "It is known that, when we learn or train in something, we pass through the stages of shu, ha, and ri. In shu, we repeat the forms and discipline ourselves so that our bodies absorb the forms that our forebears created. We remain faithful to these forms with no deviation. Next, in the stage of ha, once we have disciplined ourselves to acquire the forms and movements, we make innovations. In this process the forms may be broken and discarded. Finally, in ri, we completely depart from the forms, open the door to creative technique, and arrive in a place where we act in accordance with what our heart/mind desires, unhindered while not overstepping laws — Endō Seishirō shihan. [https://en.wikipedia.org/wiki/Shuhari wikipedia]"
+    },
+    {
+      "id": "6cf28000",
+      "type": "paragraph",
+      "text": "An Interview with Endô Seishirô Shihan. Personally notable 'cos I've trained with one of the translators, Dan Nishina.  And still more notable for capturing a shihan's exploration of Tao. [https://web.archive.org/web/20110610205348/http://homepage3.nifty.com/aikido_sakudojo/Shihan_Interview_Dou144-e.html archive]"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "守破離 Shuhari",
+        "story": [
+          {
+            "id": "4250000",
+            "type": "paragraph",
+            "text": "Martin Fowler explains shuhari and specifically connects it to aikido. [https://martinfowler.com/bliki/ShuHaRi.html site]"
+          },
+          {
+            "id": "1b188000",
+            "type": "paragraph",
+            "text": "See also [https://en.wikipedia.org/wiki/Shuhari wikipedia]"
+          },
+          {
+            "id": "6cf28000",
+            "type": "paragraph",
+            "text": "An Interview with Endô Seishirô Shihan. Personally notable 'cos I've trained with one of the translators, Dan Nishina.  And still more notable for capturing a Shihan's exploration of Tao. [https://web.archive.org/web/20110610205348/http://homepage3.nifty.com/aikido_sakudojo/Shihan_Interview_Dou144-e.html archive]"
+          }
+        ]
+      },
+      "date": 1686149330180
+    },
+    {
+      "type": "fork",
+      "date": 1686149332446
+    },
+    {
+      "type": "edit",
+      "id": "4250000",
+      "item": {
+        "id": "4250000",
+        "type": "paragraph",
+        "text": "Aikido master Endō Seishirō shihan stated:\n\n    \"It is known that, when we learn or train in something, we pass through the stages of shu, ha, and ri. These stages are explained as follows. In shu, we repeat the forms and discipline ourselves so that our bodies absorb the forms that our forebears created. We remain faithful to these forms with no deviation. Next, in the stage of ha, once we have disciplined ourselves to acquire the forms and movements, we make innovations. In this process the forms may be broken and discarded. Finally, in ri, we completely depart from the forms, open the door to creative technique, and arrive in a place where we act in accordance with what our heart/mind desires, unhindered while not overstepping laws.\"[1]"
+      },
+      "date": 1687045502677
+    },
+    {
+      "type": "add",
+      "id": "f36064d462c3b71c",
+      "item": {
+        "type": "paragraph",
+        "id": "f36064d462c3b71c",
+        "text": "Martin Fowler explains shuhari and specifically connects it to aikido. [https://martinfowler.com/bliki/ShuHaRi.html site]"
+      },
+      "after": "4250000",
+      "date": 1687045508289
+    },
+    {
+      "type": "edit",
+      "id": "4250000",
+      "item": {
+        "id": "4250000",
+        "type": "paragraph",
+        "text": "It is known that, when we learn or train in something, we pass through the stages of shu, ha, and ri. In shu, we repeat the forms and discipline ourselves so that our bodies absorb the forms that our forebears created. We remain faithful to these forms with no deviation. Next, in the stage of ha, once we have disciplined ourselves to acquire the forms and movements, we make innovations. In this process the forms may be broken and discarded. Finally, in ri, we completely depart from the forms, open the door to creative technique, and arrive in a place where we act in accordance with what our heart/mind desires, unhindered while not overstepping laws. Endō Seishirō shihan"
+      },
+      "date": 1687045609395
+    },
+    {
+      "id": "1b188000",
+      "type": "move",
+      "order": [
+        "4250000",
+        "1b188000",
+        "f36064d462c3b71c",
+        "6cf28000"
+      ],
+      "date": 1687045613120
+    },
+    {
+      "type": "remove",
+      "id": "1b188000",
+      "date": 1687045616794
+    },
+    {
+      "type": "edit",
+      "id": "4250000",
+      "item": {
+        "id": "4250000",
+        "type": "paragraph",
+        "text": "It is known that, when we learn or train in something, we pass through the stages of shu, ha, and ri. In shu, we repeat the forms and discipline ourselves so that our bodies absorb the forms that our forebears created. We remain faithful to these forms with no deviation. Next, in the stage of ha, once we have disciplined ourselves to acquire the forms and movements, we make innovations. In this process the forms may be broken and discarded. Finally, in ri, we completely depart from the forms, open the door to creative technique, and arrive in a place where we act in accordance with what our heart/mind desires, unhindered while not overstepping laws — Endō Seishirō shihan. [https://en.wikipedia.org/wiki/Shuhari wikipedia]"
+      },
+      "date": 1687045629845
+    },
+    {
+      "type": "edit",
+      "id": "6cf28000",
+      "item": {
+        "id": "6cf28000",
+        "type": "paragraph",
+        "text": "An Interview with Endô Seishirô Shihan. Personally notable 'cos I've trained with one of the translators, Dan Nishina.  And still more notable for capturing a shihan's exploration of Tao. [https://web.archive.org/web/20110610205348/http://homepage3.nifty.com/aikido_sakudojo/Shihan_Interview_Dou144-e.html archive]"
+      },
+      "date": 1687045646357
+    },
+    {
+      "type": "remove",
+      "id": "f36064d462c3b71c",
+      "date": 1687045697398
+    }
+  ]
+}
