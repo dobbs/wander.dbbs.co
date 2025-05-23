@@ -5,6 +5,14 @@
       "type": "paragraph",
       "id": "e1c006f084245554",
       "text": "[https://www.cdc.gov/niosh/docs/99-101/ site]"
+    },
+    {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
     }
   ],
   "journal": [
@@ -34,6 +42,24 @@
         "text": "[https://www.cdc.gov/niosh/docs/99-101/ site]"
       },
       "date": 1657827560783
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "e1c006f084245554",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846796626
     }
   ]
 }

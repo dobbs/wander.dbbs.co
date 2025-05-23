@@ -7,6 +7,14 @@
       "text": "As a mother of three, Kat Nouri was dismayed at the amount of \nsingle-use plastic she was using to pack her kids' school lunches. She \nhad already launched a successful brand called Modern Twist, which sold \nplacemats and baby bibs made of silicone. So Kat wondered: why\n not use silicone to make durable food storage bags, which—instead of \nbeing used once, could be used thousands of times? In 2016 she launched \nStasher, and was soon persuading retailers that an $11 reusable bag was \nbetter for the planet—and ultimately, more cost-effective for the \nbig-box shopper. Kat successfully sold the brand to S.C. Johnson just a few years after launch. [https://www.npr.org/2021/11/19/1057386872/stasher-and-modern-twist-kat-nouri npr]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "frame",
       "id": "cafafb00be2a7fd6",
       "text": "https://www.npr.org/player/embed/1057386872/1057392733\nHEIGHT 180\nStasher & Modern Twist: Kat Nouri. How I Built This.\n[https://www.npr.org/2021/11/19/1057386872/stasher-and-modern-twist-kat-nouri npr]"
@@ -294,6 +302,24 @@
       },
       "after": "531c2df69f83aa3c",
       "date": 1650235173287
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "4879b000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846653899
     }
   ]
 }

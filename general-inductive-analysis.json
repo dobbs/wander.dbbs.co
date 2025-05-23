@@ -7,6 +7,14 @@
       "text": "A General Inductive Approach for Analyzing Qualitative Evaluation Data, David R. Thomas, University of Auckland. The collection of qualitative data in evaluation is common. However, knowledge about strategies for efficient and defendable procedures for analyzing qualitative data is less common. A general inductive approach for analysis is described. [https://www.researchgate.net/publication/224029397_A_General_Inductive_Approach_for_Analyzing_Qualitative_Evaluation_Data researchgate]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "id": "975c000",
       "type": "paragraph",
       "text": "The Process of Inductive Coding"
@@ -230,6 +238,24 @@
       },
       "after": "db1d9488b2684aa2",
       "date": 1647454451330
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "8298000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846448891
     }
   ]
 }

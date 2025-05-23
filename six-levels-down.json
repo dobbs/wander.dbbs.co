@@ -7,6 +7,14 @@
       "text": "Todd Park, tech entrepreneur, was looking to improve prenatal care. Athenahealth. Raised millions of dollars to buy a healthcare clinic in San Diego as a proof of concept. Bob Gatewood was hired. They couldn't get insurance companies to pay them. It became a cause. We must save this practice 'cos we're the social safety net for San Diego County. They had to solve this surprising problem of getting paid by insurance companies. They needed an expert. [https://www.pushkin.fm/episode/six-levels-down/ podcast]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "frame",
       "id": "86c50b013bf2ff79",
       "text": "https://embed.podcasts.apple.com/us/podcast/episode-1-six-levels-down/id1455379351?i=1000555532510\nHEIGHT 155\nSix Levels Down. Season 3 of Against the Rules podcast with Michael Lewis"
@@ -956,6 +964,24 @@
         "text": "See other highlights. [[Against The Rules Podcast]]"
       },
       "date": 1650258018597
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "68c11000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846715598
     }
   ]
 }

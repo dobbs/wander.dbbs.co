@@ -7,6 +7,14 @@
       "text": "Evolution of Incident Management at Slack. Brent Chapman @ SRECon2021. Learn how we've made incident management a core capability of everyone on our engineering team: where we are, how we got here, and where we're going. Brent has basically given everyone a roadmap to building an effective incident response program. [https://www.usenix.org/conference/srecon21/presentation/chapman usenix] [https://www.usenix.org/system/files/srecon21_slides_chapman.pdf pdf] [https://www.youtube.com/watch?v=FYYTglQoS3w youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "96f8cd1d53234b78",
       "text": "YOUTUBE FYYTglQoS3w\nEvolution of Incident Management at Slack. Brent Chapman @ SRECon2021. [https://www.youtube.com/watch?v=FYYTglQoS3w youtube]"
@@ -452,6 +460,24 @@
       },
       "after": "db85af279ab0e998",
       "date": 1644956150453
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "39bab800",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846142366
     }
   ]
 }

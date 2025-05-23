@@ -4,7 +4,15 @@
     {
       "id": "53741000",
       "type": "paragraph",
-      "text": "In\nthe world of bits, there is no such thing as a small change. Konrad Hinsen proposes the term software collapse to describe the need to continually update code to accommodate changes in the ecosystem of dependencies for that code. Hinsen describes scientific computing, but the concept applies to all software. He his own project as a case study that illustrates the problem: the Molecular Modelling Toolkit begun in python in 1997.  Konrad Hinsen. Dealing With Software Collapse. Computing in Science and Engineering, 2019, 21\n(3), pp.104-108. DOI:10.1109/MCSE.2019.2900945 hal-0211758. [https://doi.org/10.1109/MCSE.2019.2900945 doi] [https://hal.science/hal-02117588 hal]"
+      "text": "In\nthe world of bits, there is no such thing as a small change. Konrad Hinsen proposes the term software collapse to describe the need to continually update code to accommodate changes in the ecosystem of dependencies for that code. Hinsen describes scientific computing, but the concept applies to all software. He offers his own project as a case study that illustrates the problem: the Molecular Modelling Toolkit begun in python in 1997.  Konrad Hinsen. Dealing With Software Collapse. Computing in Science and Engineering, 2019, 21 (3), pp.104-108. DOI:10.1109/MCSE.2019.2900945 hal-0211758. [https://doi.org/10.1109/MCSE.2019.2900945 doi] [https://hal.science/hal-02117588 hal]"
+    },
+    {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
     },
     {
       "id": "24f7b000",
@@ -155,6 +163,34 @@
         "text": "NumPy 1.9 caused the collapse of my Molecular\nModelling Toolkit, and it seems hardly worth doing much\nabout it because the upcoming end of support for Python 2\nin 2020 will be the final death blow, since porting the code\nto Python 3 would almost be a complete rewrite.\n"
       },
       "date": 1697918357863
+    },
+    {
+      "type": "edit",
+      "id": "53741000",
+      "item": {
+        "id": "53741000",
+        "type": "paragraph",
+        "text": "In\nthe world of bits, there is no such thing as a small change. Konrad Hinsen proposes the term software collapse to describe the need to continually update code to accommodate changes in the ecosystem of dependencies for that code. Hinsen describes scientific computing, but the concept applies to all software. He offers his own project as a case study that illustrates the problem: the Molecular Modelling Toolkit begun in python in 1997.  Konrad Hinsen. Dealing With Software Collapse. Computing in Science and Engineering, 2019, 21 (3), pp.104-108. DOI:10.1109/MCSE.2019.2900945 hal-0211758. [https://doi.org/10.1109/MCSE.2019.2900945 doi] [https://hal.science/hal-02117588 hal]"
+      },
+      "date": 1748008474060
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "53741000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008484698
     }
   ]
 }

@@ -7,6 +7,14 @@
       "text": "Identifying the main themes in data from user studies — such as: interviews, focus groups, diary studies, and field studies — is often done through thematic analysis. Thematic analysis is a systematic method of breaking down and organizing rich data from qualitative research by tagging individual observations and quotations with appropriate codes, to facilitate the discovery of significant themes. Themes describe a belief, practice, need, or another phenomenon that is discovered from the data. They\nemerge when related findings appear multiple times across participants or data sources. How to Analyze Qualitative Data from UX Research: Thematic Analysis—Maria Rosala, Nielsen Norman Group [https://www.nngroup.com/articles/thematic-analysis/ site]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "paragraph",
       "id": "9ccd855591043bd5",
       "text": "Journaling"
@@ -309,6 +317,24 @@
         "text": "Contrast more informal methods in [[Commonplace Book]]."
       },
       "date": 1647454422974
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "4d9de000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846435121
     }
   ]
 }

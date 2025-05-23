@@ -7,6 +7,14 @@
       "text": "Followship: A proposed model of incident organization for how to have better incidents. A cognitive systems approach to coordination by Dr. Laura Maguire @ SREcon 23 Americas [https://www.youtube.com/watch?v=m6NlJFsfimw youtube] [https://www.usenix.org/conference/srecon23americas/presentation/maguire usenix]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "50c5ec73fdbf258f",
       "text": "YOUTUBE m6NlJFsfimw\nFollowship: A proposed model of incident organization for how to have better incidents. A cognitive systems approach to coordination by Dr. Laura Maguire @ SREcon 23 Americas [https://www.youtube.com/watch?v=m6NlJFsfimw youtube]"
@@ -60,6 +68,24 @@
         "text": "Followship: A proposed model of incident organization for how to have better incidents. A cognitive systems approach to coordination by Dr. Laura Maguire @ SREcon 23 Americas [https://www.youtube.com/watch?v=m6NlJFsfimw youtube] [https://www.usenix.org/conference/srecon23americas/presentation/maguire usenix]"
       },
       "date": 1698034702550
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "14adb000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008608154
     }
   ]
 }

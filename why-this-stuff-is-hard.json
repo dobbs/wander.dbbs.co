@@ -7,6 +7,14 @@
       "text": "Giving words to the constraints that make software engineering hard can help us improve. 1. We cannot escape the adaptive universe. 2. We cannot reduce the complexity in the long run. 3. We cannot step outside our local perspective. 4. We cannot do it alone. All we can do is learn to navigate these constraints better. Why This Stuff is Hard by Dr. Lorin Hochstein @ SREcon 23 Americas [https://www.youtube.com/watch?v=Tm_qS5raszw youtube] [https://www.usenix.org/conference/srecon23americas/presentation/hochstein usenix]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "d3217e984e5b0944",
       "text": "YOUTUBE Tm_qS5raszw\nWhy This Stuff is Hard by Dr. Lorin Hochstein @ SREcon 23 Americas [https://www.youtube.com/watch?v=Tm_qS5raszw youtube]"
@@ -874,6 +882,24 @@
         "text": "Giving words to the constraints that make software engineering hard can help us improve. 1. We cannot escape the adaptive universe. 2. We cannot reduce the complexity in the long run. 3. We cannot step outside our local perspective. 4. We cannot do it alone. All we can do is learn to navigate these constraints better. Why This Stuff is Hard by Dr. Lorin Hochstein @ SREcon 23 Americas [https://www.youtube.com/watch?v=Tm_qS5raszw youtube] [https://www.usenix.org/conference/srecon23americas/presentation/hochstein usenix]"
       },
       "date": 1698034564714
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "76106000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008594984
     }
   ]
 }

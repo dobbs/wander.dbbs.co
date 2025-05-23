@@ -7,6 +7,14 @@
       "text": "Crosscut is a stylus & tablet tool for drawing dynamic models of your thoughts. It aspires to be a thing to think through. In Crosscut you sketch, cobble, tinker, and play toward a deeper understanding. Begin by using the drawing tools to sketch something you’re thinking about, as you would with pen & paper. Then, add dynamic behaviors with a programming system that lives right inside your sketches. Each dynamic sketch is a reusable part that you can nest inside other sketches, enabling you to build elaborate models from simple pieces. Ink & Switch. Crosscut: Drawing Dynamic Models [https://www.inkandswitch.com/crosscut/ article]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "id": "6666d800",
       "type": "pagefold",
       "text": "."
@@ -161,6 +169,24 @@
         "text": "//dobbse.net/turtle/wander/\nHEIGHT 400\nA turtle graphics implementation built with a view to creating a programming environment kids could use on an ipod touch without having to type with their thumbs. [https://dobbse.net/thinair/2012/03/programming-by-touch.html blog] [https://dobbse.net/turtle/wander/ app]"
       },
       "date": 1648673439785
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "4af5c000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846532466
     }
   ]
 }

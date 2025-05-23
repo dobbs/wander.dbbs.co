@@ -7,6 +7,14 @@
       "text": "Stefan Lesser asks: What if navigation wasn’t through arbitrary chunks (pages) but aligned with the structure of the content (sections > paragraphs > sentences)? Too much effort goes into transforming trees into sequences (writing) and back (reading). What if we just kept the trees? (fig. and lit.) [https://twitter.com/stefanlesser/status/1230736325659127810 tweet]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "id": "54f54a00",
       "type": "image",
       "text": "Here’s a terrible (handwritten) sketch I made about it. Probably raises more questions than it gives answers. :-) [https://twitter.com/stefanlesser/status/1230799474504720384 tweet]",
@@ -83,6 +91,24 @@
         "text": "Stefan Lesser asks: What if navigation wasn’t through arbitrary chunks (pages) but aligned with the structure of the content (sections > paragraphs > sentences)? Too much effort goes into transforming trees into sequences (writing) and back (reading). What if we just kept the trees? (fig. and lit.) [https://twitter.com/stefanlesser/status/1230736325659127810 tweet]"
       },
       "date": 1680116950897
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "4fd08000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008290967
     }
   ]
 }

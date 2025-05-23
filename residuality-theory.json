@@ -7,6 +7,14 @@
       "text": "Residuality theory models software systems as interconnected residues—an alternative to component and process modeling that uses applied complexity science to make managing uncertainty a fundamental part of the design process. Residuality Theory by Barry O’Reilly @ Jfokus 2022 [https://www.jfokus.se/jfokus22-preso/Residuality-Theory.pdf pdf] [https://www.youtube.com/watch?v=96IqczEd88A youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "3490c97d23bdf2e0",
       "text": "YOUTUBE 96IqczEd88A\nResiduality Theory by Barry O’Reilly @ Jfokus 2022  [https://www.youtube.com/watch?v=96IqczEd88A youtube]"
@@ -1125,6 +1133,24 @@
       "type": "remove",
       "id": "b512000",
       "date": 1667153539733
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "36539000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008060730
     }
   ]
 }

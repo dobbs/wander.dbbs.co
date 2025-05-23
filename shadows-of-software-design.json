@@ -7,6 +7,14 @@
       "text": "Software design is intertwingled shadows. A better metaphor than an iron triangle.\n\nHold this image still in your imagination.\n\nFeel the intertwingled. Feel the socio-technical.\n\nThen let continuous change wash over you. The Shadows of Software Design, GeePaw Hill  [https://www.geepawhill.org/2022/02/15/the-shadows-of-software-design/ article]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "image",
       "id": "761de9100b809241",
       "text": "Cover image from Gödel, Escher, and Bach",
@@ -197,6 +205,24 @@
       "type": "remove",
       "id": "55948000",
       "date": 1667153612183
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "327a8000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008096644
     }
   ]
 }

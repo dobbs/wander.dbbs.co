@@ -5,6 +5,14 @@
       "id": "6960c000",
       "type": "paragraph",
       "text": "in-toto is a system for securing the way in which software is developed, built, tested, and packaged (i.e., the software supply chain). in-toto attests to the integrity and verifiability of all the actions performed while writing code, compiling, testing, and deploying software. It does so by making it transparent to the user what steps were performed, by whom and in what order. As a result, given guidance by the group creating the software, in-toto allows the user to verify if a step in the supply chain was intended to be performed, if the step was performed by the right actor, and attests that materials (e.g., source code) were not tampered with between steps. [https://github.com/in-toto/docs/blob/v0.9/in-toto-spec.md github]"
+    },
+    {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
     }
   ],
   "journal": [
@@ -34,6 +42,24 @@
     {
       "type": "fork",
       "date": 1647452563844
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "6960c000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846410436
     }
   ]
 }

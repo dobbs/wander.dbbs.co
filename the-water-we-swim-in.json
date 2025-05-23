@@ -7,6 +7,14 @@
       "text": "The water we swim in: why the hardest problems in DevOps are difficult to see and talk about. Dr. Laura Maguire @ DevOpsDays Rockies 2022 [https://www.youtube-nocookie.com/embed/n3DvKmqhzUo?start=6472&end=8386 youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "frame",
       "id": "bc1569e5828dda41",
       "text": "//www.youtube-nocookie.com/embed/n3DvKmqhzUo?start=6472&end=8386\nHEIGHT 300\nThe water we swim in: why the hardest problems in DevOps are difficult to see and talk about. Dr. Laura Maguire @ DevOpsDays Rockies 2022 [https://www.youtube-nocookie.com/embed/n3DvKmqhzUo?start=6472&end=8386 youtube]"
@@ -346,6 +354,24 @@
       },
       "after": "65d500ff7ce32541",
       "date": 1667154110683
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "2c174000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008174607
     }
   ]
 }

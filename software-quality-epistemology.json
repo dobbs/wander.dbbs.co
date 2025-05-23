@@ -7,6 +7,15 @@
       "text": "[https://increment.com/teams/the-epistemology-of-software-quality/ article]"
     },
     {
+      "type": "reference",
+      "id": "847b3b7f46cb676a",
+      "text": "This page is a 🌱 Seedling [[Note]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta",
+      "alias": "4e8e342b350efb22"
+    },
+    {
       "type": "markdown",
       "id": "1daee15640ebdcb0",
       "text": "> [Code review], according to a 2016 article published in Empirical Software Engineering, actually works. But we can't stake our team’s success on just \"more code reviews.\"\n\nSee [[Code Review Impacts Quality]]\n"
@@ -386,6 +395,48 @@
       "type": "remove",
       "id": "68c7d6eacf52dc11",
       "date": 1657827861907
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Whisp]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "1ba05c00",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846865240
+    },
+    {
+      "id": "847b3b7f46cb676a",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "847b3b7f46cb676a",
+        "text": "This page is a 🌱 Seedling [[Note]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta",
+        "alias": "4e8e342b350efb22"
+      },
+      "after": "4e8e342b350efb22",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846874172
+    },
+    {
+      "type": "remove",
+      "id": "4e8e342b350efb22",
+      "date": 1747846876523
     }
   ]
 }

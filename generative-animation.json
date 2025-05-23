@@ -7,6 +7,14 @@
       "text": "We were pointed to the open source release of Motion Canvas. Delight burst forward after a moment of studying the example function makeScene(). We see immediate associations between this expressive use of generators and our own 20 year old animation language. [https://motioncanvas.io/ site] [https://github.com/motion-canvas/motion-canvas github] [https://www.youtube.com/watch?v=H5GETOP7ivs youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "b6cd26cd3103ae4a",
       "text": "YOUTUBE H5GETOP7ivs\nMotion Canvas is now open source.\n[https://www.youtube.com/watch?v=H5GETOP7ivs youtube]"
@@ -106,6 +114,24 @@
         "text": "YOUTUBE H5GETOP7ivs\nMotion Canvas is now open source.\n[https://www.youtube.com/watch?v=H5GETOP7ivs youtube]"
       },
       "date": 1680185058229
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "3d2e9000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008331928
     }
   ]
 }

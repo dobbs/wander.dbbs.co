@@ -7,6 +7,14 @@
       "text": "One of the most desirable properties in queue or stream based systems is increased efficiency as the queue depth grows. Without that property, slight mode shifts can push the system into the state of perpetually growing backlog. [https://twitter.com/_joemag_/status/1511027555813318658 tweet]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "image",
       "id": "d2515c6ed83a3bda",
       "text": "Increasing resource unable to keep up with demand. A timeseries chart showing pieces of work per day with three lines: incoming pieces at about 15 per day, outgoing pieces at about 9 per day, and the backlog growing linearly over time without bound.",
@@ -299,6 +307,24 @@
       "type": "remove",
       "id": "7ee59000",
       "date": 1666796147858
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "44e30800",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748007881809
     }
   ]
 }

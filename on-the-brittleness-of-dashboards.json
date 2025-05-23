@@ -5,6 +5,14 @@
       "id": "7c33c000",
       "type": "paragraph",
       "text": "Dashboards are one of the most basic and popular tools software engineers use to operate their systems. In this post, I'll make the argument that their use is unfortunately too widespread, and that the reflex we have to use and rely on them tends to drown out better, more adapted approaches, particularly in the context of incidents. On the brittleness of dashboards. Fred Hebert. [https://www.honeycomb.io/blog/brittleness-of-dashboards/ article]"
+    },
+    {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
     }
   ],
   "journal": [
@@ -29,6 +37,24 @@
         "text": "Dashboards are one of the most basic and popular tools software engineers use to operate their systems. In this post, I'll make the argument that their use is unfortunately too widespread, and that the reflex we have to use and rely on them tends to drown out better, more adapted approaches, particularly in the context of incidents. On the brittleness of dashboards. Fred Hebert. [https://www.honeycomb.io/blog/brittleness-of-dashboards/ article]"
       },
       "date": 1647452523498
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "7c33c000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846417981
     }
   ]
 }

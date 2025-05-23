@@ -7,6 +7,14 @@
       "text": "Tales from the VOID: The Scary Truth about Incident Metrics by Courtney Nash @ SRECon 2022 [https://www.usenix.org/conference/srecon22americas/presentation/nash usenix] [https://www.youtube.com/watch?v=JNgvuF8r46U youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "bdae6daa3b0053e7",
       "text": "YOUTUBE JNgvuF8r46U\nTales from the VOID: The Scary Truth about Incident Metrics by Courtney Nash @ SRECon 2022 [https://www.usenix.org/conference/srecon22americas/presentation/nash usenix] [https://www.youtube.com/watch?v=JNgvuF8r46U youtube]"
@@ -203,6 +211,24 @@
         "text": "."
       },
       "date": 1669059889334
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "43156700",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008243170
     }
   ]
 }

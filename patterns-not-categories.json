@@ -7,6 +7,14 @@
       "text": "Patterns, Not Categories: Learning Across Incidents by Tanner Lund @ SRECon 23 Asia/Pacific [https://www.youtube.com/watch?v=ooDsfvuWoww youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "id": "dba0800",
       "type": "video",
       "text": "YOUTUBE ooDsfvuWoww\nPatterns, Not Categories: Learning Across Incidents by Tanner Lund @ SRECon 23 Asia/Pacific [https://www.youtube.com/watch?v=ooDsfvuWoww youtube]"
@@ -45,6 +53,24 @@
         "text": "YOUTUBE ooDsfvuWoww\nPatterns, Not Categories: Learning Across Incidents by Tanner Lund @ SRECon 23 Asia/Pacific [https://www.youtube.com/watch?v=ooDsfvuWoww youtube]"
       },
       "date": 1697921503665
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "abf0000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008577814
     }
   ]
 }

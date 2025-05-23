@@ -7,6 +7,14 @@
       "text": "Let Your Body Lead: Career Planning With Somatics by Amy Newell @ RailsConf 2022 [https://www.youtube.com/watch?v=XLAOzi-SNMs youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "f4b326c8905b538d",
       "text": "YOUTUBE XLAOzi-SNMs\nLet Your Body Lead: Career Planning With Somatics by Amy Newell @ RailsConf 2022 [https://www.youtube.com/watch?v=XLAOzi-SNMs youtube]"
@@ -41,6 +49,24 @@
       },
       "after": "3db400",
       "date": 1658341197209
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "3db400",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748007480170
     }
   ]
 }

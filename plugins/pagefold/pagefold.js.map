@@ -1,25 +1,7 @@
 {
   "version": 3,
-  "names": [
-    "bind",
-    "emit",
-    "$item",
-    "item",
-    "append",
-    "concat",
-    "text",
-    "on",
-    "wiki",
-    "textEditor",
-    "window",
-    "plugins",
-    "pagefold"
-  ],
-  "sources": [
-    "pagefold.coffee"
-  ],
-  "sourcesContent": [
-    "###\n * Federated Wiki : Pagefold Plugin\n *\n * Licensed under the MIT license.\n * https://github.com/fedwiki/wiki-plugin-pagefold/blob/master/LICENSE.txt\n###\n\n# http://stackoverflow.com/questions/5214127/css-technique-for-a-horizontal-line-with-words-in-the-middle\n\nemit = ($item, item) ->\n\t$item.append \"\"\"\n\t\t<div style=\"height: 10px; border-top: 2px solid lightgray; margin-top: 24px; text-align: center; position: relative; clear: both;\">\n\t\t\t<span style=\"position: relative; top: -.8em; background: white; display: inline-block; color: gray; \">\n\t\t\t\t&nbsp; #{item.text} &nbsp;\n\t\t\t</span>\n\t\t</div>\n\t\"\"\"\n\nbind = ($item, item) ->\n\t$item.on 'dblclick', () -> wiki.textEditor $item, item\n\nwindow.plugins.pagefold = {emit, bind}\n"
-  ],
-  "mappings": ";;AAKG;EAAA;;;;;;EAAA,IAAAA,IAAA,EAAAC,IAAA;;;EAIHA,IAAA,GAAO,SAAAA,KAACC,KAAD,EAAQC,IAAR;WACND,KAAK,CAACE,MAAN,kQAAAC,MAAA,CAGYF,IAAI,CAACG,IAHJ,gCAAb;EADM;EASPN,IAAA,GAAO,SAAAA,KAACE,KAAD,EAAQC,IAAR;WACND,KAAK,CAACK,EAAN,CAAS,UAAT,EAAqB;aAAMC,IAAI,CAACC,UAAL,CAAgBP,KAAhB,EAAuBC,IAAvB;IAAN,CAArB;EADM;EAGPO,MAAM,CAACC,OAAO,CAACC,QAAf,GAA0B;IAACX,IAAD,EAACA,IAAD;IAAOD,IAAP,EAAOA;EAAP"
+  "sources": ["../src/client/pagefold.js"],
+  "sourcesContent": ["/*\n * Federated Wiki : Pagefold Plugin\n *\n * Licensed under the MIT license.\n * https://github.com/fedwiki/wiki-plugin-pagefold/blob/master/LICENSE.txt\n */\n\n// http://stackoverflow.com/questions/5214127/css-technique-for-a-horizontal-line-with-words-in-the-middle\n\nconst emit = ($item, item) => {\n  $item.append(`\n\t\t<div style=\"height: 10px; border-top: 2px solid lightgray; margin-top: 24px; text-align: center; position: relative; clear: both;\">\n\t\t\t<span style=\"position: relative; top: -.8em; background: white; display: inline-block; color: gray; \">\n\t\t\t\t&nbsp; ${item.text} &nbsp;\n\t\t\t</span>\n\t\t</div>\n\t`)\n}\n\nconst bind = ($item, item) => {\n  $item.on('dblclick', () => wiki.textEditor($item, item))\n}\n\nif (typeof window !== 'undefined') {\n  window.plugins.pagefold = { emit, bind }\n}\n"],
+  "mappings": ";MASA,IAAMA,EAAO,CAACC,EAAOC,IAAS,CAC5BD,EAAM,OAAO;AAAA;AAAA;AAAA,aAGFC,EAAK,IAAI;AAAA;AAAA;AAAA,EAGpB,CACF,EAEMC,EAAO,CAACF,EAAOC,IAAS,CAC5BD,EAAM,GAAG,WAAY,IAAM,KAAK,WAAWA,EAAOC,CAAI,CAAC,CACzD,EAEI,OAAO,OAAW,MACpB,OAAO,QAAQ,SAAW,CAAE,KAAAF,EAAM,KAAAG,CAAK",
+  "names": ["emit", "$item", "item", "bind"]
 }

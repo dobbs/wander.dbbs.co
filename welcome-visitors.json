@@ -2,7 +2,7 @@
   "title": "Welcome Visitors",
   "story": [
     {
-      "text": "Welcome to this [[Federated Wiki]] site. From this page you can find who we are and what we do. New sites provide this information and then claim the site as their own. You will need your own site to participate.",
+      "text": "Welcome to this [[Federated Wiki]] site. From this page you can find who we are and what we do.",
       "id": "7b56f22a4b9ee974",
       "type": "paragraph"
     },
@@ -31,12 +31,41 @@
     {
       "type": "paragraph",
       "id": "ee416d431ebf4fb4",
-      "text": "You can edit your copy of these pages. Press [+] to add more writing spaces. Read [[How to Wiki]] for more ideas. Follow [[Recent Changes]] here and nearby."
+      "text": "Follow [[Recent Changes]] here and nearby."
     },
     {
-      "type": "frame",
-      "id": "a5faf691460ed1f5",
-      "text": "https://wiki.dbbs.co/assets/pages/drop-and-paste-inspector/editorjs.html\nHEIGHT 400"
+      "type": "pagefold",
+      "id": "568188ff5440b1b5",
+      "text": "."
+    },
+    {
+      "type": "paragraph",
+      "id": "a98d868fdbfa4d2d",
+      "text": "Here are three different introductions for newcomers to wiki:"
+    },
+    {
+      "type": "reference",
+      "id": "a46c7ae91b583dc5",
+      "site": "reading.wiki.oddly-influenced.dev",
+      "slug": "how-to-browse-a-wiki",
+      "title": "How to Browse a Wiki",
+      "text": "A tutorial for people who want to read, navigate, and search a federated wiki."
+    },
+    {
+      "type": "reference",
+      "id": "c03539aca1268d16",
+      "site": "fed.wiki.org",
+      "slug": "how-to-wiki",
+      "title": "How To Wiki",
+      "text": "Here we describe how to use the web interface to the federated wiki. Read [[About Federated Wiki]] to learn about the project."
+    },
+    {
+      "type": "reference",
+      "id": "16f8bf7e06ccbce5",
+      "site": "start.fed.wiki",
+      "slug": "start-playing-wiki",
+      "title": "Start Playing Wiki",
+      "text": "Like riding a bicycle, writing here is easy to do but hard to learn. And like the bicycle, just talking about riding doesn't really convey the experience. Try doing."
     }
   ],
   "journal": [
@@ -205,6 +234,158 @@
         "text": "https://wiki.dbbs.co/assets/pages/drop-and-paste-inspector/editorjs.html\nHEIGHT 400"
       },
       "date": 1643741356538
+    },
+    {
+      "type": "edit",
+      "id": "7b56f22a4b9ee974",
+      "item": {
+        "text": "Welcome to this [[Federated Wiki]] site. From this page you can find who we are and what we do.",
+        "id": "7b56f22a4b9ee974",
+        "type": "paragraph"
+      },
+      "date": 1747845130588
+    },
+    {
+      "type": "remove",
+      "id": "a5faf691460ed1f5",
+      "date": 1747845154954
+    },
+    {
+      "type": "edit",
+      "id": "ee416d431ebf4fb4",
+      "item": {
+        "type": "paragraph",
+        "id": "ee416d431ebf4fb4",
+        "text": "Follow [[Recent Changes]] here and nearby."
+      },
+      "date": 1747845172522
+    },
+    {
+      "type": "add",
+      "id": "568188ff5440b1b5",
+      "item": {
+        "type": "paragraph",
+        "id": "568188ff5440b1b5",
+        "text": "..."
+      },
+      "after": "ee416d431ebf4fb4",
+      "date": 1747845181299
+    },
+    {
+      "type": "add",
+      "id": "a98d868fdbfa4d2d",
+      "item": {
+        "type": "paragraph",
+        "id": "a98d868fdbfa4d2d",
+        "text": "Here are three different introductions for newcomers to wiki:"
+      },
+      "after": "568188ff5440b1b5",
+      "date": 1747845204995
+    },
+    {
+      "type": "edit",
+      "id": "568188ff5440b1b5",
+      "item": {
+        "type": "pagefold",
+        "id": "568188ff5440b1b5",
+        "text": "."
+      },
+      "date": 1747845211371
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "a46c7ae91b583dc5"
+      },
+      "id": "a46c7ae91b583dc5",
+      "type": "add",
+      "after": "a98d868fdbfa4d2d",
+      "date": 1747845214069
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "c03539aca1268d16"
+      },
+      "id": "c03539aca1268d16",
+      "type": "add",
+      "after": "a46c7ae91b583dc5",
+      "date": 1747845216139
+    },
+    {
+      "item": {
+        "type": "factory",
+        "id": "16f8bf7e06ccbce5"
+      },
+      "id": "16f8bf7e06ccbce5",
+      "type": "add",
+      "after": "c03539aca1268d16",
+      "date": 1747845218108
+    },
+    {
+      "type": "edit",
+      "id": "a46c7ae91b583dc5",
+      "item": {
+        "type": "reference",
+        "id": "a46c7ae91b583dc5",
+        "site": "reading.wiki.oddly-influenced.dev",
+        "slug": "how-to-browse-a-wiki",
+        "title": "How to Browse a Wiki",
+        "text": "A tutorial for people who want to read, navigate, and search a federated wiki."
+      },
+      "date": 1747845227002
+    },
+    {
+      "type": "edit",
+      "id": "c03539aca1268d16",
+      "item": {
+        "type": "reference",
+        "id": "c03539aca1268d16",
+        "site": "fed.wiki.org",
+        "slug": "how-to-wiki",
+        "title": "How To Wiki",
+        "text": "Here we describe how to use the web interface to the federated wiki. Read [[About Federated Wiki]] to learn about the project. If you are just starting to write in your first wiki then read the [[Field Guide to the Federation]]."
+      },
+      "date": 1747845259395
+    },
+    {
+      "type": "edit",
+      "id": "c03539aca1268d16",
+      "item": {
+        "type": "reference",
+        "id": "c03539aca1268d16",
+        "site": "fed.wiki.org",
+        "slug": "how-to-wiki",
+        "title": "How To Wiki",
+        "text": "Here we describe how to use the web interface to the federated wiki. Read [[About Federated Wiki]] to learn about the project."
+      },
+      "date": 1747845292614
+    },
+    {
+      "type": "edit",
+      "id": "16f8bf7e06ccbce5",
+      "item": {
+        "type": "reference",
+        "id": "16f8bf7e06ccbce5",
+        "site": "start.fed.wiki",
+        "slug": "start-playing-wiki",
+        "title": "Start Playing Wiki",
+        "text": "Wiki is a hypertext. When you click a link you will go to that page. Here we have arranged the pages like rooms in an adventure game. There are things you can do here but you can just zoom through without doing any of them. Then maybe you will play again and do some things. Play it lots of times. You will get good at it."
+      },
+      "date": 1747845318076
+    },
+    {
+      "type": "edit",
+      "id": "16f8bf7e06ccbce5",
+      "item": {
+        "type": "reference",
+        "id": "16f8bf7e06ccbce5",
+        "site": "start.fed.wiki",
+        "slug": "start-playing-wiki",
+        "title": "Start Playing Wiki",
+        "text": "Like riding a bicycle, writing here is easy to do but hard to learn. And like the bicycle, just talking about riding doesn't really convey the experience. Try doing."
+      },
+      "date": 1747845326442
     }
   ]
 }

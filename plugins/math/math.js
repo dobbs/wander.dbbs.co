@@ -5,40 +5,56 @@
  * https://github.com/fedwiki/wiki-plugin-line/blob/master/LICENSE.txt
  */
 
+const katexVersion = '0.16'
+
 async function emit(div, item) {
-  if (!$("link[href='https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css']").length) {
-    $('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">').appendTo("head")
+  if (!$(`link[href='https://cdn.jsdelivr.net/npm/katex@${katexVersion}/dist/katex.min.css']`).length) {
+    $(`<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@${katexVersion}/dist/katex.min.css">`).appendTo(
+      'head',
+    )
   }
 
-  const katex = await import('https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.js')
+  await import(`https://cdn.jsdelivr.net/npm/katex@${katexVersion}/dist/katex.js`)
 
   const text = wiki.resolveLinks(item.text)
-  const parsedText = text.split(/\n/).map(line => {
-    if (line.startsWith('\\[')) {
-      return window.katex.renderToString(line.replace(/\\\[/, '').replace(/\\\]/,'').trim(), {displayMode: true, throwOnError: false})
-    } else {
-      return line.split(/((?:\\\(.*?(?:\\\))))/).map(part => {
-        if (part.startsWith('\\(')) {
-          wiki.log('part', part, part.slice(2,-2))
-          return window.katex.renderToString(part.slice(2,-2), {throwOnError: false})
-        } else {
-          return part
-        }
-      }).join('')
-    }      
-  }).join('\n')
-  div.append(`<p>${parsedText}`)
 
+  const unescape = str => {
+    return (str || '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>')
+  }
+
+  const parsedText = text
+    .split(/\n/)
+    .map(line => {
+      if (line.startsWith('\\[')) {
+        return window.katex.renderToString(unescape(line.replace(/\\\[/, '').replace(/\\\]/, '').trim()), {
+          displayMode: true,
+          throwOnError: false,
+        })
+      } else {
+        return line
+          .split(/((?:\\\(.*?(?:\\\))))/)
+          .map(part => {
+            if (part.startsWith('\\(')) {
+              return window.katex.renderToString(unescape(part.slice(2, -2)), { throwOnError: false })
+            } else {
+              return part
+            }
+          })
+          .join('')
+      }
+    })
+    .join('\n')
+
+  div.append(`<p>${parsedText}`)
 }
 
 function bind(div, item) {
   div.on('dblclick', () => wiki.textEditor(div, item))
-
 }
 
-if (typeof window !== "undefined" && window !== null) {
+if (typeof window !== 'undefined' && window !== null) {
   window.plugins.math = window.plugins.mathjax = {
     emit: emit,
-    bind: bind
+    bind: bind,
   }
 }

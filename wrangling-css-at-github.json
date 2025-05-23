@@ -7,6 +7,14 @@
       "text": "Breaking up with the bundle by Joel Hawksley @ RailsConf 2022 [https://www.youtube.com/watch?v=21QG19Zy_g0 youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "7063a9ff52ad41f0",
       "text": "YOUTUBE 21QG19Zy_g0\nBreaking up with the bundle by Joel Hawksley @ RailsConf 2022 [https://www.youtube.com/watch?v=21QG19Zy_g0 youtube]"
@@ -65,6 +73,24 @@
       "id": "f4b326c8905b538d",
       "type": "remove",
       "date": 1658341197208
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "56eda000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748007466267
     }
   ]
 }

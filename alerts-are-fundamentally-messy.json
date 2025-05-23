@@ -1,0 +1,86 @@
+{
+  "title": "Alerts Are Fundamentally Messy",
+  "story": [
+    {
+      "id": "4a76e000",
+      "type": "paragraph",
+      "text": "Maintain alerts by chasing down alert conditions, reflecting on incidents, and thinking of what makes a signal good or bad. The hope is for alerts that page us when they should, and don’t when they shouldn’t. In a socio-technical system, alerts must address the signal, and the longer term interpretation of alerts by people and automation. This post will expand on this messiness and why Honeycomb favors an iterative approach to setting our alerts. Alerts Are Fundamentally Messy. Fred Hebert, SRE at Honeycomb. [https://www.honeycomb.io/blog/alerts-are-fundamentally-messy blog]"
+    },
+    {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
+      "id": "6d072000",
+      "type": "paragraph",
+      "text": "Balancing signal and noise"
+    },
+    {
+      "id": "492a6800",
+      "type": "paragraph",
+      "text": "An iterative approach to alerts"
+    },
+    {
+      "id": "33d3a000",
+      "type": "paragraph",
+      "text": "Managing the noise"
+    }
+  ],
+  "journal": [
+    {
+      "type": "create",
+      "item": {
+        "title": "Alerts Are Fundamentally Messy",
+        "story": [
+          {
+            "id": "4a76e000",
+            "type": "paragraph",
+            "text": "Maintain alerts by chasing down alert conditions, reflecting on incidents, and thinking of what makes a signal good or bad. The hope is for alerts that page us when they should, and don’t when they shouldn’t. In a socio-technical system, alerts must address the signal, and the longer term interpretation of alerts by people and automation. This post will expand on this messiness and why Honeycomb favors an iterative approach to setting our alerts. Alerts Are Fundamentally Messy. Fred Hebert, SRE at Honeycomb. [https://www.honeycomb.io/blog/alerts-are-fundamentally-messy blog]"
+          },
+          {
+            "id": "6d072000",
+            "type": "paragraph",
+            "text": "Balancing signal and noise"
+          },
+          {
+            "id": "492a6800",
+            "type": "paragraph",
+            "text": "An iterative approach to alerts"
+          },
+          {
+            "id": "33d3a000",
+            "type": "paragraph",
+            "text": "Managing the noise"
+          }
+        ]
+      },
+      "date": 1706983910192
+    },
+    {
+      "type": "fork",
+      "date": 1706983949665
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "4a76e000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008621186
+    }
+  ]
+}

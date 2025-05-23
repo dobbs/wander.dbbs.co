@@ -141,6 +141,10 @@
   }
 
   function addLineupListener(lineup, iframe, topic) {
+    // TODO: there's a memory leak here. Need to prevent adding
+    // duplicate listeners to the DOM. Probably implies keeping an
+    // inventory of listeners we've added to the DOM and probably also
+    // need a garbage collector.
     lineup.addEventListener(`${topic}Stream`, ({detail}) =>
       iframe.contentWindow.postMessage({
         ...detail,
@@ -159,8 +163,12 @@
         break
       }
     }
+    // Ugh. A problem described in 4 parts:
+    // 1 of 4. Looks like I was intending to return an object.
     let sourceData = {}
     if (sources.length > 0) {
+      // 2 of 4. But .map() returns an Array. This broke my own "contract"  :-(
+      // 3 of 4. many existing scripts in the wild expect this Array
       sourceData = sources.map(div => {
         let $div = $(div)
         let result = {
@@ -170,6 +178,7 @@
         return result
       })
     } else {
+      // 4 of 4. The error case returns an Object--showing the original intent
       sourceData = {
         error: `cannot find a source for "${topic}" in the lineup`,
         ...identifiers($item, $item.data())
@@ -223,12 +232,26 @@
   }
 
   function frameListener(event) {
+    // is this message for us?
+    // events from iframes don't have an opener
+    // ensure that the iframe is one of ours
+    if (event.source.opener) {
+      if (wiki.debug) {console.log('frameListener - not for us', {event})}
+      return
+    }
+    const $iframe = $(".item.frame iframe")
+          .filter((i,el) => el.contentWindow === event.source);
+    if ($iframe.length <= 0) {
+      if (wiki.debug) {console.log('frameListener - not for us', {event})}
+      return
+    }
+    if (wiki.debug) {console.log('frameListener - ours', {event})}
+
     const {data} = event;
     const {action, keepLineup=false, pageKey=null, page=null, pages={},
            title=null, site=null} = data;
     let options
 
-    const $iframe = $("iframe").filter((i,el) => el.contentWindow === event.source)
     const $item = $iframe.parents(".item")
     let $page = null
     if (pageKey != null) {
@@ -272,8 +295,18 @@
       triggerThumb($item, thumb)
       break
     case "publishSourceData":
-      // TODO change name to topic
-      publishSourceData($item, name, sourceData)
+      if (!!name && !topic) {
+        const [url='unknown URL'] = $item.data()?.item?.text?.split(/\n/)
+        console.warn(`a frame at ${url} sent a "publishSourceData" action with a "name".
+That action now expects a "topic" instead of "name" (changed in version 0.10.2).
+We recommend sending the following message: `, {
+  action,
+  topic: name,
+  sourceData: '...' // elided to improve signal-to-noise ratio of our warning
+})
+        topic = name
+      }
+      publishSourceData($item, topic, sourceData)
       break
     case "requestSourceData":
       let sources = requestSourceData($item, topic)
@@ -307,7 +340,8 @@
   if (typeof module !== "undefined" && module !== null) {
     wiki = {resolveLinks: (text, escape) => escape(text)}
     module.exports = {
-      expand, parse, publishSourceData, triggerThumb, sandboxFor
+      expand, parse, sandboxFor,
+      triggerThumb, publishSourceData
     }
   }
 

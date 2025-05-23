@@ -7,6 +7,14 @@
       "text": "Cognitive Apprenticeship in Practice with Alert Triage Hour of Power by Paige Cruz @ SREcon 23 Americas [https://www.youtube.com/watch?v=c8uRsQPeg_g youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "id": "7b541000",
       "type": "video",
       "text": "YOUTUBE c8uRsQPeg_g\nCognitive Apprenticeship in Practice with Alert Triage Hour of Power by Paige Cruz @ SREcon 23 Americas [https://www.youtube.com/watch?v=c8uRsQPeg_g youtube]"
@@ -45,6 +53,24 @@
         "text": "YOUTUBE c8uRsQPeg_g\nCognitive Apprenticeship in Practice with Alert Triage Hour of Power by Paige Cruz @ SREcon 23 Americas [https://www.youtube.com/watch?v=c8uRsQPeg_g youtube]"
       },
       "date": 1697921351955
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "2f0e3800",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008563661
     }
   ]
 }

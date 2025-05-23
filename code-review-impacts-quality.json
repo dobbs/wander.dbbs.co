@@ -5,6 +5,14 @@
       "id": "64d5a000",
       "type": "paragraph",
       "text": "[https://www.researchgate.net/publication/276162927_An_empirical_study_of_the_impact_of_modern_code_review_practices_on_software_quality researchgate]"
+    },
+    {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
     }
   ],
   "journal": [
@@ -25,6 +33,24 @@
     {
       "type": "fork",
       "date": 1657824514343
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "64d5a000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846736097
     }
   ]
 }

@@ -5,6 +5,14 @@
       "id": "54cb8000",
       "type": "paragraph",
       "text": "[https://www.honeycomb.io/blog/tracking-on-call-health/ article]"
+    },
+    {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
     }
   ],
   "journal": [
@@ -25,6 +33,24 @@
     {
       "type": "fork",
       "date": 1657824787603
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "54cb8000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846781774
     }
   ]
 }

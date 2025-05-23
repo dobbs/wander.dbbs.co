@@ -7,6 +7,14 @@
       "text": "This talk is a culmination of about eight years of thinking about incidents and pages. My team runs api.newrelic.com. We have 40 externals and 13 data stores. We should be down all the time. Three years ago we got paged about five times a week. Now we get paged about once per month. Don't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "edbd8f7a28d45bb7",
       "text": "YOUTUBE uNMQpkb7uvE\nDon't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
@@ -260,6 +268,24 @@
         "text": "This talk is a culmination of about eight years of thinking about incidents and pages. My team runs api.newrelic.com. We have 40 externals and 13 data stores. We should be down all the time. Three years ago we got paged about five times a week. Now we get paged about once per month. Don't page me! How we limit pager noise at New Relic by Chuck Lauer Vose @ RailsConf 2022 [https://www.youtube.com/watch?v=uNMQpkb7uvE youtube]"
       },
       "date": 1659506525260
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "6a4b6000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748007578974
     }
   ]
 }

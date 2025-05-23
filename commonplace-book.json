@@ -7,6 +7,14 @@
       "text": "Commonplace books were originally the preserve of male scholars who used them to keep notes as they learned; but gradually their use spread beyond universities and by the 18th century commonplace books were also used by educated women. The problem wasn't in the collecting, but the finding again. Kathryn Kane writes about English cultural history in the Regency period covered the development of the commonplace book quite thoroughly. [http://regencyredingote.wordpress.com/2013/11/22/salads-of-many-herbs-zibaldone-in-the-regency/ link]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "pagefold",
       "id": "82f9ed028c8c8786",
       "text": "quote "
@@ -538,6 +546,24 @@
       "type": "fork",
       "site": "wiki.dbbs.co",
       "date": 1643206295495
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "631256f1c2a9c326",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008709868
     }
   ]
 }

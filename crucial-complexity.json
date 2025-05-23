@@ -7,6 +7,14 @@
       "text": "Complexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019 [https://www.usenix.org/conference/srecon19americas/presentation/rosenthal usenix] [https://www.youtube.com/watch?v=mvVfjYE1olc youtube]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "194aba1da4189f28",
       "text": "YOUTUBE mvVfjYE1olc\nComplexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019 [https://www.usenix.org/conference/srecon19americas/presentation/rosenthal usenix] [https://www.youtube.com/watch?v=mvVfjYE1olc youtube]"
@@ -281,6 +289,24 @@
         "text": "YOUTUBE mvVfjYE1olc\nComplexity: The Crucial Ingredient in Your Kitchen. Casey Rosenthal. SRECon 2019 [https://www.usenix.org/conference/srecon19americas/presentation/rosenthal usenix] [https://www.youtube.com/watch?v=mvVfjYE1olc youtube]"
       },
       "date": 1649136013174
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "4a756000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846590693
     }
   ]
 }

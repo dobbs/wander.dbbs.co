@@ -2,111 +2,127 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://wander.localhost/-shuhari.html</loc>
-    <lastmod>2023-06-17</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/a-year-in-the-garden.html</loc>
-    <lastmod>2022-01-26</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/against-the-rules-podcast.html</loc>
     <lastmod>2022-04-18</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/alerts-are-fundamentally-messy.html</loc>
+    <lastmod>2025-05-23</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/basics-of-adaptive-failure.html</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/better-writer-in-tech.html</loc>
-    <lastmod>2022-02-04</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/cdc-stressat-work.html</loc>
-    <lastmod>2022-07-14</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/code-review-impacts-quality.html</loc>
-    <lastmod>2022-07-14</lastmod>
+    <lastmod>2025-05-21</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/cognitive-apprenticeship.html</loc>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/commonplace-book.html</loc>
-    <lastmod>2022-01-26</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/crdt-for-rich-text-collaboration.html</loc>
-    <lastmod>2022-01-29</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/crucial-complexity.html</loc>
-    <lastmod>2022-04-05</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/dealing-with-software-collapse.html</loc>
-    <lastmod>2023-10-21</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/design-and-reality.html</loc>
-    <lastmod>2022-04-04</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/dont-page-me.html</loc>
-    <lastmod>2022-08-03</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/drawing-dynamic-models.html</loc>
-    <lastmod>2022-03-30</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/eric-dobbs.html</loc>
     <lastmod>2022-03-20</lastmod>
   </url>
   <url>
+    <loc>http://wander.localhost/followship-for-better-incidents.html</loc>
+    <lastmod>2025-05-23</lastmod>
+  </url>
+  <url>
     <loc>http://wander.localhost/general-inductive-analysis.html</loc>
-    <lastmod>2022-03-16</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/generative-animation.html</loc>
-    <lastmod>2023-03-30</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/incident-response-at-slack.html</loc>
-    <lastmod>2022-02-15</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/kat-nouri--stasher.html</loc>
-    <lastmod>2022-04-17</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/let-your-body-lead.html</loc>
-    <lastmod>2022-07-20</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/maths-fundamental-flaw.html</loc>
-    <lastmod>2022-09-05</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/on-counting-alerts.html</loc>
-    <lastmod>2022-07-14</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/on-the-brittleness-of-dashboards.html</loc>
-    <lastmod>2022-03-16</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/one-learning-schematic.html</loc>
-    <lastmod>2023-03-29</lastmod>
+    <lastmod>2025-05-23</lastmod>
+  </url>
+  <url>
+    <loc>http://wander.localhost/patterns-not-categories.html</loc>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/project-premortem.html</loc>
-    <lastmod>2022-12-02</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/queue-depth-grows.html</loc>
-    <lastmod>2022-10-26</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/residuality-theory.html</loc>
-    <lastmod>2022-10-30</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/scratch.html</loc>
@@ -118,55 +134,55 @@
   </url>
   <url>
     <loc>http://wander.localhost/shadows-of-software-design.html</loc>
-    <lastmod>2022-10-30</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/six-levels-down.html</loc>
-    <lastmod>2022-04-18</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/software-provenance.html</loc>
-    <lastmod>2022-03-15</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/software-quality-epistemology.html</loc>
-    <lastmod>2022-07-14</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/story-of-advancers.html</loc>
-    <lastmod>2022-03-25</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/tales-from-the-void.html</loc>
-    <lastmod>2022-11-21</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/the-water-we-swim-in.html</loc>
-    <lastmod>2022-10-30</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/thematic-analysis.html</loc>
-    <lastmod>2022-03-16</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/tiny-habits.html</loc>
-    <lastmod>2022-10-26</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/towards-operational-excellence.html</loc>
-    <lastmod>2022-02-04</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/toyota-group-and-the-aisin-fire.html</loc>
-    <lastmod>2022-08-06</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/tracking-on-call-health.html</loc>
-    <lastmod>2022-07-14</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/usefulness-of-error.html</loc>
-    <lastmod>2022-03-11</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/wander.html</loc>
@@ -174,38 +190,26 @@
   </url>
   <url>
     <loc>http://wander.localhost/weak-signals--chaos.html</loc>
-    <lastmod>2022-01-29</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/welcome-visitors.html</loc>
-    <lastmod>2022-02-01</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/what-is-incident-analysis.html</loc>
-    <lastmod>2022-02-04</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/who-owns-on-call.html</loc>
-    <lastmod>2022-02-15</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/wrangling-css-at-github.html</loc>
-    <lastmod>2022-07-20</lastmod>
+    <lastmod>2025-05-21</lastmod>
   </url>
   <url>
     <loc>http://wander.localhost/why-this-stuff-is-hard.html</loc>
-    <lastmod>2023-10-23</lastmod>
+    <lastmod>2025-05-23</lastmod>
   </url>
   <url>
-    <loc>http://wander.localhost/followship-for-better-incidents.html</loc>
-    <lastmod>2023-10-23</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/cognitive-apprenticeship.html</loc>
-    <lastmod>2023-10-21</lastmod>
-  </url>
-  <url>
-    <loc>http://wander.localhost/patterns-not-categories.html</loc>
-    <lastmod>2023-10-21</lastmod>
+    <loc>http://wander.localhost/wrangling-css-at-github.html</loc>
+    <lastmod>2025-05-23</lastmod>
   </url>
 </urlset>

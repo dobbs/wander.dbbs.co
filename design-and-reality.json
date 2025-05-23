@@ -7,6 +7,14 @@
       "text": "Mathias Verraes and Rebecca Wirfs-Brock describe a design breakthrough in \"Design and Reality: Reframing the problem through design\". Rebecca was invited to consult for a company that makes hardware and software for oil rigs. The initial model assumed alarms are directly connected to emergency conditions in the world. The system’s perception of the world is distorted: when engineers turn off the alarm, the system believes the emergency is over. But it’s not, turning an alarm off doesn’t change the emergency condition in the world. ... the team discovered a distinction between the alarm sounding, and the state of alertness. ... The new model decoupled the emergency from the sounding of the alarm by introducing \"alert conditions\" in addition to \"alerts\".  [http://www.wirfs-brock.com/blog/2021/09/13/design-and-reality/ blog]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is an 🌳 Evergreen [[Essay]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "paragraph",
       "id": "57c25a32c567e5d7",
       "text": "Drilling causes a lot of friction, and “drilling mud” (a proprietary chemical substance) is used as a lubricant. Equipment monitors the drilling mud pressure, and by changing the composition of the mud during drilling, you can control that pressure. Too much pressure is a really bad thing."
@@ -283,6 +291,24 @@
       },
       "after": "57c25a32c567e5d7",
       "date": 1649111290897
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is an 🌳 Evergreen [[Essay]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "505d0000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846556917
     }
   ]
 }

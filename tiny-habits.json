@@ -7,6 +7,14 @@
       "text": "Stanford professor B.J.Fogg suggests lasting behavior change grows from many tiny habits."
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "video",
       "id": "bc610f608106c63d",
       "text": "YOUTUBE AdKUJxjn-R8\nB.J.Fogg presents Tiny Habits at TEDx Fremont."
@@ -361,6 +369,24 @@
       "type": "remove",
       "id": "44f018dc1fba7638",
       "date": 1666796689713
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "a11e07a72f26a82c",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748007914804
     }
   ]
 }

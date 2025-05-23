@@ -5,8 +5,9 @@
  * https://github.com/fedwiki/wiki-plugin-force/blob/master/LICENSE.txt
  */
 
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
+
 async function emit($item, item) {
-  const d3 = await import('https://cdn.jsdelivr.net/npm/d3@7/+esm')
   
   $item.append(`
     <style type="text/css">
@@ -23,14 +24,8 @@ async function emit($item, item) {
   const width = 420
   const height = 260
 
-  let data = {}
-
-  const candidates = $(`.item:lt(${$('.item').index($item)})`)
-  if ((who = candidates.filter(".force-source:last").length)) {
-    data = who.get(0).forceData() 
-  } else {
-    data = wiki.getData()
-  }
+  const candidate = $(`.item:lt(${$('.item').index($item)})`).filter(".force-source:last")
+  const data = candidate.length ? candidate.get(0).forceData() : wiki.getData()
 
   const json = $.extend(true, {}, data)
 
@@ -83,8 +78,6 @@ async function ForceGraph({
   div, // page item
   invalidation // when this promise resolves, stop the simulation
 } = {}) {
-
-  const d3 = await import('https://cdn.jsdelivr.net/npm/d3@7/+esm')   // ensure d3 is loaded
 
   // Compute values.
   const N = d3.map(nodes, nodeId).map(intern);

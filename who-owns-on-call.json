@@ -7,6 +7,14 @@
       "text": "Industry leaders like Google, Amazon, Dropbox, Spotify, and Netflix are putting developers on-call for their software. We spoke to these companies to find out why. (Increment issue 1. April 2017. Published by Stripe) [https://increment.com/on-call/who-owns-on-call/ article]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "id": "3b118000",
       "type": "paragraph",
       "text": "Google—SRE team is on-call for the most important and stable service (like Ads, Gmail and Search).\nThe development team carry the operational workload for other non-stable, non-critical services (which are not staffed by the SRE team)"
@@ -304,6 +312,24 @@
         "text": "."
       },
       "date": 1644954666597
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "2ecb2000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846163001
     }
   ]
 }

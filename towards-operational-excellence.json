@@ -5,6 +5,14 @@
       "id": "9326000",
       "type": "paragraph",
       "text": "Towards Operational Excellence: Part 3—Mechanisms. Adrian Hornsby.  Good intentions don't work. Mechanisms do. [https://medium.com/the-cloud-architect/towards-operational-excellence-part-3-8b727f06a4b6 medium]"
+    },
+    {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
     }
   ],
   "journal": [
@@ -25,6 +33,24 @@
     {
       "type": "fork",
       "date": 1644009125341
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "9326000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846077945
     }
   ]
 }

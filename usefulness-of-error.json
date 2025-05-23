@@ -7,6 +7,14 @@
       "text": "\"Error\" serves a number of functions for an organization: as a defense against entanglement, the illusion of control, as a means for distancing, and as a marker for a failed investigation. \"Those found responsible have been sacked\": some observations on the usefulness of error. Richard I. Cook, Christopher P. Nemeth. [https://www.researchgate.net/publication/220579378_Those_found_responsible_have_been_sacked_Some_observations_on_the_usefulness_of_error researchgate]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "id": "732fc000",
       "type": "markdown",
       "text": "# Defense Against Entanglement"
@@ -321,6 +329,24 @@
     {
       "type": "fork",
       "date": 1647452556079
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "f54000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846178208
     }
   ]
 }

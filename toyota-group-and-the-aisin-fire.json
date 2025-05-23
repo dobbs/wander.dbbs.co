@@ -7,6 +7,14 @@
       "text": "A flexible and coordinated response by the Toyota Group's supplier network enabled the manufacturer to rapidly restore production after a disastrous fire; the self-organized cooperation was enabled by deliberately designed practices that created dense social networks of trust and reciprocity that extended beyond Toyota's boundaries and into the companies of its network of suppliers. [https://www.researchgate.net/publication/228287590_The_Toyota_Group_and_the_Aisin_Fire researchgate]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "id": "215e0000",
       "type": "paragraph",
       "text": "We believe that this episode demonstrates the benefits of clustered firm networks of the kind that Toyota and its partners have constructed. The Aisin incident reveals the capacity of these networks not only for self-organized, flexible responses to a crisis but also for routine problem solving that leads to incremental improvements in firm and group performance. In other words, the capabilities that made possible the reopening of Toyota-group plants in a few days instead of months are the same ones that have made Toyota and its suppliers among the most competitive in Japan and the world under normal circumstances."
@@ -223,6 +231,24 @@
         "text": "."
       },
       "date": 1659793647437
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "6d979c00",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748007650395
     }
   ]
 }

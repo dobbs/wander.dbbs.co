@@ -7,6 +7,14 @@
       "text": "In a premortem, team members assume that the project they are planning has just failed and then generate plausible reasons for its demise. Those with reservations may speak freely at the outset, so that the project can be improved rather than autopsied.\n\t\t\t\tPerforming a Project Premortem\n\t\t\tby Gary Klein [https://hbr.org/2007/09/performing-a-project-premortem article]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "id": "4ecce000",
       "type": "paragraph",
       "text": "By making it safe for dissenters who are knowledgeable about the undertaking and worried about its weaknesses to speak up, you can improve a project’s chances of success."
@@ -145,6 +153,24 @@
       },
       "after": "1c408000",
       "date": 1669995791788
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "7982c000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1748008267812
     }
   ]
 }

@@ -7,6 +7,14 @@
       "text": "Brian Marick says, I'm especially interested in the stories that peers tell each other to reinforce a style of working and body of practical knowledge. Ward's story of \"method object\" is a good example. [http://www.exampler.com/old-blog/2004/08/11/index.html#advancers post]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Forage]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "markdown",
       "id": "e715a43136ac4be6",
       "text": "# Problem"
@@ -413,6 +421,24 @@
         "text": "Mathias Verraes and Rebecca Wirfs-Brock tell a story of discovering an abstraction called Alert Condition. The story finds similar insight from programmers carefully considering the software implications of the messy reality of an explosion on an oil rig. See [[Design and Reality]]."
       },
       "date": 1648251434297
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Forage]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "6b61f250ab43bda9",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846505043
     }
   ]
 }

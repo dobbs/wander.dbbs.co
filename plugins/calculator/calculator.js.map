@@ -1,45 +1,7 @@
 {
   "version": 3,
-  "names": [
-    "calculate",
-    "window",
-    "plugins",
-    "calculator",
-    "emit",
-    "div",
-    "item",
-    "field",
-    "pre",
-    "text",
-    "data",
-    "results",
-    "wiki",
-    "getData",
-    "join",
-    "$",
-    "append",
-    "bind",
-    "on",
-    "textEditor",
-    "col",
-    "i",
-    "len",
-    "line",
-    "ref",
-    "sum",
-    "split",
-    "length",
-    "replace",
-    "x",
-    "_ref",
-    "toFixed",
-    "match"
-  ],
-  "sources": [
-    "calculator.coffee"
-  ],
-  "sourcesContent": [
-    "###\n * Federated Wiki : Calculator Plugin\n *\n * Licensed under the MIT license.\n * https://github.com/fedwiki/wiki-plugin-calculator/blob/master/LICENSE.txt\n###\n\nwindow.plugins.calculator =\n  emit: (div, item) ->\n    item.data = (field for field of wiki.getData())\n    text = calculate(item).join \"\\n\"\n    pre = $('<pre style=\"font-size: 16px;\"/>').text text\n    div.append pre\n  bind: (div, item) ->\n    div.on 'dblclick', () -> wiki.textEditor div, item\n\ncalculate = (item) ->\n  sum = 0\n  for line in item.text.split \"\\n\"\n    col = line.split /\\s+/\n    col[0] = col[0].replace /^[A-Z]+$/, (x) ->\n      [item.data[x], sum] = [sum, 0] unless item.data[x]? && x != 'SUM'\n      item.data[x].toFixed 2\n    col[0] = col[0].replace /^\\-?[0-9\\.]+$/, (x) ->\n      sum = sum + switch col[1]\n        when 'CR', 'DB' then x/-1\n        when '*' then x*col[2]\n        when '/' then x/col[2]\n        else x/1\n      (x/1).toFixed 2\n    sum = 0 if line.match /^\\s*$/\n    col.join ' '\n"
-  ],
-  "mappings": ";;AAKG;EAAA;;;;;;EAAA,IAAAA,SAAA;EAEHC,MAAM,CAACC,OAAO,CAACC,UAAf,GACE;IAAAC,IAAA,EAAM,SAAAA,KAACC,GAAD,EAAMC,IAAN;MACR,IAAAC,KAAA,EAAAC,GAAA,EAAAC,IAAA;MAAIH,IAAI,CAACI,IAAL;;QAAaC,OAAA;QAAA,KAAAJ,KAAA,IAAAK,IAAA,CAAAC,OAAA;uBAAAN,KAAA;QAAA;;;MACbE,IAAA,GAAOT,SAAA,CAAUM,IAAV,CAAe,CAACQ,IAAhB,CAAqB,IAArB;MACPN,GAAA,GAAMO,CAAA,CAAE,iCAAF,CAAoC,CAACN,IAArC,CAA0CA,IAA1C;aACNJ,GAAG,CAACW,MAAJ,CAAWR,GAAX;IAJI,CAAN;IAKAS,IAAA,EAAM,SAAAA,KAACZ,GAAD,EAAMC,IAAN;aACJD,GAAG,CAACa,EAAJ,CAAO,UAAP,EAAmB;eAAMN,IAAI,CAACO,UAAL,CAAgBd,GAAhB,EAAqBC,IAArB;MAAN,CAAnB;IADI;EALN;EAQFN,SAAA,GAAY,SAAAA,UAACM,IAAD;IACZ,IAAAc,GAAA,EAAAC,CAAA,EAAAC,GAAA,EAAAC,IAAA,EAAAC,GAAA,EAAAb,OAAA,EAAAc,GAAA;IAAEA,GAAA,GAAM;IACND,GAAA,GAAAlB,IAAA,CAAAG,IAAA,CAAAiB,KAAA;IAAAf,OAAA;IAAA,KAAAU,CAAA,MAAAC,GAAA,GAAAE,GAAA,CAAAG,MAAA,EAAAN,CAAA,GAAAC,GAAA,EAAAD,CAAA;;MACED,GAAA,GAAMG,IAAI,CAACG,KAAL,CAAW,KAAX;MACNN,GAAG,CAAC,CAAD,CAAH,GAASA,GAAG,CAAC,CAAD,CAAG,CAACQ,OAAP,CAAe,UAAf,EAA2B,UAACC,CAAD;QAClC,MAAsCvB,IAAA,CAAAI,IAAA,CAAAmB,CAAA,aAAiBA,CAAA,KAAK,MAA5D;UAAA,IAAAC,IAAA,GAAsB,CAACL,GAAD,EAAM,CAAN;UAArBnB,IAAI,CAACI,IAAI,CAACmB,CAAD,CAAV,GAAAC,IAAA;UAAeL,GAAf,GAAAK,IAAA;;eACAxB,IAAI,CAACI,IAAI,CAACmB,CAAD,CAAG,CAACE,OAAb,CAAqB,CAArB;MAFkC,CAA3B;MAGTX,GAAG,CAAC,CAAD,CAAH,GAASA,GAAG,CAAC,CAAD,CAAG,CAACQ,OAAP,CAAe,eAAf,EAAgC,UAACC,CAAD;QACvCJ,GAAA,GAAMA,GAAA;UAAM,QAAOL,GAAG,CAAC,CAAD,CAAV;YAAA,KACL,IADK;YAAA,KACC,IADD;qBACWS,CAAA,GAAE,CAAC;YADd,KAEL,GAFK;qBAEIA,CAAA,GAAET,GAAG,CAAC,CAAD;YAFT,KAGL,GAHK;qBAGIS,CAAA,GAAET,GAAG,CAAC,CAAD;YAHT;qBAILS,CAAA,GAAE;UAAA;;eACT,CAACA,CAAA,GAAE,CAAH,EAAME,OAAN,CAAc,CAAd;MANuC,CAAhC;MAOT,IAAWR,IAAI,CAACS,KAAL,CAAW,OAAX,CAAX;QAAAP,GAAA,GAAM;;mBACNL,GAAG,CAACN,IAAJ,CAAS,GAAT;IAbF;;EAFU"
+  "sources": ["../src/client/calculator.js"],
+  "sourcesContent": ["/*\n * Federated Wiki : Calculator Plugin\n *\n * Licensed under the MIT license.\n * https://github.com/fedwiki/wiki-plugin-calculator/blob/master/LICENSE.txt\n */\n\nwindow.plugins.calculator = {\n  emit: (div, item) => {\n    item.data = Object.keys(wiki.getData())\n    const text = calculate(item).join('\\n')\n    const pre = $('<pre style=\"font-size: 16px;\"/>').text(text)\n    div.append(pre)\n  },\n  bind: (div, item) => {\n    div.on('dblclick', () => wiki.textEditor(div, item))\n  },\n}\n\nfunction calculate(item) {\n  let sum = 0\n  return item.text.split('\\n').map(function (line) {\n    let col = line.split(/\\s+/)\n\n    col[0] = col[0].replace(/^[A-Z]+$/, function (x) {\n      if (!(item.data[x] != null && x !== 'SUM')) {\n        ;[item.data[x], sum] = [sum, 0]\n      }\n      return item.data[x].toFixed(2)\n    })\n\n    col[0] = col[0].replace(/^-?[0-9.]+$/, function (x) {\n      switch (col[1]) {\n        case 'CR':\n        case 'DB':\n          sum += x / -1\n          break\n        case '*':\n          sum += x * col[2]\n          break\n        case '/':\n          sum += x / col[2]\n          break\n        default:\n          sum += x / 1\n      }\n      return (x / 1).toFixed(2)\n    })\n\n    if (line.match(/^\\s*$/)) {\n      sum = 0\n    }\n\n    return col.join(' ')\n  })\n}\n"],
+  "mappings": ";MAOA,OAAO,QAAQ,WAAa,CAC1B,KAAM,CAACA,EAAKC,IAAS,CACnBA,EAAK,KAAO,OAAO,KAAK,KAAK,QAAQ,CAAC,EACtC,IAAMC,EAAOC,EAAUF,CAAI,EAAE,KAAK;AAAA,CAAI,EAChCG,EAAM,EAAE,iCAAiC,EAAE,KAAKF,CAAI,EAC1DF,EAAI,OAAOI,CAAG,CAChB,EACA,KAAM,CAACJ,EAAKC,IAAS,CACnBD,EAAI,GAAG,WAAY,IAAM,KAAK,WAAWA,EAAKC,CAAI,CAAC,CACrD,CACF,EAEA,SAASE,EAAUF,EAAM,CACvB,IAAII,EAAM,EACV,OAAOJ,EAAK,KAAK,MAAM;AAAA,CAAI,EAAE,IAAI,SAAUK,EAAM,CAC/C,IAAIC,EAAMD,EAAK,MAAM,KAAK,EAE1B,OAAAC,EAAI,CAAC,EAAIA,EAAI,CAAC,EAAE,QAAQ,WAAY,SAAUC,EAAG,CAC/C,OAAMP,EAAK,KAAKO,CAAC,GAAK,MAAQA,IAAM,QACjC,CAACP,EAAK,KAAKO,CAAC,EAAGH,CAAG,EAAI,CAACA,EAAK,CAAC,GAEzBJ,EAAK,KAAKO,CAAC,EAAE,QAAQ,CAAC,CAC/B,CAAC,EAEDD,EAAI,CAAC,EAAIA,EAAI,CAAC,EAAE,QAAQ,cAAe,SAAUC,EAAG,CAClD,OAAQD,EAAI,CAAC,EAAG,CACd,IAAK,KACL,IAAK,KACHF,GAAOG,EAAI,GACX,MACF,IAAK,IACHH,GAAOG,EAAID,EAAI,CAAC,EAChB,MACF,IAAK,IACHF,GAAOG,EAAID,EAAI,CAAC,EAChB,MACF,QACEF,GAAOG,EAAI,CACf,CACA,OAAQA,EAAI,GAAG,QAAQ,CAAC,CAC1B,CAAC,EAEGF,EAAK,MAAM,OAAO,IACpBD,EAAM,GAGDE,EAAI,KAAK,GAAG,CACrB,CAAC,CACH",
+  "names": ["div", "item", "text", "calculate", "pre", "sum", "line", "col", "x"]
 }

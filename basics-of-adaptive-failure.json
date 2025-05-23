@@ -7,6 +7,14 @@
       "text": "Basic patterns in how adaptive systems fail. David Woods. 2011. Three ways adaptive systems fail: (1) decompensation—exhaust capacity to adapt as challenges cascade; (2) work at cross-purposes—locally adaptive behaviour is globally mal-adaptive; and (3) getting stuck in outdated behaviours—over-reliance on past successes. A working organisation need abilities to detect these three adaptive traps as they approach and needs abilities to act to avoid or escape them. Detecting these traps requires contrasting diverse perspectives. [https://www.researchgate.net/publication/284324002_Basic_patterns_in_how_adaptive_systems_fail researchgate]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "paragraph",
       "id": "9cea1787fc093ede",
       "text": "Resilience Engineering claims a system can manage brittleness trade-offs. To do so, it must have the ability to reflect on how well it is adapted, what it is adapted to, and what is changing in its environment. Understanding where it is resilient and brittle and the trends under way, managers can invest resources in targeted ways to increase resilience (Woods, 2006a; Hollnagel, 2009)."
@@ -51,6 +59,24 @@
         "text": "Basic patterns in how adaptive systems fail. David Woods. 2011. Three ways adaptive systems fail: (1) decompensation—exhaust capacity to adapt as challenges cascade; (2) work at cross-purposes—locally adaptive behaviour is globally mal-adaptive; and (3) getting stuck in outdated behaviours—over-reliance on past successes. A working organisation need abilities to detect these three adaptive traps as they approach and needs abilities to act to avoid or escape them. Detecting these traps requires contrasting diverse perspectives. [https://www.researchgate.net/publication/284324002_Basic_patterns_in_how_adaptive_systems_fail researchgate]"
       },
       "date": 1643744389152
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "5f4d0400",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747846057234
     }
   ]
 }

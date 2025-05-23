@@ -7,6 +7,14 @@
       "text": "Peritext—A CRDT for Rich-Text Collaboration by Ink and Switch. Sometimes people prefer a more asynchronous collaboration style, where they can work on a private copy of a document for a while and share their updates later. The algorithms underpinning services like Google Docs are not designed to support this use case. ... Despite limitations, Peritext is an important step towards asynchronous collaboration for rich text. [https://www.inkandswitch.com/peritext/ article]"
     },
     {
+      "type": "reference",
+      "id": "4e8e342b350efb22",
+      "text": "This page is a [[Bookmark]] and a [[Whisp]].",
+      "site": "meta.wiki.do",
+      "slug": "meta",
+      "title": "Meta"
+    },
+    {
       "type": "pagefold",
       "id": "497092981e9b33ca",
       "text": "."
@@ -87,6 +95,37 @@
         "text": "."
       },
       "date": 1643493203845
+    },
+    {
+      "id": "4e8e342b350efb22",
+      "type": "add",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "after": "45316000",
+      "attribution": {
+        "page": "How to Annotate Wiki Pages",
+        "site": "meta.wiki.do"
+      },
+      "date": 1747845991213
+    },
+    {
+      "type": "edit",
+      "id": "4e8e342b350efb22",
+      "item": {
+        "type": "reference",
+        "id": "4e8e342b350efb22",
+        "text": "This page is a [[Bookmark]] and a [[Whisp]].",
+        "site": "meta.wiki.do",
+        "slug": "meta",
+        "title": "Meta"
+      },
+      "date": 1747846001970
     }
   ]
 }
